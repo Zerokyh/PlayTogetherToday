@@ -30,8 +30,8 @@ import {
 } from "@mui/material";
 import Calendar from "../components/atom/Calendar";
 import { useNavigate } from "react-router-dom";
-import LogoIcon from "../LogoIcon";
-import LogoBtn from "../components/atom/LogoBtn";
+import LogoIcon from "../components/atom/LogoIcon";
+import LogoBtn from "../components/atom/LogoIconBtn";
 import useThemeStore from "../store/store";
 
 const drawerWidth = 240;

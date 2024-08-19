@@ -1,10 +1,10 @@
 import * as React from "react";
 import { ListItemButton, ListItemIcon } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import LogoIcon from "../../LogoIcon";
+import LogoIcon from "./LogoIcon";
 import useThemeStore from "../../store/store";
 
-const LogoBtn = () => {
+const LogoIconBtn = () => {
   const navigate = useNavigate();
   const { isOpen } = useThemeStore();
   return (
@@ -33,4 +33,4 @@ const LogoBtn = () => {
   );
 };
 
-export default LogoBtn;
+export default LogoIconBtn;

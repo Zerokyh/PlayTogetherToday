@@ -1,7 +1,7 @@
 import * as React from "react";
 import CssBaseline from "@mui/material/CssBaseline";
 import { Container } from "@mui/material";
-import ContentsBox from "./components/atom/ContentsBox";
+import ContentsBox from "../components/atom/ContentsBox";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Unstable_Grid2";
 

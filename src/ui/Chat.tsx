@@ -1,7 +1,7 @@
 import * as React from "react";
 import CssBaseline from "@mui/material/CssBaseline";
-import ChatBox from "./components/atom/ChatBox";
 import { Box } from "@mui/material";
+import ChatBox from "../components/atom/ChatBox";
 
 const Chat = () => {
   return (

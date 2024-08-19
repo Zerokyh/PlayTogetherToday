@@ -1,7 +1,7 @@
 import CssBaseline from "@mui/material/CssBaseline";
 import { Outlet } from "react-router-dom";
 import Box from "@mui/material/Box";
-import SideBar from "./ui/SideBar";
+import SideBar from "./SideBar";
 
 const PttLayout = () => {
   return (

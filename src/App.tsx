@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import PttLayout from "./PttLayout";
-import Dashboard from "./Dashboard";
-import Chat from "./Chat";
+import PttLayout from "./ui/PttLayout";
+import Dashboard from "./ui/Dashboard";
+import Chat from "./ui/Chat";
 
 function App() {
   return (
