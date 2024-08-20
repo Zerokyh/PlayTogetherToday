@@ -28,8 +28,6 @@ const ClosedBar = () => {
     { text: "홈으로", icon: <HomeIcon />, link: "/" },
   ];
 
-  // setIsLogin(true); // 이 부분은 필요하지 않을 수 있습니다. 필요시 다른 위치에서 설정하세요.
-
   const listItemStyles = {
     minHeight: 48,
     justifyContent: isOpen ? "initial" : "center",

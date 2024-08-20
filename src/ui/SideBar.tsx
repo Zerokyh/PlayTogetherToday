@@ -12,7 +12,6 @@ import OpenedBar from "./sidebar/OpenedBar";
 const SideBar = () => {
   const theme = useTheme();
   const { isOpen, setIsOpen, setIsLogin } = useThemeStore();
-  setIsLogin(true);
   const handleDrawerOpen = () => {
     setIsOpen(true);
   };
@@ -20,6 +19,11 @@ const SideBar = () => {
   const handleDrawerClose = () => {
     setIsOpen(false);
   };
+
+  React.useEffect(() => {
+    setIsLogin(false);
+  }, [setIsLogin]);
+
   return (
     <Drawer variant="permanent" open={isOpen}>
       <DrawerHeader>

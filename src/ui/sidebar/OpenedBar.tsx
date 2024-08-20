@@ -23,14 +23,11 @@ import { AvatarSize } from "../../styles/mui";
 
 const OpenedBar = () => {
   const navigate = useNavigate();
-  const { isLogin, setIsLogin, isOpen } = useThemeStore();
+  const { isLogin, isOpen } = useThemeStore();
   const [game, setGame] = React.useState("");
   const handleChange = (event: SelectChangeEvent) => {
     setGame(event.target.value as string);
   };
-
-  // 로그아웃으로 상태 설정
-  setIsLogin(false);
 
   return (
     <>
