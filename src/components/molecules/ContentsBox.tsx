@@ -6,14 +6,8 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { useNavigate } from "react-router-dom";
-
-type ContentsBoxProps = {
-  index: number;
-  img: string;
-  subject: string;
-  introduce: string;
-  introduce_add: string;
-};
+import { ContentsBoxProps } from "../../utils/type";
+import { ContentsBoxImgSize } from "../../styles/mui";
 
 const ContentsBox = ({
   index,
@@ -29,12 +23,7 @@ const ContentsBox = ({
         component="img"
         alt={subject}
         src={img}
-        sx={{
-          objectFit: "cover",
-          objectPosition: "center top",
-          width: "100%",
-          height: "200px",
-        }}
+        sx={{ ...ContentsBoxImgSize }}
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">

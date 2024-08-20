@@ -4,41 +4,50 @@ import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import ButtonBase from "@mui/material/ButtonBase";
+import LogoIcon from "../atom/ImgAvatar";
+import { ChatListBoxAvatarSize } from "../../styles/mui";
 
 const Img = styled("img")({
   margin: "auto",
   display: "block",
   maxWidth: "100%",
   maxHeight: "100%",
+  width: 100,
+  height: 100,
+  borderRadius: "50%",
 });
 
-const Chatlist = () => {
+const ChatListBox = () => {
   return (
     <Paper
       sx={{
         p: 2,
         margin: "auto",
         maxWidth: 770,
+        width: "100%",
+        maxHeight: 100,
         borderRadius: "12px",
-        flexGrow: 1,
       }}
     >
       <Grid container spacing={2} sx={{ maxHeight: 80 }}>
         <Grid item>
           <ButtonBase sx={{ width: 70, height: 70 }}>
-            <Img
-              alt="complex"
+            <LogoIcon
+              alt="cat"
               src="/cat.jpg"
-              width={100}
-              height={100}
-              sx={{ borderRadius: "50%" }}
+              sx={{ ...ChatListBoxAvatarSize }}
             />
           </ButtonBase>
         </Grid>
         <Grid item xs={12} sm container>
-          <Grid item xs container direction="column" spacing={2}>
+          <Grid item xs container direction="column" spacing={1}>
             <Grid item xs>
-              <Typography gutterBottom variant="subtitle1" component="div">
+              <Typography
+                gutterBottom
+                variant="subtitle1"
+                component="div"
+                fontWeight={800}
+              >
                 닉네임
               </Typography>
               <Typography variant="body2" color="text.secondary">
@@ -62,4 +71,4 @@ const Chatlist = () => {
   );
 };
 
-export default Chatlist;
+export default ChatListBox;

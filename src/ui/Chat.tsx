@@ -1,7 +1,7 @@
 import * as React from "react";
 import CssBaseline from "@mui/material/CssBaseline";
 import { Box } from "@mui/material";
-import ChatBox from "../components/atom/ChatBox";
+import ChatBox from "../components/organism/ChatBox";
 
 const Chat = () => {
   return (
@@ -18,11 +18,11 @@ const Chat = () => {
         }}
       >
         <Box sx={{ flex: "1 0 0", maxWidth: "800px", height: "900px" }}>
-          <ChatBox type="chatlist" />
+          <ChatBox />
         </Box>
-        <Box sx={{ flex: "1 0 0", maxWidth: "800px", height: "900px" }}>
-          <ChatBox type="chat" />
-        </Box>
+        {/* <Box sx={{ flex: "1 0 0", maxWidth: "800px", height: "900px" }}>
+          <ChatBox />
+        </Box> */}
       </Box>
     </React.Fragment>
   );
