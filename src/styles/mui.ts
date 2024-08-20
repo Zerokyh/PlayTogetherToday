@@ -34,3 +34,24 @@ export const WidthHalfBoxSize = {
   justifyContent: "space-between",
   padding: sizes.padding.large,
 };
+
+export const SkeletonMini = {
+  mx: "auto",
+  width: 224,
+  height: 140,
+};
+
+export const SkeletonNormal = {
+  mx: "auto",
+  width: 224,
+  height: 200,
+};
+
+export const LinkedButtonNormal = {
+  width: 100,
+  height: 40,
+  color: colors.text.drawer,
+  fontWeight: 600,
+  border: `1px solid ${colors.border.drawer}`,
+  fontSize: sizes.fontSize.small,
+};

@@ -9,16 +9,19 @@ export const sizes = {
   },
 
   width: {
+    sidebar: 224,
     half: "800px",
   },
 
   height: {
+    sidebarMini: 140,
+    sidebarnormal: 200,
     full: "900px",
   },
 
   fontSize: {
     small: "12px",
-    medium: "16px",
+    medium: "14px",
     normal: "18px",
     large: "20px",
     xlarge: "24px",
