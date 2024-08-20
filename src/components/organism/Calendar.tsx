@@ -27,7 +27,7 @@ const StyledDateCalendar = styled(DateCalendar)(({ theme }) => ({
 const Calendar = () => {
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
-      <StyledDateCalendar sx={{ width: 208, height: 270 }} />
+      <StyledDateCalendar sx={{ width: 208, height: 260 }} />
     </LocalizationProvider>
   );
 };

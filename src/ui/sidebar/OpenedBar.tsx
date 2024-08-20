@@ -66,6 +66,7 @@ const OpenedBar = () => {
               display: "flex",
               justifyContent: "space-evenly",
               alignItems: "center",
+              py: sizes.padding.large,
             }}
           >
             <Box

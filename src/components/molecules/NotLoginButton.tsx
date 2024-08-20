@@ -9,7 +9,7 @@ const NotLoginButton = () => {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        py: 4,
+        py: 2,
         gap: sizes.gap.medium,
       }}
     >
