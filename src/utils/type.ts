@@ -1,4 +1,5 @@
 // type.ts
+import { ReactNode } from "react";
 
 export type ImgAvatarProps = {
   alt: string;
@@ -23,4 +24,13 @@ export type LinkedButtonProps = {
 export type TextButtonProps = {
   text?: string;
   sx?: object;
+};
+
+export type TextCardProps = {
+  text: string;
+  sx?: object;
+};
+
+export type WidthHalfBoxProps = {
+  children?: ReactNode;
 };

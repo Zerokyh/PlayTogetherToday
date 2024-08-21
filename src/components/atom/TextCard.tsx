@@ -2,11 +2,7 @@ import { Card, CardContent, Typography } from "@mui/material";
 import { SkeletonMini } from "../../styles/mui";
 import { colors } from "../../styles/colors";
 import { sizes } from "../../styles/sizes";
-
-type TextCardProps = {
-  text: string;
-  sx?: object;
-};
+import { TextCardProps } from "../../utils/type";
 
 const TextCard = ({
   text,
