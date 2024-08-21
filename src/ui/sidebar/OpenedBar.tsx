@@ -12,7 +12,7 @@ import { AvatarSize, SkeletonMini, SkeletonNormal } from "../../styles/mui";
 import { sizes } from "../../styles/sizes";
 import NotLoginButton from "../../components/molecules/NotLoginButton";
 import TextButton from "../../components/atom/TextButton";
-import SelectDropDown from "../../components/atom/SelectDropDown";
+import SelectDropDown from "../../components/molecules/SelectDropDown";
 import TextCard from "../../components/atom/TextCard";
 
 const OpenedBar = () => {
