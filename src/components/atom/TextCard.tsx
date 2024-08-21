@@ -8,7 +8,7 @@ const TextCard = ({
   text,
   sx = {
     ...SkeletonMini,
-    bgcolor: colors.background.main,
+    bgcolor: colors.background.primary,
     maxWidth: sizes.width.sidebar,
   },
 }: TextCardProps) => {

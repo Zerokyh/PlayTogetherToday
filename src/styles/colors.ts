@@ -3,7 +3,10 @@
 export const colors = {
   // 배경 색상 Background Color
   background: {
-    main: "#F3EAFB", // 기본 배경 색상
+    main: "#FFFFFF", // default
+    primary: "#F3EAFB", // 기본 배경 색상
+    secondary: "#FFFFFF", // 보조 배경 색상
+    tertiary: "#E5D3FD", // 3번째 배경 색상
     drawer: "#FFFFFF", // 드로어 배경 색상
   },
 

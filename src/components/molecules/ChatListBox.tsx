@@ -1,21 +1,10 @@
 import * as React from "react";
-import { styled } from "@mui/material/styles";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import ButtonBase from "@mui/material/ButtonBase";
 import LogoIcon from "../atom/ImgAvatar";
-import { ChatListBoxAvatarSize } from "../../styles/mui";
-
-const Img = styled("img")({
-  margin: "auto",
-  display: "block",
-  maxWidth: "100%",
-  maxHeight: "100%",
-  width: 100,
-  height: 100,
-  borderRadius: "50%",
-});
+import { ChatListBoxAvatar } from "../../styles/mui";
 
 const ChatListBox = () => {
   return (
@@ -32,11 +21,7 @@ const ChatListBox = () => {
       <Grid container spacing={2} sx={{ maxHeight: 80 }}>
         <Grid item>
           <ButtonBase sx={{ width: 70, height: 70 }}>
-            <LogoIcon
-              alt="cat"
-              src="/cat.jpg"
-              sx={{ ...ChatListBoxAvatarSize }}
-            />
+            <LogoIcon alt="cat" src="/cat.jpg" sx={{ ...ChatListBoxAvatar }} />
           </ButtonBase>
         </Grid>
         <Grid item xs={12} sm container>

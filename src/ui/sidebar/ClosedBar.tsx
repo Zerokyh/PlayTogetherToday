@@ -41,7 +41,7 @@ const ClosedBar = () => {
         menuItems.map((item) => (
           <ListItem key={item.text} disablePadding sx={{ display: "block" }}>
             <ListItemButton
-              onClick={() => navigate(item.link)}
+              onClick={() => navigate(item.href)}
               sx={listItemStyles}
             >
               <ListItemIcon sx={listItemIconStyles}>

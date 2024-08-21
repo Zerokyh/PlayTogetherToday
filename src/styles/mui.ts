@@ -9,25 +9,25 @@ export const AvatarSize = {
   mx: "auto",
 };
 
-export const ChatListBoxAvatarSize = {
+export const ChatListBoxAvatar = {
   width: sizes.avatar.chat,
   height: sizes.avatar.chat,
   mx: "auto",
 };
 
-export const ContentsBoxImgSize = {
+export const ContentsBoxImg = {
   objectFit: "cover",
   objectPosition: "center top",
   width: "100%",
   height: "200px",
 };
 
-export const WidthHalfBoxSize = {
+export const WidthHalfBoxMui = {
   maxWidth: sizes.width.half,
   maxHeight: sizes.height.full,
   width: "100%",
   height: "100%",
-  bgcolor: colors.background.main,
+  bgcolor: colors.background.primary,
   borderRadius: sizes.borderRadius.normal,
   display: "flex",
   flexDirection: "row",
