@@ -1,3 +1,5 @@
+// func.ts
+
 import MuiDrawer from "@mui/material/Drawer";
 import { styled, Theme, CSSObject } from "@mui/material/styles";
 import { sizes } from "../styles/sizes";

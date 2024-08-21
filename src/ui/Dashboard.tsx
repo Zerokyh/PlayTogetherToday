@@ -4,7 +4,7 @@ import { Container } from "@mui/material";
 import ContentsBox from "../components/molecules/ContentsBox";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Unstable_Grid2";
-import { DashBoardData } from "../constants/DashBoardData";
+import { dashBoardData } from "../constants/DashBoardData";
 
 const Dashboard = () => {
   return (
@@ -25,7 +25,7 @@ const Dashboard = () => {
             spacing={{ xs: 4, md: 6 }}
             columns={{ xs: 12, sm: 12, md: 12 }}
           >
-            {DashBoardData.map((item, index) => (
+            {dashBoardData.map((item, index) => (
               <Grid xs={6} sm={6} md={6} key={index}>
                 <ContentsBox
                   index={index}

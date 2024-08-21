@@ -1,4 +1,4 @@
-export const DashBoardData = [
+export const dashBoardData = [
   {
     img: "/private.jpg",
     subject: "마이룸",
