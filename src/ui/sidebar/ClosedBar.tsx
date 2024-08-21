@@ -12,6 +12,7 @@ import {
 import LogoIconBtn from "../../components/molecules/LogoIconBtn";
 import { AvatarSize } from "../../styles/mui";
 import { menuItems } from "../../constants/menuData";
+import IconButton from "../../components/molecules/IconButton";
 
 const ClosedBar = () => {
   const navigate = useNavigate();
@@ -66,28 +67,9 @@ const ClosedBar = () => {
       >
         <ListItem disablePadding sx={{ display: "block" }}>
           {isLogin ? (
-            <>
-              <ListItemButton sx={listItemStyles}>
-                <ListItemIcon sx={listItemIconStyles}>
-                  <LogoutIcon />
-                  로그아웃
-                </ListItemIcon>
-              </ListItemButton>
-            </>
+            <IconButton text="로그아웃" icon={<LogoutIcon />} />
           ) : (
-            <>
-              <ListItemButton
-                sx={listItemStyles}
-                onClick={() => {
-                  navigate("/Login");
-                }}
-              >
-                <ListItemIcon sx={listItemIconStyles}>
-                  <PowerSettingsNewIcon />
-                  로그인{" "}
-                </ListItemIcon>
-              </ListItemButton>
-            </>
+            <IconButton text="로그인" icon={<PowerSettingsNewIcon />} />
           )}
         </ListItem>
       </List>

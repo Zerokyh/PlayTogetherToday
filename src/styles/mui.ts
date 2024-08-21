@@ -1,5 +1,6 @@
 // mui.ts
 
+import useThemeStore from "../store/store";
 import { colors } from "./colors";
 import { sizes } from "./sizes";
 
