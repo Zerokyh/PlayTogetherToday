@@ -7,9 +7,9 @@ const PttLayout = () => {
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
-      <SideBar />
+      <SideBar /> {/* 사이드바 등록 */}
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-        <Outlet />
+        <Outlet /> {/* 페이지가 바뀔 공간 등록 */}
       </Box>
     </Box>
   );

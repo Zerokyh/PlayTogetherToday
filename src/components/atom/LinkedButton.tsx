@@ -1,16 +1,24 @@
 import { Button } from "@mui/material";
 import { LinkedButtonNormal } from "../../styles/mui";
-
-type LinkedButtonProps = {
-  text?: string;
-  sx?: object;
-};
+import { LinkedButtonProps } from "../../utils/type";
+import { useNavigate } from "react-router-dom";
 
 const LinkedButton = ({
+  href = "#",
   text,
   sx = { ...LinkedButtonNormal },
 }: LinkedButtonProps) => {
-  return <Button sx={sx}>{text}</Button>;
+  const navigate = useNavigate();
+  return (
+    <Button
+      sx={sx}
+      onClick={() => {
+        navigate(href);
+      }}
+    >
+      {text}
+    </Button>
+  );
 };
 
 export default LinkedButton;

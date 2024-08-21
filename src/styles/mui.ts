@@ -55,3 +55,13 @@ export const LinkedButtonNormal = {
   border: `1px solid ${colors.border.drawer}`,
   fontSize: sizes.fontSize.small,
 };
+
+export const TextButtonNormal = {
+  width: "90px",
+  minHeight: 48,
+  justifyContent: "center",
+  px: 2.5,
+  position: "absolute",
+  top: -54,
+  fontSize: "12px",
+};

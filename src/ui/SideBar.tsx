@@ -21,7 +21,7 @@ const SideBar = () => {
   };
 
   React.useEffect(() => {
-    setIsLogin(false);
+    setIsLogin(true);
   }, [setIsLogin]);
 
   return (

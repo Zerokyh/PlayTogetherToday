@@ -13,3 +13,14 @@ export type ContentsBoxProps = {
   introduce: string;
   introduce_add: string;
 };
+
+export type LinkedButtonProps = {
+  href?: string;
+  text?: string;
+  sx?: object;
+};
+
+export type TextButtonProps = {
+  text?: string;
+  sx?: object;
+};

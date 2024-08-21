@@ -27,23 +27,6 @@ const ChatBox = ({ isSelect }: ChatBoxProps) => {
       ? componentMap.Chatting
       : null;
   return (
-    // <Box
-    //   sx={{
-    //     ...WidthHalfBoxSize,
-    //   }}
-    // >
-    //   <Box
-    //     sx={{
-    //       width: "100%",
-    //       borderRadius: "15px",
-    //       display: "flex",
-    //       flexDirection: "column",
-    //     }}
-    //   >
-    //     <ChatListBox />
-    //   </Box>
-    // </Box>
-
     <WidthHalfBox>
       <Box
         sx={{
