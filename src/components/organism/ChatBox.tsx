@@ -12,8 +12,6 @@ const componentMap = {
   ChatListBox: (
     <>
       <ChatListBox />
-      <ChatListBox />
-      <ChatListBox />
     </>
   ),
   Chatting: <Chatting />,
@@ -37,6 +35,7 @@ const ChatBox = ({ isSelect }: ChatBoxProps) => {
         }}
       >
         {Component}
+        <ChatListBox />
       </Box>
     </WidthHalfBox>
   );
