@@ -65,23 +65,30 @@ const ClosedBar = () => {
         }}
       >
         <ListItem disablePadding sx={{ display: "block" }}>
-          <ListItemButton sx={listItemStyles}>
-            <ListItemIcon sx={listItemIconStyles}>
-              {isLogin ? (
-                <>
-                  {" "}
+          {isLogin ? (
+            <>
+              <ListItemButton sx={listItemStyles}>
+                <ListItemIcon sx={listItemIconStyles}>
                   <LogoutIcon />
-                  로그아웃{" "}
-                </>
-              ) : (
-                <>
-                  {" "}
+                  로그아웃
+                </ListItemIcon>
+              </ListItemButton>
+            </>
+          ) : (
+            <>
+              <ListItemButton
+                sx={listItemStyles}
+                onClick={() => {
+                  navigate("/Login");
+                }}
+              >
+                <ListItemIcon sx={listItemIconStyles}>
                   <PowerSettingsNewIcon />
                   로그인{" "}
-                </>
-              )}
-            </ListItemIcon>
-          </ListItemButton>
+                </ListItemIcon>
+              </ListItemButton>
+            </>
+          )}
         </ListItem>
       </List>
     </List>

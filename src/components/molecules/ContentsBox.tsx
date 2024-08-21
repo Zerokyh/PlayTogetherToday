@@ -8,6 +8,7 @@ import Typography from "@mui/material/Typography";
 import { useNavigate } from "react-router-dom";
 import { ContentsBoxProps } from "../../utils/type";
 import { ContentsBoxImg } from "../../styles/mui";
+import useThemeStore from "../../store/store";
 
 const ContentsBox = ({
   index,
@@ -16,6 +17,7 @@ const ContentsBox = ({
   introduce,
   introduce_add,
 }: ContentsBoxProps) => {
+  const { isLogin } = useThemeStore();
   const navigate = useNavigate();
   return (
     <Card sx={{ maxWidth: 400 }}>
@@ -40,7 +42,13 @@ const ContentsBox = ({
         <Button
           size="small"
           onClick={() => {
-            index == 1 ? navigate("/Chat") : navigate("/");
+            {
+              isLogin
+                ? index == 1
+                  ? navigate("/Chat")
+                  : navigate("#")
+                : navigate("/Login");
+            }
           }}
         >
           Detail
