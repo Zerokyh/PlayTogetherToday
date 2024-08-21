@@ -11,7 +11,7 @@ import {
 } from "@mui/material";
 import LogoIconBtn from "../../components/molecules/LogoIconBtn";
 import { AvatarSize } from "../../styles/mui";
-import { menuItems } from "../../constants/MenuData";
+import { menuItems } from "../../constants/menuData";
 
 const ClosedBar = () => {
   const navigate = useNavigate();

@@ -4,7 +4,7 @@ import { Container } from "@mui/material";
 import ContentsBox from "../components/molecules/ContentsBox";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Unstable_Grid2";
-import { dashBoardData } from "../constants/DashBoardData";
+import { dashBoardData } from "../constants/dashBoardData";
 
 const Dashboard = () => {
   return (
