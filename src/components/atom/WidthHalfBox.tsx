@@ -1,13 +1,20 @@
 import { Box } from "@mui/material";
 import { WidthHalfBoxSize } from "../../styles/mui";
+import { ReactNode } from "react";
 
-const WidthHalfBox = () => {
+type WidthHalfBoxProps = {
+  children?: ReactNode;
+};
+
+const WidthHalfBox = ({ children }: WidthHalfBoxProps) => {
   return (
     <Box
       sx={{
         ...WidthHalfBoxSize,
       }}
-    ></Box>
+    >
+      {children}
+    </Box>
   );
 };
 
