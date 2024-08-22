@@ -12,7 +12,7 @@ import {
 import LogoIconBtn from "../../components/molecules/LogoIconBtn";
 import { AvatarSize } from "../../styles/mui";
 import IconButton from "../../components/molecules/IconButton";
-import { menuItems } from "../../constants/MenuData";
+import { menuItems } from "../../constants/menuData";
 
 const ClosedBar = () => {
   const navigate = useNavigate();
