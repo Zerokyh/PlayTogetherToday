@@ -37,7 +37,17 @@ const ClosedBar = () => {
 
   return (
     <List sx={{ ...(isOpen && { display: "none" }) }}>
-      <LogoIconBtn alt="Logo" src="/onlylogo.png" sx={{ ...AvatarSize }} />
+      <ListItem disablePadding sx={{ display: "block" }}>
+        <ListItemButton onClick={() => navigate("/")} sx={listItemStyles}>
+          <ListItemIcon sx={listItemIconStyles}>
+            <LogoIconBtn
+              alt="Logo"
+              src="/onlylogo.png"
+              sx={{ ...AvatarSize }}
+            />
+          </ListItemIcon>
+        </ListItemButton>
+      </ListItem>
       {isLogin &&
         menuItems.map((item) => (
           <ListItem key={item.text} disablePadding sx={{ display: "block" }}>

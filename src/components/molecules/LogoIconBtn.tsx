@@ -15,7 +15,7 @@ const LogoIconBtn = ({ alt, src, sx }: ImgAvatarProps) => {
       }}
       sx={{
         display: isOpen ? "none" : "block",
-        minHeight: 48,
+
         justifyContent: isOpen ? "initial" : "center",
       }}
     >

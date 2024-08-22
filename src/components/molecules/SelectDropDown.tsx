@@ -26,7 +26,9 @@ const SelectDropDown = () => {
         onChange={handleChange}
       >
         {groupData.map((item) => (
-          <MenuItem value={item.value}>{item.group}</MenuItem>
+          <MenuItem key={item.value} value={item.value}>
+            {item.group}
+          </MenuItem>
         ))}
       </Select>
     </FormControl>
