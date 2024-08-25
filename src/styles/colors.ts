@@ -1,13 +1,13 @@
 // colors.ts
 import { createTheme } from "@mui/material";
-import { lime, purple } from "@mui/material/colors";
+import { purple, blue } from "@mui/material/colors";
 
 export const colors = {
   // 배경 색상 Background Color
   background: {
-    main: "#FFFFFF", // default
+    main: "#FDF7FE", // default
     primary: "#F3EAFB", // 기본 배경 색상
-    secondary: "#FFFFFF", // 보조 배경 색상
+    secondary: "#EADDFF", // 보조 배경 색상
     tertiary: "#E5D3FD", // 3번째 배경 색상
     drawer: "#FFFFFF", // 드로어 배경 색상
   },
@@ -28,8 +28,14 @@ export const colors = {
 export const theme = createTheme({
   palette: {
     primary: {
-      main: "#F3EAFB",
+      main: "#9c27b0",
+      light: "#F3EAFB",
+      dark: "#7b1fa2",
     },
-    secondary: purple,
+    secondary: {
+      main: "#1976d2",
+      light: "#42a5f5",
+      dark: "#1565c0",
+    },
   },
 });

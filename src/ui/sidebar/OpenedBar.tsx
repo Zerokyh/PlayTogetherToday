@@ -1,6 +1,6 @@
 import * as React from "react";
 import useThemeStore from "../../store/store";
-import { Box, Button, List, Typography } from "@mui/material";
+import { Box, List } from "@mui/material";
 import ListItemText from "@mui/material/ListItemText";
 import Divider from "@mui/material/Divider";
 import Skeleton from "@mui/material/Skeleton";
@@ -14,7 +14,7 @@ import NotLoginButton from "../../components/molecules/NotLoginButton";
 import TextButton from "../../components/atom/TextButton";
 import SelectDropDown from "../../components/molecules/SelectDropDown";
 import TextCard from "../../components/atom/TextCard";
-import { Padding } from "@mui/icons-material";
+import { theme } from "../../styles/colors";
 
 const OpenedBar = () => {
   const { isLogin, isOpen } = useThemeStore();
@@ -64,31 +64,36 @@ const OpenedBar = () => {
                     <ListItemText
                       primary={`[]회원님`}
                       primaryTypographyProps={{
-                        fontSize: sizes.fontSize.medium,
+                        fontSize: sizes.fontSize.small,
                       }}
                     />
                     <LinkedButton
                       type="contained"
                       text="설정"
-                      color="primary"
                       sx={{
                         height: "20px",
                         width: "40px",
                         minWidth: "auto",
+                        backgroundColor: theme.palette.primary.light,
+                        color: "black",
+                        "&:hover": {
+                          color: "white",
+                        },
                       }}
+                      href="/MySetting"
                     />
                   </Box>
 
                   <ListItemText
                     primary={`그룹 []의 호스트입니다.`}
-                    primaryTypographyProps={{ fontSize: sizes.fontSize.medium }}
+                    primaryTypographyProps={{ fontSize: sizes.fontSize.small }}
                   />
                 </>
               ) : (
                 <>
                   <ListItemText
                     primary={`Play Together Today`}
-                    primaryTypographyProps={{ fontSize: sizes.fontSize.medium }}
+                    primaryTypographyProps={{ fontSize: sizes.fontSize.small }}
                   />
                 </>
               )}

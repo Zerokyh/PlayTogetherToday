@@ -1,5 +1,5 @@
 // type.ts
-import { ReactNode } from "react";
+import { ReactElement, ReactNode } from "react";
 
 export type ImgAvatarProps = {
   alt: string;
@@ -48,5 +48,26 @@ export type WidthHalfBoxProps = {
 export type BasicIconButtonProps = {
   text?: string;
   icon?: ReactNode;
+  onClick?: () => void;
+};
+
+export type IconTextButtonProps = {
+  icon: React.ReactElement;
+  text?: string;
+  iconsize?: string;
+  fontsize?: string;
+};
+
+export type IconTextTextBoxProp = {
+  children?: ReactNode;
+  icontextboxprops: IconTextButtonProps;
+  textbutton?: string;
+  href?: string;
+  hover?: { ":hover": { cursor: "pointer" } } | {};
+};
+
+export type IconTextMuiBoxProp = {
+  icontextboxprops: IconTextButtonProps;
+  component?: ReactElement;
   onClick?: () => void;
 };

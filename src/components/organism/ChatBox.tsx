@@ -3,6 +3,7 @@ import ChatListBox from "../molecules/ChatListBox";
 import WidthHalfBox from "../atom/WidthHalfBox";
 import { ReactNode } from "react";
 import Chatting from "../molecules/Chatting";
+import { sizes } from "../../styles/sizes";
 
 type ChatBoxProps = {
   isSelect?: ReactNode;
@@ -29,7 +30,7 @@ const ChatBox = ({ isSelect }: ChatBoxProps) => {
       <Box
         sx={{
           width: "100%",
-          borderRadius: "15px",
+          borderRadius: sizes.borderRadius.normal,
           display: "flex",
           flexDirection: "column",
         }}

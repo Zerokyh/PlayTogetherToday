@@ -4,6 +4,7 @@ import { Box } from "@mui/material";
 import ChatBox from "../components/organism/ChatBox";
 import Chatting from "../components/molecules/Chatting";
 import ChatListBox from "../components/molecules/ChatListBox";
+import { sizes } from "../styles/sizes";
 
 const Chat = () => {
   return (
@@ -11,7 +12,8 @@ const Chat = () => {
       <CssBaseline />
       <Box
         sx={{
-          height: "90vh",
+          width: `calc(100vw - ${sizes.drawerWidth})`,
+          height: "100vh",
           display: "flex",
           flexWrap: "wrap",
           justifyContent: "center",

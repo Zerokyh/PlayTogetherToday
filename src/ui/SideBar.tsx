@@ -5,11 +5,10 @@ import IconButton from "@mui/material/IconButton";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import useThemeStore from "../store/store";
-import { Drawer, DrawerHeader } from "../utils/func";
 import ClosedBar from "./sidebar/ClosedBar";
 import OpenedBar from "./sidebar/OpenedBar";
 import { Box } from "@mui/material";
-import BasicIconButton from "../components/molecules/BasicIconButton";
+import { Drawer, DrawerHeader } from "../styles/mui";
 
 const SideBar = () => {
   const theme = useTheme();

@@ -20,11 +20,13 @@ export const sizes = {
   },
 
   fontSize: {
-    small: "12px",
-    medium: "14px",
+    xsmall: "12px",
+    small: "14px",
+    medium: "16px",
     normal: "18px",
     large: "20px",
     xlarge: "24px",
+    xxlarge: "30px",
   },
 
   padding: {
@@ -48,8 +50,8 @@ export const sizes = {
   },
 
   borderRadius: {
-    small: "10px",
-    medium: "13px",
+    small: "8px",
+    medium: "10px",
     normal: "15px",
   },
 };
