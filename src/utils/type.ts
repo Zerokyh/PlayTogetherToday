@@ -44,3 +44,9 @@ export type TextCardProps = {
 export type WidthHalfBoxProps = {
   children?: ReactNode;
 };
+
+export type BasicIconButtonProps = {
+  text?: string;
+  icon?: ReactNode;
+  onClick?: () => void;
+};

@@ -8,6 +8,8 @@ import useThemeStore from "../store/store";
 import { Drawer, DrawerHeader } from "../utils/func";
 import ClosedBar from "./sidebar/ClosedBar";
 import OpenedBar from "./sidebar/OpenedBar";
+import { Box } from "@mui/material";
+import BasicIconButton from "../components/molecules/BasicIconButton";
 
 const SideBar = () => {
   const theme = useTheme();
@@ -27,15 +29,27 @@ const SideBar = () => {
   return (
     <Drawer variant="permanent" open={isOpen}>
       <DrawerHeader>
-        <IconButton
-          color="inherit"
-          aria-label="open drawer"
-          onClick={handleDrawerOpen}
-          edge="start"
-          sx={{ mx: "auto", ...(isOpen && { display: "none" }) }}
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            width: "100%",
+            ...(isOpen && { display: "none" }),
+          }}
         >
-          <MenuIcon />
-        </IconButton>
+          <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            sx={{
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+            onClick={handleDrawerOpen}
+          >
+            <MenuIcon />
+          </IconButton>
+        </Box>
         <IconButton
           onClick={handleDrawerClose}
           sx={{ ...(isOpen == false && { display: "none" }) }}

@@ -11,79 +11,58 @@ import {
 } from "@mui/material";
 import LogoIconBtn from "../../components/molecules/LogoIconBtn";
 import { AvatarSize } from "../../styles/mui";
-import IconButton from "../../components/molecules/IconButton";
+import IconButton from "../../components/molecules/BasicIconButton";
 import { menuItems } from "../../constants/menuData";
+import { geListItemStyles, getListItemIconStyles } from "../../utils/func";
 
 const ClosedBar = () => {
   const navigate = useNavigate();
   const { isLogin, isOpen } = useThemeStore();
-
-  const listItemStyles = {
-    minHeight: 48,
-    justifyContent: isOpen ? "initial" : "center",
-  };
-
-  const listItemIconStyles = {
-    height: "50px",
-    minWidth: 0,
-    mr: isOpen ? 3 : "auto",
-    justifyContent: "center",
-    alignItems: "center",
-    display: "flex",
-    flexDirection: "column",
-    fontSize: "14px",
-    fontWeight: 600,
-  };
+  const listItemStyles = geListItemStyles(isOpen);
+  const listItemIconStyles = getListItemIconStyles(isOpen);
 
   return (
-    <List sx={{ ...(isOpen && { display: "none" }) }}>
-      <ListItem disablePadding sx={{ display: "block" }}>
-        <ListItemButton onClick={() => navigate("/")} sx={listItemStyles}>
-          <ListItemIcon sx={listItemIconStyles}>
-            <LogoIconBtn
-              alt="Logo"
-              src="/onlylogo.png"
-              sx={{ ...AvatarSize }}
-            />
-          </ListItemIcon>
-        </ListItemButton>
-      </ListItem>
-      {isLogin &&
-        menuItems.map((item) => (
-          <ListItem key={item.text} disablePadding sx={{ display: "block" }}>
-            <ListItemButton
-              onClick={() => navigate(item.href)}
-              sx={listItemStyles}
-            >
-              <ListItemIcon sx={listItemIconStyles}>
-                {<item.icon />}
-                {item.text}
-              </ListItemIcon>
-            </ListItemButton>
-          </ListItem>
-        ))}
-
-      <Box sx={{ ...(isOpen && { display: "none" }), flexGrow: 1 }} />
-      <List
-        sx={{
-          ...(isOpen && { display: "none" }),
-          ...(isLogin && {
-            height: "100%",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "flex-end",
-          }),
-        }}
-      >
+    <Box sx={{ display: "flex", flexDirection: "column", height: "100%" }}>
+      <List sx={{ ...(isOpen && { display: "none" }), flexGrow: 1 }}>
         <ListItem disablePadding sx={{ display: "block" }}>
-          {isLogin ? (
-            <IconButton text="로그아웃" icon={<LogoutIcon />} />
-          ) : (
-            <IconButton text="로그인" icon={<PowerSettingsNewIcon />} />
-          )}
+          <ListItemButton onClick={() => navigate("/")} sx={listItemStyles}>
+            <ListItemIcon sx={listItemIconStyles}>
+              <LogoIconBtn
+                alt="Logo"
+                src="/onlylogo.png"
+                sx={{ ...AvatarSize }}
+              />
+            </ListItemIcon>
+          </ListItemButton>
         </ListItem>
+        {isLogin &&
+          menuItems.map((item) => (
+            <ListItem key={item.text} disablePadding sx={{ display: "block" }}>
+              <ListItemButton
+                onClick={() => navigate(item.href)}
+                sx={listItemStyles}
+              >
+                <ListItemIcon sx={listItemIconStyles}>
+                  {<item.icon />}
+                  {item.text}
+                </ListItemIcon>
+              </ListItemButton>
+            </ListItem>
+          ))}
       </List>
-    </List>
+
+      <Box sx={{ ...(isOpen && { display: "none" }) }}>
+        <List>
+          <ListItem disablePadding sx={{ display: "block" }}>
+            {isLogin ? (
+              <IconButton text="로그아웃" icon={<LogoutIcon />} />
+            ) : (
+              <IconButton text="로그인" icon={<PowerSettingsNewIcon />} />
+            )}
+          </ListItem>
+        </List>
+      </Box>
+    </Box>
   );
 };
 
