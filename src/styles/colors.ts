@@ -1,4 +1,6 @@
 // colors.ts
+import { createTheme } from "@mui/material";
+import { lime, purple } from "@mui/material/colors";
 
 export const colors = {
   // 배경 색상 Background Color
@@ -22,3 +24,12 @@ export const colors = {
     drawer: "#C0C0C0", // 드로어 버튼 보더 색상
   },
 };
+
+export const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#F3EAFB",
+    },
+    secondary: purple,
+  },
+});

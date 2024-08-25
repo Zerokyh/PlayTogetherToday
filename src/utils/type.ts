@@ -16,6 +16,16 @@ export type ContentsBoxProps = {
 };
 
 export type LinkedButtonProps = {
+  type?: "text" | "contained" | "outlined";
+  color?:
+    | "inherit"
+    | "primary"
+    | "secondary"
+    | "success"
+    | "error"
+    | "info"
+    | "warning"
+    | undefined;
   href?: string;
   text?: string;
   sx?: object;
