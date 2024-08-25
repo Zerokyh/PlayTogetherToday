@@ -1,9 +1,10 @@
 // mui.ts
 import MuiDrawer from "@mui/material/Drawer";
 import { Theme, CSSObject, styled } from "@mui/material/styles";
-import { colors } from "./colors";
+import { colors, theme } from "./colors";
 import { sizes } from "./sizes";
 import { Box } from "@mui/material";
+import { MyInfoInnerBoxProps } from "../utils/type";
 
 export const openedMixin = (theme: Theme): CSSObject => ({
   width: sizes.drawerWidth,
@@ -51,7 +52,7 @@ export const Drawer = styled(MuiDrawer, {
   }),
 }));
 
-export const MySettingFullBox = styled(Box)({
+export const FullPageBox = styled(Box)({
   width: `calc(100vw - ${sizes.drawerWidth})`,
   height: "100vh",
   display: "flex",
@@ -68,7 +69,7 @@ export const MySettingOutterBox = styled(Box)({
   flexDirection: "column",
   justifyContent: "center",
   alignItems: "center",
-  gap: 2,
+  gap: 20,
   padding: 0,
 });
 
@@ -82,6 +83,16 @@ export const MySettingInnerBox = styled(Box)({
   borderRadius: sizes.borderRadius.medium,
   gap: 30,
 });
+
+export const MyInfoInnerBox = styled(Box, {
+  shouldForwardProp: (prop) => prop !== "isProfileImage",
+})<MyInfoInnerBoxProps>(({ isProfileImage }) => ({
+  display: "flex",
+  alignItems: "center",
+  paddingBottom: isProfileImage ? 8 : 0,
+  gap: isProfileImage ? 80 : 1,
+  width: isProfileImage ? "340px" : "auto",
+}));
 
 export const AvatarSize = {
   width: sizes.avatar.logo,
@@ -147,9 +158,30 @@ export const TextButtonNormal = {
 };
 
 export const MySettingInnerStyle = {
-  position: "relative",
-  top: 4,
   width: 400,
   display: "flex",
   flexDirection: "column",
+  alignItems: "flex-end", // 자식 요소들을 세로 방향으로 우측 끝에 정렬
+  justifyContent: "flex-end", // 자식 요소들을 수평 방향으로 우측 끝에 정렬
+  gap: 1,
+  py: 2,
+  borderRadius: sizes.borderRadius.medium,
+};
+
+export const InputMuiStyle = {
+  "& .MuiInput-underline:before": {
+    borderBottomColor: theme.palette.primary.dark, // 기본 밑줄 색상
+  },
+  "& .MuiInput-underline:hover:before": {
+    borderBottomColor: theme.palette.primary.dark, // 호버 시 밑줄 색상
+  },
+  "& .MuiInput-underline:after": {
+    borderBottomColor: theme.palette.primary.dark, // 포커스 시 밑줄 색상
+  },
+  "& .MuiInputLabel-root": {
+    color: theme.palette.primary.dark, // 라벨 색상
+  },
+  "& .MuiInputBase-input": {
+    color: theme.palette.primary.dark, // 입력 텍스트 색상
+  },
 };

@@ -4,8 +4,7 @@ import Dashboard from "./ui/Dashboard";
 import Chat from "./kyh/Chat";
 import Login from "./ui/Login";
 import MySetting from "./kyh/MySetting";
-import { Box } from "@mui/material";
-import { colors } from "./styles/colors";
+import MyInfoModify from "./kyh/MyInfoModify";
 
 function App() {
   return (
@@ -16,7 +15,9 @@ function App() {
           <Route path="/" Component={Dashboard} /> {/* 루트페이지 등록 */}
           <Route path="/Chat" Component={Chat} /> {/* 채팅페이지 등록 */}
           <Route path="/MySetting" Component={MySetting} />
-          {/* 내설정페이지 등록 */}
+          {/* 내 설정 페이지 등록 */}
+          <Route path="/MyInfoModify" Component={MyInfoModify} />
+          {/* 개인정보 편집 페이지 등록 */}
           <Route path="/Login" Component={Login} />
           {/* 임시 로그인 페이지 등록 */}
           {/* 밑에 추가 페이지 등록 */}

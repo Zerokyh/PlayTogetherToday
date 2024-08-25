@@ -11,15 +11,14 @@ const IconTextMuiBox = ({
 }: IconTextMuiBoxProp) => {
   return (
     <Box
-      width={"100%"}
+      width={340}
       display={"flex"}
       justifyContent={"space-between"}
       bgcolor={colors.background.secondary}
       borderRadius={sizes.borderRadius.medium}
-      sx={{ px: 1 }}
     >
       <IconTextButton {...icontextboxprops} />
-      <Typography component={"span"} sx={{ px: 1 }} onClick={onClick}>
+      <Typography component={"span"} sx={{ px: 0 }} onClick={onClick}>
         {component}
       </Typography>
     </Box>

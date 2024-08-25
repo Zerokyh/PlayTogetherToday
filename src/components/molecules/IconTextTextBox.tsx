@@ -11,6 +11,7 @@ const IconTextTextBox = ({
   textbutton,
   href = "#",
   hover = {},
+  sx,
 }: IconTextTextBoxProp) => {
   const navigate = useNavigate();
   return (
@@ -20,7 +21,7 @@ const IconTextTextBox = ({
       flexDirection={"column"}
       bgcolor={colors.background.secondary}
       borderRadius={sizes.borderRadius.medium}
-      sx={{ px: 1 }}
+      sx={{ px: 1, py: 2, ...sx }}
     >
       <Box display={"flex"} justifyContent={"space-between"}>
         <IconTextButton {...icontextboxprops} />

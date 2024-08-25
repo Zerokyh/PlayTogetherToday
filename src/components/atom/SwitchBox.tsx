@@ -1,20 +1,37 @@
 import { Switch } from "@mui/material";
-
-type SwitchBoxProp = {
-  color?:
-    | "primary"
-    | "secondary"
-    | "error"
-    | "info"
-    | "success"
-    | "warning"
-    | "default";
-  checked: boolean;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-};
+import { theme } from "../../styles/colors";
+import { SwitchBoxProp } from "../../utils/type";
 
 const SwitchBox = ({ color = "primary", checked, onChange }: SwitchBoxProp) => {
-  return <Switch checked={checked} color={color} onChange={onChange} />;
+  const switchColors = {
+    primary: {
+      track: checked ? theme.palette.primary.dark : "grey",
+      thumb: checked ? theme.palette.primary.dark : "white",
+    },
+    secondary: {
+      track: checked ? theme.palette.secondary.main : "grey",
+      thumb: checked ? theme.palette.secondary.main : "white",
+    },
+  };
+  return (
+    <Switch
+      checked={checked}
+      onChange={onChange}
+      sx={{
+        "& .MuiSwitch-switchBase": {
+          color: switchColors[color].thumb,
+          "&.Mui-checked": {
+            color: switchColors[color].thumb,
+            "& + .MuiSwitch-track": {
+              backgroundColor: switchColors[color].track,
+            },
+          },
+        },
+        "& .MuiSwitch-track": {
+          backgroundColor: switchColors[color].track,
+        },
+      }}
+    />
+  );
 };
-
 export default SwitchBox;

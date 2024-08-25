@@ -11,11 +11,12 @@ import IconTextMuiBox from "../components/molecules/IconTextMuiBox";
 import useThemeStore from "../store/store";
 import SwitchBox from "../components/atom/SwitchBox";
 import {
-  MySettingFullBox,
+  FullPageBox,
   MySettingInnerBox,
   MySettingInnerStyle,
   MySettingOutterBox,
 } from "../styles/mui";
+import IosSwitchButton from "../components/atom/IosSwitchButton";
 
 const MySetting = () => {
   const { isTheme, setIsTheme } = useThemeStore();
@@ -27,63 +28,69 @@ const MySetting = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <MySettingFullBox>
+      <FullPageBox>
         <MySettingOutterBox>
           <MySettingInnerBox>
-            <IconTextTextBox
-              icontextboxprops={{
-                icon: <SettingsIcon />,
-                text: "설정",
-                iconsize: sizes.fontSize.xlarge,
-                fontsize: sizes.fontSize.xlarge,
-              }}
-            />
+            <Box width={400}>
+              <IconTextTextBox
+                icontextboxprops={{
+                  icon: <SettingsIcon />,
+                  text: "설정",
+                  iconsize: sizes.fontSize.xlarge,
+                  fontsize: sizes.fontSize.xlarge,
+                }}
+                sx={{ width: 140 }}
+              />
+            </Box>
             <IconTextTextBox
               icontextboxprops={{
                 icon: <AccountCircleIcon />,
                 text: "개인정보관리",
               }}
               textbutton="편집"
-              href="/"
+              href="/MyInfoModify"
               hover={{ ":hover": { cursor: "pointer" } }}
             />
-            <IconTextTextBox
-              icontextboxprops={{
-                icon: <ContrastIcon />,
-                text: "테마 설정",
-              }}
-              textbutton={isTheme}
-              children={
-                <Box sx={{ ...MySettingInnerStyle }}>
-                  <IconTextMuiBox
-                    icontextboxprops={{
-                      icon: <ContrastIcon />,
-                      text: "퍼플",
-                    }}
-                    component={
-                      <SwitchBox
-                        color="primary"
-                        checked={isTheme === "퍼플"}
-                        onChange={handleThemeChange("퍼플")}
-                      />
-                    }
+            <Box
+              bgcolor={colors.background.secondary}
+              sx={{ ...MySettingInnerStyle }}
+            >
+              <IconTextTextBox
+                icontextboxprops={{
+                  icon: <ContrastIcon />,
+                  text: "테마 설정",
+                }}
+                textbutton={isTheme}
+              />
+              <IconTextMuiBox
+                icontextboxprops={{
+                  icon: <ContrastIcon />,
+                  text: "퍼플",
+                }}
+                component={
+                  <>
+                    <IosSwitchButton
+                      color="primary"
+                      checked={isTheme === "퍼플"}
+                      onChange={handleThemeChange("퍼플")}
+                    />
+                  </>
+                }
+              />
+              <IconTextMuiBox
+                icontextboxprops={{
+                  icon: <ContrastIcon />,
+                  text: "블루",
+                }}
+                component={
+                  <IosSwitchButton
+                    color="secondary"
+                    checked={isTheme === "블루"}
+                    onChange={handleThemeChange("블루")}
                   />
-                  <IconTextMuiBox
-                    icontextboxprops={{
-                      icon: <ContrastIcon />,
-                      text: "블루",
-                    }}
-                    component={
-                      <SwitchBox
-                        color="secondary"
-                        checked={isTheme === "블루"}
-                        onChange={handleThemeChange("블루")}
-                      />
-                    }
-                  />
-                </Box>
-              }
-            />
+                }
+              />
+            </Box>
             <IconTextTextBox
               icontextboxprops={{
                 icon: <PersonOutlineIcon />,
@@ -94,7 +101,7 @@ const MySetting = () => {
             />
           </MySettingInnerBox>
         </MySettingOutterBox>
-      </MySettingFullBox>
+      </FullPageBox>
     </ThemeProvider>
   );
 };

@@ -2,7 +2,7 @@
 import { ReactElement, ReactNode } from "react";
 
 export type ImgAvatarProps = {
-  alt: string;
+  alt?: string;
   src?: string;
   sx?: object;
 };
@@ -64,10 +64,43 @@ export type IconTextTextBoxProp = {
   textbutton?: string;
   href?: string;
   hover?: { ":hover": { cursor: "pointer" } } | {};
+  sx?: object;
 };
 
 export type IconTextMuiBoxProp = {
   icontextboxprops: IconTextButtonProps;
   component?: ReactElement;
   onClick?: () => void;
+};
+
+export type ChipTextBoxProps = {
+  titlename: string;
+};
+
+export type TextFieldBasicProps = {
+  inputSubject: string;
+};
+
+export type MyInfoInnerBoxProps = {
+  isProfileImage?: boolean;
+};
+
+export type InputModifyBoxProp = {
+  type?: "text" | "password";
+  placeholder?: string;
+  width?: string;
+  sx?: object;
+};
+
+export type SwitchBoxProp = {
+  color?: "primary" | "secondary";
+  checked: boolean;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+};
+
+export type IosSwitchButtonProps = {
+  text?: string;
+  color?: "primary" | "secondary";
+  checked: boolean;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };

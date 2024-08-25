@@ -1,6 +1,5 @@
 // colors.ts
 import { createTheme } from "@mui/material";
-import { purple, blue } from "@mui/material/colors";
 
 export const colors = {
   // 배경 색상 Background Color
@@ -28,9 +27,9 @@ export const colors = {
 export const theme = createTheme({
   palette: {
     primary: {
-      main: "#9c27b0",
+      main: "#EADDFF",
       light: "#F3EAFB",
-      dark: "#7b1fa2",
+      dark: "#3A1B71",
     },
     secondary: {
       main: "#1976d2",
