@@ -5,6 +5,7 @@ import Chat from "./kyh/Chat";
 import Login from "./ui/Login";
 import MySetting from "./kyh/MySetting";
 import MyInfoModify from "./kyh/MyInfoModify";
+import UtilTestPage from "./ui/UtilTestPage";
 
 function App() {
   return (
@@ -20,6 +21,8 @@ function App() {
           {/* 개인정보 편집 페이지 등록 */}
           <Route path="/Login" Component={Login} />
           {/* 임시 로그인 페이지 등록 */}
+          <Route path="/UtilTestPage" Component={UtilTestPage} />
+          {/* 임시 테스트 페이지 등록 */}
           {/* 밑에 추가 페이지 등록 */}
           {/* <Route path="/UserRegister" Component={UserRegister} /> */}
         </Route>

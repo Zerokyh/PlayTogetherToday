@@ -104,3 +104,21 @@ export type IosSwitchButtonProps = {
   checked: boolean;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
+
+export type PTTUnion =
+  | ImgAvatarProps
+  | ContentsBoxProps
+  | LinkedButtonProps
+  | TextButtonProps
+  | TextCardProps
+  | WidthHalfBoxProps
+  | BasicIconButtonProps
+  | IconTextButtonProps
+  | IconTextTextBoxProp
+  | IconTextMuiBoxProp
+  | ChipTextBoxProps
+  | TextFieldBasicProps
+  | MyInfoInnerBoxProps
+  | InputModifyBoxProp
+  | SwitchBoxProp
+  | IosSwitchButtonProps;

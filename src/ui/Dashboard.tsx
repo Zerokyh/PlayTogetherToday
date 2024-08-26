@@ -1,7 +1,6 @@
 import * as React from "react";
 import CssBaseline from "@mui/material/CssBaseline";
 import ContentsBox from "../components/molecules/ContentsBox";
-import Box from "@mui/material/Box";
 import Grid from "@mui/material/Unstable_Grid2";
 import { dashBoardData } from "../constants/dashBoardData";
 import { DashboardGridBox, FullPageBox } from "../styles/mui";

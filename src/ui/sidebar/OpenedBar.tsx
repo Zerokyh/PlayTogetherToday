@@ -74,7 +74,7 @@ const OpenedBar = () => {
                         height: "20px",
                         width: "40px",
                         minWidth: "auto",
-                        backgroundColor: theme.palette.primary.light,
+                        backgroundColor: theme.palette.primary.main,
                         color: "black",
                         "&:hover": {
                           color: "white",
