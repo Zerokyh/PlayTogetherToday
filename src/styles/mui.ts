@@ -63,7 +63,7 @@ export const FullPageBox = styled(Box)({
 export const MySettingOutterBox = styled(Box)({
   backgroundColor: colors.background.primary,
   width: 600,
-  height: 600,
+  height: 700,
   borderRadius: sizes.borderRadius.medium,
   display: "flex",
   flexDirection: "column",
@@ -90,9 +90,18 @@ export const MyInfoInnerBox = styled(Box, {
   display: "flex",
   alignItems: "center",
   paddingBottom: isProfileImage ? 8 : 0,
-  gap: isProfileImage ? 80 : 1,
+  gap: isProfileImage ? 70 : 1,
   width: isProfileImage ? "340px" : "auto",
 }));
+
+export const DashboardGridBox = styled(Box)({
+  width: 1200,
+  height: 900,
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
+  alignItems: "center",
+});
 
 export const AvatarSize = {
   width: sizes.avatar.logo,
@@ -169,6 +178,8 @@ export const MySettingInnerStyle = {
 };
 
 export const InputMuiStyle = {
+  position: "relative",
+  bottom: 10,
   "& .MuiInput-underline:before": {
     borderBottomColor: theme.palette.primary.dark, // 기본 밑줄 색상
   },
@@ -184,4 +195,28 @@ export const InputMuiStyle = {
   "& .MuiInputBase-input": {
     color: theme.palette.primary.dark, // 입력 텍스트 색상
   },
+};
+
+export const ModifyLinkedButtonStyle = {
+  height: "20px",
+  width: "40px",
+  minWidth: "auto",
+  padding: 0,
+  backgroundColor: theme.palette.primary.main,
+  color: "black",
+  "&:hover": {
+    color: "white",
+  },
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+};
+
+export const MySettingTitleStyle = {
+  width: 130,
+  height: 50,
+  padding: 0,
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
 };

@@ -1,32 +1,26 @@
 import * as React from "react";
 import CssBaseline from "@mui/material/CssBaseline";
-import { Container } from "@mui/material";
 import ContentsBox from "../components/molecules/ContentsBox";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Unstable_Grid2";
 import { dashBoardData } from "../constants/dashBoardData";
+import { DashboardGridBox, FullPageBox } from "../styles/mui";
 
 const Dashboard = () => {
   return (
     <React.Fragment>
       <CssBaseline />
-      <Container
-        maxWidth="md"
-        sx={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          height: "95vh",
-        }}
-      >
-        <Box sx={{ flexGrow: 1 }}>
-          <Grid
-            container
-            spacing={{ xs: 4, md: 6 }}
-            columns={{ xs: 12, sm: 12, md: 12 }}
-          >
+      <FullPageBox>
+        <DashboardGridBox>
+          <Grid container spacing={{ xs: 4, md: 6 }} columns={12}>
             {dashBoardData.map((item, index) => (
-              <Grid xs={6} sm={6} md={6} key={index}>
+              <Grid
+                xs={12}
+                sm={6}
+                md={6}
+                key={index}
+                sx={{ display: "flex", justifyContent: "center" }}
+              >
                 <ContentsBox
                   index={index}
                   img={item.img}
@@ -37,8 +31,8 @@ const Dashboard = () => {
               </Grid>
             ))}
           </Grid>
-        </Box>
-      </Container>
+        </DashboardGridBox>
+      </FullPageBox>
     </React.Fragment>
   );
 };

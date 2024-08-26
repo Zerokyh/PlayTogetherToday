@@ -20,7 +20,7 @@ const ContentsBox = ({
   const { isLogin } = useThemeStore();
   const navigate = useNavigate();
   return (
-    <Card sx={{ maxWidth: 400 }}>
+    <Card sx={{ width: 400 }}>
       <CardMedia
         component="img"
         alt={subject}

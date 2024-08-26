@@ -9,12 +9,12 @@ import { sizes } from "../styles/sizes";
 import IconTextTextBox from "../components/molecules/IconTextTextBox";
 import IconTextMuiBox from "../components/molecules/IconTextMuiBox";
 import useThemeStore from "../store/store";
-import SwitchBox from "../components/atom/SwitchBox";
 import {
   FullPageBox,
   MySettingInnerBox,
   MySettingInnerStyle,
   MySettingOutterBox,
+  MySettingTitleStyle,
 } from "../styles/mui";
 import IosSwitchButton from "../components/atom/IosSwitchButton";
 
@@ -39,7 +39,9 @@ const MySetting = () => {
                   iconsize: sizes.fontSize.xlarge,
                   fontsize: sizes.fontSize.xlarge,
                 }}
-                sx={{ width: 140 }}
+                sx={{
+                  ...MySettingTitleStyle,
+                }}
               />
             </Box>
             <IconTextTextBox
