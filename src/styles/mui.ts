@@ -156,6 +156,15 @@ export const LinkedButtonNormal = {
   fontSize: sizes.fontSize.xsmall,
 };
 
+export const LinkedButtonHeightSmall = {
+  width: 100,
+  height: 30,
+  color: colors.text.drawer,
+  fontWeight: 600,
+  border: `1px solid ${colors.border.drawer}`,
+  fontSize: sizes.fontSize.xsmall,
+};
+
 export const TextButtonNormal = {
   width: "90px",
   minHeight: 48,

@@ -1,12 +1,16 @@
-import { Box, ListItemText } from "@mui/material";
+import { Box, ListItemText, Typography } from "@mui/material";
 import { sizes } from "../../styles/sizes";
 import ImgAvatar from "../../components/atom/ImgAvatar";
 import { AvatarSize, OpenSideBarSettingButtonStyle } from "../../styles/mui";
 import useThemeStore from "../../store/store";
 import LinkedButton from "../../components/atom/LinkedButton";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const OpenedBarTopIsLogin = () => {
   const { isLogin } = useThemeStore();
+  const navigate = useNavigate();
+  const [isGroup, setIsGroup] = useState(false);
   return (
     <Box
       sx={{
@@ -52,11 +56,29 @@ const OpenedBarTopIsLogin = () => {
                 href={"/MySetting"}
               />
             </Box>
-
-            <ListItemText
-              primary={`그룹 []의 호스트입니다.`}
-              primaryTypographyProps={{ fontSize: sizes.fontSize.small }}
-            />
+            {isGroup ? (
+              <ListItemText
+                primary={`그룹 []의 호스트입니다.`}
+                primaryTypographyProps={{ fontSize: sizes.fontSize.small }}
+              />
+            ) : (
+              <Box>
+                <ListItemText
+                  primary={`아직 모임을 시작하지 않았네요!`}
+                  primaryTypographyProps={{ fontSize: sizes.fontSize.small }}
+                />
+                <Box>
+                  <Typography
+                    sx={{ ":hover": "pointer" }}
+                    onClick={() => {
+                      navigate("/GroupMake");
+                    }}
+                  >
+                    시작
+                  </Typography>
+                </Box>
+              </Box>
+            )}
           </>
         ) : (
           <>

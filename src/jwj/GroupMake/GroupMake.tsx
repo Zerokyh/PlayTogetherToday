@@ -4,6 +4,8 @@ import GroupMake_Setting from "./GroupMake_Setting";
 import GroupMake_Input from "./GroupMake_Input";
 import GroupMake_Title from "./GroupMake_Title";
 import { sizes } from "../../styles/sizes";
+import { useNavigate } from "react-router-dom";
+import { FullPageBox } from "../../styles/mui";
 
 const GroupMake = () => {
   //화면크기 조절을 위한
@@ -16,6 +18,8 @@ const GroupMake = () => {
   const [isPasswordValid, setIsPasswordValid] = useState<boolean>(false);
   const [hasBlurred, setHasBlurred] = useState<boolean>(true);
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     const passwordRegex =
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_\-+=<>?{}~])[A-Za-z\d!@#$%^&*()_\-+=<>?{}~]{8,20}$/;
@@ -27,14 +31,20 @@ const GroupMake = () => {
   };
 
   return (
-    <div
-      style={style}
-      className="bg-[#FEF7FF] w-[calc(100vw-var(--drawer-width))] flex justify-center"
-      // className="bg-[#FEF7FF] w-screen flex justify-center"
+    <FullPageBox
+    // style={style}
+    // className="bg-[#FEF7FF] w-[calc(100vw-var(--drawer-width))] flex justify-center"
+    // className="bg-[#FEF7FF] w-screen flex justify-center"
     >
       <div className="bg-[#F3EAFB] flex-col rounded-3xl m-10 px-16 py-8">
         <GroupMake_Title text="새로운 인연이 시작되고 있어요" />
-        <GroupMake_Title text="모임에 초대받았어요" />
+        <GroupMake_Title
+          text="모임에 초대받았어요"
+          onClick={() => {
+            navigate("/GroupEnter");
+          }}
+          style="hover:cursor-pointer"
+        />
 
         <div className="max-w-full p-5 mt-10">
           <div className="bg-[#EADDFF] max-w-full flex flex-col justify-center my-8 px-5 py-3 rounded-3xl">
@@ -101,7 +111,7 @@ const GroupMake = () => {
           </div>
         </div>
       </div>
-    </div>
+    </FullPageBox>
   );
 };
 
