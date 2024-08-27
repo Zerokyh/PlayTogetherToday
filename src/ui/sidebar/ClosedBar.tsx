@@ -13,7 +13,7 @@ import LogoIconBtn from "../../components/molecules/LogoIconBtn";
 import { AvatarSize } from "../../styles/mui";
 import IconButton from "../../components/molecules/BasicIconButton";
 import { geListItemStyles, getListItemIconStyles } from "../../utils/func";
-import { menuItems } from "../../constants/menuData";
+import { menuData } from "../../constants/menuData";
 
 const ClosedBar = () => {
   const navigate = useNavigate();
@@ -44,7 +44,7 @@ const ClosedBar = () => {
           </ListItemButton>
         </ListItem>
         {isLogin &&
-          menuItems.map((item) => (
+          menuData.map((item) => (
             <ListItem key={item.text} disablePadding sx={{ display: "block" }}>
               <ListItemButton
                 onClick={() => navigate(item.href)}

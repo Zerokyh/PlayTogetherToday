@@ -4,7 +4,7 @@ import GroupsIcon from "@mui/icons-material/Groups";
 import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
 import HomeIcon from "@mui/icons-material/Home";
 
-export const menuItems = [
+export const menuData = [
   { text: "마이룸", icon: AccountCircleIcon, href: "/Myroom" },
   { text: "채팅룸", icon: ChatIcon, href: "/Chat" },
   { text: "모임룸", icon: GroupsIcon, href: "#" },
