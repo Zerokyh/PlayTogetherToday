@@ -21,8 +21,10 @@ const App = () => {
         <Routes>
           <Route element={<PttLayout />}>
             {/* 레이아웃 등록 */}
-            <Route path="/" Component={Dashboard} /> {/* 루트페이지 등록 */}
-            <Route path="/Chat" Component={Chat} /> {/* 채팅페이지 등록 */}
+            <Route path="/" Component={Dashboard} />
+            {/* 루트페이지 등록 */}
+            <Route path="/Chat" Component={Chat} />
+            {/* 채팅페이지 등록 */}
             <Route path="/MySetting" Component={MySetting} />
             {/* 내 설정 페이지 등록 */}
             <Route path="/MyInfoModify" Component={MyInfoModify} />
@@ -31,13 +33,16 @@ const App = () => {
             {/* 임시 로그인 페이지 등록 */}
             <Route path="/UtilTestPage" Component={UtilTestPage} />
             {/* 임시 테스트 페이지 등록 */}
-            {/* 밑에 추가 페이지 등록 */}
-            {/* <Route path="/UserRegister" Component={UserRegister} /> */}
             <Route path="/Myroom" Component={Myroom} />
+            {/* 마이룸 페이지 등록 */}
             <Route path="/MyroomAuthority" Component={Myroom_authority} />
+            {/* 마이룸 권한 설정 페이지 등록 */}
             <Route path="/GroupMake" Component={GroupMake} />
+            {/* 그룹 만들기 페이지 등록 */}
             <Route path="/GroupEnter" Component={GroupEnter} />
+            {/* 그룹 가입 페이지 등록 */}
             <Route path="/Gameroom" Component={Gameroom} />
+            {/* 게임룸 페이지 등록 */}
           </Route>
         </Routes>
       </BrowserRouter>
