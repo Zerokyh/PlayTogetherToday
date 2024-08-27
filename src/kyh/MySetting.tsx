@@ -100,6 +100,7 @@ const MySetting = () => {
               }}
               textbutton="편집"
               hover={{ ":hover": { cursor: "pointer" } }}
+              href="/MyroomAuthority"
             />
           </MySettingInnerBox>
         </MySettingOutterBox>
