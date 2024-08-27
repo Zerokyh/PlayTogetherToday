@@ -67,9 +67,9 @@ const OpenedBarTopIsLogin = () => {
                   primary={`아직 모임을 시작하지 않았네요!`}
                   primaryTypographyProps={{ fontSize: sizes.fontSize.small }}
                 />
-                <Box>
+                <Box sx={{ ":hover": { cursor: "pointer" } }}>
                   <Typography
-                    sx={{ ":hover": "pointer" }}
+                    sx={{ ":hover": "" }}
                     onClick={() => {
                       navigate("/GroupMake");
                     }}
