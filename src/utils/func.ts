@@ -1,5 +1,17 @@
 // func.ts
 
+export const handleDrawerOpen = (setIsOpen: (isOpen: boolean) => void) => {
+  setIsOpen(true);
+};
+
+export const handleDrawerClose = (setIsOpen: (isOpen: boolean) => void) => {
+  setIsOpen(false);
+};
+
+export const handleLogOut = (setIsLogin: (isLogin: boolean) => void) => {
+  setIsLogin(false);
+};
+
 export const geListItemStyles = (isOpen: boolean) => ({
   minHeight: 48,
   justifyContent: isOpen ? "initial" : "center",

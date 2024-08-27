@@ -22,8 +22,16 @@ const ClosedBar = () => {
   const listItemIconStyles = getListItemIconStyles(isOpen);
 
   return (
-    <Box sx={{ display: "flex", flexDirection: "column", height: "100%" }}>
-      <List sx={{ ...(isOpen && { display: "none" }), flexGrow: 1 }}>
+    <Box
+      sx={{
+        display: isOpen ? "none" : "flex",
+        flexDirection: "column",
+        height: "100%",
+        overflow: "hidden",
+        transition: "display 0.3s ease",
+      }}
+    >
+      <List sx={{ flexGrow: 1 }}>
         <ListItem disablePadding sx={{ display: "block" }}>
           <ListItemButton onClick={() => navigate("/")} sx={listItemStyles}>
             <ListItemIcon sx={listItemIconStyles}>
@@ -50,7 +58,6 @@ const ClosedBar = () => {
             </ListItem>
           ))}
       </List>
-
       <Box sx={{ ...(isOpen && { display: "none" }) }}>
         <List>
           <ListItem disablePadding sx={{ display: "block" }}>

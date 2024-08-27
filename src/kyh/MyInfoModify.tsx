@@ -33,7 +33,7 @@ const MyInfoModify = () => {
               <MyInfoInnerBox
                 key={key}
                 isProfileImage={key === "profileImage"}
-                sx={key === "profileImage" ? { marginLeft: "4px" } : {}}
+                sx={key === "profileImage" ? { width: "377px" } : {}}
               >
                 <ChipTextBox titlename={item.titlename} />
                 {key === "profileImage" ? (
@@ -41,10 +41,18 @@ const MyInfoModify = () => {
                     sx={{
                       display: "flex",
                       alignItems: "center",
-                      gap: 7,
+                      gap: 8, // 아이템 사이에 간격 추가 (필요에 따라 조정)
                     }}
                   >
-                    <ImgAvatar src="cat.jpg" alt="프로필" />{" "}
+                    <Box
+                      sx={{
+                        width: "80px",
+                        display: "flex",
+                        justifyContent: "center",
+                      }}
+                    >
+                      <ImgAvatar src="cat.jpg" alt="프로필" />
+                    </Box>
                     <LinkedButton
                       type="contained"
                       text="편집"
@@ -56,6 +64,7 @@ const MyInfoModify = () => {
                   </Box>
                 ) : (
                   <InputModifyBox
+                    width="240px"
                     sx={InputMuiStyle}
                     placeholder={item.inputsubject}
                   />

@@ -25,7 +25,11 @@ const IconTextButton = ({
           height: iconsize,
         },
       })}
-      <Typography component="span" fontSize={fontsize}>
+      <Typography
+        component="span"
+        fontSize={fontsize}
+        sx={{ fontFamily: '"Pretendard-Regular", Arial, sans-serif' }}
+      >
         {text}
       </Typography>
     </Box>

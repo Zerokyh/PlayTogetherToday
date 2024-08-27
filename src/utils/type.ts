@@ -17,23 +17,18 @@ export type ContentsBoxProps = {
 
 export type LinkedButtonProps = {
   type?: "text" | "contained" | "outlined";
-  color?:
-    | "inherit"
-    | "primary"
-    | "secondary"
-    | "success"
-    | "error"
-    | "info"
-    | "warning"
-    | undefined;
+  color?: "primary" | "secondary";
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   href?: string;
-  text?: string;
+  text: string;
   sx?: object;
+  font?: object;
 };
 
 export type TextButtonProps = {
   text?: string;
   sx?: object;
+  onClick?: () => void;
 };
 
 export type TextCardProps = {
@@ -59,7 +54,6 @@ export type IconTextButtonProps = {
 };
 
 export type IconTextTextBoxProp = {
-  children?: ReactNode;
   icontextboxprops: IconTextButtonProps;
   textbutton?: string;
   href?: string;
@@ -75,6 +69,7 @@ export type IconTextMuiBoxProp = {
 
 export type ChipTextBoxProps = {
   titlename: string;
+  width?: string;
 };
 
 export type TextFieldBasicProps = {
