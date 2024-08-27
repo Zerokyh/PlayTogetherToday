@@ -2,8 +2,9 @@ import * as React from "react";
 import CssBaseline from "@mui/material/CssBaseline";
 import ContentsBox from "../components/molecules/ContentsBox";
 import Grid from "@mui/material/Unstable_Grid2";
-import { dashBoardData } from "../constants/dashBoardData";
+
 import { DashboardGridBox, FullPageBox } from "../styles/mui";
+import { dashBoardData } from "../constants/dashBoardData";
 
 const Dashboard = () => {
   return (

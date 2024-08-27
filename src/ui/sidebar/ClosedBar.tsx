@@ -13,7 +13,8 @@ import LogoIconBtn from "../../components/molecules/LogoIconBtn";
 import { AvatarSize } from "../../styles/mui";
 import IconButton from "../../components/molecules/BasicIconButton";
 import { geListItemStyles, getListItemIconStyles } from "../../utils/func";
-import { menuItems } from "../../constants/MenuData";
+import { menuData } from "../../constants/menuData";
+
 const ClosedBar = () => {
   const navigate = useNavigate();
   const { isLogin, isOpen } = useThemeStore();
@@ -21,8 +22,16 @@ const ClosedBar = () => {
   const listItemIconStyles = getListItemIconStyles(isOpen);
 
   return (
-    <Box sx={{ display: "flex", flexDirection: "column", height: "100%" }}>
-      <List sx={{ ...(isOpen && { display: "none" }), flexGrow: 1 }}>
+    <Box
+      sx={{
+        display: isOpen ? "none" : "flex",
+        flexDirection: "column",
+        height: "100%",
+        overflow: "hidden",
+        transition: "display 0.3s ease",
+      }}
+    >
+      <List sx={{ flexGrow: 1 }}>
         <ListItem disablePadding sx={{ display: "block" }}>
           <ListItemButton onClick={() => navigate("/")} sx={listItemStyles}>
             <ListItemIcon sx={listItemIconStyles}>
@@ -35,7 +44,7 @@ const ClosedBar = () => {
           </ListItemButton>
         </ListItem>
         {isLogin &&
-          menuItems.map((item) => (
+          menuData.map((item) => (
             <ListItem key={item.text} disablePadding sx={{ display: "block" }}>
               <ListItemButton
                 onClick={() => navigate(item.href)}
@@ -49,7 +58,6 @@ const ClosedBar = () => {
             </ListItem>
           ))}
       </List>
-
       <Box sx={{ ...(isOpen && { display: "none" }) }}>
         <List>
           <ListItem disablePadding sx={{ display: "block" }}>

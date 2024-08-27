@@ -6,7 +6,6 @@ import { IconTextTextBoxProp } from "../../utils/type";
 import { useNavigate } from "react-router-dom";
 
 const IconTextTextBox = ({
-  children,
   icontextboxprops,
   textbutton,
   href = "#",
@@ -27,16 +26,17 @@ const IconTextTextBox = ({
         <IconTextButton {...icontextboxprops} />
         <Typography
           component={"span"}
-          sx={{ px: 1, ...hover }}
+          sx={{
+            px: 1,
+            ...hover,
+            fontFamily: '"Pretendard-Regular", Arial, sans-serif',
+          }}
           onClick={() => {
             navigate(href);
           }}
         >
           {textbutton}
         </Typography>
-      </Box>
-      <Box display="flex" justifyContent="flex-end">
-        {children}
       </Box>
     </Box>
   );
