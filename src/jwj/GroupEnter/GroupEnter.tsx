@@ -1,9 +1,11 @@
-import { Button, ButtonGroup, TextField } from "@mui/material";
+import { ButtonGroup } from "@mui/material";
 import GroupEnterText from "./GroupEnterText";
 import GroupEnterButton from "./GroupEnterButton";
 import { sizes } from "../../styles/sizes";
+import { useNavigate } from "react-router-dom";
 
 const GroupEnter = () => {
+  const navigate = useNavigate();
   //화면크기 조절을 위한
   const drawerWidth = sizes.drawerWidth;
   const style = {
@@ -26,7 +28,12 @@ const GroupEnter = () => {
         >
           <GroupEnterButton text="모임가입 요청" />
           <GroupEnterButton text="QR코드로 가입" />
-          <GroupEnterButton text="모임 만들기" />
+          <GroupEnterButton
+            text="새로운 모임"
+            onClick={() => {
+              navigate("/GroupMake");
+            }}
+          />
           <GroupEnterButton text="모임 탈퇴" />
         </ButtonGroup>
       </div>
