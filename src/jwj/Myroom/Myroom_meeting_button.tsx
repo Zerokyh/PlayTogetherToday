@@ -1,0 +1,34 @@
+type meeting_button_props = {
+  group?: string;
+  type?: string;
+  count?: string;
+  position?: string;
+  comming?: string;
+  group_anni?: string;
+};
+
+const Myroom_meeting_button = ({
+  group,
+  type,
+  count,
+  position,
+  comming,
+  group_anni,
+}: meeting_button_props) => {
+  return (
+    <button className="w-full h-1/4 flex  items-center justify-between bg-violet-200  rounded-xl">
+      <div className="w-1/2 h-full flex flex-col justify-center items-start pl-3 text-[10px] gap-0.5">
+        <div>{group}</div>
+        <div>{type}</div>
+        <div>{count}</div>
+      </div>
+      <div className="w-1/2 h-full flex flex-col  justify-center items-start pl-3 text-[10px] gap-0.5">
+        <div>{position}</div>
+        <div>{comming}</div>
+        <div>{group_anni}</div>
+      </div>
+    </button>
+  );
+};
+
+export default Myroom_meeting_button;

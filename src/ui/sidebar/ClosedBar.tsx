@@ -12,8 +12,8 @@ import {
 import LogoIconBtn from "../../components/molecules/LogoIconBtn";
 import { AvatarSize } from "../../styles/mui";
 import IconButton from "../../components/molecules/BasicIconButton";
-import { menuItems } from "../../constants/menuData";
 import { geListItemStyles, getListItemIconStyles } from "../../utils/func";
+import { menuItems } from "../../constants/menuData";
 
 const ClosedBar = () => {
   const navigate = useNavigate();
