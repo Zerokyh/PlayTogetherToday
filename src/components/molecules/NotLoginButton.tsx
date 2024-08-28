@@ -17,6 +17,7 @@ const NotLoginButton = () => {
     >
       <LinkedButton text="로그인" onClick={() => setIsLogin(true)} />
       <LinkedButton text="회원가입" />
+
     </Box>
   );
 };

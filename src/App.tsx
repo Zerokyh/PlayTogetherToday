@@ -15,6 +15,7 @@ import { ThemeProvider } from "@mui/material";
 import { theme } from "./styles/fonts";
 import Border from "./hsw/Border";
 import BorderDetail from "./hsw/BorderDetail";
+import SignUp from "./ksy/SignUp";
 
 const App = () => {
   return (
@@ -49,6 +50,11 @@ const App = () => {
             {/* 모임 리스트 페이지 등록 */}
             <Route path="/BorderDetail" Component={BorderDetail} />
             {/* 모임 상세 페이지 등록 */}
+
+            
+            {/* 회원가입 페이지 등록 */}
+            <Route path="/SignUp" Component={SignUp} />
+
           </Route>
         </Routes>
       </BrowserRouter>
