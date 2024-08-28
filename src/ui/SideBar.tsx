@@ -5,7 +5,7 @@ import useThemeStore from "../store/store";
 import ClosedBar from "./sidebar/ClosedBar";
 import OpenedBar from "./sidebar/OpenedBar";
 import { Box } from "@mui/material";
-import { Drawer, DrawerHeader } from "../styles/mui";
+import { Drawer, DrawerHeader, SideBarLogoStyle } from "../styles/mui";
 import { handleDrawerOpen } from "../utils/func";
 
 const SideBar = () => {
@@ -20,10 +20,7 @@ const SideBar = () => {
       <DrawerHeader sx={{ ...(isOpen && { display: "none" }) }}>
         <Box
           sx={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            width: "100%",
+            ...SideBarLogoStyle,
             ...(isOpen && { display: "none" }),
           }}
         >

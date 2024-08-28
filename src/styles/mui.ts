@@ -194,8 +194,8 @@ export const MySettingInnerStyle = {
   width: 400,
   display: "flex",
   flexDirection: "column",
-  alignItems: "flex-end", // 자식 요소들을 세로 방향으로 우측 끝에 정렬
-  justifyContent: "flex-end", // 자식 요소들을 수평 방향으로 우측 끝에 정렬
+  alignItems: "flex-end",
+  justifyContent: "flex-end",
   gap: 1,
   py: 2,
   borderRadius: sizes.borderRadius.medium,
@@ -254,4 +254,11 @@ export const OpenSideBarSettingButtonStyle = {
   "&:hover": {
     color: "white",
   },
+};
+
+export const SideBarLogoStyle = {
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  width: "100%",
 };
