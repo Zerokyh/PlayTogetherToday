@@ -1,6 +1,6 @@
 // func.ts
 
-import { Padding } from "@mui/icons-material";
+import { useNavigate } from "react-router-dom";
 
 export const handleDrawerOpen = (setIsOpen: (isOpen: boolean) => void) => {
   setIsOpen(true);

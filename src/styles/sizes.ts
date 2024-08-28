@@ -51,6 +51,7 @@ export const sizes = {
   },
 
   borderRadius: {
+    xs: "6px",
     small: "8px",
     medium: "10px",
     normal: "15px",
