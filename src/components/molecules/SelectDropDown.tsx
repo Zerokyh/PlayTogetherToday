@@ -51,7 +51,7 @@ const SelectDropDown = () => {
           paddingBottom: 0,
         }}
       >
-        {groupData.map((item) => (
+        {Object.entries(groupData).map(([key, item]) => (
           <MenuItem key={item.value} value={item.value}>
             {item.group}
           </MenuItem>
