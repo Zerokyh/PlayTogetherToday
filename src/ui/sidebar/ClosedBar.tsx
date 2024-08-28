@@ -17,7 +17,7 @@ import { menuData } from "../../constants/menuData";
 
 const ClosedBar = () => {
   const navigate = useNavigate();
-  const { isLogin, isOpen } = useThemeStore();
+  const { isLogin, isOpen, setIsLogin } = useThemeStore();
   const listItemStyles = geListItemStyles(isOpen);
   const listItemIconStyles = getListItemIconStyles(isOpen);
 
@@ -31,7 +31,7 @@ const ClosedBar = () => {
         transition: "display 0.3s ease",
       }}
     >
-      <List sx={{ flexGrow: 1 }}>
+      <List disablePadding>
         <ListItem disablePadding sx={{ display: "block" }}>
           <ListItemButton onClick={() => navigate("/")} sx={listItemStyles}>
             <ListItemIcon sx={listItemIconStyles}>
@@ -43,6 +43,8 @@ const ClosedBar = () => {
             </ListItemIcon>
           </ListItemButton>
         </ListItem>
+      </List>
+      <List disablePadding sx={isLogin ? { flexGrow: 1 } : { display: "none" }}>
         {isLogin &&
           menuData.map((item) => (
             <ListItem key={item.text} disablePadding sx={{ display: "block" }}>
@@ -59,12 +61,20 @@ const ClosedBar = () => {
           ))}
       </List>
       <Box sx={{ ...(isOpen && { display: "none" }) }}>
-        <List>
+        <List disablePadding>
           <ListItem disablePadding sx={{ display: "block" }}>
             {isLogin ? (
-              <IconButton text="로그아웃" icon={<LogoutIcon />} />
+              <IconButton
+                text="로그아웃"
+                icon={<LogoutIcon />}
+                onClick={() => setIsLogin(false)}
+              />
             ) : (
-              <IconButton text="로그인" icon={<PowerSettingsNewIcon />} />
+              <IconButton
+                text="로그인"
+                icon={<PowerSettingsNewIcon />}
+                onClick={() => setIsLogin(true)}
+              />
             )}
           </ListItem>
         </List>
