@@ -1,8 +1,4 @@
 export const infoData = {
-  profileImage: {
-    titlename: "프로필 이미지",
-    inputsubject: "",
-  },
   nickname: {
     titlename: "닉네임",
     inputsubject: "닉네임",

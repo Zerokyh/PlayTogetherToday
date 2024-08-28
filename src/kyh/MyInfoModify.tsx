@@ -13,66 +13,85 @@ import { sizes } from "../styles/sizes";
 import ImgAvatar from "../components/atom/ImgAvatar";
 import { infoData } from "../constants/myInfoModifyMenuData";
 import InputModifyBox from "../components/atom/InputModifyBox";
-import LinkedButton from "../components/atom/LinkedButton";
+import SettingsIcon from "@mui/icons-material/Settings";
 
 const MyInfoModify = () => {
   return (
     <ThemeProvider theme={theme}>
       <FullPageBox>
-        <MySettingOutterBox>
-          <Typography sx={{ fontSize: sizes.fontSize.xlarge, fontWeight: 600 }}>
-            개인정보 편집
-          </Typography>
+        <Box sx={{ maxWidth: "1280px" }}>
           <Box
-            display={"flex"}
-            flexDirection={"column"}
-            alignItems={"center"}
-            gap={2}
+            sx={{
+              height: 80,
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              paddingBottom: 9,
+            }}
           >
-            {Object.entries(infoData).map(([key, item]) => (
-              <MyInfoInnerBox
-                key={key}
-                isProfileImage={key === "profileImage"}
-                sx={key === "profileImage" ? { width: "377px" } : {}}
-              >
-                <ChipTextBox titlename={item.titlename} />
-                {key === "profileImage" ? (
-                  <Box
-                    sx={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: 8, // 아이템 사이에 간격 추가 (필요에 따라 조정)
-                    }}
-                  >
+            <Typography
+              sx={{ fontSize: sizes.fontSize.xlarge, fontWeight: 600 }}
+            >
+              개인정보 편집
+            </Typography>
+          </Box>
+          <MySettingOutterBox>
+            <Box
+              display={"flex"}
+              flexDirection={"column"}
+              alignItems={"center"}
+              gap={2}
+            >
+              <MyInfoInnerBox sx={{ width: "377px" }}>
+                <Box
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 4, // 아이템 사이에 간격 추가 (필요에 따라 조정)
+                    paddingBottom: 6,
+                  }}
+                >
+                  <Box sx={{ position: "relative" }}>
+                    <ImgAvatar
+                      src="cat.jpg"
+                      alt="프로필"
+                      sx={{
+                        width: sizes.avatar.info,
+                        height: sizes.avatar.info,
+                        mx: "auto",
+                      }}
+                    />
                     <Box
                       sx={{
-                        width: "80px",
-                        display: "flex",
-                        justifyContent: "center",
+                        position: "absolute",
+                        top: 80,
+                        right: 20,
+                        color: "white",
+                        ":hover": {
+                          cursor: "pointer",
+                          color: theme.palette.primary.main,
+                        },
                       }}
+                      onClick={() => {}}
                     >
-                      <ImgAvatar src="cat.jpg" alt="프로필" />
+                      <SettingsIcon />
                     </Box>
-                    <LinkedButton
-                      type="contained"
-                      text="편집"
-                      sx={{
-                        ...ModifyLinkedButtonStyle,
-                      }}
-                      href="/MySetting"
+                  </Box>
+                </Box>
+                {Object.entries(infoData).map(([key, item]) => (
+                  <Box>
+                    <ChipTextBox titlename={item.titlename} />
+                    <InputModifyBox
+                      width="240px"
+                      sx={InputMuiStyle}
+                      placeholder={item.inputsubject}
                     />
                   </Box>
-                ) : (
-                  <InputModifyBox
-                    width="240px"
-                    sx={InputMuiStyle}
-                    placeholder={item.inputsubject}
-                  />
-                )}
+                ))}
               </MyInfoInnerBox>
-            ))}
-          </Box>
-        </MySettingOutterBox>
+            </Box>
+          </MySettingOutterBox>
+        </Box>
       </FullPageBox>
     </ThemeProvider>
   );

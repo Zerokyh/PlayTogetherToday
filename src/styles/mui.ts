@@ -31,7 +31,6 @@ export const DrawerHeader = styled("div")(({ theme }) => ({
   display: "flex",
   alignItems: "center",
   justifyContent: "flex-end",
-  // necessary for content to be below app bar
   ...theme.mixins.toolbar,
 }));
 
@@ -54,7 +53,6 @@ export const Drawer = styled(MuiDrawer, {
 
 export const FullPageBox = styled(Box)({
   width: `calc(100vw - ${sizes.drawerWidth})`,
-  maxWidth: "1280px",
   height: "100vh",
   display: "flex",
   justifyContent: "center",
@@ -65,7 +63,9 @@ export const WidthHalfOutterBox = styled(Box)({
   display: "flex",
   flexDirection: "row",
   width: "100%",
+  maxWidth: "1280px",
   height: "100vh",
+  gap: 30,
 });
 
 export const WidthHalfInnerBox = styled(Box)({
@@ -100,25 +100,24 @@ export const MySettingInnerBox = styled(Box)({
   gap: 30,
 });
 
-export const MyInfoInnerBox = styled(Box, {
-  shouldForwardProp: (prop) => prop !== "isProfileImage",
-})<MyInfoInnerBoxProps>(({ isProfileImage }) => ({
+export const MyInfoInnerBox = styled(Box)({
   display: "flex",
+  flexDirection: "column",
   alignItems: "center",
-  paddingBottom: isProfileImage ? 8 : 0,
-  gap: isProfileImage ? 70 : 1,
-  width: isProfileImage ? "340px" : "auto",
-}));
+  paddingBottom: 0,
+  gap: 1,
+  width: "auto",
+});
 
 export const DashboardGridBox = styled(Box)({
-  width: "100%", // FullPageBox 내에서 가득 채우도록 설정
-  maxWidth: "1200px", // 최대 너비 설정
-  height: "100%", // 전체 높이를 가득 채우도록 설정
+  width: "100%",
+  maxWidth: "1280px",
+  height: "100%",
   display: "flex",
   flexDirection: "column",
   justifyContent: "center",
   alignItems: "center",
-  padding: "16px", // 작은 여백 추가
+  padding: "16px",
 });
 
 export const AvatarSize = {

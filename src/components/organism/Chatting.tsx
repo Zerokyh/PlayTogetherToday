@@ -1,7 +1,9 @@
-import { Box } from "@mui/material";
+import { Box, TextField } from "@mui/material";
 import WidthHalfBox from "../atom/WidthHalfBox";
 import ChatSendMsgBox from "../molecules/ChatSendMsgBox";
 import ChatReceiveMsgBox from "../molecules/ChatReceiveMsgBox";
+import { colors } from "../../styles/colors";
+import { sizes } from "../../styles/sizes";
 
 const Chatting = () => {
   return (
@@ -14,7 +16,13 @@ const Chatting = () => {
         padding: 0,
       }}
     >
-      <Box sx={{ padding: 3, width: "100%", overflowY: "scroll" }}>
+      <Box
+        sx={{
+          padding: 4,
+          width: "100%",
+          overflowY: "scroll",
+        }}
+      >
         <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
           <ChatReceiveMsgBox
             nickName="엄마쟤흙머겅"
@@ -60,6 +68,27 @@ const Chatting = () => {
             nickName="엄마쟤흙머겅"
             chatMsg="편의점 앞으로와"
             msgTime="11:44"
+          />
+        </Box>
+        <Box
+          component="form"
+          sx={{
+            width: "100%",
+            padding: 1,
+            backgroundColor: colors.background.primary,
+            borderRadius: sizes.borderRadius.xs,
+            position: "sticky", // 입력란을 고정
+            bottom: 0,
+            marginTop: 5,
+          }}
+          noValidate
+          autoComplete="off"
+        >
+          <TextField
+            label="채팅을 입력해주세요"
+            color="secondary"
+            focused
+            sx={{ width: "100%" }}
           />
         </Box>
       </Box>

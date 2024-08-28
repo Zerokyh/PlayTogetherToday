@@ -6,7 +6,8 @@ import {
   InputAdornment,
   InputLabel,
 } from "@mui/material";
-import DriveFileRenameOutlineIcon from "@mui/icons-material/DriveFileRenameOutline";
+import LockPersonIcon from "@mui/icons-material/LockPerson";
+import LockOpenIcon from "@mui/icons-material/LockOpen";
 import { InputModifyBoxProp } from "../../utils/type";
 
 const InputModifyBox = ({
@@ -32,7 +33,7 @@ const InputModifyBox = ({
               edge="end"
               onClick={handleChange}
             >
-              <DriveFileRenameOutlineIcon />
+              {disabled ? <LockPersonIcon /> : <LockOpenIcon />}
             </IconButton>
           </InputAdornment>
         }

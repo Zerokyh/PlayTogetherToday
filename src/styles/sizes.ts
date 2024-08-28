@@ -6,6 +6,7 @@ export const sizes = {
   avatar: {
     logo: "30px",
     chat: "60px",
+    info: "120px",
   },
 
   width: {

@@ -1,5 +1,4 @@
 export const groupData = {
-  null: { value: "", group: "선택안함" },
   first: { value: 1, group: "🎳볼링" },
   second: { value: 2, group: "🎲보드게임" },
   third: { value: 3, group: "⚽축구" },
