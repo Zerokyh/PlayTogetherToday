@@ -18,16 +18,16 @@ const SelectDropDown = () => {
       sx={{
         my: 1,
         width: 114,
-        height: 30, // FormControl의 높이 설정
+        height: 30,
         "& .MuiSelect-root": {
-          height: "100%", // Select의 높이를 FormControl에 맞춤
-          paddingTop: 0, // Padding 조정 (기본 값이 높이와 맞지 않기 때문)
+          height: "100%",
+          paddingTop: 0,
           paddingBottom: 0,
         },
         "& .MuiInputLabel-root": {
-          height: 30, // InputLabel의 높이 설정
-          fontSize: 10, // InputLabel의 폰트 사이즈 설정
-          lineHeight: "13px", // InputLabel의 수직 중앙 정렬
+          height: 30,
+          fontSize: 10,
+          lineHeight: "13px",
         },
       }}
       size="small"
@@ -46,8 +46,8 @@ const SelectDropDown = () => {
         label="Select Group"
         onChange={handleChange}
         sx={{
-          height: "100%", // Select의 높이를 FormControl에 맞춤
-          paddingTop: 0, // Padding 조정
+          height: "100%",
+          paddingTop: 0,
           paddingBottom: 0,
         }}
       >

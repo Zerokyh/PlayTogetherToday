@@ -23,7 +23,7 @@ const ContentsBox = ({
     <Card
       sx={{
         width: { xs: "80%", sm: "80%", md: "60%" }, // 반응형 width 조정
-        height: { md: "80%" },
+        height: { md: "80%" }, // 반응형 height 조정
         maxWidth: 400,
         minWidth: 200,
         minHeight: 380,
