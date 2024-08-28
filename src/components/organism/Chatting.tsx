@@ -4,8 +4,19 @@ import ChatSendMsgBox from "../molecules/ChatSendMsgBox";
 import ChatReceiveMsgBox from "../molecules/ChatReceiveMsgBox";
 import { colors } from "../../styles/colors";
 import { sizes } from "../../styles/sizes";
+import { useEffect, useRef } from "react";
 
 const Chatting = () => {
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (messagesEndRef.current) {
+      messagesEndRef.current.scrollIntoView({
+        behavior: "auto",
+        block: "end",
+      });
+    }
+  }, []);
   return (
     <WidthHalfBox
       sx={{
@@ -91,6 +102,7 @@ const Chatting = () => {
             sx={{ width: "100%" }}
           />
         </Box>
+        <div ref={messagesEndRef} />
       </Box>
     </WidthHalfBox>
   );
