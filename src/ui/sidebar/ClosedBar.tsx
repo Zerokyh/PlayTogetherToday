@@ -46,7 +46,7 @@ const ClosedBar = () => {
       </List>
       <List disablePadding sx={isLogin ? { flexGrow: 1 } : { display: "none" }}>
         {isLogin &&
-          menuData.map((item) => (
+          Object.entries(menuData).map(([key, item]) => (
             <ListItem key={item.text} disablePadding sx={{ display: "block" }}>
               <ListItemButton
                 onClick={() => navigate(item.href)}
