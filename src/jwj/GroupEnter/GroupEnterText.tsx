@@ -7,7 +7,7 @@ type GroupEnterText_props = {
 const GroupEnterText = ({ text }: GroupEnterText_props) => {
   return (
     <TextField
-      sx={{ width: "300px" }}
+      sx={{ width: "400px" }}
       id="outlined-search"
       label={text}
       type="search"

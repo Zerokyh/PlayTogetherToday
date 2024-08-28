@@ -22,9 +22,10 @@ const GroupEnter = () => {
 
       <div>
         <ButtonGroup
-          sx={{ width: "270px", fontSize: "5px" }}
+          sx={{ width: "400px", fontSize: "5px" }}
           variant="outlined"
           aria-label="Basic button group"
+          className=" flex justify-center items-center"
         >
           <GroupEnterButton text="모임가입 요청" />
           <GroupEnterButton text="QR코드로 가입" />

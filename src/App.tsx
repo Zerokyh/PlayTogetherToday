@@ -13,6 +13,8 @@ import Gameroom from "./jwj/Gameroom/Gameroom";
 import Myroom_authority from "./jwj/Myroom_authority/Myroom_authority";
 import { ThemeProvider } from "@mui/material";
 import { theme } from "./styles/fonts";
+import Border from "./hsw/Border";
+import BorderDetail from "./hsw/BorderDetail";
 
 const App = () => {
   return (
@@ -43,6 +45,10 @@ const App = () => {
             {/* 그룹 가입 페이지 등록 */}
             <Route path="/Gameroom" Component={Gameroom} />
             {/* 게임룸 페이지 등록 */}
+            <Route path="/GroupBoardList" Component={Border} />
+            {/* 모임 리스트 페이지 등록 */}
+            <Route path="/BorderDetail" Component={BorderDetail} />
+            {/* 모임 리스트 페이지 등록 */}
           </Route>
         </Routes>
       </BrowserRouter>
