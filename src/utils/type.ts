@@ -89,14 +89,14 @@ export type InputModifyBoxProp = {
 };
 
 export type SwitchBoxProp = {
-  color?: "primary" | "secondary";
+  color?: "primary" | "secondary" | "success";
   checked: boolean;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 export type IosSwitchButtonProps = {
   text?: string;
-  color?: "primary" | "secondary";
+  color?: "primary" | "secondary" | "success";
   checked: boolean;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };

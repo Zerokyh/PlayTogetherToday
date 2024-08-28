@@ -1,15 +1,32 @@
 import { FormControlLabel } from "@mui/material";
 import { styled, Theme } from "@mui/material/styles";
 import Switch, { SwitchProps } from "@mui/material/Switch";
+import { IosSwitchButtonProps } from "../../utils/type";
 
-// 색상 타입 정의
-type SwitchColor = "primary" | "secondary" | "success";
-
-// Switch의 스타일을 정의하는 함수
-const IOSSwitch = styled(Switch, {
-  shouldForwardProp: (prop) => prop !== "color" && prop !== "checked",
-})<{ color?: SwitchColor; checked?: boolean }>(
-  ({ theme, color = "primary", checked }) => {
+// Switch 컴포넌트의 스타일을 지정하는 함수
+const IOSSwitch = styled(
+  (
+    props: SwitchProps & {
+      color?: "primary" | "secondary" | "success";
+      checked?: boolean;
+    }
+  ) => (
+    <Switch
+      focusVisibleClassName=".Mui-focusVisible"
+      disableRipple
+      {...props}
+    />
+  )
+)(
+  ({
+    theme,
+    color = "primary",
+    checked,
+  }: {
+    theme: Theme;
+    color?: "primary" | "secondary" | "success";
+    checked?: boolean;
+  }) => {
     const switchColors = {
       primary: {
         track: checked ? theme.palette.primary.dark : "grey",
@@ -20,8 +37,8 @@ const IOSSwitch = styled(Switch, {
         thumb: checked ? "white" : theme.palette.secondary.main,
       },
       success: {
-        track: checked ? "#4CAF50" : "grey", // 커스텀 해야 할 부분
-        thumb: checked ? "white" : "#4CAF50", // 커스텀 해야 할 부분
+        track: checked ? theme.palette.success.main : "grey",
+        thumb: checked ? "white" : theme.palette.success.main,
       },
     };
 
@@ -35,10 +52,9 @@ const IOSSwitch = styled(Switch, {
         transitionDuration: "300ms",
         "&.Mui-checked": {
           transform: "translateX(16px)",
-          color: switchColors[color]?.thumb || switchColors.primary.thumb,
+          color: switchColors[color].thumb,
           "& + .MuiSwitch-track": {
-            backgroundColor:
-              switchColors[color]?.track || switchColors.primary.track,
+            backgroundColor: switchColors[color].track,
           },
         },
       },
@@ -49,8 +65,7 @@ const IOSSwitch = styled(Switch, {
       },
       "& .MuiSwitch-track": {
         borderRadius: 26 / 2,
-        backgroundColor:
-          switchColors[color]?.track || switchColors.primary.track,
+        backgroundColor: switchColors[color].track,
         opacity: 1,
         transition: theme.transitions.create(["background-color"], {
           duration: 500,
@@ -60,21 +75,19 @@ const IOSSwitch = styled(Switch, {
   }
 );
 
+// IosSwitchButton 컴포넌트
 const IosSwitchButton = ({
+  text,
   color = "primary",
   checked,
   onChange,
-}: {
-  color?: SwitchColor;
-  checked: boolean;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-}) => {
+}: IosSwitchButtonProps) => {
   return (
     <FormControlLabel
       control={
         <IOSSwitch color={color} checked={checked} onChange={onChange} />
       }
-      label
+      label={text}
     />
   );
 };

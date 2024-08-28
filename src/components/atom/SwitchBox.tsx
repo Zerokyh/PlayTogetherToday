@@ -12,6 +12,10 @@ const SwitchBox = ({ color = "primary", checked, onChange }: SwitchBoxProp) => {
       track: checked ? theme.palette.secondary.main : "grey",
       thumb: checked ? theme.palette.secondary.main : "white",
     },
+    success: {
+      track: checked ? theme.palette.success.main : "grey",
+      thumb: checked ? "white" : theme.palette.success.main,
+    },
   };
   return (
     <Switch
