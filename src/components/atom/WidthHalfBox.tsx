@@ -1,13 +1,14 @@
 import { Box } from "@mui/material";
 
 import { WidthHalfBoxProps } from "../../utils/type";
-import { WidthHalfBoxMui } from "../../styles/mui";
+import { WidthHalfBoxInnerMui } from "../../styles/mui";
 
-const WidthHalfBox = ({ children }: WidthHalfBoxProps) => {
+const WidthHalfBox = ({ children, sx }: WidthHalfBoxProps) => {
   return (
     <Box
       sx={{
-        ...WidthHalfBoxMui,
+        ...WidthHalfBoxInnerMui,
+        ...sx,
       }}
     >
       {children}

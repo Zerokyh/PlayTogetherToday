@@ -60,10 +60,25 @@ export const FullPageBox = styled(Box)({
   alignItems: "center",
 });
 
+export const WidthHalfOutterBox = styled(Box)({
+  display: "flex",
+  flexDirection: "row",
+  width: "100%",
+  height: "100vh",
+});
+
+export const WidthHalfInnerBox = styled(Box)({
+  flex: 1,
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
+  alignItems: "center",
+});
+
 export const MySettingOutterBox = styled(Box)({
   backgroundColor: colors.background.primary,
-  width: 600,
-  height: 700,
+  minWidth: 500,
+  minHeight: 640,
   borderRadius: sizes.borderRadius.medium,
   display: "flex",
   flexDirection: "column",
@@ -124,7 +139,7 @@ export const ContentsBoxImg = {
   height: "54%",
 };
 
-export const WidthHalfBoxMui = {
+export const WidthHalfBoxInnerMui = {
   maxWidth: sizes.width.half,
   maxHeight: sizes.height.full,
   width: "100%",
@@ -132,9 +147,9 @@ export const WidthHalfBoxMui = {
   bgcolor: colors.background.primary,
   borderRadius: sizes.borderRadius.normal,
   display: "flex",
-  flexDirection: "row",
-  justifyContent: "space-between",
-  padding: sizes.padding.large,
+  flexDirection: "column",
+  padding: sizes.padding.none,
+  margin: 0,
 };
 
 export const SkeletonMini = {

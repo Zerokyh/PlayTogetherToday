@@ -1,8 +1,8 @@
 import { Box } from "@mui/material";
-import ChatListBox from "../molecules/ChatListBox";
+import ChatListBox from "./ChatListBox";
 import WidthHalfBox from "../atom/WidthHalfBox";
 import { ReactNode } from "react";
-import Chatting from "../molecules/Chatting";
+import Chatting from "./Chatting";
 import { sizes } from "../../styles/sizes";
 
 type ChatBoxProps = {

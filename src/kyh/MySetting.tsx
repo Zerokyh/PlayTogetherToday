@@ -31,7 +31,7 @@ const MySetting = () => {
       <FullPageBox>
         <MySettingOutterBox>
           <MySettingInnerBox>
-            <Box width={400}>
+            <Box minWidth={400}>
               <IconTextTextBox
                 icontextboxprops={{
                   icon: <SettingsIcon />,

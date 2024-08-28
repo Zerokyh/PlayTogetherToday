@@ -1,4 +1,3 @@
-import * as React from "react";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
@@ -6,7 +5,21 @@ import ButtonBase from "@mui/material/ButtonBase";
 import LogoIcon from "../atom/ImgAvatar";
 import { ChatListBoxAvatar } from "../../styles/mui";
 
-const ChatListBox = () => {
+type ChatListItemProps = {
+  avatarname?: string;
+  avatarsrc?: string;
+  nickname: string;
+  lastchatmsg: string;
+  lastchattime: string;
+};
+
+const ChatListItem = ({
+  avatarname,
+  avatarsrc,
+  nickname,
+  lastchatmsg,
+  lastchattime,
+}: ChatListItemProps) => {
   return (
     <Paper
       sx={{
@@ -21,7 +34,11 @@ const ChatListBox = () => {
       <Grid container spacing={2} sx={{ maxHeight: 80 }}>
         <Grid item>
           <ButtonBase sx={{ width: 70, height: 70 }}>
-            <LogoIcon alt="cat" src="/cat.jpg" sx={{ ...ChatListBoxAvatar }} />
+            <LogoIcon
+              alt={avatarname}
+              src={avatarsrc}
+              sx={{ ...ChatListBoxAvatar }}
+            />
           </ButtonBase>
         </Grid>
         <Grid item xs={12} sm container>
@@ -33,10 +50,10 @@ const ChatListBox = () => {
                 component="div"
                 fontWeight={800}
               >
-                닉네임
+                {nickname}
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                안녕! 뭐해?
+                {lastchatmsg}
               </Typography>
               <Typography
                 sx={{
@@ -46,7 +63,7 @@ const ChatListBox = () => {
                 }}
                 variant="body2"
               >
-                YYYY년 MM월 DD일 hh시 mm분 ss초
+                {lastchattime}
               </Typography>
             </Grid>
           </Grid>
@@ -56,4 +73,4 @@ const ChatListBox = () => {
   );
 };
 
-export default ChatListBox;
+export default ChatListItem;
