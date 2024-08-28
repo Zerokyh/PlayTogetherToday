@@ -54,6 +54,7 @@ export const Drawer = styled(MuiDrawer, {
 
 export const FullPageBox = styled(Box)({
   width: `calc(100vw - ${sizes.drawerWidth})`,
+  maxWidth: "1280px",
   height: "100vh",
   display: "flex",
   justifyContent: "center",
