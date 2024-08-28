@@ -20,7 +20,15 @@ const ContentsBox = ({
   const { isLogin } = useThemeStore();
   const navigate = useNavigate();
   return (
-    <Card sx={{ width: 400 }}>
+    <Card
+      sx={{
+        width: { xs: "80%", sm: "80%", md: "60%" }, // 반응형 width 조정
+        height: { md: "80%" },
+        maxWidth: 400,
+        minWidth: 200,
+        minHeight: 380,
+      }}
+    >
       <CardMedia
         component="img"
         alt={subject}

@@ -14,13 +14,13 @@ export const dashBoardData = [
   {
     img: "/group.jpg",
     subject: "모임들",
-    introduce: "모임 생성, 가입, 리스트, 내가 속한",
+    introduce: "모임 생성, 가입, 내가 속한",
     introduce_add: "모임등, 모임에 관련된 페이지",
   },
   {
     img: "/game.jpg",
     subject: "게임룸",
-    introduce: "사다리 게임, 룰렛 등 다양한 게임들",
-    introduce_add: "인원 선발을 위한 미니 게임 페이지",
+    introduce: "사다리 게임, 룰렛 등",
+    introduce_add: "미니 게임 페이지",
   },
 ];

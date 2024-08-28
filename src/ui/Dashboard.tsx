@@ -16,7 +16,7 @@ const Dashboard = () => {
             {dashBoardData.map((item, index) => (
               <Grid
                 xs={12}
-                sm={6}
+                sm={12}
                 md={6}
                 key={index}
                 sx={{ display: "flex", justifyContent: "center" }}

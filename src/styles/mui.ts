@@ -95,12 +95,14 @@ export const MyInfoInnerBox = styled(Box, {
 }));
 
 export const DashboardGridBox = styled(Box)({
-  width: 1200,
-  height: 900,
+  width: "100%", // FullPageBox 내에서 가득 채우도록 설정
+  maxWidth: "1200px", // 최대 너비 설정
+  height: "100%", // 전체 높이를 가득 채우도록 설정
   display: "flex",
   flexDirection: "column",
   justifyContent: "center",
   alignItems: "center",
+  padding: "16px", // 작은 여백 추가
 });
 
 export const AvatarSize = {
@@ -119,7 +121,7 @@ export const ContentsBoxImg = {
   objectFit: "cover",
   objectPosition: "center top",
   width: "100%",
-  height: "200px",
+  height: "54%",
 };
 
 export const WidthHalfBoxMui = {
