@@ -50,11 +50,8 @@ const App = () => {
             {/* 모임 리스트 페이지 등록 */}
             <Route path="/BorderDetail" Component={BorderDetail} />
             {/* 모임 상세 페이지 등록 */}
-
-            
-            {/* 회원가입 페이지 등록 */}
             <Route path="/SignUp" Component={SignUp} />
-
+            {/* 회원가입 페이지 등록 */}
           </Route>
         </Routes>
       </BrowserRouter>

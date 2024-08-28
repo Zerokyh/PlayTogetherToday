@@ -2,9 +2,11 @@ import { Box } from "@mui/material";
 import LinkedButton from "../atom/LinkedButton";
 import { sizes } from "../../styles/sizes";
 import useThemeStore from "../../store/store";
+import { useNavigate } from "react-router-dom";
 
 const NotLoginButton = () => {
   const { setIsLogin } = useThemeStore();
+  const navigate = useNavigate();
   return (
     <Box
       sx={{
@@ -16,8 +18,7 @@ const NotLoginButton = () => {
       }}
     >
       <LinkedButton text="로그인" onClick={() => setIsLogin(true)} />
-      <LinkedButton text="회원가입" />
-
+      <LinkedButton text="회원가입" onClick={() => navigate("/SignUp")} />
     </Box>
   );
 };
