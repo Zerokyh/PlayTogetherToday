@@ -7,7 +7,7 @@ import HomeIcon from "@mui/icons-material/Home";
 export const menuData = [
   { text: "마이룸", icon: AccountCircleIcon, href: "/Myroom" },
   { text: "채팅룸", icon: ChatIcon, href: "/Chat" },
-  { text: "모임룸", icon: GroupsIcon, href: "/GroupBoardList" },
+  { text: "모임들", icon: GroupsIcon, href: "/GroupBoardList" },
   { text: "게임룸", icon: SportsEsportsIcon, href: "/Gameroom" },
   { text: "홈으로", icon: HomeIcon, href: "/" },
 ];

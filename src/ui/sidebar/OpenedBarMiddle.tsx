@@ -40,7 +40,7 @@ const OpenedBarMiddle = () => {
                 <LinkedButton text="채팅룸" href="/Chat" />
               </Grid>
               <Grid item xs={5} md={5}>
-                <LinkedButton text="모임룸" />
+                <LinkedButton text="모임룸" href="/GroupBoardList" />
               </Grid>
               <Grid item xs={5} md={5}>
                 <LinkedButton text="게임룸" href="/Gameroom" />

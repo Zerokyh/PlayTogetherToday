@@ -4,8 +4,10 @@ import Myroom_meeting_button from "./Myroom_meeting_button";
 import Myroom_freindsList from "./Myroom_freindsList";
 import Myroom_message from "./Myroom_message";
 import { sizes } from "../../styles/sizes";
+import { useNavigate } from "react-router-dom";
 
 const Myroom = () => {
+  const navigate = useNavigate();
   //데이터베이스 만족하는 string 타입 개인정보  return 받아서 함수로 전달하기.
   const news = () => {
     const phone = "1234-516";
@@ -62,6 +64,7 @@ const Myroom = () => {
             position="직책"
             comming="다가오는 모임 날짜"
             group_anni="그룹 기념일"
+            onClick={() => navigate("/BorderDetail")}
           />
 
           <Myroom_meeting_button

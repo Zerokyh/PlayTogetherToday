@@ -7,6 +7,7 @@ type meeting_button_props = {
   position?: string;
   comming?: string;
   group_anni?: string;
+  onClick?: () => void;
 };
 
 const Myroom_meeting_button = ({
@@ -16,11 +17,13 @@ const Myroom_meeting_button = ({
   position,
   comming,
   group_anni,
+  onClick,
 }: meeting_button_props) => {
   return (
     <button
       style={{ fontSize: sizes.fontSize.xsmall }}
       className="w-full h-1/4 flex  items-center justify-between bg-violet-200  rounded-xl"
+      onClick={onClick}
     >
       <div className="w-1/2 h-full flex flex-col justify-center items-start pl-3  gap-0.5">
         <div>{group}</div>
