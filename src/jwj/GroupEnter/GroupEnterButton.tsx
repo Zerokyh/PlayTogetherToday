@@ -1,4 +1,5 @@
 import { Button } from "@mui/material";
+import { sizes } from "../../styles/sizes";
 
 type GroupEnterButton_props = {
   text: string;
@@ -7,7 +8,7 @@ type GroupEnterButton_props = {
 
 const GroupEnterButton = ({ text, onClick }: GroupEnterButton_props) => {
   return (
-    <Button sx={{ fontSize: "6px" }} onClick={onClick}>
+    <Button sx={{ fontSize: sizes.fontSize.xsmall }} onClick={onClick}>
       {text}
     </Button>
   );

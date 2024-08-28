@@ -7,7 +7,7 @@ type GroupMake_Title_props = {
 const GroupMake_Title = ({ text, onClick, style }: GroupMake_Title_props) => {
   return (
     <h1
-      className={`bg-[#EADDFF] max-w-full my-3 px-10 py-5 rounded-3xl text-center font-bold text-base ${style}`}
+      className={`bg-[#EADDFF] max-w-full  rounded-3xl text-center font-bold text-base ${style} px-2`}
       onClick={onClick}
     >
       {text}

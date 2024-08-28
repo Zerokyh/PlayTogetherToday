@@ -1,3 +1,5 @@
+import { sizes } from "../../styles/sizes";
+
 type meeting_button_props = {
   group?: string;
   type?: string;
@@ -16,13 +18,19 @@ const Myroom_meeting_button = ({
   group_anni,
 }: meeting_button_props) => {
   return (
-    <button className="w-full h-1/4 flex  items-center justify-between bg-violet-200  rounded-xl">
-      <div className="w-1/2 h-full flex flex-col justify-center items-start pl-3 text-[10px] gap-0.5">
+    <button
+      style={{ fontSize: sizes.fontSize.xsmall }}
+      className="w-full h-1/4 flex  items-center justify-between bg-violet-200  rounded-xl"
+    >
+      <div className="w-1/2 h-full flex flex-col justify-center items-start pl-3  gap-0.5">
         <div>{group}</div>
         <div>{type}</div>
         <div>{count}</div>
       </div>
-      <div className="w-1/2 h-full flex flex-col  justify-center items-start pl-3 text-[10px] gap-0.5">
+      <div
+        style={{ fontSize: sizes.fontSize.xsmall }}
+        className="w-1/2 h-full flex flex-col  justify-center items-start pl-3 gap-0.5"
+      >
         <div>{position}</div>
         <div>{comming}</div>
         <div>{group_anni}</div>

@@ -9,18 +9,20 @@ const GroupMake_Input = ({ validation = false }: GroupMake_Input_props) => {
 
   return validation ? (
     <div>
-      <p className={`text-[10px] ${text ? "text-green-500" : "text-red-500"}`}>
+      <div
+        className={`text-[10px] ${text ? "text-green-500" : "text-red-500"}`}
+      >
         {text ? "입력완료" : "입력해주세요"}
-      </p>
+      </div>
       <input
         type="text"
         value={text}
         onChange={(e) => setText(e.target.value)}
-        className="bg-[#EADDFF] min-w-full outline-none border-b border-black"
+        className="bg-[#EADDFF] min-w-full outline-none border-b border-black  text-[10px]"
       />
     </div>
   ) : (
-    <input className="bg-[#EADDFF] min-w-full outline-none border-b border-black" />
+    <input className="bg-[#EADDFF] min-w-full outline-none border-b border-black text-[10px]" />
   );
 };
 

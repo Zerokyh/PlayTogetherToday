@@ -4,7 +4,7 @@ type GroupMake_Button_props = {
 
 const GroupMake_Button = ({ text }: GroupMake_Button_props) => {
   return (
-    <button className="bg-[#D7BEFF] px-5 py-3 rounded-full font-bold text-lg shadow">
+    <button className="bg-[#D7BEFF]  rounded-full font-bold text-lg shadow px-3">
       {text}
     </button>
   );
