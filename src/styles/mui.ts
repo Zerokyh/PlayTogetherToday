@@ -63,7 +63,6 @@ export const WidthHalfOutterBox = styled(Box)({
   display: "flex",
   flexDirection: "row",
   width: "100%",
-  maxWidth: "1280px",
   height: "100vh",
   gap: 30,
 });
@@ -111,7 +110,6 @@ export const MyInfoInnerBox = styled(Box)({
 
 export const DashboardGridBox = styled(Box)({
   width: "100%",
-  maxWidth: "1280px",
   height: "100%",
   display: "flex",
   flexDirection: "column",

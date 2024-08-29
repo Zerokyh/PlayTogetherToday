@@ -12,19 +12,16 @@ const Chat = () => {
   return (
     <React.Fragment>
       <CssBaseline />
-      <FullPageBox>
-        <WidthHalfOutterBox>
-          {/* 왼쪽 절반 */}
-          <WidthHalfInnerBox>
-            <ChatListBox />
-          </WidthHalfInnerBox>
-
-          {/* 오른쪽 절반 */}
-          <WidthHalfInnerBox>
-            <Chatting />
-          </WidthHalfInnerBox>
-        </WidthHalfOutterBox>
-      </FullPageBox>
+      <WidthHalfOutterBox>
+        {/* 왼쪽 절반 */}
+        <WidthHalfInnerBox>
+          <ChatListBox />
+        </WidthHalfInnerBox>
+        {/* 오른쪽 절반 */}
+        <WidthHalfInnerBox>
+          <Chatting />
+        </WidthHalfInnerBox>
+      </WidthHalfOutterBox>
     </React.Fragment>
   );
 };
