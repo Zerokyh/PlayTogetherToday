@@ -26,7 +26,7 @@ const ContentsBox = ({
         height: { xs: "80%", md: "80%" }, // 반응형 height 조정
         maxWidth: 400,
         minWidth: 200,
-        minHeight: 380,
+        minHeight: 340,
         margin: "30px",
         display: "flex",
         flexDirection: "column",
