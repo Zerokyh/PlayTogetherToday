@@ -2,7 +2,7 @@ import * as React from "react";
 import CssBaseline from "@mui/material/CssBaseline";
 import ContentsBox from "../components/molecules/ContentsBox";
 import Grid from "@mui/material/Unstable_Grid2";
-import { DashboardGridBox, FullPageBox } from "../styles/mui";
+import { DashboardGridBox } from "../styles/mui";
 import { dashBoardData } from "../constants/dashBoardData";
 
 const Dashboard = () => {
@@ -20,11 +20,11 @@ const Dashboard = () => {
               sx={{ display: "flex", justifyContent: "center" }}
             >
               <ContentsBox
-                index={index}
                 img={item.img}
                 subject={item.subject}
                 introduce={item.introduce}
                 introduce_add={item.introduce_add}
+                href={item.href}
               />
             </Grid>
           ))}

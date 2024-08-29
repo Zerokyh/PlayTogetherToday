@@ -47,7 +47,7 @@ const App = () => {
             <Route path="/Gameroom" Component={Gameroom} />
             {/* 게임룸 페이지 등록 */}
             <Route path="/GroupBoardList" Component={Border} />
-            {/* 모임 리스트 페이지 등록 */}
+            {/* 모임들 페이지 등록 */}
             <Route path="/BorderDetail" Component={BorderDetail} />
             {/* 모임 상세 페이지 등록 */}
             <Route path="/SignUp" Component={SignUp} />

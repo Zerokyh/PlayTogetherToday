@@ -8,11 +8,11 @@ export type ImgAvatarProps = {
 };
 
 export type ContentsBoxProps = {
-  index: number;
   img: string;
   subject: string;
   introduce: string;
   introduce_add: string;
+  href: string;
 };
 
 export type LinkedButtonProps = {

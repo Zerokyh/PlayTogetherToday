@@ -56,7 +56,7 @@ const ChatReceiveMsgBox = ({
             sx={{
               wordBreak: "break-word",
               display: "inline-block",
-              maxWidth: "220px",
+              maxWidth: "340px",
               marginRight: 6,
               bgcolor: colors.background.drawer,
               borderRadius: sizes.borderRadius.xs,

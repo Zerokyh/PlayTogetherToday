@@ -43,7 +43,7 @@ const ChatSendMsgBox = ({ chatMsg, msgTime }: ChatSendMsgBoxProps) => {
             sx={{
               wordBreak: "break-word",
               display: "inline-block",
-              maxWidth: "220px",
+              maxWidth: "340px",
               textAlign: "right",
               bgcolor: colors.background.drawer,
               borderRadius: sizes.borderRadius.xs,

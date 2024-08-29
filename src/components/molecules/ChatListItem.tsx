@@ -27,8 +27,10 @@ const ChatListItem = ({
     <Box onClick={onClick}>
       <Paper
         sx={{
-          p: 2,
+          p: 1,
           width: "100%",
+          maxWidth: "560px", // 최대 너비 설정
+          minWidth: "435px", // 최소 너비 설정
           borderRadius: "12px",
           display: "flex",
           alignItems: "center",

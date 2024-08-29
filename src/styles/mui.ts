@@ -63,16 +63,18 @@ export const WidthHalfOutterBox = styled(Box)({
   display: "flex",
   flexDirection: "row",
   width: "100%",
-  height: "100vh",
+  height: "90vh",
   gap: 30,
 });
 
 export const WidthHalfInnerBox = styled(Box)({
+  width: "100%",
   flex: 1,
   display: "flex",
-  flexDirection: "column",
+  flexDirection: "row",
   justifyContent: "center",
   alignItems: "center",
+  padding: "0",
 });
 
 export const MySettingOutterBox = styled(Box)({
@@ -138,8 +140,6 @@ export const ContentsBoxImg = {
 };
 
 export const WidthHalfBoxInnerMui = {
-  maxWidth: sizes.width.half,
-  maxHeight: sizes.height.full,
   width: "100%",
   height: "100%",
   bgcolor: colors.background.primary,

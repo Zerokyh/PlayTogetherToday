@@ -20,6 +20,7 @@ const Chatting = () => {
   return (
     <WidthHalfBox
       sx={{
+        width: "100%",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
@@ -31,6 +32,8 @@ const Chatting = () => {
         sx={{
           padding: 4,
           width: "100%",
+          maxWidth: "625px", // 최대 너비 설정
+          minWidth: "500px", // 최소 너비 설정
           overflowY: "scroll",
         }}
       >

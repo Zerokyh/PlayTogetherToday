@@ -6,6 +6,7 @@ const ChatListBox = () => {
   return (
     <WidthHalfBox
       sx={{
+        width: "100%",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
@@ -16,6 +17,16 @@ const ChatListBox = () => {
       <Box sx={{ padding: 3, width: "100%", overflowY: "scroll" }}>
         <ChatListItem
           avatarsrc="cat.jpg"
+          nickname="닉네임"
+          lastchatmsg="뭐해?"
+          lastchattime="YYYY년 MM월 DD일 hh시 mm분 ss초"
+        />
+        <ChatListItem
+          nickname="닉네임"
+          lastchatmsg="뭐해?"
+          lastchattime="YYYY년 MM월 DD일 hh시 mm분 ss초"
+        />
+        <ChatListItem
           nickname="닉네임"
           lastchatmsg="뭐해?"
           lastchattime="YYYY년 MM월 DD일 hh시 mm분 ss초"

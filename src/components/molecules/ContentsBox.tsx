@@ -11,11 +11,11 @@ import { ContentsBoxImg } from "../../styles/mui";
 import useThemeStore from "../../store/store";
 
 const ContentsBox = ({
-  index,
   img,
   subject,
   introduce,
   introduce_add,
+  href,
 }: ContentsBoxProps) => {
   const { isLogin } = useThemeStore();
   const navigate = useNavigate();
@@ -51,11 +51,7 @@ const ContentsBox = ({
           size="small"
           onClick={() => {
             {
-              isLogin
-                ? index == 1
-                  ? navigate("/Chat")
-                  : navigate("#")
-                : navigate("/Login");
+              isLogin ? navigate(href) : navigate("/Login");
             }
           }}
         >
