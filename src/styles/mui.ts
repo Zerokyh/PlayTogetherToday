@@ -117,7 +117,7 @@ export const DashboardGridBox = styled(Box)({
   flexDirection: "column",
   justifyContent: "center",
   alignItems: "center",
-  padding: "16px",
+  padding: "0px",
 });
 
 export const AvatarSize = {
