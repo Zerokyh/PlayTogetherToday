@@ -12,7 +12,7 @@ const Dashboard = () => {
       <CssBaseline />
       <DashboardGridBox>
         <Box sx={{ maxWidth: "60%", height: "90vh", flexGrow: 1 }}>
-          <Grid container spacing={1} columns={12}>
+          <Grid container spacing={0} columns={12}>
             {dashBoardData.map((item, index) => (
               <Grid
                 xs={12}
