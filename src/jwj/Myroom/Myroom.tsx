@@ -26,7 +26,7 @@ const Myroom = () => {
       className="w-[calc(100vw-var(--drawer-width))] h-screen grid grid-cols-4 grid-rows-8 gap-4 p-5"
     >
       {/* <div className="w-screen h-screen grid grid-cols-4 grid-rows-8 gap-4 p-5"> */}
-      <div className="w-[300px] flex justify-center items-center col-span-2 row-span-3 gap-2 bg-violet-100 rounded-md ">
+      <div className="w- flex justify-center items-center col-span-2 row-span-3 gap-2 bg-violet-100 rounded-md ">
         <div className="w-3/5 h-full flex flex-col items-start justify-center pl-3 py-3 gap-2">
           <div className="h-1/5 flex flex-col items-start justify-center ">
             <div className="text-sm">닉네임</div>

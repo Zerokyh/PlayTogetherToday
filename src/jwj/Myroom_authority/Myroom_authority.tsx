@@ -1,6 +1,7 @@
 import { sizes } from "../../styles/sizes";
 import Authorize_button from "./Authorize_button";
 import Authorize_profile from "./Authorize_profile";
+import Profile_TotalButton from "./Profile_TotalButton";
 
 const Myroom_authority = () => {
   //사이드바와 화면에 맞게 크기 조절을 위한
@@ -28,7 +29,8 @@ const Myroom_authority = () => {
             <Authorize_profile info_name="그룹 기념일" />
           </div>
         </div>
-        <div className="w-2/5 h-full flex items-center justify-center pr-3">
+        <div className="w-2/5 h-full flex flex-col  items-center justify-center pr-3 gap-5">
+          <Profile_TotalButton />
           <div className="w-full h-32 flex items-center justify-center rounded-md bg-violet-200 ">
             <Authorize_button />
           </div>

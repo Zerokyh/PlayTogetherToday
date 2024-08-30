@@ -12,7 +12,7 @@ type profile_props = {
 
 const Myroom_profile = ({ info_name, info }: profile_props) => {
   return (
-    <div className="w-full flex items-center bg-violet-200 text-[10px] rounded-md px-1 flex-1  min-h-0 max-h-[16.66%]">
+    <div className="w-full flex items-center bg-violet-200 text-[12px] rounded-md px-1 flex-1  min-h-0 max-h-[16.66%]">
       <div>{info_name}: </div>
       <div>{info}</div>
     </div>
