@@ -26,16 +26,16 @@ const Myroom = () => {
       className="w-[calc(100vw-var(--drawer-width))] h-screen grid grid-cols-4 grid-rows-8 gap-4 p-5"
     >
       {/* <div className="w-screen h-screen grid grid-cols-4 grid-rows-8 gap-4 p-5"> */}
-      <div className="w-full flex justify-center items-center col-span-2 row-span-3 gap-2 bg-violet-100 rounded-md ">
-        <div className="w-3/5 h-full flex flex-col items-start justify-center px-3 py-3 gap-2">
-          <div className="w- full h-1/5 flex flex-col items-start justify-center ">
+      <div className="w-[300px] flex justify-center items-center col-span-2 row-span-3 gap-2 bg-violet-100 rounded-md ">
+        <div className="w-3/5 h-full flex flex-col items-start justify-center pl-3 py-3 gap-2">
+          <div className="h-1/5 flex flex-col items-start justify-center ">
             <div className="text-sm">닉네임</div>
             <div className="text-[10px]">그룹 총(N) 활동중입니다.</div>
           </div>
           <div className="w-full h-4/5 flex flex-col items-start justify-center gap-1">
-            <Myroom_profile info_name="연 락 처" info={news()} />
-            <Myroom_profile info_name="이 메 일" info="asdfasd213@naver.com" />
-            <Myroom_profile info_name="주 소" info="인천 부평구 " />
+            <Myroom_profile info_name="연락처" info={news()} />
+            <Myroom_profile info_name="이메일" info="asdfasd213@naver.com" />
+            <Myroom_profile info_name="주소" info="인천 부평구 " />
             <Myroom_profile info_name="그룹 직책" />
             <Myroom_profile info_name="개인 기념일" />
             <Myroom_profile info_name="그룹 기념일" />

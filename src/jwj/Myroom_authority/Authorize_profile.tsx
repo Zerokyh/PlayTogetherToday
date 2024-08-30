@@ -12,7 +12,7 @@ type profile_props = {
 
 const Authorize_profile = ({ info_name }: profile_props) => {
   return (
-    <div className="w-full bg-violet-200 text-[10px] rounded-md px-1 flex flex-1 items-center min-h-0 max-h-[16.66%] gap-2">
+    <div className="w-full bg-violet-200 text-[8px] rounded-md px-1 flex flex-1 items-center min-h-0 max-h-[16.66%] gap-2">
       <span>{info_name}: </span>
       <Authorize_button />
     </div>
