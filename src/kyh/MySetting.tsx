@@ -17,6 +17,7 @@ import {
   MySettingTitleStyle,
 } from "../styles/mui";
 import IosSwitchButton from "../components/atom/IosSwitchButton";
+import { bgcolor, color } from "@mui/system";
 
 const MySetting = () => {
   const { isTheme, setIsTheme } = useThemeStore();
@@ -46,6 +47,7 @@ const MySetting = () => {
                 />
               </Box>
               <IconTextTextBox
+                sx={{ bgcolor: "#EEE0C9" }}
                 icontextboxprops={{
                   icon: <AccountCircleIcon />,
                   text: "개인정보관리",
