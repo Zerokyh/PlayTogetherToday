@@ -18,7 +18,7 @@ const IconTextTextBox = ({
       width={"100%"}
       display={"flex"}
       flexDirection={"column"}
-      bgcolor={""}
+      bgcolor={"#96B6C5"}
       borderRadius={sizes.borderRadius.medium}
       sx={{ px: 1, py: 2, ...sx }}
     >

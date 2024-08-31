@@ -1,7 +1,6 @@
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
-import ButtonBase from "@mui/material/ButtonBase";
 import { ChatListBoxAvatar } from "../../styles/mui";
 import { Box } from "@mui/material";
 import ImgAvatar from "../atom/ImgAvatar";

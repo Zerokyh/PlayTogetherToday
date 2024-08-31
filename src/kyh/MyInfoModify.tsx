@@ -3,7 +3,6 @@ import { Box, ThemeProvider, Typography } from "@mui/material";
 import {
   FullPageBox,
   InputMuiStyle,
-  ModifyLinkedButtonStyle,
   MyInfoInnerBox,
   MySettingOutterBox,
 } from "../styles/mui";
@@ -13,7 +12,7 @@ import { sizes } from "../styles/sizes";
 import ImgAvatar from "../components/atom/ImgAvatar";
 import { infoData } from "../constants/myInfoModifyMenuData";
 import InputModifyBox from "../components/atom/InputModifyBox";
-import SettingsIcon from "@mui/icons-material/Settings";
+import EditIcon from "@mui/icons-material/Edit";
 
 const MyInfoModify = () => {
   return (
@@ -47,7 +46,7 @@ const MyInfoModify = () => {
                   sx={{
                     display: "flex",
                     alignItems: "center",
-                    gap: 4, // 아이템 사이에 간격 추가 (필요에 따라 조정)
+                    gap: 4,
                     paddingBottom: 6,
                   }}
                 >
@@ -74,7 +73,7 @@ const MyInfoModify = () => {
                       }}
                       onClick={() => {}}
                     >
-                      <SettingsIcon />
+                      <EditIcon />
                     </Box>
                   </Box>
                 </Box>

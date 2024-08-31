@@ -28,7 +28,7 @@ const MySetting = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <FullPageBox>
+      <FullPageBox bgcolor={"#F1F0E8"}>
         <Box sx={{ maxWidth: "1280px" }}>
           <MySettingOutterBox>
             <MySettingInnerBox>

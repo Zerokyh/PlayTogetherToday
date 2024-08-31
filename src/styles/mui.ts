@@ -77,7 +77,7 @@ export const WidthHalfInnerBox = styled(Box)({
 });
 
 export const MySettingOutterBox = styled(Box)({
-  backgroundColor: "#E0FBE2",
+  backgroundColor: "#ADC4CE",
   minWidth: 500,
   minHeight: 640,
   borderRadius: sizes.borderRadius.medium,
@@ -90,6 +90,7 @@ export const MySettingOutterBox = styled(Box)({
 });
 
 export const MySettingInnerBox = styled(Box)({
+  backgroundColor: "#ADC4CE",
   width: 400,
   height: 500,
   display: "flex",
