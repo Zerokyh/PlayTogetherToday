@@ -11,7 +11,12 @@ const PttLayout = () => {
       <SideBar /> {/* 사이드바 등록 */}
       <Box component="main" sx={{ flexGrow: 1, p: 0 }}>
         <FullPageBox>
-          <Box sx={{ maxWidth: "1280px" }}>
+          <Box
+            sx={{
+              maxWidth: "1280px",
+              width: "1280px",
+            }}
+          >
             <Outlet /> {/* 페이지가 바뀔 공간 등록 */}
           </Box>
         </FullPageBox>

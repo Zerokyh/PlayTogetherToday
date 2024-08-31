@@ -54,10 +54,7 @@ const MySetting = () => {
                 href="/MyInfoModify"
                 hover={{ ":hover": { cursor: "pointer" } }}
               />
-              <Box
-                bgcolor={colors.background.secondary}
-                sx={{ ...MySettingInnerStyle }}
-              >
+              <Box sx={{ ...MySettingInnerStyle }}>
                 <IconTextTextBox
                   icontextboxprops={{
                     icon: <ContrastIcon />,

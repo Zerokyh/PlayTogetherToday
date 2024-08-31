@@ -13,7 +13,7 @@ export const colors = {
 
   // 텍스트 색상 Text Color
   text: {
-    primary: "#888888", // 메인 텍스트 색상
+    primary: "#888888", // 메인 텍스트 색상 - 가장 옅은 회색 폰트
     secondary: "#E8E3D2", // 보조 텍스트 색상
     drawer: "#707070", // 드로어 텍스트 색상
   },

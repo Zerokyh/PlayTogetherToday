@@ -58,7 +58,11 @@ const ChatListItem = ({
                 >
                   {nickname}
                 </Typography>
-                <Typography variant="body2" color="text.secondary">
+                <Typography
+                  variant="body2"
+                  color="text.secondary"
+                  sx={{ fontSize: 14 }}
+                >
                   {lastchatmsg}
                 </Typography>
                 <Typography

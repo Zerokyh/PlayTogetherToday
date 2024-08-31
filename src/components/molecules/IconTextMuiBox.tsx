@@ -14,7 +14,6 @@ const IconTextMuiBox = ({
       width={340}
       display={"flex"}
       justifyContent={"space-between"}
-      bgcolor={colors.background.secondary}
       borderRadius={sizes.borderRadius.medium}
     >
       <IconTextButton {...icontextboxprops} />
