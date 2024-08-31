@@ -28,7 +28,7 @@ const IconTextButton = ({
       <Typography
         component="span"
         fontSize={fontsize}
-        sx={{ fontFamily: '"Pretendard-Regular", Arial, sans-serif' }}
+        sx={{ fontFamily: '"HSSaemaul-Regular", Arial, sans-serif' }}
       >
         {text}
       </Typography>
