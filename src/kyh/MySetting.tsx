@@ -38,8 +38,8 @@ const MySetting = () => {
                   icontextboxprops={{
                     icon: <SettingsIcon />,
                     text: "설정",
-                    iconsize: sizes.fontSize.xlarge,
-                    fontsize: sizes.fontSize.xlarge,
+                    iconsize: sizes.fontSize.xxlarge,
+                    fontsize: sizes.fontSize.xxlarge,
                   }}
                   sx={{
                     ...MySettingTitleStyle,
@@ -51,8 +51,11 @@ const MySetting = () => {
                 icontextboxprops={{
                   icon: <AccountCircleIcon />,
                   text: "개인정보관리",
+                  fontsize: sizes.fontSize.large,
+                  iconsize: sizes.fontSize.large,
                 }}
                 textbutton="편집"
+                buttonTextSize={sizes.fontSize.large}
                 href="/MyInfoModify"
                 hover={{ ":hover": { cursor: "pointer" } }}
               />

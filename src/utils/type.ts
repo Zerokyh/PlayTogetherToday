@@ -59,6 +59,7 @@ export type IconTextTextBoxProp = {
   textbutton?: string;
   href?: string;
   hover?: { ":hover": { cursor: "pointer" } } | {};
+  buttonTextSize?: string;
   sx?: object;
 };
 

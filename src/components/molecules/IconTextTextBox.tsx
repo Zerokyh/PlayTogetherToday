@@ -10,6 +10,7 @@ const IconTextTextBox = ({
   textbutton,
   href = "#",
   hover = {},
+  buttonTextSize,
   sx,
 }: IconTextTextBoxProp) => {
   const navigate = useNavigate();
@@ -26,6 +27,7 @@ const IconTextTextBox = ({
         <IconTextButton {...icontextboxprops} />
         <Typography
           component={"span"}
+          fontSize={buttonTextSize}
           sx={{
             px: 1,
             ...hover,
