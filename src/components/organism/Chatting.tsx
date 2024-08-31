@@ -92,7 +92,7 @@ const Chatting = () => {
             backgroundColor: colors.background.primary,
             borderRadius: sizes.borderRadius.xs,
             position: "sticky", // 입력란을 고정
-            bottom: 0,
+            bottom: -1,
             marginTop: 5,
           }}
           noValidate

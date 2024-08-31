@@ -17,7 +17,7 @@ const NotLoginButton = () => {
         gap: sizes.gap.medium,
       }}
     >
-      <LinkedButton text="로그인" onClick={() => setIsLogin(true)} />
+      <LinkedButton text="로그인" onClick={() => navigate("/Login")} />
       <LinkedButton text="회원가입" onClick={() => navigate("/SignUp")} />
     </Box>
   );

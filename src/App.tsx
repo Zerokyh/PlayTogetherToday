@@ -2,7 +2,6 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import PttLayout from "./ui/PttLayout";
 import Dashboard from "./ui/Dashboard";
 import Chat from "./kyh/Chat";
-import Login from "./ui/Login";
 import MySetting from "./kyh/MySetting";
 import MyInfoModify from "./kyh/MyInfoModify";
 import UtilTestPage from "./ui/UtilTestPage";
@@ -16,6 +15,7 @@ import { theme } from "./styles/fonts";
 import Border from "./hsw/Border";
 import BorderDetail from "./hsw/BorderDetail";
 import SignUp from "./ksy/SignUpPage/SignUp";
+import Login from "./ksy/LogInPage/LogIn";
 
 const App = () => {
   return (
@@ -33,7 +33,7 @@ const App = () => {
             <Route path="/MyInfoModify" Component={MyInfoModify} />
             {/* 개인정보 편집 페이지 등록 */}
             <Route path="/Login" Component={Login} />
-            {/* 임시 로그인 페이지 등록 */}
+            {/* 로그인 페이지 등록 */}
             <Route path="/UtilTestPage" Component={UtilTestPage} />
             {/* 임시 테스트 페이지 등록 */}
             <Route path="/Myroom" Component={Myroom} />

@@ -130,6 +130,7 @@ export const ChatListBoxAvatar = {
   width: sizes.avatar.chat,
   height: sizes.avatar.chat,
   mx: "auto",
+  border: "5px solid purple",
 };
 
 export const ContentsBoxImg = {
