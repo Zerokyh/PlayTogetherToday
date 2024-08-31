@@ -19,52 +19,8 @@ const ChatListBox = () => {
           avatarsrc="cat.jpg"
           nickname="닉네임"
           lastchatmsg="뭐해?"
-          lastchattime="YYYY년 MM월 DD일 hh시 mm분 ss초"
-        />
-        <ChatListItem
-          nickname="닉네임"
-          lastchatmsg="뭐해?"
-          lastchattime="YYYY년 MM월 DD일 hh시 mm분 ss초"
-        />
-        <ChatListItem
-          nickname="닉네임"
-          lastchatmsg="뭐해?"
-          lastchattime="YYYY년 MM월 DD일 hh시 mm분 ss초"
-        />
-        <ChatListItem
-          nickname="닉네임"
-          lastchatmsg="뭐해?"
-          lastchattime="YYYY년 MM월 DD일 hh시 mm분 ss초"
-        />
-        <ChatListItem
-          nickname="닉네임"
-          lastchatmsg="뭐해?"
-          lastchattime="YYYY년 MM월 DD일 hh시 mm분 ss초"
-        />
-        <ChatListItem
-          nickname="닉네임"
-          lastchatmsg="뭐해?"
-          lastchattime="YYYY년 MM월 DD일 hh시 mm분 ss초"
-        />
-        <ChatListItem
-          nickname="닉네임"
-          lastchatmsg="뭐해?"
-          lastchattime="YYYY년 MM월 DD일 hh시 mm분 ss초"
-        />
-        <ChatListItem
-          nickname="닉네임"
-          lastchatmsg="뭐해?"
-          lastchattime="YYYY년 MM월 DD일 hh시 mm분 ss초"
-        />
-        <ChatListItem
-          nickname="닉네임"
-          lastchatmsg="뭐해?"
-          lastchattime="YYYY년 MM월 DD일 hh시 mm분 ss초"
-        />
-        <ChatListItem
-          nickname="닉네임"
-          lastchatmsg="뭐해?"
-          lastchattime="YYYY년 MM월 DD일 hh시 mm분 ss초"
+          lastchattime_day="YYYY년 MM월 DD일"
+          lastchattime_time="hh시 mm분 ss초"
         />
       </Box>
     </WidthHalfBox>

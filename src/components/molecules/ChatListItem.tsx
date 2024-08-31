@@ -5,13 +5,16 @@ import ButtonBase from "@mui/material/ButtonBase";
 import { ChatListBoxAvatar } from "../../styles/mui";
 import { Box } from "@mui/material";
 import ImgAvatar from "../atom/ImgAvatar";
+import { sizes } from "../../styles/sizes";
+import { colors } from "../../styles/colors";
 
 type ChatListItemProps = {
   avatarname?: string;
   avatarsrc?: string;
   nickname: string;
   lastchatmsg: string;
-  lastchattime: string;
+  lastchattime_day: string;
+  lastchattime_time: string;
   onClick?: () => void;
 };
 
@@ -20,7 +23,8 @@ const ChatListItem = ({
   avatarsrc,
   nickname,
   lastchatmsg,
-  lastchattime,
+  lastchattime_day,
+  lastchattime_time,
   onClick,
 }: ChatListItemProps) => {
   return (
@@ -29,8 +33,6 @@ const ChatListItem = ({
         sx={{
           p: 1,
           width: "100%",
-          maxWidth: "560px", // 최대 너비 설정
-          minWidth: "435px", // 최소 너비 설정
           borderRadius: "12px",
           display: "flex",
           alignItems: "center",
@@ -39,13 +41,11 @@ const ChatListItem = ({
       >
         <Grid container spacing={2} sx={{ height: "100%" }}>
           <Grid item>
-            <ButtonBase sx={{ width: 70, height: 70 }}>
-              <ImgAvatar
-                alt={avatarname}
-                src={avatarsrc}
-                sx={{ ...ChatListBoxAvatar }}
-              />
-            </ButtonBase>
+            <ImgAvatar
+              alt={avatarname}
+              src={avatarsrc}
+              sx={{ ...ChatListBoxAvatar }}
+            />
           </Grid>
           <Grid item xs={12} sm container>
             <Grid item xs container direction="column" spacing={1}>
@@ -61,20 +61,35 @@ const ChatListItem = ({
                 <Typography
                   variant="body2"
                   color="text.secondary"
-                  sx={{ fontSize: 14 }}
+                  sx={{
+                    fontSize: sizes.fontSize.small,
+                    color: colors.text.primary,
+                  }}
                 >
                   {lastchatmsg}
                 </Typography>
-                <Typography
-                  sx={{
-                    display: "flex",
-                    justifyContent: "flex-end",
-                    fontSize: 12,
-                  }}
-                  variant="body2"
-                >
-                  {lastchattime}
-                </Typography>
+                <Box display={"flex"} flexDirection={"column"}>
+                  <Typography
+                    sx={{
+                      display: "flex",
+                      justifyContent: "flex-end",
+                      fontSize: 12,
+                    }}
+                    variant="body2"
+                  >
+                    {lastchattime_day}
+                  </Typography>
+                  <Typography
+                    sx={{
+                      display: "flex",
+                      justifyContent: "flex-end",
+                      fontSize: 12,
+                    }}
+                    variant="body2"
+                  >
+                    {lastchattime_time}
+                  </Typography>
+                </Box>
               </Grid>
             </Grid>
           </Grid>
