@@ -3,15 +3,15 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "RixXladywatermelonR";
-  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/2408-4@1.0/RixXladywatermelonR.woff2")
-    format("woff2");
+  font-family: "HSSaemaul-Regular";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/HSSaemaul-Regular.woff")
+    format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 body {
-  font-family: "RixXladywatermelonR", Arial, sans-serif;
+  font-family: "HSSaemaul-Regular", Arial, sans-serif;
   margin: 0;
   padding: 0;
 }
