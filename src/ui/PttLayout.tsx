@@ -3,10 +3,11 @@ import { Outlet } from "react-router-dom";
 import Box from "@mui/material/Box";
 import SideBar from "./SideBar";
 import { FullPageBox } from "../styles/mui";
+import { colors } from "../styles/colors";
 
 const PttLayout = () => {
   return (
-    <Box sx={{ display: "flex", p: 0, m: 0 }}>
+    <Box sx={{ display: "flex", p: 0, m: 0, color: colors.text.primary }}>
       <CssBaseline />
       <SideBar /> {/* 사이드바 등록 */}
       <Box component="main" sx={{ flexGrow: 1, p: 0 }}>

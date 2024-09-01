@@ -100,9 +100,9 @@ const Chatting = () => {
         >
           <TextField
             label="채팅을 입력해주세요"
-            color="secondary"
+            color="primary"
             focused
-            sx={{ width: "100%" }}
+            sx={{ width: "100%", backgroundColor: colors.background.primary }}
           />
         </Box>
         <div ref={messagesEndRef} />

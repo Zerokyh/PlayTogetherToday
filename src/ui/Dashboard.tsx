@@ -5,6 +5,7 @@ import Grid from "@mui/material/Unstable_Grid2";
 import { DashboardGridBox } from "../styles/mui";
 import { dashBoardData } from "../constants/dashBoardData";
 import { Box } from "@mui/material";
+import { colors } from "../styles/colors";
 
 const Dashboard = () => {
   return (

@@ -3,7 +3,7 @@ import { LinkedButtonNormal } from "../../styles/mui";
 import { LinkedButtonProps } from "../../utils/type";
 import { theme } from "../../styles/colors";
 import { useNavigate } from "react-router-dom";
-import { fontFamily } from "../../styles/fonts";
+import { fontFamily } from "../../styles/theme";
 
 const LinkedButton = ({
   type = "text",
@@ -24,16 +24,14 @@ const LinkedButton = ({
   };
 
   return (
-    <ThemeProvider theme={theme}>
-      <Button
-        variant={type}
-        color={color}
-        sx={{ ...sx, ...font }}
-        onClick={handleClick}
-      >
-        {text}
-      </Button>
-    </ThemeProvider>
+    <Button
+      variant={type}
+      color={color}
+      sx={{ ...sx, ...font }}
+      onClick={handleClick}
+    >
+      {text}
+    </Button>
   );
 };
 

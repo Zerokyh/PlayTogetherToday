@@ -5,6 +5,7 @@ import { colors, theme } from "./colors";
 import { sizes } from "./sizes";
 import { Box } from "@mui/material";
 import { MyInfoInnerBoxProps } from "../utils/type";
+import { bgcolor } from "@mui/system";
 
 export const openedMixin = (theme: Theme): CSSObject => ({
   width: sizes.drawerWidth,
@@ -131,7 +132,7 @@ export const ChatListBoxAvatar = {
   width: sizes.avatar.chat,
   height: sizes.avatar.chat,
   mx: "auto",
-  border: "5px solid purple",
+  border: `5px solid ${colors.border.primary}`,
 };
 
 export const ContentsBoxImg = {
@@ -144,7 +145,7 @@ export const ContentsBoxImg = {
 export const WidthHalfBoxInnerMui = {
   width: "100%",
   height: "100%",
-  bgcolor: colors.background.primary,
+  bgcolor: colors.background.secondary,
   borderRadius: sizes.borderRadius.normal,
   display: "flex",
   flexDirection: "column",
@@ -167,7 +168,7 @@ export const SkeletonNormal = {
 export const LinkedButtonNormal = {
   width: 100,
   height: 40,
-  color: colors.text.drawer,
+  color: colors.text.primary,
   fontWeight: 600,
   border: `1px solid ${colors.border.drawer}`,
   fontSize: sizes.fontSize.xsmall,
@@ -176,9 +177,9 @@ export const LinkedButtonNormal = {
 export const LinkedButtonHeightSmall = {
   width: 100,
   height: 30,
-  color: colors.text.drawer,
+  color: colors.text.primary,
   fontWeight: 600,
-  border: `1px solid ${colors.border.drawer}`,
+  border: `1px solid ${colors.text.primary}`,
   fontSize: sizes.fontSize.xsmall,
 };
 
@@ -249,9 +250,10 @@ export const OpenSideBarSettingButtonStyle = {
   height: "20px",
   width: "40px",
   minWidth: "auto",
-  backgroundColor: theme.palette.primary.main,
-  color: "black",
+  backgroundColor: colors.background.button,
+  color: colors.background.drawer,
   "&:hover": {
+    bgcolor: colors.text.primary,
     color: "white",
   },
 };

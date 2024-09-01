@@ -17,7 +17,6 @@ import {
   MySettingTitleStyle,
 } from "../styles/mui";
 import IosSwitchButton from "../components/atom/IosSwitchButton";
-import { bgcolor, color } from "@mui/system";
 
 const MySetting = () => {
   const { isTheme, setIsTheme } = useThemeStore();
