@@ -5,6 +5,7 @@ import useThemeStore from "../../store/store";
 import { handleDrawerClose, handleLogOut } from "../../utils/func";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import { colors } from "../../styles/colors";
+import { fontFamily } from "../../styles/fonts";
 
 const OpenedBarTopLogoutBar = () => {
   const { isLogin, isOpen, setIsOpen, setIsLogin } = useThemeStore();

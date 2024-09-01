@@ -1,67 +1,155 @@
 import { createTheme } from "@mui/material";
 
+export const fontFamily = '"omyu_pretty", Arial, sans-serif';
+
 export const theme = createTheme({
   typography: {
-    fontFamily: '"omyu_pretty", Arial, sans-serif',
+    fontFamily: fontFamily,
     h1: {
-      fontFamily: '"omyu_pretty", Arial, sans-serif',
+      fontFamily: fontFamily,
     },
     h2: {
-      fontFamily: '"omyu_pretty", Arial, sans-serif',
+      fontFamily: fontFamily,
     },
     h3: {
-      fontFamily: '"omyu_pretty", Arial, sans-serif',
+      fontFamily: fontFamily,
     },
     h4: {
-      fontFamily: '"omyu_pretty", Arial, sans-serif',
+      fontFamily: fontFamily,
     },
     h5: {
-      fontFamily: '"omyu_pretty", Arial, sans-serif',
+      fontFamily: fontFamily,
     },
     h6: {
-      fontFamily: '"omyu_pretty", Arial, sans-serif',
+      fontFamily: fontFamily,
     },
     body1: {
-      fontFamily: '"omyu_pretty", Arial, sans-serif',
+      fontFamily: fontFamily,
     },
     body2: {
-      fontFamily: '"omyu_pretty", Arial, sans-serif',
+      fontFamily: fontFamily,
     },
     caption: {
-      fontFamily: '"omyu_pretty", Arial, sans-serif',
+      fontFamily: fontFamily,
     },
     subtitle1: {
-      fontFamily: '"omyu_pretty", Arial, sans-serif',
+      fontFamily: fontFamily,
     },
     subtitle2: {
-      fontFamily: '"omyu_pretty", Arial, sans-serif',
+      fontFamily: fontFamily,
     },
     overline: {
-      fontFamily: '"omyu_pretty", Arial, sans-serif',
+      fontFamily: fontFamily,
     },
   },
   components: {
     MuiButton: {
       styleOverrides: {
         root: {
-          fontFamily: '"omyu_pretty", Arial, sans-serif',
+          fontFamily: fontFamily,
         },
       },
     },
     MuiInputBase: {
       styleOverrides: {
         root: {
-          fontFamily: '"omyu_pretty", Arial, sans-serif',
+          fontFamily: fontFamily,
         },
       },
     },
     MuiTextField: {
       styleOverrides: {
         root: {
-          fontFamily: '"omyu_pretty", Arial, sans-serif',
+          fontFamily: fontFamily,
         },
       },
     },
-    // 다른 MUI 컴포넌트들도 필요에 따라 추가 설정 가능
+    MuiAppBar: {
+      styleOverrides: {
+        root: {
+          fontFamily: fontFamily,
+        },
+      },
+    },
+    MuiDrawer: {
+      styleOverrides: {
+        paper: {
+          fontFamily: fontFamily,
+        },
+      },
+    },
+    MuiToolbar: {
+      styleOverrides: {
+        root: {
+          fontFamily: fontFamily,
+        },
+      },
+    },
+    MuiMenuItem: {
+      styleOverrides: {
+        root: {
+          fontFamily: fontFamily,
+        },
+      },
+    },
+    MuiListItem: {
+      styleOverrides: {
+        root: {
+          fontFamily: fontFamily,
+        },
+      },
+    },
+    MuiListItemText: {
+      styleOverrides: {
+        primary: {
+          fontFamily: fontFamily,
+        },
+        secondary: {
+          fontFamily: fontFamily,
+        },
+      },
+    },
+    MuiTableCell: {
+      styleOverrides: {
+        root: {
+          fontFamily: fontFamily,
+        },
+      },
+    },
+    MuiTab: {
+      styleOverrides: {
+        root: {
+          fontFamily: fontFamily,
+        },
+      },
+    },
+    MuiChip: {
+      styleOverrides: {
+        root: {
+          fontFamily: fontFamily,
+        },
+      },
+    },
+    MuiDialog: {
+      styleOverrides: {
+        paper: {
+          fontFamily: fontFamily,
+        },
+      },
+    },
+    MuiSnackbarContent: {
+      styleOverrides: {
+        root: {
+          fontFamily: fontFamily,
+        },
+      },
+    },
+    MuiBadge: {
+      styleOverrides: {
+        root: {
+          fontFamily: fontFamily,
+        },
+      },
+    },
   },
 });

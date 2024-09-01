@@ -3,6 +3,7 @@ import { LinkedButtonNormal } from "../../styles/mui";
 import { LinkedButtonProps } from "../../utils/type";
 import { theme } from "../../styles/colors";
 import { useNavigate } from "react-router-dom";
+import { fontFamily } from "../../styles/fonts";
 
 const LinkedButton = ({
   type = "text",
@@ -13,7 +14,7 @@ const LinkedButton = ({
   sx = {
     ...LinkedButtonNormal,
   },
-  font = { fontFamily: '"Pretendard-Regular", Arial, sans-serif' },
+  font = { fontFamily: fontFamily },
 }: LinkedButtonProps) => {
   const navigate = useNavigate();
 
