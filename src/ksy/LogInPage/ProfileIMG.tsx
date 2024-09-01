@@ -1,13 +1,28 @@
-const MyProfileImg = () => {
+import { Box } from "@mui/material";
+
+function MyProfileImg() {
     return (
-        <div className="flex justify-center">
-            <div className="w-52 h-52 flex items-center justify-center rounded-full border shadow-md">
-                <img
-                    src="/cat.jpg"
-                    alt="프로필 이미지"
-                    className="w-52 h-52 bg-cover rounded-full bg-center text-center" />
-            </div>
-        </div>
+        <Box display={"flex"} justifyContent={"center"}>
+            <Box sx={{
+                width: "220px",
+                height: "220px",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                bgcolor: "#E5E5E5",
+                borderRadius: "100%",
+            }}>
+            <Box
+                component="img"
+                src="/cat.jpg"
+                alt="프로필 이미지"
+                sx={{
+                    width: "200px",
+                    height: "200px",
+                    borderRadius: '100%',
+            }}/>
+            </Box>
+        </Box>
     );
 }
 

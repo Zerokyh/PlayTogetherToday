@@ -14,8 +14,8 @@ import { ThemeProvider } from "@mui/material";
 import { theme } from "./styles/fonts";
 import Border from "./hsw/Border";
 import BorderDetail from "./hsw/BorderDetail";
-import SignUp from "./ksy/SignUpPage/SignUp";
 import Login from "./ksy/LogInPage/LogIn";
+import SignUp from "./ksy/SignUpPage/SignUp";
 
 const App = () => {
   return (

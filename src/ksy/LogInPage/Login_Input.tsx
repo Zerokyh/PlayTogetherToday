@@ -1,5 +1,8 @@
+import { Box, IconButton, Input, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
-import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { theme } from "../../styles/colors";
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
 const LoginInput = () => {
     const [idEmail, setIdEmail] = useState<string>("");
@@ -20,51 +23,96 @@ const LoginInput = () => {
         setShowPassword(!showPassword);
     };
         
-    return (
-        <div className="max-w-full p-5 mt-10">
-          {/* 아이디 입력 */}
-          <div className="bg-[#FEF1FA] max-w-full px-5 py-3 rounded-3xl">
-            <div className="flex">
-              <h3 className="font-bold mb-1">로그인 계정</h3>
-              <p
-                className={`text-xs m-1 ${!isIdEmailValid && idEmailBlurred ? "text-red-500" : "text-gray-500"}`}
-              >
+  return (
+      // InputBox Group
+      <Box
+        width={"100%"}
+        height={"100%"}
+        padding={"5px"}
+        display={"flex"}
+        flexDirection={"column"}
+        justifyContent={"center"}
+        gap={"5px"}
+      >
+        
+        {/* Input ID Box*/}
+        <Box
+          sx={{
+            width: "100%",
+            paddingX: 3,
+            paddingY: 1.5,
+            marginBottom: 1,
+            bgcolor: "#E5E5E5",
+            color: "#23374D",
+            borderRadius: 6
+          }}>
+          
+          {/* 로그인ID Title */}
+            <Box display={"flex"}>
+              <Typography fontWeight={"bold"}>로그인 계정</Typography>
+              <Typography
+                sx={{
+                    margin: 0.3,
+                    marginLeft: 0.7,
+                    fontSize: 12,
+                    color: !isIdEmailValid ? theme.palette.error.main : theme.palette.text.secondary
+                  }}
+                className={`${!isIdEmailValid && idEmailBlurred ? "text-red-500" : "text-gray-500"}`}>
                 {!isIdEmailValid && idEmailBlurred ? "올바른 이메일 형식이 아닙니다" : ""}
-              </p>
-            </div>
-            <input
+              </Typography>
+            </Box>
+          
+            {/* 로그인ID Input */}
+            <Input
               type="email"
               value={idEmail}
+              placeholder="이메일 계정을 입력하세요"
               onChange={(e) => setIdEmail(e.target.value)}
               onBlur={() => setIdEmailBlurred(true)}
               onFocus={() => setIdEmailBlurred(false)}
-              className="bg-[#FEF1FA] min-w-full outline-none border-b border-black"
-            />
-          </div>
+              sx={{
+                width: "100%",
+                outline: "none",
+              }}/>
+        </Box>
 
-          {/* 비밀번호 입력 */}
-          <div className="bg-[#FEF1FA] max-w-full my-8 px-5 py-3 rounded-3xl">
-            <div className="flex">
-              <h3 className="font-bold mb-1">로그인 비밀번호</h3>
-            </div>
-            <div className="relative">
-              <input
-                type={showPassword ? "text" : "password"}
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                className="bg-[#FEF1FA] min-w-full outline-none border-b border-black"
-              />
-              <button
-                type="button"
-                onClick={togglePasswordVisibility}
-                className="absolute right-2 top-2"
-              >
-                {showPassword ? <FaEye /> : <FaEyeSlash />}
-              </button>
-            </div>
-          </div>
-        </div>
-    )
+        {/* 로그인PW Input Box */}
+        <Box
+          sx={{
+            width: "100%",
+            paddingX: 3,
+            paddingY: 1.5,
+            marginBottom: 1,
+            bgcolor: "#E5E5E5",
+            color: "#23374D",
+            borderRadius: 6
+          }}>
+          
+        {/* 로그인PW Title */}
+        <Typography fontWeight={"bold"}>로그인 비밀번호</Typography>
+        
+        {/* 로그인PW Input */}
+        <Box position={"relative"}>
+          <Input
+            type={showPassword ? "text" : "password"}
+            value={password}
+            placeholder="영문, 숫자, 특수기호 포함 8~20자"
+            onChange={(e) => setPassword(e.target.value)}
+            sx={{
+              width: "100%",
+              outline: "none",
+            }}/>
+          {/* 비밀번호 가시(on/off) 여부 */}
+          <IconButton
+            type="button"
+            onClick={togglePasswordVisibility}
+            sx={{ position: "absolute", right: 5, bottom: 1, padding: 0.5, margin: 0.5, color: "#23374D" }}>
+            {showPassword ? (<VisibilityIcon sx={{ fontSize: 16 }} />) : (<VisibilityOffIcon sx={{ fontSize: 16 }}/>) }
+          </IconButton>
+        </Box>
+      </Box>
+    </Box>
+  )
 }
 
 export default LoginInput;
