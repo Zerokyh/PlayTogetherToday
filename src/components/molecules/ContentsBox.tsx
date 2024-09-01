@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { ContentsBoxProps } from "../../utils/type";
 import { ContentsBoxImg } from "../../styles/mui";
 import useThemeStore from "../../store/store";
+import { colors } from "../../styles/colors";
 
 const ContentsBox = ({
   img,
@@ -39,7 +40,12 @@ const ContentsBox = ({
         sx={{ ...ContentsBoxImg }}
       />
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
+        <Typography
+          gutterBottom
+          variant="h5"
+          component="div"
+          color={colors.text.primary}
+        >
           {subject}
         </Typography>
         <Typography variant="body2" color="text.secondary">

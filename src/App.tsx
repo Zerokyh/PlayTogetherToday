@@ -11,7 +11,7 @@ import GroupEnter from "./jwj/GroupEnter/GroupEnter";
 import Gameroom from "./jwj/Gameroom/Gameroom";
 import Myroom_authority from "./jwj/Myroom_authority/Myroom_authority";
 import { ThemeProvider } from "@mui/material";
-import { theme } from "./styles/fonts";
+import { theme } from "./styles/theme";
 import Border from "./hsw/Border";
 import BorderDetail from "./hsw/BorderDetail";
 import SignUp from "./ksy/SignUpPage/SignUp";
