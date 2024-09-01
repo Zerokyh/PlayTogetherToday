@@ -48,7 +48,7 @@ const BorderDetail = () => {
                   <div className="w-[60px] h-[60px] rounded-md ">
                     <div className="w-full h-full rounded-md bg-red-400"></div>
                   </div>
-                  <div className="w-full p-3 flex flex-col gap-2 text-justify font-semibold">
+                  <div className="w-full p-3 flex flex-col gap-2 text-justify ">
                     <p className="text-xl">MIC로 소프트 하게</p>
                     <p className="text-sm">노래 / 허각 외 5명의 멤버</p>
                   </div>
@@ -71,7 +71,7 @@ const BorderDetail = () => {
                       >
                         <div className="w-5/6">
                           <ol className="flex flex-col gap-1">
-                            <li className="text-base font-semibold">
+                            <li className="text-base">
                               <p>이벤트 게시판</p>
                             </li>
                             <li className="flex text-xs justify-between">

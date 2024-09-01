@@ -31,7 +31,7 @@ const IconTextTextBox = ({
           sx={{
             px: 1,
             ...hover,
-            fontFamily: '"HSSaemaul-Regular", Arial, sans-serif',
+            fontFamily: '"Cafe24Ssurround", Arial, sans-serif',
           }}
           onClick={() => {
             navigate(href);

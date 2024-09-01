@@ -57,6 +57,7 @@ export const FullPageBox = styled(Box)({
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
+  backgroundColor: "#F5F7F8",
 });
 
 export const WidthHalfOutterBox = styled(Box)({
