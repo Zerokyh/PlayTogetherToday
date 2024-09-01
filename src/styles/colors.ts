@@ -4,7 +4,6 @@ import { createTheme } from "@mui/material";
 export const colors = {
   // 배경 색상 Background Color
   background: {
-    main: "#F5F7F8", // default
     primary: "#F5F7F8", // 기본 배경 색상
     secondary: "#EEEEEE", // 보조 배경 색상
     tertiary: "#E5E5E5", // 3번째 배경 색상
@@ -14,13 +13,14 @@ export const colors = {
 
   // 텍스트 색상 Text Color
   text: {
-    primary: "#23374D", // 메인 텍스트 색상 - 가장 짙은 폰트
+    primary: "#23374D", // 메인 텍스트 색상 - 가장 짙은 파랑
     secondary: "#E8E3D2", // 보조 텍스트 색상
     drawer: "#707070", // 드로어 텍스트 색상
   },
 
   // 테두리 색상 Border Color
   border: {
+    primary: "#23374D", // 메인 보더 색상 - 가장 짙은 파랑
     drawer: "#23374D", // 드로어 버튼 보더 색상
   },
 };
@@ -28,7 +28,7 @@ export const colors = {
 export const theme = createTheme({
   palette: {
     primary: {
-      main: "#EADDFF",
+      main: "#006DFF",
       light: "#FEF7FF",
       dark: "#3A1B71",
     },

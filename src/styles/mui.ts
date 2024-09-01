@@ -132,7 +132,7 @@ export const ChatListBoxAvatar = {
   width: sizes.avatar.chat,
   height: sizes.avatar.chat,
   mx: "auto",
-  border: "5px solid purple",
+  border: `5px solid ${colors.border.primary}`,
 };
 
 export const ContentsBoxImg = {
@@ -145,7 +145,7 @@ export const ContentsBoxImg = {
 export const WidthHalfBoxInnerMui = {
   width: "100%",
   height: "100%",
-  bgcolor: colors.background.primary,
+  bgcolor: colors.background.secondary,
   borderRadius: sizes.borderRadius.normal,
   display: "flex",
   flexDirection: "column",
