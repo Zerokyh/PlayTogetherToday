@@ -20,13 +20,8 @@ const RegisterForm = ({
     display: "flex",
     alignContent: "center",
   };
-  const SecondaryButtonStyle = {
+  const ButtonStyle = {
     width: "160px",
-    bgcolor: "#F2F2F2",
-    color: "black",
-    "&:hover": {
-      backgroundColor: "#b2bec3",
-    },
     borderRadius: 0,
   };
   const ModalFormContentsStyle = {
@@ -48,13 +43,17 @@ const RegisterForm = ({
         <Box>{title}</Box>
         <Box>
           <BasicButton
+            variant="text"
+            textcolor="primary"
+            bgcolor="drawer"
             text={noBtnText}
-            sx={{ ...SecondaryButtonStyle }}
+            sx={{ ...ButtonStyle }}
             onClick={handleClose}
           />
           <BasicButton
+            variant="contained"
             text={yesBtnText}
-            sx={{ width: "160px", borderRadius: 0 }}
+            sx={{ ...ButtonStyle }}
           />
         </Box>
       </Box>
