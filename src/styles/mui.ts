@@ -4,8 +4,6 @@ import { Theme, CSSObject, styled } from "@mui/material/styles";
 import { colors, theme } from "./colors";
 import { sizes } from "./sizes";
 import { Box } from "@mui/material";
-import { MyInfoInnerBoxProps } from "../utils/type";
-import { bgcolor } from "@mui/system";
 
 export const openedMixin = (theme: Theme): CSSObject => ({
   width: sizes.drawerWidth,
@@ -168,7 +166,6 @@ export const SkeletonNormal = {
 export const LinkedButtonNormal = {
   width: 100,
   height: 40,
-  color: colors.text.primary,
   fontWeight: 600,
   border: `1px solid ${colors.border.drawer}`,
   fontSize: sizes.fontSize.xsmall,
@@ -252,10 +249,6 @@ export const OpenSideBarSettingButtonStyle = {
   minWidth: "auto",
   backgroundColor: colors.background.button,
   color: colors.background.drawer,
-  "&:hover": {
-    bgcolor: colors.text.primary,
-    color: "white",
-  },
   position: "absolute",
   top: 5,
   right: -12,

@@ -3,6 +3,7 @@ import { colors } from "../../styles/colors";
 import { sizes } from "../../styles/sizes";
 import IconTextButton from "../atom/IconTextButton";
 import { useNavigate } from "react-router-dom";
+import { fontFamily } from "../../styles/theme";
 
 type IconTextButtonProps = {
   icon: React.ReactElement;
@@ -43,12 +44,12 @@ const IconTextTextBox = ({
         <Typography
           component={"span"}
           fontSize={buttonTextSize}
+          fontFamily={fontFamily}
           sx={{
             display: "flex",
             alignItems: "center",
             px: 1,
             ...hover,
-            fontFamily: '"Cafe24Ssurround", Arial, sans-serif',
           }}
           onClick={() => {
             navigate(href);

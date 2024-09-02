@@ -5,6 +5,7 @@ import LinkedButton from "../../components/atom/LinkedButton";
 import { LinkedButtonHeightSmall, SkeletonNormal } from "../../styles/mui";
 import NotLoginButton from "../../components/molecules/NotLoginButton";
 import { fourMenuData } from "../../constants/fourMenuData";
+import { colors } from "../../styles/colors";
 
 const OpenedBarMiddle = () => {
   const { isLogin } = useThemeStore();
@@ -22,13 +23,15 @@ const OpenedBarMiddle = () => {
           >
             <SelectDropDown />
             <LinkedButton
+              variantType="outlined"
               text="새로운 모임"
+              textcolor="primary"
               sx={{ ...LinkedButtonHeightSmall }}
               href="/GroupMake"
             />
           </Box>
           <Skeleton variant="rounded" sx={{ ...SkeletonNormal }} />
-          <Box sx={{ height: 130, display: "flex", alignItems: "center" }}>
+          <Box sx={{ height: 120, display: "flex", alignItems: "center" }}>
             <Grid
               container
               spacing={0}
@@ -36,7 +39,12 @@ const OpenedBarMiddle = () => {
             >
               {Object.entries(fourMenuData).map(([key, item]) => (
                 <Grid item xs={5} md={5}>
-                  <LinkedButton text={item.text} href={item.href} />
+                  <LinkedButton
+                    variantType="outlined"
+                    textcolor="primary"
+                    text={item.text}
+                    href={item.href}
+                  />
                 </Grid>
               ))}
             </Grid>

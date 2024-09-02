@@ -7,7 +7,14 @@ import { colors } from "../styles/colors";
 
 const PttLayout = () => {
   return (
-    <Box sx={{ display: "flex", p: 0, m: 0, color: colors.text.primary }}>
+    <Box
+      sx={{
+        display: "flex",
+        p: 0,
+        m: 0,
+        color: colors.text.primary,
+      }}
+    >
       <CssBaseline />
       <SideBar /> {/* 사이드바 등록 */}
       <Box component="main" sx={{ flexGrow: 1, p: 0 }}>

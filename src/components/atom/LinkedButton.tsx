@@ -1,13 +1,28 @@
-import { Button, ThemeProvider } from "@mui/material";
+import { Button } from "@mui/material";
 import { LinkedButtonNormal } from "../../styles/mui";
-import { LinkedButtonProps } from "../../utils/type";
-import { theme } from "../../styles/colors";
+import { colors } from "../../styles/colors";
 import { useNavigate } from "react-router-dom";
 import { fontFamily } from "../../styles/theme";
 
+type inputVariantType = "text" | "contained" | "outlined";
+
+type textColorType = keyof typeof colors.text;
+
+type colorType = keyof typeof colors.background;
+
+type LinkedButtonProps = {
+  variantType?: inputVariantType;
+  textcolor?: textColorType;
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  href?: string;
+  text: string;
+  sx?: object;
+  font?: object;
+};
+
 const LinkedButton = ({
-  type = "text",
-  color,
+  variantType = "text",
+  textcolor = "primary",
   onClick,
   href,
   text,
@@ -25,9 +40,8 @@ const LinkedButton = ({
 
   return (
     <Button
-      variant={type}
-      color={color}
-      sx={{ ...sx, ...font }}
+      variant={variantType}
+      sx={{ ...sx, ...font, color: textcolor }}
       onClick={handleClick}
     >
       {text}

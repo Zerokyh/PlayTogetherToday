@@ -14,8 +14,8 @@ export const colors = {
   // 텍스트 색상 Text Color
   text: {
     primary: "#23374D", // 메인 텍스트 색상 - 가장 짙은 파랑
-    secondary: "#F5F7F8", // 보조 텍스트 색상
-    drawer: "#707070", // 드로어 텍스트 색상
+    secondary: "#F5F7F8", // 보조 텍스트 색상 - 흰색에 가까운 색
+    grey: "#888888", // 회색 텍스트 색상
   },
 
   // 테두리 색상 Border Color

@@ -50,8 +50,9 @@ const OpenedBarTopIsLogin = () => {
                 }}
               />
               <LinkedButton
-                type="contained"
+                variantType="contained"
                 text="설정"
+                // color="button"
                 sx={{
                   ...OpenSideBarSettingButtonStyle,
                 }}
