@@ -34,8 +34,8 @@ const App = () => {
             {/* 개인정보 편집 페이지 등록 */}
             <Route path="/Login" Component={Login} />
             {/* 로그인 페이지 등록 */}
-            <Route path="/UtilTestPage" Component={UtilTestPage} />
-            {/* 임시 테스트 페이지 등록 */}
+            <Route path="/SignUp" Component={SignUp} />
+            {/* 회원가입 페이지 등록 */}
             <Route path="/Myroom" Component={Myroom} />
             {/* 마이룸 페이지 등록 */}
             <Route path="/MyroomAuthority" Component={Myroom_authority} />
@@ -50,8 +50,8 @@ const App = () => {
             {/* 모임들 페이지 등록 */}
             <Route path="/BorderDetail" Component={BorderDetail} />
             {/* 모임 상세 페이지 등록 */}
-            <Route path="/SignUp" Component={SignUp} />
-            {/* 회원가입 페이지 등록 */}
+            <Route path="/UtilTestPage" Component={UtilTestPage} />
+            {/* 임시 테스트 페이지 등록 */}
           </Route>
         </Routes>
       </BrowserRouter>
