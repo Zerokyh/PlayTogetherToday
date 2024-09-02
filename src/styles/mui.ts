@@ -174,7 +174,6 @@ export const LinkedButtonNormal = {
 export const LinkedButtonHeightSmall = {
   width: 100,
   height: 30,
-  color: colors.text.primary,
   fontWeight: 600,
   border: `1px solid ${colors.text.primary}`,
   fontSize: sizes.fontSize.xsmall,

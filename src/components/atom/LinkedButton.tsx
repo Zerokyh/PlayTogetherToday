@@ -41,7 +41,7 @@ const LinkedButton = ({
   return (
     <Button
       variant={variantType}
-      sx={{ ...sx, ...font, color: textcolor }}
+      sx={{ ...sx, ...font, color: colors.text[textcolor] }}
       onClick={handleClick}
     >
       {text}

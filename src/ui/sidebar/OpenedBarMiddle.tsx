@@ -24,8 +24,8 @@ const OpenedBarMiddle = () => {
             <SelectDropDown />
             <LinkedButton
               variantType="outlined"
-              text="새로운 모임"
               textcolor="primary"
+              text="새로운 모임"
               sx={{ ...LinkedButtonHeightSmall }}
               href="/GroupMake"
             />
