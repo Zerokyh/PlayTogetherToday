@@ -27,7 +27,7 @@ const ChatListItem = ({
   onClick,
 }: ChatListItemProps) => {
   return (
-    <Box onClick={onClick}>
+    <Box onClick={onClick} sx={{ position: "relative" }}>
       <Paper
         sx={{
           p: 1,
@@ -36,6 +36,7 @@ const ChatListItem = ({
           display: "flex",
           alignItems: "center",
           mb: 2,
+          position: "relative",
         }}
       >
         <Grid container spacing={2} sx={{ height: "100%" }}>
@@ -67,7 +68,19 @@ const ChatListItem = ({
                 >
                   {lastchatmsg}
                 </Typography>
-                <Box display={"flex"} flexDirection={"column"}>
+                <Box
+                  sx={{
+                    position: "absolute",
+                    top: 30,
+                    right: -4,
+                    zIndex: 1,
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "flex-end",
+                    paddingRight: 2,
+                    paddingTop: 1,
+                  }}
+                >
                   <Typography
                     sx={{
                       display: "flex",

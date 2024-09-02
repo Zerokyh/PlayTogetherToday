@@ -256,6 +256,9 @@ export const OpenSideBarSettingButtonStyle = {
     bgcolor: colors.text.primary,
     color: "white",
   },
+  position: "absolute",
+  top: 5,
+  right: -12,
 };
 
 export const SideBarLogoStyle = {

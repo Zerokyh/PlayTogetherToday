@@ -39,6 +39,7 @@ const OpenedBarTopIsLogin = () => {
                 display: "flex",
                 justifyContent: "space-between",
                 alignItems: "center",
+                position: "relative",
               }}
             >
               <ListItemText
@@ -67,7 +68,14 @@ const OpenedBarTopIsLogin = () => {
                   primary={`아직 모임을 시작하지 않았네요!`}
                   primaryTypographyProps={{ fontSize: sizes.fontSize.small }}
                 />
-                <Box sx={{ ":hover": { cursor: "pointer" } }}>
+                <Box
+                  sx={{
+                    ":hover": { cursor: "pointer" },
+                    position: "relative",
+                    top: 0,
+                    left: 130,
+                  }}
+                >
                   <Typography
                     sx={{ ":hover": "" }}
                     onClick={() => {
