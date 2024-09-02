@@ -1,5 +1,5 @@
-import { Box, ThemeProvider, createTheme } from "@mui/material";
-import { useState } from "react";
+import { Box, CssBaseline, ThemeProvider, createTheme } from "@mui/material";
+import React, { useState } from "react";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import Categori from "./Categori";
 import RegisterButton from "./RegisterButton";
@@ -7,18 +7,8 @@ import BorderList from "./BorderList";
 import TopFirst from "./TopFirst";
 import TopSecond from "./TopSecond";
 import TopThird from "./TopThird";
-
-const theme = createTheme({
-  palette: {
-    primary: {
-      // main: "#F3EAFB",
-      // dark: "#ddc6f5",
-      main: "#EADDFF",
-      light: "#FEF7FF",
-      dark: "#3A1B71",
-    },
-  },
-});
+import { colors, theme } from "../styles/colors";
+import { BorderListBox } from "../styles/mui";
 
 const Border = () => {
   const [categori, setCategori] = useState("");
@@ -29,25 +19,14 @@ const Border = () => {
 
   return (
     <>
-      <div className="flex w-full h-full px-5">
-        <div className="w-full mx-3 mt-4 flex gap-10">
-          {/* 첫번째 박스 */}
-          <div className="w-6/12 h-full ">
-            <ThemeProvider theme={theme}>
-              <Box
-                sx={{
-                  width: "100%",
-                  height: 700,
-                  borderRadius: 4,
-                  bgcolor: "primary.main",
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: "20px",
-                  alignItems: "center",
-                  paddingX: "12px",
-                }}
-              >
-                <div className="w-full text-3xl pt-5">
+      <React.Fragment>
+        <CssBaseline />
+        <div className="w-full h-full flex px-5">
+          <div className="w-full mx-3 mt-4 flex gap-10">
+            {/* 첫번째 박스 */}
+            <div className="w-6/12 h-full ">
+              <BorderListBox>
+                <div className="w-full text-2xl pt-5">
                   <p>다양한 모임들이 있어요~</p>
                 </div>
                 <div className="w-full flex justify-between">
@@ -59,25 +38,11 @@ const Border = () => {
                 <div className="w-full flex flex-col items-center">
                   <BorderList></BorderList>
                 </div>
-              </Box>
-            </ThemeProvider>
-          </div>
-          {/* 두번째 박스 */}
-          <div className="w-6/12 h-full ">
-            <ThemeProvider theme={theme}>
-              <Box
-                sx={{
-                  width: "100%",
-                  height: 700,
-                  borderRadius: 4,
-                  bgcolor: "primary.main",
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: "20px",
-                  alignItems: "center",
-                  paddingX: "12px",
-                }}
-              >
+              </BorderListBox>
+            </div>
+            {/* 두번째 박스 */}
+            <div className="w-6/12 h-full ">
+              <BorderListBox>
                 <div className="w-full text-3xl pt-5">
                   <p>추천 모임 TOP3</p>
                 </div>
@@ -88,11 +53,11 @@ const Border = () => {
                   <TopSecond></TopSecond>
                   <TopThird></TopThird>
                 </div>
-              </Box>
-            </ThemeProvider>
+              </BorderListBox>
+            </div>
           </div>
         </div>
-      </div>
+      </React.Fragment>
     </>
   );
 };

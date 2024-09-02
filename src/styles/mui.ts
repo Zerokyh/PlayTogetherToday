@@ -310,3 +310,38 @@ export const ModalFormContentsStyle = {
   bgcolor: "#F3F3F3",
   px: "5px",
 };
+
+// groupBorder
+
+export const BorderListBox = styled(Box)({
+  width: "100%",
+  height: "100%",
+  borderRadius: sizes.borderRadius.normal,
+  backgroundColor: colors.background.secondary,
+  display: "flex",
+  flexDirection: "column",
+  gap: sizes.gap.xLarge,
+  alignItems: "center",
+  padding: "10px 12px",
+});
+
+export const GroupListBox = styled(Box)({
+  width: "100%",
+  height: "fit-content",
+  borderRadius: sizes.borderRadius.normal,
+  backgroundColor: colors.background.tertiary,
+});
+
+export const GroupImgAvatar = {
+  width: sizes.avatar.logo,
+  height: sizes.avatar.logo,
+  mx: "auto",
+  border: `5px solid ${colors.border.primary}`,
+};
+
+export const BorderStyle = {
+  width: "100%",
+  height: "100%",
+  padding: "0px 20px",
+  display: "flex",
+};
