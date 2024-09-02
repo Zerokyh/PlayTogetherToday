@@ -6,6 +6,7 @@ import useThemeStore from "../../store/store";
 import LinkedButton from "../../components/atom/LinkedButton";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { colors } from "../../styles/colors";
 
 const OpenedBarTopIsLogin = () => {
   const { isLogin } = useThemeStore();
@@ -71,9 +72,10 @@ const OpenedBarTopIsLogin = () => {
                 <Box
                   sx={{
                     ":hover": { cursor: "pointer" },
-                    position: "relative",
-                    top: 0,
-                    left: 130,
+                    position: "absolute",
+                    zIndex: 1,
+                    top: 116,
+                    right: 8,
                   }}
                 >
                   <Typography
@@ -81,8 +83,9 @@ const OpenedBarTopIsLogin = () => {
                     onClick={() => {
                       navigate("/GroupMake");
                     }}
+                    color={colors.background.button}
                   >
-                    시작
+                    [시작]
                   </Typography>
                 </Box>
               </Box>
