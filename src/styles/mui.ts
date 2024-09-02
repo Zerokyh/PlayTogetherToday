@@ -79,7 +79,7 @@ export const WidthHalfInnerBox = styled(Box)({
 });
 
 export const MySettingOutterBox = styled(Box)({
-  backgroundColor: "#ADC4CE",
+  backgroundColor: colors.background.secondary,
   minWidth: 500,
   minHeight: 640,
   borderRadius: sizes.borderRadius.medium,
@@ -92,7 +92,7 @@ export const MySettingOutterBox = styled(Box)({
 });
 
 export const MySettingInnerBox = styled(Box)({
-  backgroundColor: "#ADC4CE",
+  backgroundColor: colors.background.secondary,
   width: 400,
   height: 500,
   display: "flex",
@@ -263,4 +263,47 @@ export const SideBarLogoStyle = {
   justifyContent: "center",
   alignItems: "center",
   width: "100%",
+};
+
+// modal
+export const ModalMuiStyle = {
+  position: "absolute" as "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 330,
+  bgcolor: "background.paper",
+  boxShadow: 24,
+};
+
+// modal form style
+export const PrimaryButtonStyle = {
+  width: "160px",
+  borderRadius: 0,
+};
+
+export const SecondaryButtonStyle = {
+  width: "160px",
+  bgcolor: "#F2F2F2",
+  color: "black",
+  "&:hover": {
+    backgroundColor: "#b2bec3",
+  },
+  borderRadius: 0,
+};
+export const ModalFormStyle = {
+  width: "330px",
+  height: "100px",
+  display: "flex",
+  alignContent: "center",
+};
+
+export const ModalFormContentsStyle = {
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
+  alignItems: "center",
+  gap: "12px",
+  bgcolor: "#F3F3F3",
+  px: "5px",
 };

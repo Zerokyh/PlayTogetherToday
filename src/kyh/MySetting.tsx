@@ -28,7 +28,7 @@ const MySetting = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <FullPageBox bgcolor={"#F1F0E8"}>
+      <FullPageBox>
         <Box sx={{ maxWidth: "1280px" }}>
           <MySettingOutterBox>
             <MySettingInnerBox>
@@ -37,8 +37,8 @@ const MySetting = () => {
                   icontextboxprops={{
                     icon: <SettingsIcon />,
                     text: "설정",
-                    iconsize: sizes.fontSize.xxlarge,
-                    fontsize: sizes.fontSize.xxlarge,
+                    iconsize: sizes.fontSize.xlarge,
+                    fontsize: sizes.fontSize.xlarge,
                   }}
                   sx={{
                     ...MySettingTitleStyle,
@@ -46,15 +46,11 @@ const MySetting = () => {
                 />
               </Box>
               <IconTextTextBox
-                sx={{ bgcolor: "#EEE0C9" }}
                 icontextboxprops={{
                   icon: <AccountCircleIcon />,
                   text: "개인정보관리",
-                  fontsize: sizes.fontSize.large,
-                  iconsize: sizes.fontSize.large,
                 }}
                 textbutton="편집"
-                buttonTextSize={sizes.fontSize.large}
                 href="/MyInfoModify"
                 hover={{ ":hover": { cursor: "pointer" } }}
               />

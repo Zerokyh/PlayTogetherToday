@@ -6,7 +6,7 @@ import {
   MyInfoInnerBox,
   MySettingOutterBox,
 } from "../styles/mui";
-import { theme } from "../styles/colors";
+import { colors, theme } from "../styles/colors";
 import ChipTextBox from "../components/atom/ChipTextBox";
 import { sizes } from "../styles/sizes";
 import ImgAvatar from "../components/atom/ImgAvatar";
@@ -68,7 +68,7 @@ const MyInfoModify = () => {
                         color: "white",
                         ":hover": {
                           cursor: "pointer",
-                          color: theme.palette.primary.main,
+                          color: colors.text.secondary,
                         },
                       }}
                       onClick={() => {}}

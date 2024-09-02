@@ -1,4 +1,4 @@
-import { theme } from "../../styles/colors";
+import { colors, theme } from "../../styles/colors";
 import { Chip } from "@mui/material";
 import { ChipTextBoxProps } from "../../utils/type";
 
@@ -10,7 +10,7 @@ const ChipTextBox = ({ titlename, width = "120px" }: ChipTextBoxProps) => {
         width: width,
         height: "40px",
         backgroundColor: theme.palette.primary.main,
-        color: theme.palette.primary.dark,
+        color: colors.text.secondary,
         borderRadius: 50,
         fontWeight: 600,
       }}

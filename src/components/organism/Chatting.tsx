@@ -89,8 +89,8 @@ const Chatting = () => {
           sx={{
             width: "100%",
             padding: 1,
-            backgroundColor: colors.background.primary,
             borderRadius: sizes.borderRadius.xs,
+            backgroundColor: colors.background.primary,
             position: "sticky", // 입력란을 고정
             bottom: -1,
             marginTop: 5,
@@ -102,7 +102,7 @@ const Chatting = () => {
             label="채팅을 입력해주세요"
             color="primary"
             focused
-            sx={{ width: "100%", backgroundColor: colors.background.primary }}
+            sx={{ width: "100%" }}
           />
         </Box>
         <div ref={messagesEndRef} />
