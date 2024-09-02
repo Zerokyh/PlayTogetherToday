@@ -53,6 +53,7 @@ const OpenedBarTopIsLogin = () => {
                 variantType="contained"
                 text="설정"
                 textcolor="secondary"
+                bgcolor="button"
                 sx={{
                   ...OpenSideBarSettingButtonStyle,
                 }}

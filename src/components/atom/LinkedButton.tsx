@@ -13,6 +13,7 @@ type colorType = keyof typeof colors.background;
 type LinkedButtonProps = {
   variantType?: inputVariantType;
   textcolor?: textColorType;
+  bgcolor?: colorType;
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   href?: string;
   text: string;
@@ -23,6 +24,7 @@ type LinkedButtonProps = {
 const LinkedButton = ({
   variantType = "text",
   textcolor = "primary",
+  bgcolor = "drawer",
   onClick,
   href,
   text,
@@ -41,7 +43,12 @@ const LinkedButton = ({
   return (
     <Button
       variant={variantType}
-      sx={{ ...sx, ...font, color: colors.text[textcolor] }}
+      sx={{
+        ...sx,
+        ...font,
+        color: colors.text[textcolor],
+        backgroundColor: colors.background[bgcolor],
+      }}
       onClick={handleClick}
     >
       {text}

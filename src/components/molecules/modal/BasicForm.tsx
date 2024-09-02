@@ -1,10 +1,8 @@
 import { Box } from "@mui/material";
-import BasicButton from "../../atom/BasicButton";
 import BasicText from "../../atom/BasicText";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import CloseIcon from "@mui/icons-material/Close";
 import { sizes } from "../../../styles/sizes";
-import { bgcolor, borderRadius, height, width } from "@mui/system";
 import IconButton from "../../atom/IconButton";
 import { colors } from "../../../styles/colors";
 import LinkedButton from "../../atom/LinkedButton";
@@ -37,7 +35,7 @@ const BasicForm = ({
       <Box
         sx={{
           width: 310,
-          height: 110,
+          height: 120,
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
@@ -70,7 +68,9 @@ const BasicForm = ({
           sx={{
             display: "flex",
             justifyContent: "center",
-            gap: sizes.gap.medium,
+            alignItems: "center",
+            height: 30,
+            gap: sizes.gap.large,
           }}
         >
           <LinkedButton
@@ -79,14 +79,18 @@ const BasicForm = ({
             sx={{
               height: 20,
               borderRadius: sizes.borderRadius.xs,
+              border: `1px solid ${colors.text.primary}`,
             }}
           />
           <LinkedButton
             variantType="contained"
+            textcolor="secondary"
+            bgcolor="button"
             text={yesBtnText}
             sx={{
               height: 20,
               borderRadius: sizes.borderRadius.xs,
+
               bgcolor: "",
               p: 0,
             }}

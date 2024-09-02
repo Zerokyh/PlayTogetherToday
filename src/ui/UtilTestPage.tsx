@@ -29,11 +29,7 @@ const UtilTestPage = () => {
           /> */}
         </Box>
         <Box>
-          <BasicButton
-            text="친구정보보기"
-            onClick={handleOpen}
-            sx={{ bgcolor: colors.background.button }}
-          />
+          <BasicButton text="친구정보보기" onClick={handleOpen} />
           <BasicModal
             basicformprops={{
               title: "비공개 개인 공간 입니다.",

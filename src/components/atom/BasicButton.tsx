@@ -22,15 +22,21 @@ const BasicButton = ({
   variant = "contained",
   text,
   sx,
-  bgcolor,
-  textcolor,
+  bgcolor = "button",
+  textcolor = "secondary",
   onClick,
 }: BasicButtonProps) => {
   const buttonName = Array.from(text);
   return (
     <Button
       variant={variant}
-      sx={{ width: "160px", borderRadius: 0, ...sx, bgcolor: bgcolor }}
+      sx={{
+        width: "160px",
+        borderRadius: 0,
+        ...sx,
+        bgcolor: colors.background[bgcolor],
+        color: colors.text[textcolor],
+      }}
       onClick={onClick}
     >
       <Box
