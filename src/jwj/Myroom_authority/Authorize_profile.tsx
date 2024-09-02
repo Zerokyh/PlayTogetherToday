@@ -1,21 +1,33 @@
+import React from "react";
+import { Box } from "@mui/material";
 import Authorize_button from "./Authorize_button";
+import { sizes } from "../../styles/sizes";
 
 type profile_props = {
   info_name?: string;
-
-  //   email?: string;
-  //   address?: string;
-  //   position?: string;
-  //   own_anni ?: string;
-  //   group_anni ?: string;
 };
 
 const Authorize_profile = ({ info_name }: profile_props) => {
   return (
-    <div className="w-full bg-violet-200 text-[8px] rounded-md px-1 flex flex-1 items-center min-h-0 max-h-[16.66%] gap-2">
+    <Box
+      sx={{
+        width: "100%",
+        bgcolor: "#E5E5E5",
+        color: "#000",
+        fontSize: sizes.fontSize.medium,
+        borderRadius: "4px",
+        paddingX: "8px",
+        display: "flex",
+        alignItems: "center",
+        gap: "8px",
+        flex: 1,
+        minHeight: 0,
+        maxHeight: "16.66%",
+      }}
+    >
       <span>{info_name}: </span>
       <Authorize_button />
-    </div>
+    </Box>
   );
 };
 

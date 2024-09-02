@@ -1,3 +1,4 @@
+import { Box, Typography } from "@mui/material";
 import { sizes } from "../../styles/sizes";
 
 type profile_props = {
@@ -12,10 +13,27 @@ type profile_props = {
 
 const Myroom_profile = ({ info_name, info }: profile_props) => {
   return (
-    <div className="w-full flex items-center bg-violet-200 text-[12px] rounded-md px-1 flex-1  min-h-0 max-h-[16.66%]">
-      <div>{info_name}: </div>
-      <div>{info}</div>
-    </div>
+    <Box
+      sx={{
+        width: "100%",
+        display: "flex",
+        alignItems: "center",
+        bgcolor: "#E5E5E5",
+        borderRadius: "8px",
+        paddingX: "8px",
+        flex: 1,
+        minHeight: 0,
+        maxHeight: "16.66%",
+        gap: 0.5,
+      }}
+    >
+      <Typography variant="body2" sx={{ fontSize: sizes.fontSize.medium }}>
+        {info_name}:
+      </Typography>
+      <Typography variant="body2" sx={{ fontSize: sizes.fontSize.medium }}>
+        {info}
+      </Typography>
+    </Box>
   );
 };
 

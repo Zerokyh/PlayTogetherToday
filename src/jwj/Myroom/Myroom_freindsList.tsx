@@ -1,19 +1,61 @@
-type freindList_props = {
+import { Box, Typography } from "@mui/material";
+import { sizes } from "../../styles/sizes";
+import ImgAvatar from "../../components/atom/ImgAvatar";
+
+type FriendListProps = {
   name?: string;
   anni?: string;
   group?: string;
 };
 
-const Myroom_freindsList = ({ name, anni, group }: freindList_props) => {
+const Myroom_freindsList = ({ name, anni, group }: FriendListProps) => {
   return (
-    <div className="w-full h-1/5 flex  items-center justify-between bg-violet-100  rounded-xl px-2">
-      <div className="flex justify-center items-center gap-1">
-        <div className="w-7 h-7 rounded-full bg-pink-100"></div>
-        <div className="text-sm font-bold">{name}</div>
-        <div className="text-[8px] font-bold">{anni}</div>
-      </div>
-      <div className="text-sm font-bold">{group}</div>
-    </div>
+    <Box
+      sx={{
+        width: "100%",
+        height: "20%",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        bgcolor: "#E5E5E5",
+        borderRadius: "12px",
+        paddingX: "8px",
+        marginBottom: "4px",
+      }}
+    >
+      <Box sx={{ display: "flex", alignItems: "center", gap: "8px" }}>
+        <ImgAvatar
+          src="cat.jpg"
+          alt="프로필"
+          sx={{
+            width: sizes.avatar.logo,
+            height: sizes.avatar.logo,
+            mx: "auto",
+          }}
+        />
+        <Typography
+          variant="body2"
+          fontWeight="bold"
+          sx={{ fontSize: sizes.fontSize.medium }}
+        >
+          {name}
+        </Typography>
+        <Typography
+          variant="caption"
+          fontWeight="bold"
+          sx={{ fontSize: sizes.fontSize.xsmall }}
+        >
+          {anni}
+        </Typography>
+      </Box>
+      <Typography
+        variant="body2"
+        fontWeight="bold"
+        sx={{ fontSize: sizes.fontSize.medium }}
+      >
+        {group}
+      </Typography>
+    </Box>
   );
 };
 

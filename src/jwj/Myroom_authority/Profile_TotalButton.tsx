@@ -1,21 +1,22 @@
-import Button from "@mui/material/Button";
+import React from "react";
+import { Button, Box } from "@mui/material";
+import { sizes } from "../../styles/sizes";
 
 const Profile_TotalButton = () => {
   return (
-    <div className="flex gap-1">
+    <Box sx={{ display: "flex", gap: 1 }}>
       <Button
         sx={{
-          fontSize: "8px",
-          width: "80px",
-          minWidth: "80px",
-          height: "10px",
-          padding: 1,
+          fontSize: sizes.fontSize.large,
+          width: "auto",
+          height: "30px",
+          padding: "4px",
         }}
         variant="outlined"
       >
         전체공개/비공개
       </Button>
-    </div>
+    </Box>
   );
 };
 

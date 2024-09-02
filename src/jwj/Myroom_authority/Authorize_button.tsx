@@ -1,78 +1,71 @@
 import React, { useState } from "react";
 import Button from "@mui/material/Button";
+import { useTheme } from "@mui/material/styles";
+import { Box } from "@mui/material";
+import { sizes } from "../../styles/sizes";
 
 const Authorize_button = () => {
-  const [selectedButton, setSelectedButton] = useState<string | null>(null);
+  const [selectedButton, setSelectedButton] = useState<boolean>();
+  const theme = useTheme();
 
-  const handleClick = (buttonType: string) => {
+  const handleClick = (buttonType: boolean) => {
     setSelectedButton(buttonType);
   };
 
   return (
-    <div className="flex gap-1">
+    <Box sx={{ display: "flex", gap: "8px" }}>
       <Button
         sx={{
-          fontSize: "10px",
-          width: "40px",
-          minWidth: "40px",
-          height: "10px",
-          padding: 1,
+          fontSize: sizes.fontSize.large,
+          width: "70px",
+          height: "30px",
+          padding: "4px",
+          borderColor: theme.palette.grey[400],
           backgroundColor:
-            selectedButton === "public" ? "darkblue" : "transparent",
-          color: selectedButton === "public" ? "white" : "black",
+            selectedButton === true
+              ? theme.palette.primary.main
+              : "transparent",
+          color: selectedButton === true ? "#fff" : "#000",
           "&:hover": {
             backgroundColor:
-              selectedButton === "public" ? "darkblue" : "lightgray",
+              selectedButton === true
+                ? theme.palette.primary.main
+                : theme.palette.grey[300],
           },
+          borderRadius: "8px",
         }}
         variant="outlined"
-        onClick={() => handleClick("public")}
+        onClick={() => handleClick(true)}
       >
         공개
       </Button>
 
       <Button
         sx={{
-          fontSize: "10px",
-          width: "50px",
-          minWidth: "50px",
-          height: "10px",
-          padding: 1,
+          fontSize: sizes.fontSize.large,
+          width: "80px",
+          height: "30px",
+          padding: "4px",
+          borderColor: theme.palette.grey[400],
           backgroundColor:
-            selectedButton === "friends" ? "darkblue" : "transparent",
-          color: selectedButton === "friends" ? "white" : "black",
+            selectedButton === false
+              ? theme.palette.primary.main
+              : "transparent",
+          color: selectedButton === false ? "#fff" : "#000",
           "&:hover": {
             backgroundColor:
-              selectedButton === "friends" ? "darkblue" : "lightgray",
+              selectedButton === false
+                ? theme.palette.primary.main
+                : theme.palette.grey[300],
           },
+          borderRadius: "8px",
         }}
         variant="outlined"
-        onClick={() => handleClick("friends")}
-      >
-        친구공개
-      </Button>
-
-      <Button
-        sx={{
-          fontSize: "10px",
-          width: "50px",
-          minWidth: "50px",
-          height: "10px",
-          padding: 1,
-          backgroundColor:
-            selectedButton === "private" ? "darkblue" : "transparent",
-          color: selectedButton === "private" ? "white" : "black",
-          "&:hover": {
-            backgroundColor:
-              selectedButton === "private" ? "darkblue" : "lightgray",
-          },
-        }}
-        variant="outlined"
-        onClick={() => handleClick("private")}
+        onClick={() => handleClick(false)}
       >
         비공개
       </Button>
-    </div>
+    </Box>
   );
 };
 

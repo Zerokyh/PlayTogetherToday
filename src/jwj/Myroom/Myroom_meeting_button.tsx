@@ -1,6 +1,7 @@
+import { Box, Button, Typography } from "@mui/material";
 import { sizes } from "../../styles/sizes";
 
-type meeting_button_props = {
+type MeetingButtonProps = {
   group?: string;
   type?: string;
   count?: string;
@@ -18,27 +19,63 @@ const Myroom_meeting_button = ({
   comming,
   group_anni,
   onClick,
-}: meeting_button_props) => {
+}: MeetingButtonProps) => {
   return (
-    <button
-      style={{ fontSize: sizes.fontSize.xsmall }}
-      className="w-full h-1/4 flex  items-center justify-between bg-violet-200  rounded-xl"
+    <Button
       onClick={onClick}
+      sx={{
+        width: "100%",
+        height: "25%",
+        display: "flex",
+        justifyContent: "space-between",
+        bgcolor: "#E5E5E5",
+        borderRadius: "12px",
+        padding: "8px",
+        textAlign: "left",
+        overflow: "hidden",
+        textTransform: "none",
+        color: "black",
+      }}
     >
-      <div className="w-1/2 h-full flex flex-col justify-center items-start pl-3  gap-0.5">
-        <div>{group}</div>
-        <div>{type}</div>
-        <div>{count}</div>
-      </div>
-      <div
-        style={{ fontSize: sizes.fontSize.xsmall }}
-        className="w-1/2 h-full flex flex-col  justify-center items-start pl-3 gap-0.5"
+      <Box
+        sx={{
+          width: "50%",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          paddingLeft: "12px",
+        }}
       >
-        <div>{position}</div>
-        <div>{comming}</div>
-        <div>{group_anni}</div>
-      </div>
-    </button>
+        <Typography variant="body2" sx={{ fontSize: sizes.fontSize.medium }}>
+          {group}
+        </Typography>
+        <Typography variant="body2" sx={{ fontSize: sizes.fontSize.medium }}>
+          {type}
+        </Typography>
+        <Typography variant="body2" sx={{ fontSize: sizes.fontSize.medium }}>
+          {count}
+        </Typography>
+      </Box>
+      <Box
+        sx={{
+          width: "50%",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          paddingLeft: "12px",
+        }}
+      >
+        <Typography variant="body2" sx={{ fontSize: sizes.fontSize.medium }}>
+          {position}
+        </Typography>
+        <Typography variant="body2" sx={{ fontSize: sizes.fontSize.medium }}>
+          {comming}
+        </Typography>
+        <Typography variant="body2" sx={{ fontSize: sizes.fontSize.medium }}>
+          {group_anni}
+        </Typography>
+      </Box>
+    </Button>
   );
 };
 

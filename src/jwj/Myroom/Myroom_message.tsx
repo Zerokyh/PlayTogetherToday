@@ -1,26 +1,56 @@
+import { Button, Box, Typography } from "@mui/material";
 import { sizes } from "../../styles/sizes";
+import ImgAvatar from "../../components/atom/ImgAvatar";
 
-type message_props = {
+type MessageProps = {
   contents?: string;
   time?: string;
 };
 
-const Myroom_message = ({ contents, time }: message_props) => {
+const Myroom_message = ({ contents, time }: MessageProps) => {
   return (
-    <div className="w-full h-1/5 flex  items-center justify-between bg-violet-100  rounded-xl px-2">
-      <div className="flex justify-center items-center gap-1">
-        <div className="w-7 h-7 rounded-full bg-pink-100"></div>
-        <div style={{ fontSize: sizes.fontSize.xsmall }} className="font-bold">
+    <Button
+      sx={{
+        width: "100%",
+        height: "auto",
+        minHeight: "70px",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        bgcolor: "#E5E5E5",
+        borderRadius: "12px",
+        paddingX: "8px",
+        textTransform: "none",
+        color: "black",
+      }}
+    >
+      <Box sx={{ display: "flex", alignItems: "center", gap: "8px" }}>
+        <ImgAvatar
+          src="cat.jpg"
+          alt="프로필"
+          sx={{
+            width: sizes.avatar.logo,
+            height: sizes.avatar.logo,
+            mx: "auto",
+          }}
+        />
+        <Typography
+          variant="body2"
+          fontWeight="bold"
+          sx={{ fontSize: sizes.fontSize.medium }}
+        >
           {contents}
-        </div>
-      </div>
-      <div
-        style={{ fontSize: sizes.fontSize.xsmall }}
-        className="text-[10px] font-bold"
+        </Typography>
+      </Box>
+      <Typography
+        variant="body2"
+        fontWeight="bold"
+        sx={{ fontSize: sizes.fontSize.medium }}
       >
         {time}
-      </div>
-    </div>
+      </Typography>
+    </Button>
   );
 };
+
 export default Myroom_message;
