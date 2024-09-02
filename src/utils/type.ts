@@ -119,3 +119,11 @@ export type PTTUnion =
   | InputModifyBoxProp
   | SwitchBoxProp
   | IosSwitchButtonProps;
+
+// groupImg
+
+export type GroupImgProps = {
+  alt?: string;
+  src?: string;
+  sx?: object;
+};
