@@ -5,9 +5,26 @@ import ChatReceiveMsgBox from "../molecules/ChatReceiveMsgBox";
 import { colors } from "../../styles/colors";
 import { sizes } from "../../styles/sizes";
 import { useEffect, useRef } from "react";
+import useThemeStore from "../../store/store";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#006DFF",
+    },
+    secondary: {
+      main: "#FA9884",
+    },
+  },
+});
 
 const Chatting = () => {
+  const { isTheme } = useThemeStore();
+
   const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  const inputColor = isTheme === "클래식" ? "primary" : "secondary";
 
   useEffect(() => {
     if (messagesEndRef.current) {
@@ -90,7 +107,10 @@ const Chatting = () => {
             width: "100%",
             padding: 1,
             borderRadius: sizes.borderRadius.xs,
-            backgroundColor: colors.background.primary,
+            backgroundColor:
+              isTheme == "클래식"
+                ? colors.background.primary
+                : colors.sub_background.primary,
             position: "sticky", // 입력란을 고정
             bottom: -1,
             marginTop: 5,
@@ -98,12 +118,14 @@ const Chatting = () => {
           noValidate
           autoComplete="off"
         >
-          <TextField
-            label="채팅을 입력해주세요"
-            color="primary"
-            focused
-            sx={{ width: "100%" }}
-          />
+          <ThemeProvider theme={theme}>
+            <TextField
+              label="채팅을 입력해주세요"
+              color={inputColor}
+              focused
+              sx={{ width: "100%" }}
+            />
+          </ThemeProvider>
         </Box>
         <div ref={messagesEndRef} />
       </Box>

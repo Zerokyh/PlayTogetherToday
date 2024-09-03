@@ -56,7 +56,7 @@ export const FullPageBox = styled(Box)({
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
-  backgroundColor: "#F5F7F8",
+  // backgroundColor: "#F5F7F8",
 });
 
 export const WidthHalfOutterBox = styled(Box)({
@@ -246,7 +246,6 @@ export const OpenSideBarSettingButtonStyle = {
   height: "20px",
   width: "40px",
   minWidth: "auto",
-  backgroundColor: colors.background.button,
   color: colors.background.drawer,
   position: "absolute",
   top: 5,
