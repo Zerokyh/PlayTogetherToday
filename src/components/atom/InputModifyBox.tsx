@@ -28,7 +28,7 @@ const InputModifyBox = ({
   return (
     <FormControl sx={{ m: 1, width: { width }, ...sx }} variant="standard">
       <InputLabel
-        htmlFor="standard-adornment"
+        htmlFor="standard-adornment-password"
         sx={{
           color: `${inputColor} !important`, // 기본 및 포커스 시 레이블 색상
           "&.Mui-focused": {
@@ -52,8 +52,18 @@ const InputModifyBox = ({
           "&:hover:not(.Mui-disabled):before": {
             borderBottom: `2px solid ${inputColor} !important`, // 호버 시 밑줄 색상
           },
-          "&:after": {
+          "&.Mui-focused:after": {
             borderBottom: `2px solid ${inputColor} !important`, // 포커스 후 밑줄 색상
+          },
+          "&.Mui-disabled": {
+            color: `${inputColor} !important`, // 비활성화 상태에서 텍스트 색상
+            "&:before": {
+              borderBottom: `1px solid ${inputColor} !important`, // 비활성화 상태에서 밑줄 색상
+            },
+          },
+          // 레이블과 입력 필드의 전체 색상 설정
+          "& .MuiInputBase-input": {
+            color: inputColor, // 입력 텍스트 색상 설정
           },
         }}
         endAdornment={

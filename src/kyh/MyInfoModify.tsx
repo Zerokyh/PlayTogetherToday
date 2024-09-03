@@ -78,7 +78,7 @@ const MyInfoModify = () => {
                   </Box>
                 </Box>
                 {Object.entries(infoData).map(([key, item]) => (
-                  <Box>
+                  <Box sx={{ height: 60 }}>
                     <ChipTextBox titlename={item.titlename} />
                     <InputModifyBox
                       width="240px"

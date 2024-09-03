@@ -202,19 +202,19 @@ export const InputMuiStyle = {
   position: "relative",
   bottom: 10,
   "& .MuiInput-underline:before": {
-    borderBottomColor: theme.palette.primary.dark, // 기본 밑줄 색상
+    borderBottomColor: "#23374D", // 기본 밑줄 색상
   },
   "& .MuiInput-underline:hover:before": {
-    borderBottomColor: theme.palette.primary.dark, // 호버 시 밑줄 색상
+    borderBottomColor: "#23374D", // 호버 시 밑줄 색상
   },
   "& .MuiInput-underline:after": {
-    borderBottomColor: theme.palette.primary.dark, // 포커스 시 밑줄 색상
+    borderBottomColor: "#23374D", // 포커스 시 밑줄 색상
   },
   "& .MuiInputLabel-root": {
-    color: theme.palette.primary.dark, // 라벨 색상
+    color: "#23374D", // 라벨 색상
   },
   "& .MuiInputBase-input": {
-    color: theme.palette.primary.dark, // 입력 텍스트 색상
+    color: "#23374D", // 입력 텍스트 색상
   },
 };
 
