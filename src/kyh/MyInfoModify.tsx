@@ -1,11 +1,6 @@
 import * as React from "react";
 import { Box, ThemeProvider, Typography } from "@mui/material";
-import {
-  FullPageBox,
-  InputMuiStyle,
-  MyInfoInnerBox,
-  MySettingOutterBox,
-} from "../styles/mui";
+import { FullPageBox, InputMuiStyle, MyInfoInnerBox } from "../styles/mui";
 import { colors, theme } from "../styles/colors";
 import ChipTextBox from "../components/atom/ChipTextBox";
 import { sizes } from "../styles/sizes";
@@ -13,8 +8,28 @@ import ImgAvatar from "../components/atom/ImgAvatar";
 import { infoData } from "../constants/myInfoModifyMenuData";
 import InputModifyBox from "../components/atom/InputModifyBox";
 import EditIcon from "@mui/icons-material/Edit";
+import { styled } from "@mui/material/styles";
+import useThemeStore from "../store/store";
 
 const MyInfoModify = () => {
+  const { isTheme } = useThemeStore();
+
+  const MySettingOutterBox = styled(Box)({
+    backgroundColor:
+      isTheme == "기본"
+        ? colors.background.secondary
+        : colors.sub_background.secondary,
+    minWidth: 500,
+    minHeight: 640,
+    borderRadius: sizes.borderRadius.medium,
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    gap: 20,
+    padding: 0,
+  });
+
   return (
     <ThemeProvider theme={theme}>
       <FullPageBox>

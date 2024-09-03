@@ -7,9 +7,9 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { useNavigate } from "react-router-dom";
 import { ContentsBoxProps } from "../../utils/type";
-import { ContentsBoxImg } from "../../styles/mui";
 import useThemeStore from "../../store/store";
 import { colors } from "../../styles/colors";
+import { Box } from "@mui/material";
 
 const ContentsBox = ({
   img,
@@ -18,55 +18,71 @@ const ContentsBox = ({
   introduce_add,
   href,
 }: ContentsBoxProps) => {
-  const { isLogin } = useThemeStore();
+  const { isTheme, isLogin } = useThemeStore();
   const navigate = useNavigate();
   return (
     <Card
       sx={{
-        width: { xs: "80%", sm: "80%", md: "80%" }, // 반응형 width 조정
-        height: { xs: "80%", md: "80%" }, // 반응형 height 조정
-        maxWidth: 400,
-        minWidth: 200,
-        minHeight: 340,
-        margin: "30px",
         display: "flex",
-        flexDirection: "column",
+        width: 620,
+        height: 505,
+        margin: "10px",
+        backgroundColor:
+          isTheme === "기본"
+            ? colors.background.secondary
+            : colors.sub_background.secondary,
       }}
     >
-      <CardMedia
-        component="img"
-        alt={subject}
-        src={img}
-        sx={{ ...ContentsBoxImg }}
-      />
-      <CardContent>
-        <Typography
-          gutterBottom
-          variant="h5"
-          component="div"
-          color={colors.text.primary}
-        >
-          {subject}
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          {introduce}
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          {introduce_add}
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button
-          size="small"
-          onClick={() => {
-            {
-              isLogin ? navigate(href) : navigate("/Login");
-            }
+      {/* 왼쪽 절반 - 이미지 */}
+      <Box sx={{ flex: 1 }}>
+        <CardMedia
+          component="img"
+          alt={subject}
+          src={img}
+          sx={{ height: "100%", objectFit: "cover" }}
+        />
+      </Box>
+
+      {/* 오른쪽 절반 - 텍스트 */}
+      <Box sx={{ flex: 1, display: "flex", flexDirection: "column" }}>
+        <CardContent
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            padding: 2,
           }}
         >
-          Detail
-        </Button>
-      </CardActions>
+          <Typography
+            gutterBottom
+            variant="h5"
+            component="div"
+            color={colors.text.primary}
+          >
+            {subject}
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            {introduce}
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            {introduce_add}
+          </Typography>
+        </CardContent>
+        <CardActions sx={{ mt: "auto", padding: 2 }}>
+          <Button
+            sx={{
+              width: "100%",
+              justifyContent: "end",
+            }}
+            size="small"
+            onClick={() => {
+              navigate(isLogin ? href : "/Login");
+            }}
+          >
+            Detail
+          </Button>
+        </CardActions>
+      </Box>
     </Card>
   );
 };

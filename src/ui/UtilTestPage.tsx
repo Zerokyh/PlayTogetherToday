@@ -1,9 +1,8 @@
 import * as React from "react";
 import { FullPageBox } from "../styles/mui";
 import BasicButton from "../components/atom/BasicButton";
-import { colors, theme } from "../styles/colors";
+import { colors } from "../styles/colors";
 import { Box } from "@mui/material";
-import RegisterModal from "../components/organism/Modal/RegisterModal";
 import BasicModal from "../components/organism/Modal/BasicModal";
 
 const UtilTestPage = () => {

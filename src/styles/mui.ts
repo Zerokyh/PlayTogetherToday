@@ -4,6 +4,7 @@ import { Theme, CSSObject, styled } from "@mui/material/styles";
 import { colors, theme } from "./colors";
 import { sizes } from "./sizes";
 import { Box } from "@mui/material";
+import { display } from "@mui/system";
 
 export const openedMixin = (theme: Theme): CSSObject => ({
   width: sizes.drawerWidth,
@@ -112,7 +113,7 @@ export const MyInfoInnerBox = styled(Box)({
 
 export const DashboardGridBox = styled(Box)({
   width: "100%",
-  height: "100%",
+  height: "95.8vh",
   display: "flex",
   flexDirection: "column",
   justifyContent: "center",
@@ -137,7 +138,7 @@ export const ContentsBoxImg = {
   objectFit: "cover",
   objectPosition: "center top",
   width: "100%",
-  height: "54%",
+  height: "50%", // 이미지가 차지할 공간의 비율을 조정
 };
 
 export const WidthHalfBoxInnerMui = {
