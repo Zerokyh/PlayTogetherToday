@@ -17,7 +17,7 @@ const theme = createTheme({
 
 const TextFieldBasic = ({ inputSubject }: TextFieldBasicProps) => {
   const { isTheme } = useThemeStore();
-  const inputColor = isTheme === "클래식" ? "primary" : "secondary";
+  const inputColor = isTheme === "기본" ? "primary" : "secondary";
   return (
     <ThemeProvider theme={theme}>
       <Box

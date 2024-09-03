@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-export type ThemeType = "클래식" | "선셋";
+export type ThemeType = "기본" | "선셋";
 
 type SetState = {
   isOpen: boolean;
@@ -24,7 +24,7 @@ const useThemeStore = create<SetState>((set) => ({
   // 로컬 스토리지에 저장한 테마명을 Zustand로 불러와서
   // 사용자가 선택한 현재 테마를 isTheme로 적용시킴
   // 새로고침을 하더라도 유저가 선택한 테마가 초기화되는 현상을 막음
-  isTheme: (localStorage.getItem("app-theme") as ThemeType) || "클래식",
+  isTheme: (localStorage.getItem("app-theme") as ThemeType) || "기본",
   setIsTheme: (isTheme) => {
     set({ isTheme });
 

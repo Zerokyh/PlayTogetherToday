@@ -24,7 +24,7 @@ const Chatting = () => {
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  const inputColor = isTheme === "클래식" ? "primary" : "secondary";
+  const inputColor = isTheme === "기본" ? "primary" : "secondary";
 
   useEffect(() => {
     if (messagesEndRef.current) {
@@ -108,7 +108,7 @@ const Chatting = () => {
             padding: 1,
             borderRadius: sizes.borderRadius.xs,
             backgroundColor:
-              isTheme == "클래식"
+              isTheme == "기본"
                 ? colors.background.primary
                 : colors.sub_background.primary,
             position: "sticky", // 입력란을 고정

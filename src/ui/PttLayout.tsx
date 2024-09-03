@@ -33,7 +33,7 @@ const PttLayout = () => {
 
           // 전체 화면의 배경에 적용될 배경색을 유저가 선택한 테마에 따라 바뀌도록 설정 }
           backgroundColor:
-            isTheme == "클래식"
+            isTheme == "기본"
               ? colors.background.primary
               : colors.sub_background.primary,
         }}

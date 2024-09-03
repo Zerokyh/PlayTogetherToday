@@ -11,7 +11,7 @@ const WidthHalfBox = ({ children, sx }: WidthHalfBoxProps) => {
     width: "100%",
     height: "100%",
     bgcolor:
-      isTheme == "클래식"
+      isTheme == "기본"
         ? colors.background.secondary
         : colors.sub_background.secondary,
     borderRadius: sizes.borderRadius.normal,

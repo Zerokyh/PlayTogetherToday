@@ -28,7 +28,7 @@ const MySetting = () => {
   const MySettingOutterBox = styled(Box)({
     // 테마에 따라 색이 바뀔 영역에다 삼항식으로 설정
     backgroundColor:
-      isTheme == "클래식"
+      isTheme == "기본"
         ? colors.background.secondary
         : colors.sub_background.secondary,
     minWidth: 500,
@@ -45,7 +45,7 @@ const MySetting = () => {
   const MySettingInnerBox = styled(Box)({
     // 테마에 따라 색이 바뀔 영역에다 삼항식으로 설정
     backgroundColor:
-      isTheme == "클래식"
+      isTheme == "기본"
         ? colors.background.secondary
         : colors.sub_background.secondary,
     width: 400,
@@ -60,7 +60,7 @@ const MySetting = () => {
 
   // 테마 설정 영역에서 유저가 스위치를 조작할 경우 테마가 바뀌도록 설정
   const handleThemeChange =
-    (theme: "클래식" | "선셋") => (event: SelectChangeEvent) => {
+    (theme: "기본" | "선셋") => (event: SelectChangeEvent) => {
       setIsTheme(theme);
     };
 
@@ -110,8 +110,8 @@ const MySetting = () => {
                   component={
                     <IosSwitchButton
                       color="primary"
-                      checked={isTheme === "클래식"}
-                      onChange={handleThemeChange("클래식")}
+                      checked={isTheme === "기본"}
+                      onChange={handleThemeChange("기본")}
                     />
                   }
                 />

@@ -7,7 +7,7 @@ const ChipTextBox = ({ titlename, width = "120px" }: ChipTextBoxProps) => {
   const { isTheme } = useThemeStore();
 
   const backgroundColor =
-    isTheme === "클래식"
+    isTheme === "기본"
       ? colors.background.button
       : colors.sub_background.button;
   return (

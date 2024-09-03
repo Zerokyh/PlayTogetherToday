@@ -42,7 +42,7 @@ const LinkedButton = ({
 
   // 테마에 따라 색상 선택을 다르게 할 수 있도록 함
   const backgroundColor =
-    isTheme === "클래식"
+    isTheme === "기본"
       ? colors.background[bgcolor as classicColorType] // 현재 테마가 "클래식"이면 클래식 색 중에서 사용
       : colors.sub_background[bgcolor as sunsetColorType]; // 현재 테마가 "선셋"이면 선셋 색 중에서 사용
 

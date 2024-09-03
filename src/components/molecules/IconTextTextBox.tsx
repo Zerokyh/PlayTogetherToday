@@ -38,7 +38,7 @@ const IconTextTextBox = ({
       display={"flex"}
       flexDirection={"column"}
       bgcolor={
-        isTheme == "클래식"
+        isTheme == "기본"
           ? colors.background.tertiary
           : colors.sub_background.tertiary
       }
