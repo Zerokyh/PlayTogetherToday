@@ -105,7 +105,7 @@ const MySetting = () => {
                 <IconTextMuiBox
                   icontextboxprops={{
                     icon: <ContrastIcon />,
-                    text: "클래식",
+                    text: "기본",
                   }}
                   component={
                     <IosSwitchButton
