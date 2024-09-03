@@ -25,7 +25,7 @@ const ContentsBox = ({
       sx={{
         display: "flex",
         width: 620,
-        height: 505,
+        height: 445,
         margin: "10px",
         backgroundColor:
           isTheme === "기본"
