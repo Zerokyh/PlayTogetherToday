@@ -22,7 +22,7 @@ const MySetting = () => {
   const { isTheme, setIsTheme } = useThemeStore();
 
   const handleThemeChange =
-    (theme: "메인" | "퍼플" | "블루") => (event: SelectChangeEvent) => {
+    (theme: "클래식" | "선셋") => (event: SelectChangeEvent) => {
       setIsTheme(theme);
     };
 
@@ -65,42 +65,29 @@ const MySetting = () => {
                 <IconTextMuiBox
                   icontextboxprops={{
                     icon: <ContrastIcon />,
-                    text: "메인",
+                    text: "클래식",
                   }}
                   component={
                     <IosSwitchButton
-                      color="success"
-                      checked={isTheme === "메인"}
-                      onChange={handleThemeChange("메인")}
+                      color="primary"
+                      checked={isTheme === "클래식"}
+                      onChange={handleThemeChange("클래식")}
                     />
                   }
                 />
                 <IconTextMuiBox
                   icontextboxprops={{
                     icon: <ContrastIcon />,
-                    text: "퍼플",
+                    text: "선셋",
                   }}
                   component={
                     <>
                       <IosSwitchButton
-                        color="primary"
-                        checked={isTheme === "퍼플"}
-                        onChange={handleThemeChange("퍼플")}
+                        color="secondary"
+                        checked={isTheme === "선셋"}
+                        onChange={handleThemeChange("선셋")}
                       />
                     </>
-                  }
-                />
-                <IconTextMuiBox
-                  icontextboxprops={{
-                    icon: <ContrastIcon />,
-                    text: "블루",
-                  }}
-                  component={
-                    <IosSwitchButton
-                      color="secondary"
-                      checked={isTheme === "블루"}
-                      onChange={handleThemeChange("블루")}
-                    />
                   }
                 />
               </Box>

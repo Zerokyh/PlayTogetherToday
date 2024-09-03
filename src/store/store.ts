@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-type ThemeType = "메인" | "퍼플" | "블루";
+export type ThemeType = "클래식" | "선셋";
 
 type SetState = {
   isOpen: boolean;
@@ -16,7 +16,7 @@ const useThemeStore = create<SetState>((set) => ({
   setIsOpen: (isOpen) => set({ isOpen }),
   isLogin: false,
   setIsLogin: (isLogin) => set({ isLogin }),
-  isTheme: "메인",
+  isTheme: "클래식",
   setIsTheme: (isTheme) => set({ isTheme }),
 }));
 

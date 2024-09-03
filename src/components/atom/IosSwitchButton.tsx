@@ -7,7 +7,7 @@ import { IosSwitchButtonProps } from "../../utils/type";
 const IOSSwitch = styled(
   (
     props: SwitchProps & {
-      color?: "primary" | "secondary" | "success";
+      color?: "primary" | "secondary";
       checked?: boolean;
     }
   ) => (
@@ -24,21 +24,17 @@ const IOSSwitch = styled(
     checked,
   }: {
     theme: Theme;
-    color?: "primary" | "secondary" | "success";
+    color?: "primary" | "secondary";
     checked?: boolean;
   }) => {
     const switchColors = {
       primary: {
-        track: checked ? theme.palette.primary.dark : "grey",
-        thumb: checked ? "white" : theme.palette.primary.dark,
+        track: checked ? theme.palette.primary.light : "grey",
+        thumb: checked ? "white" : theme.palette.primary.light,
       },
       secondary: {
-        track: checked ? theme.palette.secondary.main : "grey",
-        thumb: checked ? "white" : theme.palette.secondary.main,
-      },
-      success: {
-        track: checked ? theme.palette.success.main : "grey",
-        thumb: checked ? "white" : theme.palette.success.main,
+        track: checked ? theme.palette.secondary.dark : "grey",
+        thumb: checked ? "white" : theme.palette.secondary.dark,
       },
     };
 
