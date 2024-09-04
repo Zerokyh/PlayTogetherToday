@@ -5,7 +5,7 @@ import { colors, theme } from "./colors";
 import { sizes } from "./sizes";
 import { Box } from "@mui/material";
 import { MyInfoInnerBoxProps } from "../utils/type";
-import { bgcolor, fontSize, height } from "@mui/system";
+import { bgcolor } from "@mui/system";
 
 export const openedMixin = (theme: Theme): CSSObject => ({
   width: sizes.drawerWidth,
@@ -58,7 +58,7 @@ export const FullPageBox = styled(Box)({
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
-  backgroundColor: "#F5F7F8",
+  // backgroundColor: "#F5F7F8",
 });
 
 export const WidthHalfOutterBox = styled(Box)({
@@ -114,7 +114,7 @@ export const MyInfoInnerBox = styled(Box)({
 
 export const DashboardGridBox = styled(Box)({
   width: "100%",
-  height: "100%",
+  height: "95.8vh",
   display: "flex",
   flexDirection: "column",
   justifyContent: "center",
@@ -139,7 +139,7 @@ export const ContentsBoxImg = {
   objectFit: "cover",
   objectPosition: "center top",
   width: "100%",
-  height: "54%",
+  height: "50%", // 이미지가 차지할 공간의 비율을 조정
 };
 
 export const WidthHalfBoxInnerMui = {
@@ -168,7 +168,6 @@ export const SkeletonNormal = {
 export const LinkedButtonNormal = {
   width: 100,
   height: 40,
-  color: colors.text.primary,
   fontWeight: 600,
   border: `1px solid ${colors.border.drawer}`,
   fontSize: sizes.fontSize.xsmall,
@@ -177,7 +176,6 @@ export const LinkedButtonNormal = {
 export const LinkedButtonHeightSmall = {
   width: 100,
   height: 30,
-  color: colors.text.primary,
   fontWeight: 600,
   border: `1px solid ${colors.text.primary}`,
   fontSize: sizes.fontSize.xsmall,
@@ -206,19 +204,19 @@ export const InputMuiStyle = {
   position: "relative",
   bottom: 10,
   "& .MuiInput-underline:before": {
-    borderBottomColor: theme.palette.primary.dark, // 기본 밑줄 색상
+    borderBottomColor: "#23374D", // 기본 밑줄 색상
   },
   "& .MuiInput-underline:hover:before": {
-    borderBottomColor: theme.palette.primary.dark, // 호버 시 밑줄 색상
+    borderBottomColor: "#23374D", // 호버 시 밑줄 색상
   },
   "& .MuiInput-underline:after": {
-    borderBottomColor: theme.palette.primary.dark, // 포커스 시 밑줄 색상
+    borderBottomColor: "#23374D", // 포커스 시 밑줄 색상
   },
   "& .MuiInputLabel-root": {
-    color: theme.palette.primary.dark, // 라벨 색상
+    color: "#23374D", // 라벨 색상
   },
   "& .MuiInputBase-input": {
-    color: theme.palette.primary.dark, // 입력 텍스트 색상
+    color: "#23374D", // 입력 텍스트 색상
   },
 };
 
@@ -250,12 +248,7 @@ export const OpenSideBarSettingButtonStyle = {
   height: "20px",
   width: "40px",
   minWidth: "auto",
-  backgroundColor: colors.background.button,
   color: colors.background.drawer,
-  "&:hover": {
-    bgcolor: colors.text.primary,
-    color: "white",
-  },
   position: "absolute",
   top: 5,
   right: -12,

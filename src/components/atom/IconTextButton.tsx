@@ -2,6 +2,7 @@ import * as React from "react";
 import { Box, Typography } from "@mui/material";
 import { sizes } from "../../styles/sizes";
 import { IconTextButtonProps } from "../../utils/type";
+import { fontFamily } from "../../styles/theme";
 
 const IconTextButton = ({
   icon,
@@ -25,11 +26,7 @@ const IconTextButton = ({
           height: iconsize,
         },
       })}
-      <Typography
-        component="span"
-        fontSize={fontsize}
-        sx={{ fontFamily: '"Cafe24Ssurround", Arial, sans-serif' }}
-      >
+      <Typography component="span" fontFamily={fontFamily} fontSize={fontsize}>
         {text}
       </Typography>
     </Box>

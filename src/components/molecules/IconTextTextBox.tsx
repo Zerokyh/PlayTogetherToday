@@ -3,6 +3,8 @@ import { colors } from "../../styles/colors";
 import { sizes } from "../../styles/sizes";
 import IconTextButton from "../atom/IconTextButton";
 import { useNavigate } from "react-router-dom";
+import { fontFamily } from "../../styles/theme";
+import useThemeStore from "../../store/store";
 
 type IconTextButtonProps = {
   icon: React.ReactElement;
@@ -29,12 +31,17 @@ const IconTextTextBox = ({
   sx,
 }: IconTextTextBoxProp) => {
   const navigate = useNavigate();
+  const { isTheme, setIsTheme } = useThemeStore();
   return (
     <Box
       width={"100%"}
       display={"flex"}
       flexDirection={"column"}
-      bgcolor={colors.background.tertiary}
+      bgcolor={
+        isTheme == "기본"
+          ? colors.background.tertiary
+          : colors.sub_background.tertiary
+      }
       borderRadius={sizes.borderRadius.medium}
       sx={{ px: 1, py: 2, ...sx }}
     >
@@ -43,12 +50,12 @@ const IconTextTextBox = ({
         <Typography
           component={"span"}
           fontSize={buttonTextSize}
+          fontFamily={fontFamily}
           sx={{
             display: "flex",
             alignItems: "center",
             px: 1,
             ...hover,
-            fontFamily: '"Cafe24Ssurround", Arial, sans-serif',
           }}
           onClick={() => {
             navigate(href);

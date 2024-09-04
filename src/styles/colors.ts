@@ -14,12 +14,34 @@ export const colors = {
   // 텍스트 색상 Text Color
   text: {
     primary: "#23374D", // 메인 텍스트 색상 - 가장 짙은 파랑
-    secondary: "#F5F7F8", // 보조 텍스트 색상
-    drawer: "#707070", // 드로어 텍스트 색상
+    secondary: "#F5F7F8", // 보조 텍스트 색상 - 흰색에 가까운 색
+    grey: "#888888", // 회색 텍스트 색상
   },
 
   // 테두리 색상 Border Color
   border: {
+    primary: "#23374D", // 메인 보더 색상 - 가장 짙은 파랑
+    drawer: "#23374D", // 드로어 버튼 보더 색상
+  },
+
+  // 서브 배경 색상  Sub Background Color
+  sub_background: {
+    primary: "#FFFAF4", // 기본 배경 색상
+    secondary: "#FFF3E2", // 보조 배경 색상
+    tertiary: "#FFE5CA", // 3번째 배경 색상
+    button: "#FA9884", // 주 버튼 색상
+    drawer: "#FFFFFF", // 드로어 배경 색상
+  },
+
+  // 서브 텍스트 색상 Sub Text Color
+  sub_text: {
+    primary: "#23374D", // 메인 텍스트 색상 - 가장 짙은 파랑
+    secondary: "#F5F7F8", // 보조 텍스트 색상 - 흰색에 가까운 색
+    grey: "#888888", // 회색 텍스트 색상
+  },
+
+  // 서브 테두리 색상 Sub Border Color
+  sub_border: {
     primary: "#23374D", // 메인 보더 색상 - 가장 짙은 파랑
     drawer: "#23374D", // 드로어 버튼 보더 색상
   },
@@ -29,18 +51,13 @@ export const theme = createTheme({
   palette: {
     primary: {
       main: "#006DFF",
-      light: "#FEF7FF",
-      dark: "#3A1B71",
+      light: "#006DFF",
+      dark: "#FA9884",
     },
     secondary: {
-      main: "#1976d2",
-      light: "#42a5f5",
-      dark: "#1565c0",
-    },
-    success: {
-      main: "#04D862",
-      light: "#FEF7FF",
-      dark: "#3A1B71",
+      main: "#FA9884",
+      light: "#006DFF",
+      dark: "#FA9884",
     },
   },
 });

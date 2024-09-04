@@ -1,13 +1,15 @@
 import * as React from "react";
 import { Box, Modal } from "@mui/material";
-import ModalInputBox from "../molecules/ModalInputBox";
+import BasicForm, { BasicFormProps } from "../../molecules/modal/BasicForm";
+import { sizes } from "../../../styles/sizes";
 
-type RegisterModalProp = {
+type BasicModalProp = {
   open: boolean;
   handleClose: () => void;
+  basicformprops: BasicFormProps;
 };
 
-const RegisterModal = ({ open, handleClose }: RegisterModalProp) => {
+const BasicModal = ({ open, handleClose, basicformprops }: BasicModalProp) => {
   // modal
   const ModalMuiStyle = {
     position: "absolute" as "absolute",
@@ -17,6 +19,7 @@ const RegisterModal = ({ open, handleClose }: RegisterModalProp) => {
     width: 330,
     bgcolor: "background.paper",
     boxShadow: 24,
+    borderRadius: sizes.borderRadius.small,
   };
   return (
     <Modal
@@ -26,10 +29,10 @@ const RegisterModal = ({ open, handleClose }: RegisterModalProp) => {
       aria-describedby="modal-modal-description"
     >
       <Box sx={{ ...ModalMuiStyle }}>
-        <ModalInputBox />
+        <BasicForm {...basicformprops} />
       </Box>
     </Modal>
   );
 };
 
-export default RegisterModal;
+export default BasicModal;

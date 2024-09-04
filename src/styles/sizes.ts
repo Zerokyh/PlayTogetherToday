@@ -59,5 +59,6 @@ export const sizes = {
     small: "8px",
     medium: "10px",
     normal: "12px",
+    circle: "50%",
   },
 };

@@ -1,3 +1,5 @@
+// MySetting.tsx
+
 import * as React from "react";
 import { Box, SelectChangeEvent, ThemeProvider } from "@mui/material";
 import { colors, theme } from "../styles/colors";
@@ -8,21 +10,57 @@ import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import { sizes } from "../styles/sizes";
 import IconTextTextBox from "../components/molecules/IconTextTextBox";
 import IconTextMuiBox from "../components/molecules/IconTextMuiBox";
-import useThemeStore from "../store/store";
 import {
   FullPageBox,
-  MySettingInnerBox,
   MySettingInnerStyle,
-  MySettingOutterBox,
   MySettingTitleStyle,
 } from "../styles/mui";
+import { styled } from "@mui/material/styles";
 import IosSwitchButton from "../components/atom/IosSwitchButton";
 
+// zustand 설정 파일 호출
+import useThemeStore from "../store/store";
+
 const MySetting = () => {
+  // 테마 호출
   const { isTheme, setIsTheme } = useThemeStore();
 
+  const MySettingOutterBox = styled(Box)({
+    // 테마에 따라 색이 바뀔 영역에다 삼항식으로 설정
+    backgroundColor:
+      isTheme == "기본"
+        ? colors.background.secondary
+        : colors.sub_background.secondary,
+    minWidth: 500,
+    minHeight: 640,
+    borderRadius: sizes.borderRadius.medium,
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    gap: 20,
+    padding: 0,
+  });
+
+  const MySettingInnerBox = styled(Box)({
+    // 테마에 따라 색이 바뀔 영역에다 삼항식으로 설정
+    backgroundColor:
+      isTheme == "기본"
+        ? colors.background.secondary
+        : colors.sub_background.secondary,
+    width: 400,
+    height: 500,
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: sizes.borderRadius.medium,
+    gap: 30,
+  });
+
+  // 테마 설정 영역에서 유저가 스위치를 조작할 경우 테마가 바뀌도록 설정
   const handleThemeChange =
-    (theme: "메인" | "퍼플" | "블루") => (event: SelectChangeEvent) => {
+    (theme: "기본" | "선셋") => (event: SelectChangeEvent) => {
       setIsTheme(theme);
     };
 
@@ -54,6 +92,8 @@ const MySetting = () => {
                 href="/MyInfoModify"
                 hover={{ ":hover": { cursor: "pointer" } }}
               />
+
+              {/* 테마 변경 UI를 스위치로 유저가 변경할 수 있게 구현 */}
               <Box sx={{ ...MySettingInnerStyle }}>
                 <IconTextTextBox
                   icontextboxprops={{
@@ -65,45 +105,33 @@ const MySetting = () => {
                 <IconTextMuiBox
                   icontextboxprops={{
                     icon: <ContrastIcon />,
-                    text: "메인",
+                    text: "기본",
                   }}
                   component={
                     <IosSwitchButton
-                      color="success"
-                      checked={isTheme === "메인"}
-                      onChange={handleThemeChange("메인")}
+                      color="primary"
+                      checked={isTheme === "기본"}
+                      onChange={handleThemeChange("기본")}
                     />
                   }
                 />
                 <IconTextMuiBox
                   icontextboxprops={{
                     icon: <ContrastIcon />,
-                    text: "퍼플",
+                    text: "선셋",
                   }}
                   component={
                     <>
                       <IosSwitchButton
-                        color="primary"
-                        checked={isTheme === "퍼플"}
-                        onChange={handleThemeChange("퍼플")}
+                        color="secondary"
+                        checked={isTheme === "선셋"}
+                        onChange={handleThemeChange("선셋")}
                       />
                     </>
                   }
                 />
-                <IconTextMuiBox
-                  icontextboxprops={{
-                    icon: <ContrastIcon />,
-                    text: "블루",
-                  }}
-                  component={
-                    <IosSwitchButton
-                      color="secondary"
-                      checked={isTheme === "블루"}
-                      onChange={handleThemeChange("블루")}
-                    />
-                  }
-                />
               </Box>
+
               <IconTextTextBox
                 icontextboxprops={{
                   icon: <PersonOutlineIcon />,

@@ -4,8 +4,6 @@ import LinkedButton from "../../components/atom/LinkedButton";
 import useThemeStore from "../../store/store";
 import { handleDrawerClose, handleLogOut } from "../../utils/func";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-import { colors } from "../../styles/colors";
-import { fontFamily } from "../../styles/theme";
 
 const OpenedBarTopLogoutBar = () => {
   const { isLogin, isOpen, setIsOpen, setIsLogin } = useThemeStore();
@@ -17,12 +15,12 @@ const OpenedBarTopLogoutBar = () => {
     >
       {isLogin ? (
         <LinkedButton
+          textcolor="grey"
           sx={{
             width: "100px",
             fontSize: sizes.fontSize.small,
             display: "flex",
             justifyContent: "center",
-            color: colors.text.drawer,
           }}
           text="로그아웃"
           onClick={() => handleLogOut(setIsLogin)}
