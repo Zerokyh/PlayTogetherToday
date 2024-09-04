@@ -32,7 +32,7 @@ const ContentsBox = ({
     <Card
       sx={{
         position: "relative",
-        width: { xs: 300, sm: 400, md: 400, lg: 632 },
+        width: { xs: 300, sm: 400, md: 500, lg: 632 },
         height: { xs: 200, sm: 200, md: 350, lg: 445 },
         minHeight: { xs: 200, sm: 200 },
         maxHeight: { xs: 300, sm: "none" },
