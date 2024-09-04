@@ -49,6 +49,7 @@ export const sizes = {
     small: "2px",
     medium: "4px",
     normal: "6px",
+    //추가한 내용
     large: "10px",
     xLarge: "14px",
   },

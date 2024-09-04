@@ -10,6 +10,7 @@ import { useTheme } from "@mui/system";
 import UnfoldMoreRoundedIcon from "@mui/icons-material/UnfoldMoreRounded";
 import { PopupContext } from "@mui/base/Unstable_Popup";
 import { CssTransition } from "@mui/base";
+import { colors } from "../styles/colors";
 
 export default function UnstyledSelectIntroduction() {
   return (
@@ -143,7 +144,7 @@ function Styles() {
         border-radius: 20px;
         text-align: left;
         line-height: 1.5;
-        background: ${isDarkMode ? grey[900] : pink[50]};
+        background: ${isDarkMode ? grey[900] : colors.background.tertiary};
         border: 1px solid ${isDarkMode ? grey[700] : grey[200]};
         color: ${isDarkMode ? grey[300] : grey[900]};
         position: relative;
