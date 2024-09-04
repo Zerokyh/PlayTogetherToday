@@ -5,7 +5,6 @@ import LinkedButton from "../../components/atom/LinkedButton";
 import { LinkedButtonHeightSmall, SkeletonNormal } from "../../styles/mui";
 import NotLoginButton from "../../components/molecules/NotLoginButton";
 import { fourMenuData } from "../../constants/fourMenuData";
-import { colors } from "../../styles/colors";
 
 const OpenedBarMiddle = () => {
   const { isLogin } = useThemeStore();

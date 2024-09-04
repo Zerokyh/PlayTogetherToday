@@ -2,6 +2,7 @@ import * as React from "react";
 import { Button as BaseButton } from "@mui/base/Button";
 import { styled } from "@mui/system";
 import Stack from "@mui/material/Stack";
+import { colors } from "../styles/colors";
 
 export default function UnstyledButtonsSimple() {
   return (
@@ -46,18 +47,20 @@ const Button = styled(BaseButton)(
   font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.5;
-  background-color: ${pink[50]};
+  background-color: ${colors.background.tertiary};
   padding: 8px 16px;
   border-radius: 30px;
   color: black;
   transition: all 150ms ease;
   cursor: pointer;
-  border: 1px solid ${pink[50]};
+  border: 1px solid ${colors.background.tertiary};
   box-shadow: 0 2px 1px ${
     theme.palette.mode === "dark"
       ? "rgba(0, 0, 0, 0.5)"
       : "rgba(45, 45, 60, 0.2)"
-  }, inset 0 1.5px 1px ${pink[40]}, inset 0 -2px 1px ${pink[60]};
+  }, inset 0 1.5px 1px ${colors.background.tertiary}, inset 0 -2px 1px ${
+    colors.background.tertiary
+  };
 
   
 

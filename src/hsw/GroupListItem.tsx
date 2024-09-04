@@ -1,6 +1,7 @@
-import { Button } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import GroupImg from "./GroupImg";
 import { GroupImgAvatar } from "../styles/mui";
+import { sizes } from "../styles/sizes";
 
 type GroupDetailProps = {
   groupName?: string;
@@ -20,24 +21,45 @@ const GroupListItem = ({
   groupImgSrc,
 }: GroupDetailProps) => {
   return (
-    <div className="w-full h-full flex px-5 py-3 gap-2 items-center justify-between">
-      <div className="flex items-center gap-5">
+    <Box
+      sx={{
+        widht: "100%",
+        height: "100%",
+        display: "flex",
+        padding: "20px 12px",
+        justifyContent: "space-between",
+        alignItems: "center",
+      }}
+    >
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          gap: "20px",
+        }}
+      >
         <GroupImg
           alt={groupImgName}
           src={groupImgSrc}
           sx={{ ...GroupImgAvatar }}
         />
-        <div className="text-sm font-bold text-slate-700">
-          <p>{groupName}</p>
-        </div>
-        <div className="text-[10px]">
-          <p>{groupInfo}</p>
-        </div>
-      </div>
+        <Box>
+          <Typography
+            sx={{ fontSize: sizes.fontSize.medium, fontWeight: "700" }}
+          >
+            {groupName}
+          </Typography>
+        </Box>
+        <Box>
+          <Typography sx={{ fontSize: sizes.fontSize.xsmall }}>
+            {groupInfo}
+          </Typography>
+        </Box>
+      </Box>
       <div>
         <Button color="primary">가입하기</Button>
       </div>
-    </div>
+    </Box>
   );
 };
 
