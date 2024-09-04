@@ -92,7 +92,7 @@ const UtilTestPage = () => {
                     padding: 2,
                     textAlign: "center",
                     zIndex: 2, // 오버레이의 z-index를 2로 설정하여 이미지 위에 표시되도록 설정
-                    opacity: 1,
+                    opacity: 0.8,
                     transition: "opacity 0.3s", // 오버레이의 투명도를 부드럽게 변경
                     "&:hover": {
                       opacity: 1, // 카드에 마우스를 올리면 오버레이가 나타나도록 설정

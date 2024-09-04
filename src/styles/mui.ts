@@ -113,12 +113,12 @@ export const MyInfoInnerBox = styled(Box)({
 
 export const DashboardGridBox = styled(Box)({
   width: "100%",
-  height: "95.8vh",
+  // height: "95.8vh",
   display: "flex",
   flexDirection: "column",
   justifyContent: "center",
   alignItems: "center",
-  padding: "0px",
+  paddingY: "20px",
 });
 
 export const AvatarSize = {
