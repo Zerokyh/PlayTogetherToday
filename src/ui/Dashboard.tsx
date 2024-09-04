@@ -10,15 +10,13 @@ const Dashboard = () => {
     <React.Fragment>
       <CssBaseline />
       <DashboardGridBox>
-        <Box>
-          <Grid container spacing={2}>
-            {dashBoardData.map((item, index) => (
-              <Grid item xs={12} sm={12} md={6} lg={6} key={index}>
-                <ContentsBox {...item} />
-              </Grid>
-            ))}
-          </Grid>
-        </Box>
+        <Grid container spacing={2}>
+          {dashBoardData.map((item, index) => (
+            <Grid item xs={12} sm={12} md={6} lg={6} key={index}>
+              <ContentsBox {...item} />
+            </Grid>
+          ))}
+        </Grid>
       </DashboardGridBox>
     </React.Fragment>
   );

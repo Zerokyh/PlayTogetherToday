@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import useThemeStore from "../../store/store";
 import { colors } from "../../styles/colors";
 import { Box, useMediaQuery, useTheme } from "@mui/material";
+import { sizes } from "../../styles/sizes";
 
 export type ContentsBoxProps = {
   img: string;
@@ -31,9 +32,10 @@ const ContentsBox = ({
   return (
     <Card
       sx={{
+        flexGrow: 1,
         position: "relative",
         width: { xs: 300, sm: 400, md: 500, lg: 632 },
-        height: { xs: 200, sm: 200, md: 350, lg: 445 },
+        height: { xs: 200, sm: 200, md: 350, lg: 450 },
         minHeight: { xs: 200, sm: 200 },
         maxHeight: { xs: 300, sm: "none" },
         display: "flex",
@@ -41,6 +43,7 @@ const ContentsBox = ({
         justifyContent: "center",
         alignItems: "center",
         overflow: "hidden",
+        borderRadius: sizes.borderRadius.medium,
         backgroundColor:
           isTheme === "기본"
             ? colors.background.secondary
