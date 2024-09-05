@@ -68,7 +68,7 @@ const ContentsBox = ({
           left: 0,
           width: "100%",
           height: "100%",
-          backgroundColor: "rgba(0, 0, 0, 0.5)",
+          backgroundColor: "rgba(0, 0, 0, 0.2)",
           color: "white",
           display: "flex",
           flexDirection: "column",
@@ -77,7 +77,6 @@ const ContentsBox = ({
           padding: isMobile ? 1.5 : 2,
           textAlign: "center",
           zIndex: 2,
-          opacity: 0.8,
           transition: "opacity 0.3s",
           "&:hover": {
             opacity: 1,
@@ -115,16 +114,31 @@ const ContentsBox = ({
             {introduce_add}
           </Typography>
         )}
-        <Button
+        <Typography
+          sx={{
+            color: colors.background.button,
+            fontSize: sizes.fontSize.medium,
+            fontWeight: 800,
+          }}
+        >
+          자세히보기
+        </Typography>
+
+        {/* <Button
           variant="contained"
           size={isMobile ? "small" : "medium"}
-          sx={{ mt: isMobile ? 1 : 2 }}
+          sx={{
+            mt: isMobile ? 1 : 2,
+            bgcolor: colors.background.button,
+            fontWeight: 600,
+            fontSize: sizes.fontSize.medium,
+          }}
           onClick={() => {
             navigate(isLogin ? href : "/Login");
           }}
         >
           자세히 보기
-        </Button>
+        </Button> */}
       </Box>
     </Card>
   );
