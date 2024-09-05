@@ -4,6 +4,7 @@ import { sizes } from "../../styles/sizes";
 type profile_props = {
   info_name?: string;
   info?: string;
+  profileIsPublic: boolean;
   //   email?: string;
   //   address?: string;
   //   position?: string;
@@ -11,7 +12,11 @@ type profile_props = {
   //   group_anni ?: string;
 };
 
-const Myroom_profile = ({ info_name, info }: profile_props) => {
+const Myroom_profile = ({
+  info_name,
+  info,
+  profileIsPublic,
+}: profile_props) => {
   return (
     <Box
       sx={{
@@ -27,12 +32,25 @@ const Myroom_profile = ({ info_name, info }: profile_props) => {
         gap: 0.5,
       }}
     >
-      <Typography variant="body2" sx={{ fontSize: sizes.fontSize.medium }}>
-        {info_name}:
-      </Typography>
-      <Typography variant="body2" sx={{ fontSize: sizes.fontSize.medium }}>
-        {info}
-      </Typography>
+      {profileIsPublic ? (
+        <>
+          <Typography variant="body2" sx={{ fontSize: sizes.fontSize.medium }}>
+            {info_name}:
+          </Typography>
+          <Typography variant="body2" sx={{ fontSize: sizes.fontSize.medium }}>
+            {info}
+          </Typography>
+        </>
+      ) : (
+        <>
+          <Typography variant="body2" sx={{ fontSize: sizes.fontSize.medium }}>
+            {info_name}:
+          </Typography>
+          <Typography variant="body2" sx={{ fontSize: sizes.fontSize.medium }}>
+            공개되지않습니다
+          </Typography>
+        </>
+      )}
     </Box>
   );
 };

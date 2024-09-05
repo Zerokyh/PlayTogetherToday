@@ -21,6 +21,13 @@ const Myroom = () => {
     return phone;
   };
 
+  //쪽지함 공개/비공개
+  const MessageisPublic = false;
+  //그룹함 공개/비공개
+  const GroupisPublic = false;
+  //친구리스트 공개/비공개
+  const FreindsListisPublic = true;
+
   return (
     <Box
       sx={{
@@ -82,12 +89,24 @@ const Myroom = () => {
               gap: 1,
             }}
           >
-            <Myroom_profile info_name="연 락 처" info={news()} />
-            <Myroom_profile info_name="이 메 일" info="asdfasd213@naver.com" />
-            <Myroom_profile info_name="주 소" info="인천 부평구 " />
-            <Myroom_profile info_name="그룹 직책" />
-            <Myroom_profile info_name="개인 기념일" />
-            <Myroom_profile info_name="그룹 기념일" />
+            <Myroom_profile
+              info_name="연 락 처"
+              info={news()}
+              profileIsPublic={true}
+            />
+            <Myroom_profile
+              info_name="이 메 일"
+              info="asdfasd213@naver.com"
+              profileIsPublic={true}
+            />
+            <Myroom_profile
+              info_name="주 소"
+              info="인천 부평구 "
+              profileIsPublic={true}
+            />
+            <Myroom_profile info_name="그룹 직책" profileIsPublic={false} />
+            <Myroom_profile info_name="개인 기념일" profileIsPublic={true} />
+            <Myroom_profile info_name="그룹 기념일" profileIsPublic={false} />
           </Box>
         </Box>
         <Box
@@ -141,21 +160,25 @@ const Myroom = () => {
         >
           친구리스트
         </Box>
-        <Box
-          sx={{
-            width: "100%",
-            flex: 1,
-            display: "flex",
-            flexDirection: "column",
-            gap: 1,
-          }}
-        >
-          <Myroom_freindsList name="닉네임" anni="기념일" group="그룹명" />
-          <Myroom_freindsList name="닉네임" anni="기념일" group="그룹명" />
-          <Myroom_freindsList name="닉네임" anni="기념일" group="그룹명" />
-          <Myroom_freindsList name="닉네임" anni="기념일" group="그룹명" />
-          <Myroom_freindsList name="닉네임" anni="기념일" group="그룹명" />
-        </Box>
+        {FreindsListisPublic ? (
+          <Box
+            sx={{
+              width: "100%",
+              flex: 1,
+              display: "flex",
+              flexDirection: "column",
+              gap: 1,
+            }}
+          >
+            <Myroom_freindsList name="닉네임" anni="기념일" group="그룹명" />
+            <Myroom_freindsList name="닉네임" anni="기념일" group="그룹명" />
+            <Myroom_freindsList name="닉네임" anni="기념일" group="그룹명" />
+            <Myroom_freindsList name="닉네임" anni="기념일" group="그룹명" />
+            <Myroom_freindsList name="닉네임" anni="기념일" group="그룹명" />
+          </Box>
+        ) : (
+          <Box>공개되지않습니다.</Box>
+        )}
       </Grid>
 
       <Grid
@@ -188,49 +211,53 @@ const Myroom = () => {
         >
           나의 모임
         </Box>
-        <Box
-          sx={{
-            width: "100%",
-            flex: 1,
-            display: "flex",
-            flexDirection: "column",
-            gap: 1,
-          }}
-        >
-          <Myroom_meeting_button
-            group="그룹1"
-            type="그룹 타입"
-            count="그룹 멤버수"
-            position="직책"
-            comming="다가오는 모임 날짜"
-            group_anni="그룹 기념일"
-            onClick={() => navigate("/BorderDetail")}
-          />
-          <Myroom_meeting_button
-            group="그룹2"
-            type="그룹 타입"
-            count="그룹 멤버수"
-            position="직책"
-            comming="다가오는 모임 날짜"
-            group_anni="그룹 기념일"
-          />
-          <Myroom_meeting_button
-            group="그룹3"
-            type="그룹 타입"
-            count="그룹 멤버수"
-            position="직책"
-            comming="다가오는 모임 날짜"
-            group_anni="그룹 기념일"
-          />
-          <Myroom_meeting_button
-            group="그룹4"
-            type="그룹 타입"
-            count="그룹 멤버수"
-            position="직책"
-            comming="다가오는 모임 날짜"
-            group_anni="그룹 기념일"
-          />
-        </Box>
+        {GroupisPublic ? (
+          <Box
+            sx={{
+              width: "100%",
+              flex: 1,
+              display: "flex",
+              flexDirection: "column",
+              gap: 1,
+            }}
+          >
+            <Myroom_meeting_button
+              group="그룹1"
+              type="그룹 타입"
+              count="그룹 멤버수"
+              position="직책"
+              comming="다가오는 모임 날짜"
+              group_anni="그룹 기념일"
+              onClick={() => navigate("/BorderDetail")}
+            />
+            <Myroom_meeting_button
+              group="그룹2"
+              type="그룹 타입"
+              count="그룹 멤버수"
+              position="직책"
+              comming="다가오는 모임 날짜"
+              group_anni="그룹 기념일"
+            />
+            <Myroom_meeting_button
+              group="그룹3"
+              type="그룹 타입"
+              count="그룹 멤버수"
+              position="직책"
+              comming="다가오는 모임 날짜"
+              group_anni="그룹 기념일"
+            />
+            <Myroom_meeting_button
+              group="그룹4"
+              type="그룹 타입"
+              count="그룹 멤버수"
+              position="직책"
+              comming="다가오는 모임 날짜"
+              group_anni="그룹 기념일"
+            />
+          </Box>
+        ) : (
+          <Box>공개되지않습니다.</Box>
+        )}
       </Grid>
 
       <Grid
@@ -264,25 +291,30 @@ const Myroom = () => {
         >
           쪽지함
         </Box>
-        <Box
-          sx={{
-            width: "100%",
-            height: "100%",
-            flex: 1,
-            display: "flex",
-            flexDirection: "column",
-            gap: 1,
-            overflowY: "auto",
-          }}
-        >
-          <Myroom_message contents="쪽지 내용" time="쪽지 보낸시간" />
-          <Myroom_message contents="쪽지 내용" time="쪽지 보낸시간" />
-          <Myroom_message contents="쪽지 내용" time="쪽지 보낸시간" />
-          <Myroom_message contents="쪽지 내용" time="쪽지 보낸시간" />
-          <Myroom_message contents="쪽지 내용" time="쪽지 보낸시간" />
-          <Myroom_message contents="쪽지 내용" time="쪽지 보낸시간" />
-          <Myroom_message contents="쪽지 내용" time="쪽지 보낸시간" />
-        </Box>
+
+        {MessageisPublic ? (
+          <Box
+            sx={{
+              width: "100%",
+              height: "100%",
+              flex: 1,
+              display: "flex",
+              flexDirection: "column",
+              gap: 1,
+              overflowY: "auto",
+            }}
+          >
+            <Myroom_message contents="쪽지 내용" time="쪽지 보낸시간" />
+            <Myroom_message contents="쪽지 내용" time="쪽지 보낸시간" />
+            <Myroom_message contents="쪽지 내용" time="쪽지 보낸시간" />
+            <Myroom_message contents="쪽지 내용" time="쪽지 보낸시간" />
+            <Myroom_message contents="쪽지 내용" time="쪽지 보낸시간" />
+            <Myroom_message contents="쪽지 내용" time="쪽지 보낸시간" />
+            <Myroom_message contents="쪽지 내용" time="쪽지 보낸시간" />
+          </Box>
+        ) : (
+          <Box>공개되지않습니다.</Box>
+        )}
       </Grid>
     </Box>
   );

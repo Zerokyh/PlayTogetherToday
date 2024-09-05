@@ -12,6 +12,12 @@ import Myroom_message from "../Myroom/Myroom_message";
 import { Avatar } from "@mui/material";
 
 const Myroom_authority = () => {
+  const [isAllPublic, setIsAllPublic] = React.useState<boolean | null>(null);
+
+  // Profile_TotalButton을 클릭할 때 호출되는 함수
+  const toggleAllProfiles = () => {
+    setIsAllPublic((prev) => (prev === true ? false : true));
+  };
   return (
     <Box
       sx={{
@@ -73,12 +79,36 @@ const Myroom_authority = () => {
               gap: 1,
             }}
           >
-            <Authorize_profile info_name="연 락 처" />
-            <Authorize_profile info_name="이 메 일" />
-            <Authorize_profile info_name="주 소" />
-            <Authorize_profile info_name="그룹 직책" />
-            <Authorize_profile info_name="개인 기념일" />
-            <Authorize_profile info_name="그룹 기념일" />
+            <Authorize_profile
+              info_name="연 락 처"
+              isAllPublic={isAllPublic}
+              setIsAllPublic={setIsAllPublic}
+            />
+            <Authorize_profile
+              info_name="이 메 일"
+              isAllPublic={isAllPublic}
+              setIsAllPublic={setIsAllPublic}
+            />
+            <Authorize_profile
+              info_name="주 소"
+              isAllPublic={isAllPublic}
+              setIsAllPublic={setIsAllPublic}
+            />
+            <Authorize_profile
+              info_name="그룹 직책"
+              isAllPublic={isAllPublic}
+              setIsAllPublic={setIsAllPublic}
+            />
+            <Authorize_profile
+              info_name="개인 기념일"
+              isAllPublic={isAllPublic}
+              setIsAllPublic={setIsAllPublic}
+            />
+            <Authorize_profile
+              info_name="그룹 기념일"
+              isAllPublic={isAllPublic}
+              setIsAllPublic={setIsAllPublic}
+            />
           </Box>
         </Box>
         <Box
@@ -92,7 +122,7 @@ const Myroom_authority = () => {
             gap: 3,
           }}
         >
-          <Profile_TotalButton />
+          <Profile_TotalButton toggleAllProfiles={toggleAllProfiles} />
           <Paper
             elevation={3}
             sx={{
