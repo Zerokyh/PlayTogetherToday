@@ -119,6 +119,10 @@ const ContentsBox = ({
             color: colors.background.button,
             fontSize: sizes.fontSize.medium,
             fontWeight: 800,
+            ":hover": { cursor: "pointer" },
+          }}
+          onClick={() => {
+            navigate(isLogin ? href : "/Login");
           }}
         >
           자세히보기
