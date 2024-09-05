@@ -56,9 +56,9 @@ const GroupListItem = ({
           </Typography>
         </Box>
       </Box>
-      <div>
+      <Box>
         <Button color="primary">가입하기</Button>
-      </div>
+      </Box>
     </Box>
   );
 };

@@ -4,6 +4,7 @@ export const sizes = {
   drawerWidth: 240,
 
   avatar: {
+    profileLogo: "20px",
     logo: "30px",
     chat: "60px",
     info: "120px",
@@ -51,6 +52,7 @@ export const sizes = {
     normal: "6px",
     //추가한 내용
     large: "10px",
+    mLarge: "12px",
     xLarge: "14px",
   },
 
