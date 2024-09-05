@@ -45,14 +45,14 @@ const UtilTestPage = () => {
           />
         </Box>
       </Box> */}
-      <Box sx={{ padding: 2 }}>
+      <Box sx={{ padding: 0 }}>
         <Grid container spacing={2}>
           {dashBoardData.slice(0, 4).map((item, index) => (
             <Grid item xs={12} sm={6} md={6} lg={6} key={index}>
               <Card
                 sx={{
                   position: "relative",
-                  height: 445,
+                  height: 435,
                   display: "flex",
                   flexDirection: "column",
                   overflow: "hidden",
