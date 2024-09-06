@@ -1,6 +1,8 @@
 import { Button, Box, Typography } from "@mui/material";
 import { sizes } from "../../styles/sizes";
 import ImgAvatar from "../../components/atom/ImgAvatar";
+import useThemeStore, { ThemeType } from "../../store/store";
+import { colors } from "../../styles/colors";
 
 type MessageProps = {
   contents?: string;
@@ -8,6 +10,9 @@ type MessageProps = {
 };
 
 const Myroom_message = ({ contents, time }: MessageProps) => {
+  //zustand로 관리하는 테마 호출
+  const { isTheme } = useThemeStore();
+
   return (
     <Button
       sx={{
@@ -17,7 +22,10 @@ const Myroom_message = ({ contents, time }: MessageProps) => {
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
-        bgcolor: "#E5E5E5",
+        backgroundColor:
+          isTheme == ("기본" as ThemeType)
+            ? colors.background.tertiary
+            : colors.sub_background.tertiary,
         borderRadius: "12px",
         paddingX: "8px",
         textTransform: "none",

@@ -3,6 +3,8 @@ import { Box } from "@mui/material";
 import Authorize_button from "./ProfileAuthorize_button";
 import { sizes } from "../../styles/sizes";
 import ProfileAuthorize_button from "./ProfileAuthorize_button";
+import useThemeStore, { ThemeType } from "../../store/store";
+import { colors } from "../../styles/colors";
 
 type profile_props = {
   info_name?: string;
@@ -15,6 +17,9 @@ const Authorize_profile = ({
   isAllPublic,
   setIsAllPublic,
 }: profile_props) => {
+  //zustand로 관리하는 테마 호출
+  const { isTheme } = useThemeStore();
+
   const [selectedButton, setSelectedButton] = useState<boolean | null>(
     isAllPublic
   );
@@ -34,7 +39,10 @@ const Authorize_profile = ({
     <Box
       sx={{
         width: "100%",
-        bgcolor: "#E5E5E5",
+        backgroundColor:
+          isTheme == ("기본" as ThemeType)
+            ? colors.background.tertiary
+            : colors.sub_background.tertiary,
         color: "#000",
         fontSize: sizes.fontSize.medium,
         borderRadius: "4px",

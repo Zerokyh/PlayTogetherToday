@@ -10,14 +10,20 @@ import Authorize_profile from "./Authorize_profile";
 import Profile_TotalButton from "./Profile_TotalButton";
 import Myroom_message from "../Myroom/Myroom_message";
 import { Avatar } from "@mui/material";
+import useThemeStore, { ThemeType } from "../../store/store";
+import { colors } from "../../styles/colors";
 
 const Myroom_authority = () => {
+  //zustand로 관리하는 테마 호출
+  const { isTheme } = useThemeStore();
+
   const [isAllPublic, setIsAllPublic] = React.useState<boolean | null>(null);
 
   // Profile_TotalButton을 클릭할 때 호출되는 함수
   const toggleAllProfiles = () => {
     setIsAllPublic((prev) => (prev === true ? false : true));
   };
+
   return (
     <Box
       sx={{
@@ -38,7 +44,10 @@ const Myroom_authority = () => {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          bgcolor: "#EEEEEE",
+          backgroundColor:
+            isTheme == ("기본" as ThemeType)
+              ? colors.background.secondary
+              : colors.sub_background.secondary,
           borderRadius: 2,
         }}
       >
@@ -145,7 +154,10 @@ const Myroom_authority = () => {
         sx={{
           gridColumn: "span 2",
           gridRow: "span 4",
-          bgcolor: "#EEEEEE",
+          backgroundColor:
+            isTheme == ("기본" as ThemeType)
+              ? colors.background.secondary
+              : colors.sub_background.secondary,
           borderRadius: 2,
           p: 2,
           display: "flex",
@@ -164,7 +176,10 @@ const Myroom_authority = () => {
             alignItems: "center",
             fontSize: sizes.fontSize.xlarge,
             fontWeight: "bold",
-            bgcolor: "#E5E5E5",
+            backgroundColor:
+              isTheme == ("기본" as ThemeType)
+                ? colors.background.tertiary
+                : colors.sub_background.tertiary,
             borderRadius: "16px",
           }}
         >
@@ -188,7 +203,10 @@ const Myroom_authority = () => {
         sx={{
           gridColumn: "span 2",
           gridRow: "span 5",
-          bgcolor: "#EEEEEE",
+          backgroundColor:
+            isTheme == ("기본" as ThemeType)
+              ? colors.background.secondary
+              : colors.sub_background.secondary,
           borderRadius: 2,
           p: 2,
           display: "flex",
@@ -207,7 +225,10 @@ const Myroom_authority = () => {
             alignItems: "center",
             fontSize: sizes.fontSize.xlarge,
             fontWeight: "bold",
-            bgcolor: "#E5E5E5",
+            backgroundColor:
+              isTheme == ("기본" as ThemeType)
+                ? colors.background.tertiary
+                : colors.sub_background.tertiary,
             borderRadius: "16px",
           }}
         >
@@ -233,7 +254,10 @@ const Myroom_authority = () => {
         sx={{
           gridColumn: "span 2",
           gridRow: "span 4",
-          bgcolor: "#EEEEEE",
+          backgroundColor:
+            isTheme == ("기본" as ThemeType)
+              ? colors.background.secondary
+              : colors.sub_background.secondary,
           borderRadius: 2,
           p: 2,
           display: "flex",
@@ -252,7 +276,10 @@ const Myroom_authority = () => {
             alignItems: "center",
             fontSize: sizes.fontSize.xlarge,
             fontWeight: "bold",
-            bgcolor: "#E5E5E5",
+            backgroundColor:
+              isTheme == ("기본" as ThemeType)
+                ? colors.background.tertiary
+                : colors.sub_background.tertiary,
             borderRadius: "16px",
           }}
         >

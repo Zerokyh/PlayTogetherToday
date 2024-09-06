@@ -12,9 +12,14 @@ import Myroom_message from "./Myroom_message";
 import { sizes } from "../../styles/sizes";
 import { useNavigate } from "react-router-dom";
 import ImgAvatar from "../../components/atom/ImgAvatar";
+import useThemeStore, { ThemeType } from "../../store/store";
+import { colors } from "../../styles/colors";
 
 const Myroom = () => {
   const navigate = useNavigate();
+
+  //zustand로 관리하는 테마 호출
+  const { isTheme } = useThemeStore();
 
   const news = () => {
     const phone = "1234-516";
@@ -48,7 +53,10 @@ const Myroom = () => {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          bgcolor: "#EEEEEE",
+          backgroundColor:
+            isTheme == ("기본" as ThemeType)
+              ? colors.background.secondary
+              : colors.sub_background.secondary,
           borderRadius: 2,
         }}
       >
@@ -135,7 +143,10 @@ const Myroom = () => {
         sx={{
           gridColumn: "span 2",
           gridRow: "span 4",
-          bgcolor: "#EEEEEE",
+          backgroundColor:
+            isTheme == ("기본" as ThemeType)
+              ? colors.background.secondary
+              : colors.sub_background.secondary,
           borderRadius: 2,
           p: 2,
           display: "flex",
@@ -154,7 +165,10 @@ const Myroom = () => {
             alignItems: "center",
             fontSize: sizes.fontSize.xlarge,
             fontWeight: "bold",
-            bgcolor: "#E5E5E5",
+            backgroundColor:
+              isTheme == ("기본" as ThemeType)
+                ? colors.background.tertiary
+                : colors.sub_background.tertiary,
             borderRadius: "16px",
           }}
         >
@@ -186,7 +200,10 @@ const Myroom = () => {
         sx={{
           gridColumn: "span 2",
           gridRow: "span 5",
-          bgcolor: "#EEEEEE",
+          backgroundColor:
+            isTheme == ("기본" as ThemeType)
+              ? colors.background.secondary
+              : colors.sub_background.secondary,
           borderRadius: 2,
           p: 2,
           display: "flex",
@@ -205,7 +222,10 @@ const Myroom = () => {
             alignItems: "center",
             fontSize: sizes.fontSize.xlarge,
             fontWeight: "bold",
-            bgcolor: "#E5E5E5",
+            backgroundColor:
+              isTheme == ("기본" as ThemeType)
+                ? colors.background.tertiary
+                : colors.sub_background.tertiary,
             borderRadius: "16px",
           }}
         >
@@ -266,7 +286,10 @@ const Myroom = () => {
           height: "100%",
           gridColumn: "span 2",
           gridRow: "span 4",
-          bgcolor: "#EEEEEE",
+          backgroundColor:
+            isTheme == ("기본" as ThemeType)
+              ? colors.background.secondary
+              : colors.sub_background.secondary,
           borderRadius: 2,
           p: 2,
           display: "flex",
@@ -285,7 +308,10 @@ const Myroom = () => {
             alignItems: "center",
             fontSize: sizes.fontSize.xlarge,
             fontWeight: "bold",
-            bgcolor: "#E5E5E5",
+            backgroundColor:
+              isTheme == ("기본" as ThemeType)
+                ? colors.background.tertiary
+                : colors.sub_background.tertiary,
             borderRadius: "16px",
           }}
         >
