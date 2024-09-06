@@ -5,7 +5,7 @@ const LoginBtn = () => {
   const navigate = useNavigate();
 
   return (
-    <Box width={"100%"}>
+    <Box width={"60%"}>
       <Box display={"flex"} justifyContent={"end"} marginRight={1} gap={0.2}>
         <Button
           sx={{
@@ -37,13 +37,12 @@ const LoginBtn = () => {
         <Button
           sx={{
             width: "100%",
-            height: 40,
+            height: 45,
             bgcolor: "#006DFF",
-            fontSize: 16,
+            fontSize: 18,
             color: "white",
             borderRadius: 10,
-          }}
-        >
+          }}>
           로그인
         </Button>
       </Box>

@@ -26,8 +26,8 @@ const LoginInput = () => {
   return (
       // InputBox Group
       <Box
-        width={"100%"}
-        height={"100%"}
+        width={"60%"}
+        height={"25%"}
         padding={"5px"}
         display={"flex"}
         flexDirection={"column"}

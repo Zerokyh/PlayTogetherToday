@@ -3,6 +3,7 @@ import GroupEnterText from "./GroupEnterText";
 import GroupEnterButton from "./GroupEnterButton";
 import { sizes } from "../../styles/sizes";
 import { useNavigate } from "react-router-dom";
+import { Box } from "@mui/system";
 
 const GroupEnter = () => {
   const navigate = useNavigate();
@@ -13,14 +14,14 @@ const GroupEnter = () => {
   } as React.CSSProperties;
 
   return (
-    <div
+    <Box
       style={style}
       className="w-[calc(100vw-var(--drawer-width))] h-screen flex justify-center items-center flex-col gap-5"
     >
       <GroupEnterText text="모임이름" />
       <GroupEnterText text="모임 가입 암호(탈퇴시 입력 안함)" />
 
-      <div>
+      <Box>
         <ButtonGroup
           sx={{ width: "400px", fontSize: "5px" }}
           variant="outlined"
@@ -37,8 +38,8 @@ const GroupEnter = () => {
           />
           <GroupEnterButton text="모임 탈퇴" />
         </ButtonGroup>
-      </div>
-    </div>
+      </Box>
+    </Box>
   );
 };
 
