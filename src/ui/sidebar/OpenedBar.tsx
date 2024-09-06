@@ -27,7 +27,7 @@ const OpenedBar = () => {
           <Box>
             {isLogin ? (
               // <Skeleton variant="rounded" sx={{ ...SkeletonMini }} />
-              <Box sx={{ mx: "auto", width: 250, height: 140 }}>
+              <Box sx={{ mx: "auto", width: 240, height: 140 }}>
                 <DisplayEvent />
               </Box>
             ) : (

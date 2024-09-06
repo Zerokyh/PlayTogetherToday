@@ -3,16 +3,21 @@ import ImgAvatar from "../components/atom/ImgAvatar";
 import { sizes } from "../styles/sizes";
 
 type GroupMemberListProps = {
+  imgsrc: string;
   nickname: string;
   position: string;
 };
 
-const GroupMemberList = ({ nickname, position }: GroupMemberListProps) => {
+const GroupMemberList = ({
+  imgsrc = "profile_icon.png",
+  nickname,
+  position,
+}: GroupMemberListProps) => {
   return (
     <Box sx={{ display: "flex", justifyContent: "space-between" }}>
       <Box sx={{ display: "flex", gap: sizes.gap.normal }}>
         <ImgAvatar
-          src="cat.jpg"
+          src={imgsrc}
           alt="img"
           sx={{
             width: sizes.avatar.profileLogo,

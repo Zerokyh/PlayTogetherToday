@@ -17,7 +17,7 @@ const DisplayEvent = ({}: DisplayEventProps) => {
   return (
     <Box
       sx={{
-        maxWidth: { xs: 320, sm: 480 },
+        maxWidth: { xs: 540, sm: 540 },
         height: 100,
         bgcolor: "background.paper",
       }}
@@ -28,13 +28,39 @@ const DisplayEvent = ({}: DisplayEventProps) => {
           onChange={handleChange}
           variant="scrollable"
           scrollButtons="auto"
-          aria-label="scrollable auto tabs example"
+          centered
+          sx={{ width: 240 }}
         >
-          <Tab label="오늘의 이벤트" value="1" />
-          <Tab label="주간 이벤트" value="2" />
-          <Tab label="월간 이벤트" value="3" />
+          <Tab label="오늘의 이벤트" value="1" sx={{ width: 170 }} />
+          <Tab label="주간 이벤트" value="2" sx={{ width: 170 }} />
+          <Tab label="월간 이벤트" value="3" sx={{ width: 170 }} />
         </Tabs>
         <TabPanel value="1" sx={{ height: 120, overflowY: "scroll" }}>
+          <ScheduleList
+            groupname="오늘은 축구왕"
+            eventname="정모"
+            eventtime="17:00"
+          />
+          <ScheduleList
+            groupname="오늘은 축구왕"
+            eventname="정모"
+            eventtime="17:00"
+          />
+          <ScheduleList
+            groupname="오늘은 축구왕"
+            eventname="정모"
+            eventtime="17:00"
+          />
+          <ScheduleList
+            groupname="오늘은 축구왕"
+            eventname="정모"
+            eventtime="17:00"
+          />
+          <ScheduleList
+            groupname="오늘은 축구왕"
+            eventname="정모"
+            eventtime="17:00"
+          />
           <ScheduleList
             groupname="오늘은 축구왕"
             eventname="정모"

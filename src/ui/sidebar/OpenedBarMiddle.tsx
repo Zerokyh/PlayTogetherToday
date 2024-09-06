@@ -6,6 +6,8 @@ import { LinkedButtonHeightSmall, SkeletonNormal } from "../../styles/mui";
 import NotLoginButton from "../../components/molecules/NotLoginButton";
 import { fourMenuData } from "../../constants/fourMenuData";
 import GroupMemberList from "../../kyh/GroupMemberList";
+import GroupMemberBox from "../../kyh/GroupMemberBox";
+import { relative } from "path";
 
 const OpenedBarMiddle = () => {
   const { isLogin } = useThemeStore();
@@ -31,11 +33,7 @@ const OpenedBarMiddle = () => {
             />
           </Box>
           {/* <Skeleton variant="rounded" sx={{ ...SkeletonNormal }} /> */}
-          <Box sx={{ mx: "auto", width: 214, height: 190, my: 1 }}>
-            <GroupMemberList nickname="동글동글" position="모임장" />
-            <GroupMemberList nickname="네모네모" position="총무" />
-            <GroupMemberList nickname="세모세모" position="멤버" />
-          </Box>
+          <GroupMemberBox />
           <Box sx={{ height: 120, display: "flex", alignItems: "center" }}>
             <Grid
               container
