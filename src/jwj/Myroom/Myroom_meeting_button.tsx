@@ -1,5 +1,7 @@
 import { Box, Button, Typography } from "@mui/material";
 import { sizes } from "../../styles/sizes";
+import useThemeStore, { ThemeType } from "../../store/store";
+import { colors } from "../../styles/colors";
 
 type MeetingButtonProps = {
   group?: string;
@@ -20,6 +22,9 @@ const Myroom_meeting_button = ({
   group_anni,
   onClick,
 }: MeetingButtonProps) => {
+  //zustand로 관리하는 테마 호출
+  const { isTheme } = useThemeStore();
+
   return (
     <Button
       onClick={onClick}
@@ -28,7 +33,10 @@ const Myroom_meeting_button = ({
         height: "25%",
         display: "flex",
         justifyContent: "space-between",
-        bgcolor: "#E5E5E5",
+        backgroundColor:
+          isTheme == ("기본" as ThemeType)
+            ? colors.background.tertiary
+            : colors.sub_background.tertiary,
         borderRadius: "12px",
         padding: "8px",
         textAlign: "left",

@@ -1,5 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import { sizes } from "../../styles/sizes";
+import useThemeStore, { ThemeType } from "../../store/store";
+import { colors } from "../../styles/colors";
 
 type profile_props = {
   info_name?: string;
@@ -17,13 +19,19 @@ const Myroom_profile = ({
   info,
   profileIsPublic,
 }: profile_props) => {
+  //zustand로 관리하는 테마 호출
+  const { isTheme } = useThemeStore();
+
   return (
     <Box
       sx={{
         width: "100%",
         display: "flex",
         alignItems: "center",
-        bgcolor: "#E5E5E5",
+        backgroundColor:
+          isTheme == ("기본" as ThemeType)
+            ? colors.background.tertiary
+            : colors.sub_background.tertiary,
         borderRadius: "8px",
         paddingX: "8px",
         flex: 1,

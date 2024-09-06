@@ -2,10 +2,12 @@ import React from "react";
 import { Grid, Box } from "@mui/material";
 import Gameroom_button from "./Gameroom_button";
 import { sizes } from "../../styles/sizes";
+import useThemeStore, { ThemeType } from "../../store/store";
+import { colors } from "../../styles/colors";
 
 const Gameroom = () => {
-  // 사이드바와 화면에 맞게 크기 조절을 위한
-  const drawerWidth = sizes.drawerWidth;
+  //zustand로 관리하는 테마 호출
+  const { isTheme } = useThemeStore();
 
   return (
     <Box
@@ -25,7 +27,10 @@ const Gameroom = () => {
           justifyContent: "center",
           alignItems: "center",
           gridColumn: "span 5",
-          bgcolor: "#EEEEEE",
+          backgroundColor:
+            isTheme == ("기본" as ThemeType)
+              ? colors.background.secondary
+              : colors.sub_background.secondary,
           borderRadius: 2,
           gap: 3,
           padding: 2,
@@ -45,7 +50,10 @@ const Gameroom = () => {
           alignItems: "center",
           gridColumn: "span 5",
           gridRow: "span 4 / span 5",
-          bgcolor: "#EEEEEE",
+          bgcolor:
+            isTheme == ("기본" as ThemeType)
+              ? colors.background.secondary
+              : colors.sub_background.secondary,
           borderRadius: 2,
         }}
       >
