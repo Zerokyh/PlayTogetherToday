@@ -107,13 +107,14 @@ const Chatting = () => {
             chatMsg="편의점 앞으로와"
             msgTime="11:44"
           />
+          <div ref={messagesEndRef} />
         </Box>
       </Box>
       <Box
         component="form"
         sx={{
           width: "100%",
-          padding: 4,
+          padding: 1,
           backgroundColor:
             isTheme == "기본"
               ? colors.background.primary
@@ -133,7 +134,6 @@ const Chatting = () => {
           />
         </ThemeProvider>
       </Box>
-      <div ref={messagesEndRef} />
     </WidthHalfBox>
   );
 };
