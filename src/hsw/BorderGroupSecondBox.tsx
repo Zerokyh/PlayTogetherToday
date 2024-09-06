@@ -15,13 +15,23 @@ const BorderGroupSecondBox = ({ title }: BorderGroupSecondBoxProps) => {
       <GroupFirstBorder>
         <Typography variant="h5">{title}</Typography>
       </GroupFirstBorder>
-      <div className="w-full h-2/5 ">
+
+      <Box sx={{ width: "100%", height: "40%" }}>
         <TopBox rank="TOP1" src="group.jpg"></TopBox>
-      </div>
-      <div className="w-full h-2/5 flex gap-4 justify-between">
+      </Box>
+
+      <Box
+        sx={{
+          width: "100%",
+          height: "40%",
+          display: "flex",
+          gap: "16px",
+          justifyContent: "space-between",
+        }}
+      >
         <TopBox rank="TOP2" src="private.jpg"></TopBox>
         <TopBox rank="TOP3" src="game.jpg"></TopBox>
-      </div>
+      </Box>
     </BorderListBox>
   );
 };

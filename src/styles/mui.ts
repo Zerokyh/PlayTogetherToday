@@ -5,7 +5,7 @@ import { colors, theme } from "./colors";
 import { sizes } from "./sizes";
 import { Box } from "@mui/material";
 import { MyInfoInnerBoxProps } from "../utils/type";
-import { bgcolor } from "@mui/system";
+import { bgcolor, borderRadius, height, minWidth } from "@mui/system";
 
 export const openedMixin = (theme: Theme): CSSObject => ({
   width: sizes.drawerWidth,
@@ -342,3 +342,11 @@ export const GroupFirstBorder = styled(Box)({
   width: "100%",
   padding: "20px 0px 0px 0px",
 });
+
+export const MemberImgAvatar = {
+  width: sizes.avatar.profileLogo,
+  height: sizes.avatar.profileLogo,
+  mx: "auto",
+  borderRadius: sizes.borderRadius.circle,
+  minWidth: "0px",
+};

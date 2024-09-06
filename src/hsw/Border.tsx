@@ -1,17 +1,6 @@
-import {
-  Box,
-  Container,
-  CssBaseline,
-  ThemeProvider,
-  createTheme,
-} from "@mui/material";
+import { Box, Container, CssBaseline } from "@mui/material";
 import React, { useState } from "react";
-import Select, { SelectChangeEvent } from "@mui/material/Select";
-import Categori from "./Categori";
-import RegisterButton from "./RegisterButton";
-import BorderList from "./BorderList";
-
-import { colors, theme } from "../styles/colors";
+import { SelectChangeEvent } from "@mui/material/Select";
 import { BorderListBox, BorderSetBox, GroupFirstBorder } from "../styles/mui";
 import BorderGroupFirstBox from "./BorderGroupFirstBox";
 import BorderGroupSecondBox from "./BorderGroupSecondBox";

@@ -54,7 +54,14 @@ const Chatting = () => {
           overflowY: "scroll",
         }}
       >
-        <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            gap: 2,
+            position: "relative",
+          }}
+        >
           <ChatReceiveMsgBox
             nickName="엄마쟤흙머겅"
             chatMsg="점메추좀"
@@ -100,34 +107,32 @@ const Chatting = () => {
             chatMsg="편의점 앞으로와"
             msgTime="11:44"
           />
+          <div ref={messagesEndRef} />
         </Box>
-        <Box
-          component="form"
-          sx={{
-            width: "100%",
-            padding: 1,
-            borderRadius: sizes.borderRadius.xs,
-            backgroundColor:
-              isTheme == "기본"
-                ? colors.background.primary
-                : colors.sub_background.primary,
-            position: "sticky", // 입력란을 고정
-            bottom: -1,
-            marginTop: 5,
-          }}
-          noValidate
-          autoComplete="off"
-        >
-          <ThemeProvider theme={theme}>
-            <TextField
-              label="채팅을 입력해주세요"
-              color={inputColor}
-              focused
-              sx={{ width: "100%" }}
-            />
-          </ThemeProvider>
-        </Box>
-        <div ref={messagesEndRef} />
+      </Box>
+      <Box
+        component="form"
+        sx={{
+          width: "100%",
+          padding: 1,
+          backgroundColor:
+            isTheme == "기본"
+              ? colors.background.primary
+              : colors.sub_background.primary,
+          position: "sticky", // 입력란을 고정
+          bottom: 4,
+        }}
+        noValidate
+        autoComplete="off"
+      >
+        <ThemeProvider theme={theme}>
+          <TextField
+            label="채팅을 입력해주세요"
+            color={inputColor}
+            focused
+            sx={{ width: "100%" }}
+          />
+        </ThemeProvider>
       </Box>
     </WidthHalfBox>
   );

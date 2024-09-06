@@ -1,15 +1,5 @@
-import {
-  Avatar,
-  Box,
-  Button,
-  Card,
-  CardActions,
-  CardMedia,
-  Paper,
-  Typography,
-} from "@mui/material";
-import { colors, theme } from "../styles/colors";
-import { sizes } from "../styles/sizes";
+import { Box, Card, CardActions, CardMedia, Typography } from "@mui/material";
+import { colors } from "../styles/colors";
 
 type TopBoxProps = {
   rank?: string;
@@ -40,15 +30,6 @@ const TopBox = ({ rank, alt, src }: TopBoxProps) => {
         >
           <Typography variant="h5">{rank}</Typography>
           <Box sx={{ width: "100%", height: "100%" }}>
-            {/* <Paper
-              sx={{
-                width: "100%",
-                height: "100%",
-                backgroundImage: "group.jpg",
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }}
-            /> */}
             <Card sx={{ width: "100%", height: "100%" }}>
               <CardMedia
                 sx={{ height: "100%" }}
