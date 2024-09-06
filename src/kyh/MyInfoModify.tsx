@@ -4,12 +4,11 @@ import { FullPageBox, InputMuiStyle, MyInfoInnerBox } from "../styles/mui";
 import { colors, theme } from "../styles/colors";
 import ChipTextBox from "../components/atom/ChipTextBox";
 import { sizes } from "../styles/sizes";
-import ImgAvatar from "../components/atom/ImgAvatar";
 import { infoData } from "../constants/myInfoModifyMenuData";
 import InputModifyBox from "../components/atom/InputModifyBox";
-import EditIcon from "@mui/icons-material/Edit";
 import { styled } from "@mui/material/styles";
 import useThemeStore from "../store/store";
+import MyProfileImage from "./MyProfileImage";
 
 const MyInfoModify = () => {
   const { isTheme } = useThemeStore();
@@ -28,6 +27,8 @@ const MyInfoModify = () => {
     alignItems: "center",
     gap: 20,
     padding: 0,
+    position: "relative",
+    top: -18,
   });
 
   return (
@@ -36,11 +37,9 @@ const MyInfoModify = () => {
         <Box sx={{ maxWidth: "1280px" }}>
           <Box
             sx={{
-              height: 80,
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              paddingBottom: 9,
+              position: "relative",
+              top: -40,
+              left: 180,
             }}
           >
             <Typography
@@ -51,47 +50,15 @@ const MyInfoModify = () => {
           </Box>
           <MySettingOutterBox>
             <Box
-              display={"flex"}
-              flexDirection={"column"}
-              alignItems={"center"}
-              gap={2}
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                gap: "2",
+              }}
             >
               <MyInfoInnerBox sx={{ width: "377px" }}>
-                <Box
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: 4,
-                    paddingBottom: 6,
-                  }}
-                >
-                  <Box sx={{ position: "relative" }}>
-                    <ImgAvatar
-                      src="cat.jpg"
-                      alt="프로필"
-                      sx={{
-                        width: sizes.avatar.info,
-                        height: sizes.avatar.info,
-                        mx: "auto",
-                      }}
-                    />
-                    <Box
-                      sx={{
-                        position: "absolute",
-                        top: 80,
-                        right: 20,
-                        color: "white",
-                        ":hover": {
-                          cursor: "pointer",
-                          color: colors.text.secondary,
-                        },
-                      }}
-                      onClick={() => {}}
-                    >
-                      <EditIcon />
-                    </Box>
-                  </Box>
-                </Box>
+                <MyProfileImage />
                 {Object.entries(infoData).map(([key, item]) => (
                   <Box sx={{ height: 60 }}>
                     <ChipTextBox titlename={item.titlename} />
