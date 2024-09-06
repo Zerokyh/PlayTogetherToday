@@ -1,10 +1,11 @@
-import { Box, Grid, Skeleton } from "@mui/material";
 import useThemeStore from "../../store/store";
+import { Box, Grid, Skeleton, Typography } from "@mui/material";
 import SelectDropDown from "../../components/molecules/SelectDropDown";
 import LinkedButton from "../../components/atom/LinkedButton";
 import { LinkedButtonHeightSmall, SkeletonNormal } from "../../styles/mui";
 import NotLoginButton from "../../components/molecules/NotLoginButton";
 import { fourMenuData } from "../../constants/fourMenuData";
+import GroupMemberList from "../../kyh/GroupMemberList";
 
 const OpenedBarMiddle = () => {
   const { isLogin } = useThemeStore();
@@ -29,7 +30,12 @@ const OpenedBarMiddle = () => {
               href="/GroupMake"
             />
           </Box>
-          <Skeleton variant="rounded" sx={{ ...SkeletonNormal }} />
+          {/* <Skeleton variant="rounded" sx={{ ...SkeletonNormal }} /> */}
+          <Box sx={{ mx: "auto", width: 214, height: 190, my: 1 }}>
+            <GroupMemberList nickname="동글동글" position="모임장" />
+            <GroupMemberList nickname="네모네모" position="총무" />
+            <GroupMemberList nickname="세모세모" position="멤버" />
+          </Box>
           <Box sx={{ height: 120, display: "flex", alignItems: "center" }}>
             <Grid
               container

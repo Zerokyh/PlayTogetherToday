@@ -9,6 +9,7 @@ import TextCard from "../../components/atom/TextCard";
 import OpenedBarTopLogoutBar from "./OpenedBarTopLogoutBar";
 import OpenedBarTopIsLogin from "./OpenedBarTopIsLogin";
 import OpenedBarMiddle from "./OpenedBarMiddle";
+import DisplayEvent from "../../kyh/DisplayEvent";
 
 const OpenedBar = () => {
   const { isLogin, isOpen } = useThemeStore();
@@ -25,7 +26,10 @@ const OpenedBar = () => {
           </Box>
           <Box>
             {isLogin ? (
-              <Skeleton variant="rounded" sx={{ ...SkeletonMini }} />
+              // <Skeleton variant="rounded" sx={{ ...SkeletonMini }} />
+              <Box sx={{ mx: "auto", width: 250, height: 140 }}>
+                <DisplayEvent />
+              </Box>
             ) : (
               <TextCard text="소모임은 여러분들의 갓생살기의 도우미입니다." />
             )}

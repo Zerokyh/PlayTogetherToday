@@ -4,6 +4,7 @@ export const sizes = {
   drawerWidth: 240,
 
   avatar: {
+    small: "10px",
     profileLogo: "20px",
     logo: "30px",
     chat: "60px",
