@@ -4,7 +4,7 @@ import EditIcon from "@mui/icons-material/Edit";
 import { sizes } from "../styles/sizes";
 import { colors } from "../styles/colors";
 
-const MyProfileImage = () => {
+const MyInfoProfileImage = () => {
   return (
     <Box
       sx={{
@@ -44,4 +44,4 @@ const MyProfileImage = () => {
   );
 };
 
-export default MyProfileImage;
+export default MyInfoProfileImage;

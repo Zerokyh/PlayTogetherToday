@@ -8,7 +8,7 @@ import { infoData } from "../constants/myInfoModifyMenuData";
 import InputModifyBox from "../components/atom/InputModifyBox";
 import { styled } from "@mui/material/styles";
 import useThemeStore from "../store/store";
-import MyProfileImage from "./MyProfileImage";
+import MyInfoProfileImage from "./MyInfoProfileImage";
 
 const MyInfoModify = () => {
   const { isTheme } = useThemeStore();
@@ -58,7 +58,7 @@ const MyInfoModify = () => {
               }}
             >
               <MyInfoInnerBox sx={{ width: "377px" }}>
-                <MyProfileImage />
+                <MyInfoProfileImage />
                 {Object.entries(infoData).map(([key, item]) => (
                   <Box sx={{ height: 60 }}>
                     <ChipTextBox titlename={item.titlename} />
