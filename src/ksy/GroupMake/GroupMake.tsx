@@ -21,7 +21,8 @@ const GroupMake = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const passwordRegex = /^(?:[a-zA-Z]+|\d+|[a-zA-Z\d]+[!@#$%^&*()_\-+=<>?{}~][a-zA-Z\d]*)$/;
+    const passwordRegex =
+      /^(?:[a-zA-Z]+|\d+|[a-zA-Z\d]+[!@#$%^&*()_\-+=<>?{}~][a-zA-Z\d]*)$/;
 
     setIsPasswordValid(passwordRegex.test(password));
   }, [password]);
@@ -59,7 +60,8 @@ const GroupMake = () => {
 
     setTimeout(() => {
       alert("처음 화면으로 돌아갑니다. 내용은 저장되지 않습니다.");
-      navigate("/LogIn");
+      navigate("/DashBoard");
+      // navigate("/LogIn");
     }, 0);
   };
 
@@ -141,7 +143,9 @@ const GroupMake = () => {
                       color: isPasswordValid && hasBlurred ? "green" : "red",
                     }}
                   >
-                    {isPasswordValid && hasBlurred ? "입력완료" : "올바른 암호가 아닙니다"}
+                    {isPasswordValid && hasBlurred
+                      ? "입력완료"
+                      : "올바른 암호가 아닙니다"}
                   </Typography>
                 </>
               }

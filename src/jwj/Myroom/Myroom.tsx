@@ -27,9 +27,9 @@ const Myroom = () => {
   };
 
   //쪽지함 공개/비공개
-  const MessageisPublic = false;
+  const MessageisPublic = true;
   //그룹함 공개/비공개
-  const GroupisPublic = false;
+  const GroupisPublic = true;
   //친구리스트 공개/비공개
   const FreindsListisPublic = true;
 
