@@ -10,13 +10,17 @@ dayjs.locale("ko");
 
 const StyledDateCalendar = styled(DateCalendar)(({ theme }) => ({
   "& .MuiPickersDay-root": {
-    width: "29px",
-    height: "29px",
+    width: "37px",
+    height: "37px",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     margin: "0",
     borderRadius: "50%",
+  },
+  "& .MuiDayCalendar-weekDayLabel": {
+    // 요일 제목 스타일 조정
+    fontSize: "0.875rem", // 폰트 크기를 조정
   },
   "& .Mui-selected": {
     backgroundColor: theme.palette.primary.main,
@@ -27,7 +31,7 @@ const StyledDateCalendar = styled(DateCalendar)(({ theme }) => ({
 const Calendar = () => {
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
-      <StyledDateCalendar sx={{ width: 208, height: 260 }} />
+      <StyledDateCalendar sx={{ width: 258, height: 300 }} />
     </LocalizationProvider>
   );
 };

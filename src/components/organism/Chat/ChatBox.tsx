@@ -1,9 +1,9 @@
 import { Box } from "@mui/material";
 import ChatListBox from "./ChatListBox";
-import WidthHalfBox from "../atom/WidthHalfBox";
+import WidthHalfBox from "../../atom/WidthHalfBox";
 import { ReactNode } from "react";
 import Chatting from "./Chatting";
-import { sizes } from "../../styles/sizes";
+import { sizes } from "../../../styles/sizes";
 
 type ChatBoxProps = {
   isSelect?: ReactNode;

@@ -17,7 +17,7 @@ const DisplayEvent = ({}: DisplayEventProps) => {
   return (
     <Box
       sx={{
-        maxWidth: { xs: 540, sm: 540 },
+        maxWidth: { xs: 290, sm: 290 },
         height: 100,
         bgcolor: "background.paper",
       }}
@@ -29,11 +29,11 @@ const DisplayEvent = ({}: DisplayEventProps) => {
           variant="scrollable"
           scrollButtons="auto"
           centered
-          sx={{ width: 240 }}
+          sx={{ width: 290 }}
         >
-          <Tab label="오늘의 이벤트" value="1" sx={{ width: 170 }} />
-          <Tab label="주간 이벤트" value="2" sx={{ width: 170 }} />
-          <Tab label="월간 이벤트" value="3" sx={{ width: 170 }} />
+          <Tab label="오늘의 이벤트" value="1" sx={{ width: 210 }} />
+          <Tab label="주간 이벤트" value="2" sx={{ width: 210 }} />
+          <Tab label="월간 이벤트" value="3" sx={{ width: 210 }} />
         </Tabs>
         <TabPanel value="1" sx={{ height: 120, overflowY: "scroll" }}>
           <ScheduleList

@@ -18,7 +18,7 @@ const OpenedBarTopIsLogin = () => {
     <Box
       sx={{
         display: "flex",
-        justifyContent: "space-evenly",
+        justifyContent: "space-around",
         alignItems: "center",
         py: sizes.padding.large,
       }}
@@ -68,7 +68,7 @@ const OpenedBarTopIsLogin = () => {
                 primaryTypographyProps={{ fontSize: sizes.fontSize.small }}
               />
             ) : (
-              <Box>
+              <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
                 <ListItemText
                   primary={`아직 모임을 시작하지 않았네요!`}
                   primaryTypographyProps={{ fontSize: sizes.fontSize.small }}
@@ -76,10 +76,6 @@ const OpenedBarTopIsLogin = () => {
                 <Box
                   sx={{
                     ":hover": { cursor: "pointer" },
-                    position: "absolute",
-                    zIndex: 1,
-                    top: 116,
-                    right: 8,
                   }}
                 >
                   <Typography

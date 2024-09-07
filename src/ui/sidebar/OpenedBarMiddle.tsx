@@ -20,7 +20,7 @@ const OpenedBarMiddle = () => {
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
-              gap: 1.2,
+              gap: 2.8,
             }}
           >
             <SelectDropDown />
@@ -34,11 +34,17 @@ const OpenedBarMiddle = () => {
           </Box>
           {/* <Skeleton variant="rounded" sx={{ ...SkeletonNormal }} /> */}
           <GroupMemberBox />
-          <Box sx={{ height: 120, display: "flex", alignItems: "center" }}>
+          <Box
+            sx={{
+              height: 120,
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
             <Grid
               container
               spacing={0}
-              sx={{ gap: 2, justifyContent: "center" }}
+              sx={{ display: "flex", gap: 3, justifyContent: "center" }}
             >
               {Object.entries(fourMenuData).map(([key, item]) => (
                 <Grid item xs={5} md={5}>

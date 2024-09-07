@@ -1,7 +1,7 @@
 // sizes.ts
 
 export const sizes = {
-  drawerWidth: 240,
+  drawerWidth: 300,
 
   avatar: {
     small: "10px",

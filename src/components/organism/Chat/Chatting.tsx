@@ -1,11 +1,11 @@
 import { Box, TextField } from "@mui/material";
-import WidthHalfBox from "../atom/WidthHalfBox";
-import ChatSendMsgBox from "../molecules/ChatSendMsgBox";
-import ChatReceiveMsgBox from "../molecules/ChatReceiveMsgBox";
-import { colors } from "../../styles/colors";
-import { sizes } from "../../styles/sizes";
+import WidthHalfBox from "../../atom/WidthHalfBox";
+import ChatSendMsgBox from "../../molecules/ChatSendMsgBox";
+import ChatReceiveMsgBox from "../../molecules/ChatReceiveMsgBox";
+import { colors } from "../../../styles/colors";
+import { sizes } from "../../../styles/sizes";
 import { useEffect, useRef } from "react";
-import useThemeStore from "../../store/store";
+import useThemeStore from "../../../store/store";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 
 const theme = createTheme({

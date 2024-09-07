@@ -10,9 +10,9 @@ const Dashboard = () => {
     <React.Fragment>
       <CssBaseline />
       <DashboardGridBox>
-        <Grid container spacing={2}>
+        <Grid container spacing={1}>
           {dashBoardData.map((item, index) => (
-            <Grid item xs={12} sm={12} md={6} lg={6} key={index}>
+            <Grid item xs={12} sm={12} md={8} lg={6} key={index}>
               <ContentsBox {...item} />
             </Grid>
           ))}

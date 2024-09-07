@@ -35,7 +35,7 @@ const ContentsBox = ({
         flexGrow: 1,
         position: "relative",
         width: { xs: 300, sm: 400, md: 500, lg: 632 },
-        height: { xs: 200, sm: 200, md: 350, lg: 450 },
+        height: { xs: 200, sm: 200, md: 350, lg: 340 },
         minHeight: { xs: 200, sm: 200 },
         maxHeight: { xs: 300, sm: "none" },
         display: "flex",
@@ -127,22 +127,6 @@ const ContentsBox = ({
         >
           자세히보기
         </Typography>
-
-        {/* <Button
-          variant="contained"
-          size={isMobile ? "small" : "medium"}
-          sx={{
-            mt: isMobile ? 1 : 2,
-            bgcolor: colors.background.button,
-            fontWeight: 600,
-            fontSize: sizes.fontSize.medium,
-          }}
-          onClick={() => {
-            navigate(isLogin ? href : "/Login");
-          }}
-        >
-          자세히 보기
-        </Button> */}
       </Box>
     </Card>
   );

@@ -17,7 +17,7 @@ const SelectDropDown = () => {
     <FormControl
       sx={{
         my: 1,
-        width: 114,
+        width: 124,
         height: 30,
         "& .MuiSelect-root": {
           height: "100%",

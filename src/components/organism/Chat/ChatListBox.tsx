@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
-import WidthHalfBox from "../atom/WidthHalfBox";
-import ChatListItem from "../molecules/ChatListItem";
+import WidthHalfBox from "../../atom/WidthHalfBox";
+import ChatListItem from "../../molecules/ChatListItem";
 
 const ChatListBox = () => {
   return (

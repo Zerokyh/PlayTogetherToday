@@ -167,7 +167,7 @@ export const SkeletonNormal = {
 };
 
 export const LinkedButtonNormal = {
-  width: 100,
+  width: 120,
   height: 40,
   fontWeight: 600,
   border: `1px solid ${colors.border.drawer}`,
@@ -175,7 +175,7 @@ export const LinkedButtonNormal = {
 };
 
 export const LinkedButtonHeightSmall = {
-  width: 100,
+  width: 120,
   height: 30,
   fontWeight: 600,
   border: `1px solid ${colors.text.primary}`,
@@ -252,7 +252,7 @@ export const OpenSideBarSettingButtonStyle = {
   color: colors.background.drawer,
   position: "absolute",
   top: 5,
-  right: -12,
+  right: -6,
 };
 
 export const SideBarLogoStyle = {
