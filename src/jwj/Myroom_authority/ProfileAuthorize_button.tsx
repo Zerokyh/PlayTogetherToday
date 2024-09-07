@@ -3,6 +3,8 @@ import Button from "@mui/material/Button";
 import { useTheme } from "@mui/material/styles";
 import { Box } from "@mui/material";
 import { sizes } from "../../styles/sizes";
+import useThemeStore, { ThemeType } from "../../store/store";
+import { colors } from "../../styles/colors";
 
 type ProfileAuthorizeButtonProps = {
   selectedButton?: boolean | null;
@@ -13,12 +15,21 @@ const ProfileAuthorize_button = ({
   selectedButton,
   handleClick,
 }: ProfileAuthorizeButtonProps) => {
+  //zustand로 관리하는 테마 호출
+  const { isTheme } = useThemeStore();
   // const [selectedButton, setSelectedButton] = useState<boolean>();
   const theme = useTheme();
 
   // const handleClick = (buttonType: boolean) => {
   //   setSelectedButton(buttonType);
   // };
+
+  // 현재 테마에 맞는 버튼 색상을 반환하는 함수
+  const getButtonColor = () => {
+    return isTheme === ("기본" as ThemeType)
+      ? colors.background.button
+      : colors.sub_background.button;
+  };
 
   return (
     <Box sx={{ display: "flex", gap: "8px" }}>
@@ -30,14 +41,16 @@ const ProfileAuthorize_button = ({
           padding: "4px",
           borderColor: theme.palette.grey[400],
           backgroundColor:
-            selectedButton === true
-              ? theme.palette.primary.main
-              : "transparent",
+            selectedButton === true ? getButtonColor() : "transparent",
           color: selectedButton === true ? "#fff" : "#000",
           "&:hover": {
+            borderColor:
+              selectedButton === true
+                ? getButtonColor()
+                : theme.palette.grey[300],
             backgroundColor:
               selectedButton === true
-                ? theme.palette.primary.main
+                ? getButtonColor()
                 : theme.palette.grey[300],
           },
           borderRadius: "8px",
@@ -56,14 +69,16 @@ const ProfileAuthorize_button = ({
           padding: "4px",
           borderColor: theme.palette.grey[400],
           backgroundColor:
-            selectedButton === false
-              ? theme.palette.primary.main
-              : "transparent",
+            selectedButton === false ? getButtonColor() : "transparent",
           color: selectedButton === false ? "#fff" : "#000",
           "&:hover": {
+            borderColor:
+              selectedButton === false
+                ? getButtonColor()
+                : theme.palette.grey[300],
             backgroundColor:
               selectedButton === false
-                ? theme.palette.primary.main
+                ? getButtonColor()
                 : theme.palette.grey[300],
           },
           borderRadius: "8px",

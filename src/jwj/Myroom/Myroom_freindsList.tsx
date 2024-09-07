@@ -1,6 +1,8 @@
 import { Box, Typography } from "@mui/material";
 import { sizes } from "../../styles/sizes";
 import ImgAvatar from "../../components/atom/ImgAvatar";
+import useThemeStore, { ThemeType } from "../../store/store";
+import { colors } from "../../styles/colors";
 
 type FriendListProps = {
   name?: string;
@@ -9,6 +11,8 @@ type FriendListProps = {
 };
 
 const Myroom_freindsList = ({ name, anni, group }: FriendListProps) => {
+  //zustand로 관리하는 테마 호출
+  const { isTheme } = useThemeStore();
   return (
     <Box
       sx={{
@@ -17,7 +21,10 @@ const Myroom_freindsList = ({ name, anni, group }: FriendListProps) => {
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
-        bgcolor: "#E5E5E5",
+        backgroundColor:
+          isTheme == ("기본" as ThemeType)
+            ? colors.background.tertiary
+            : colors.sub_background.tertiary,
         borderRadius: "12px",
         paddingX: "8px",
         marginBottom: "4px",

@@ -8,10 +8,10 @@ const Login = () => {
   return (
     <FullPageBox>
       <Box sx={{
-          width: "625px",
+          width: "100%",
           height: "95.8vh",
           padding: "70px",
-          bgcolor: "#EEEEEE",
+          // bgcolor: "#EEEEEE",
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",

@@ -2,6 +2,7 @@ import { Box, Button, Typography } from "@mui/material";
 import { FullPageBox } from "../../styles/mui";
 import InputContents from "./InputContents";
 import { useSignUpForm } from "./InputFunction/UseForm";
+import { useNavigate } from "react-router-dom";
 
 
 const SignUp = () => {
@@ -17,6 +18,8 @@ const SignUp = () => {
     setShowPasswordCheck,
   } = useSignUpForm();
 
+  const navigate = useNavigate();
+
   const handleCancel = () => {
     setFormState({
       idEmail: "",
@@ -31,8 +34,20 @@ const SignUp = () => {
       passwordBlurred: false,
       passwordCheckBlurred: false,
     });
-    alert("처음 화면으로 돌아갑니다. 내용은 저장되지 않습니다.");
+
+    setTimeout(() => {
+      alert("처음 화면으로 돌아갑니다. 내용은 저장되지 않습니다.");
+      navigate("/LogIn");
+    }, 0);
   };
+
+  const handelJoin = () => {
+    // 모달? 등등 데이터 저장 코드 입력하기
+    setTimeout(() => {
+      alert("정말 가입 하시겠습니까?");
+      navigate("/LogIn");
+    })
+  }
 
   return (
     // 기본바탕 화면설정
@@ -41,7 +56,7 @@ const SignUp = () => {
       {/* Container */}
       <Box
         sx={{
-          width: "625px",
+          width: "100%",
           height: "95.8vh",
           paddingX: "100px",
           paddingY: 0,
@@ -56,7 +71,7 @@ const SignUp = () => {
         {/* Title Box */}
         <Typography
           sx={{
-            width: "100%",
+            width: "60%",
             padding: "20px",
             marginBottom: "20px",
             bgcolor: "#E5E5E5",
@@ -75,7 +90,7 @@ const SignUp = () => {
         {/* Input Group */}
           <Box
           sx={{
-            width: "100%",
+            width: "60%",
             padding: 0
             }}>
 
@@ -149,7 +164,8 @@ const SignUp = () => {
             }}>
             
             {/* 가입버튼 / 취소버튼 */}
-              <Button
+            <Button
+              onClick={handelJoin}
               sx={{
                 width: 100,
                 height: 45,
@@ -158,21 +174,23 @@ const SignUp = () => {
                 color: "#EEEEEE",
                 borderRadius: 10,
               }}>
-              가입하기</Button>
-              <Button
-                onClick={handleCancel}
-                sx={{
-                  width: 100,
-                  height: 45,
-                  bgcolor: "white",
-                  fontSize: 18,
-                  color: "#23374D",
-                  borderRadius: 10
-                  }}>
-              취소</Button>
-            </Box>
-            
+              가입하기
+            </Button>
+            <Button
+              onClick={handleCancel}
+              sx={{
+                width: 100,
+                height: 45,
+                bgcolor: "white",
+                fontSize: 18,
+                color: "#23374D",
+                borderRadius: 10
+              }}>
+              취소
+            </Button>
           </Box>
+            
+        </Box>
       </Box>
     </FullPageBox>
   );
