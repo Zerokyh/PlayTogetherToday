@@ -4,10 +4,10 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { useNavigate } from "react-router-dom";
-import useThemeStore from "../../store/store";
-import { colors } from "../../styles/colors";
+import useThemeStore from "../../../store/store";
+import { colors } from "../../../styles/colors";
 import { Box, useMediaQuery, useTheme } from "@mui/material";
-import { sizes } from "../../styles/sizes";
+import { sizes } from "../../../styles/sizes";
 
 export type ContentsBoxProps = {
   img: string;

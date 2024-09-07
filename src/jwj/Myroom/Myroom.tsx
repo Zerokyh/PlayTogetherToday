@@ -11,9 +11,9 @@ import Myroom_freindsList from "./Myroom_freindsList";
 import Myroom_message from "./Myroom_message";
 import { sizes } from "../../styles/sizes";
 import { useNavigate } from "react-router-dom";
-import ImgAvatar from "../../components/atom/ImgAvatar";
 import useThemeStore, { ThemeType } from "../../store/store";
 import { colors } from "../../styles/colors";
+import ImgAvatar from "../../components/atom/Avatar/ImgAvatar";
 
 const Myroom = () => {
   const navigate = useNavigate();

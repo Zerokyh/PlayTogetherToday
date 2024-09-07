@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
-import LinkedButton from "../atom/LinkedButton";
-import { sizes } from "../../styles/sizes";
-import useThemeStore from "../../store/store";
+import LinkedButton from "../../atom/Button/LinkedButton";
+import { sizes } from "../../../styles/sizes";
+import useThemeStore from "../../../store/store";
 import { useNavigate } from "react-router-dom";
 
 const NotLoginButton = () => {

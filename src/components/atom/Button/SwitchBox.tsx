@@ -1,6 +1,6 @@
 import { Switch } from "@mui/material";
-import { theme } from "../../styles/colors";
-import { SwitchBoxProp } from "../../utils/type";
+import { theme } from "../../../styles/colors";
+import { SwitchBoxProp } from "../../../utils/type";
 
 const SwitchBox = ({ color = "primary", checked, onChange }: SwitchBoxProp) => {
   const switchColors = {

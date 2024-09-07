@@ -1,6 +1,6 @@
 import { Typography } from "@mui/material";
-import { sizes } from "../../styles/sizes";
-import { colors } from "../../styles/colors";
+import { sizes } from "../../../styles/sizes";
+import { colors } from "../../../styles/colors";
 
 type fontSize = keyof typeof sizes.fontSize;
 type fontColor = keyof typeof colors.text;

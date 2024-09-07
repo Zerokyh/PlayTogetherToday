@@ -1,9 +1,9 @@
 import * as React from "react";
 import { ListItemButton, ListItemIcon } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import ImgAvatar from "../atom/ImgAvatar";
-import useThemeStore from "../../store/store";
-import { ImgAvatarProps } from "../../utils/type";
+import useThemeStore from "../../../store/store";
+import { ImgAvatarProps } from "../../../utils/type";
+import ImgAvatar from "../../atom/Avatar/ImgAvatar";
 
 const LogoIconBtn = ({ alt, src, sx }: ImgAvatarProps) => {
   const navigate = useNavigate();

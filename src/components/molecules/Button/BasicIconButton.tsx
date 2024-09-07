@@ -1,7 +1,7 @@
 import { ListItemButton, ListItemIcon } from "@mui/material";
-import useThemeStore from "../../store/store";
-import { geListItemStyles, getListItemIconStyles } from "../../utils/func";
-import { BasicIconButtonProps } from "../../utils/type";
+import { BasicIconButtonProps } from "../../../utils/type";
+import useThemeStore from "../../../store/store";
+import { geListItemStyles, getListItemIconStyles } from "../../../utils/func";
 
 const BasicIconButton = ({ text, icon, onClick }: BasicIconButtonProps) => {
   const { isOpen } = useThemeStore();

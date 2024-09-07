@@ -1,13 +1,13 @@
 import * as React from "react";
 import { Box, ListItemText, Typography } from "@mui/material";
 import { sizes } from "../../styles/sizes";
-import ImgAvatar from "../../components/atom/ImgAvatar";
 import { AvatarSize, OpenSideBarSettingButtonStyle } from "../../styles/mui";
 import useThemeStore from "../../store/store";
-import LinkedButton from "../../components/atom/LinkedButton";
+import LinkedButton from "../../components/atom/Button/LinkedButton";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { colors } from "../../styles/colors";
+import ImgAvatar from "../../components/atom/Avatar/ImgAvatar";
 
 const OpenedBarTopIsLogin = () => {
   const { isLogin } = useThemeStore();

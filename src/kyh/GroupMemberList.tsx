@@ -1,6 +1,6 @@
 import { Box, Typography } from "@mui/material";
-import ImgAvatar from "../components/atom/ImgAvatar";
 import { sizes } from "../styles/sizes";
+import ImgAvatar from "../components/atom/Avatar/ImgAvatar";
 
 type GroupMemberListProps = {
   imgsrc: string;

@@ -8,7 +8,7 @@ import {
 } from "@mui/material";
 import LockPersonIcon from "@mui/icons-material/LockPerson";
 import LockOpenIcon from "@mui/icons-material/LockOpen";
-import { InputModifyBoxProp } from "../../utils/type";
+import { InputModifyBoxProp } from "../../../utils/type";
 
 const InputModifyBox = ({
   type = "text",

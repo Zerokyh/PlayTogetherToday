@@ -1,10 +1,10 @@
 import { Box, Typography } from "@mui/material";
-import { colors } from "../../styles/colors";
-import { sizes } from "../../styles/sizes";
-import IconTextButton from "../atom/IconTextButton";
+import { colors } from "../../../styles/colors";
+import { sizes } from "../../../styles/sizes";
+import IconTextButton from "../Button/IconTextButton";
 import { useNavigate } from "react-router-dom";
-import { fontFamily } from "../../styles/theme";
-import useThemeStore from "../../store/store";
+import { fontFamily } from "../../../styles/theme";
+import useThemeStore from "../../../store/store";
 
 type IconTextButtonProps = {
   icon: React.ReactElement;

@@ -1,7 +1,7 @@
 import { Box, TextField } from "@mui/material";
-import { TextFieldBasicProps } from "../../utils/type";
-import { InputMuiStyle } from "../../styles/mui";
-import useThemeStore from "../../store/store";
+import { TextFieldBasicProps } from "../../../utils/type";
+import { InputMuiStyle } from "../../../styles/mui";
+import useThemeStore from "../../../store/store";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 
 const theme = createTheme({

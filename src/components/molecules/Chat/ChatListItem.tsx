@@ -1,11 +1,11 @@
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
-import { ChatListBoxAvatar } from "../../styles/mui";
+import { ChatListBoxAvatar } from "../../../styles/mui";
 import { Box } from "@mui/material";
-import ImgAvatar from "../atom/ImgAvatar";
-import { sizes } from "../../styles/sizes";
-import { colors } from "../../styles/colors";
+import { sizes } from "../../../styles/sizes";
+import { colors } from "../../../styles/colors";
+import ImgAvatar from "../../atom/Avatar/ImgAvatar";
 
 type ChatListItemProps = {
   avatarname?: string;

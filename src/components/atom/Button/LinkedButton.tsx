@@ -1,9 +1,9 @@
 import { Button } from "@mui/material";
-import { LinkedButtonNormal } from "../../styles/mui";
-import { colors } from "../../styles/colors";
+import { LinkedButtonNormal } from "../../../styles/mui";
+import { colors } from "../../../styles/colors";
 import { useNavigate } from "react-router-dom";
-import { fontFamily } from "../../styles/theme";
-import useThemeStore from "../../store/store";
+import { fontFamily } from "../../../styles/theme";
+import useThemeStore from "../../../store/store";
 import { alpha } from "@mui/material/styles";
 
 type inputVariantType = "text" | "contained" | "outlined";

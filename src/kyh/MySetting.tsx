@@ -8,15 +8,15 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import ContrastIcon from "@mui/icons-material/Contrast";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import { sizes } from "../styles/sizes";
-import IconTextTextBox from "../components/molecules/IconTextTextBox";
-import IconTextMuiBox from "../components/molecules/IconTextMuiBox";
+import IconTextTextBox from "../components/molecules/Boxing/IconTextTextBox";
+import IconTextMuiBox from "../components/molecules/Boxing/IconTextMuiBox";
 import {
   FullPageBox,
   MySettingInnerStyle,
   MySettingTitleStyle,
 } from "../styles/mui";
 import { styled } from "@mui/material/styles";
-import IosSwitchButton from "../components/atom/IosSwitchButton";
+import IosSwitchButton from "../components/atom/Button/IosSwitchButton";
 
 // zustand 설정 파일 호출
 import useThemeStore from "../store/store";

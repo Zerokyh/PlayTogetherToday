@@ -1,7 +1,7 @@
 import { FormControlLabel } from "@mui/material";
 import { styled, Theme } from "@mui/material/styles";
 import Switch, { SwitchProps } from "@mui/material/Switch";
-import { IosSwitchButtonProps } from "../../utils/type";
+import { IosSwitchButtonProps } from "../../../utils/type";
 
 // Switch 컴포넌트의 스타일을 지정하는 함수
 const IOSSwitch = styled(

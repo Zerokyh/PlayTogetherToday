@@ -1,6 +1,6 @@
 import { Avatar } from "@mui/material";
-import { ImgAvatarProps } from "../../utils/type";
-import { ChatListBoxAvatar } from "../../styles/mui";
+import { ChatListBoxAvatar } from "../../../styles/mui";
+import { ImgAvatarProps } from "../../../utils/type";
 
 const ImgAvatar = ({
   alt = "이미지",

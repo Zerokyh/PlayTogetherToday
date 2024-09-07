@@ -1,8 +1,8 @@
 import { Box, Typography } from "@mui/material";
-import ImgAvatar from "../atom/ImgAvatar";
-import { ChatListBoxAvatar } from "../../styles/mui";
-import { colors } from "../../styles/colors";
-import { sizes } from "../../styles/sizes";
+import { ChatListBoxAvatar } from "../../../styles/mui";
+import { colors } from "../../../styles/colors";
+import { sizes } from "../../../styles/sizes";
+import ImgAvatar from "../../atom/Avatar/ImgAvatar";
 
 type ChatReceiveMsgBoxProps = {
   avatarSrc?: string;

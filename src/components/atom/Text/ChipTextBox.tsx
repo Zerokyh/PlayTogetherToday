@@ -1,7 +1,7 @@
-import { colors } from "../../styles/colors";
+import { colors } from "../../../styles/colors";
 import { Chip } from "@mui/material";
-import { ChipTextBoxProps } from "../../utils/type";
-import useThemeStore from "../../store/store";
+import { ChipTextBoxProps } from "../../../utils/type";
+import useThemeStore from "../../../store/store";
 
 const ChipTextBox = ({ titlename, width = "120px" }: ChipTextBoxProps) => {
   const { isTheme } = useThemeStore();

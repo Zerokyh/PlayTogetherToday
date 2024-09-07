@@ -1,6 +1,6 @@
 import * as React from "react";
 import CssBaseline from "@mui/material/CssBaseline";
-import ContentsBox from "../components/organism/ContentsBox";
+import ContentsBox from "../components/organism/Dashboard/ContentsBox";
 import { DashboardGridBox } from "../styles/mui";
 import { dashBoardData } from "../constants/dashBoardData";
 import { Box, Grid } from "@mui/material";

@@ -1,6 +1,6 @@
 import { Box, Typography } from "@mui/material";
-import { colors } from "../../styles/colors";
-import { sizes } from "../../styles/sizes";
+import { colors } from "../../../styles/colors";
+import { sizes } from "../../../styles/sizes";
 
 type ChatSendMsgBoxProps = {
   chatMsg: string;

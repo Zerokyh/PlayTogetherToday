@@ -1,6 +1,6 @@
 import * as React from "react";
-import { Box, ListItemButton, Typography } from "@mui/material";
-import { sizes } from "../../styles/sizes";
+import { Box, ListItemButton } from "@mui/material";
+import { sizes } from "../../../styles/sizes";
 
 type iconSize = keyof typeof sizes.fontSize;
 

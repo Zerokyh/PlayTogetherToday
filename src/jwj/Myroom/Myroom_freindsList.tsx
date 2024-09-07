@@ -1,8 +1,8 @@
 import { Box, Typography } from "@mui/material";
 import { sizes } from "../../styles/sizes";
-import ImgAvatar from "../../components/atom/ImgAvatar";
 import useThemeStore, { ThemeType } from "../../store/store";
 import { colors } from "../../styles/colors";
+import ImgAvatar from "../../components/atom/Avatar/ImgAvatar";
 
 type FriendListProps = {
   name?: string;

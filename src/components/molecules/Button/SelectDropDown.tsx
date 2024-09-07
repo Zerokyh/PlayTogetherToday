@@ -6,7 +6,7 @@ import {
   SelectChangeEvent,
 } from "@mui/material";
 import * as React from "react";
-import { groupData } from "../../constants/groupData";
+import { groupData } from "../../../constants/groupData";
 
 const SelectDropDown = () => {
   const [game, setGame] = React.useState("");

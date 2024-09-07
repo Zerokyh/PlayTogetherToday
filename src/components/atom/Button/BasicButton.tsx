@@ -1,7 +1,7 @@
 import * as React from "react";
 import Button from "@mui/material/Button";
 import { Box } from "@mui/material";
-import { colors } from "../../styles/colors";
+import { colors } from "../../../styles/colors";
 
 type inputVariantType = "text" | "contained" | "outlined";
 

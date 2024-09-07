@@ -1,7 +1,7 @@
 import { Box, TextField } from "@mui/material";
-import WidthHalfBox from "../../atom/WidthHalfBox";
-import ChatSendMsgBox from "../../molecules/ChatSendMsgBox";
-import ChatReceiveMsgBox from "../../molecules/ChatReceiveMsgBox";
+import WidthHalfBox from "../../molecules/WidthHalfBox";
+import ChatSendMsgBox from "../../molecules/Chat/ChatSendMsgBox";
+import ChatReceiveMsgBox from "../../molecules/Chat/ChatReceiveMsgBox";
 import { colors } from "../../../styles/colors";
 import { sizes } from "../../../styles/sizes";
 import { useEffect, useRef } from "react";

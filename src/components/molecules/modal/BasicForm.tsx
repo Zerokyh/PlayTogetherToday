@@ -1,11 +1,11 @@
 import { Box } from "@mui/material";
-import BasicText from "../../atom/BasicText";
+import BasicText from "../../atom/Text/BasicText";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import CloseIcon from "@mui/icons-material/Close";
 import { sizes } from "../../../styles/sizes";
-import IconButton from "../../atom/IconButton";
+import IconButton from "../../atom/Button/IconButton";
 import { colors } from "../../../styles/colors";
-import LinkedButton from "../../atom/LinkedButton";
+import LinkedButton from "../../atom/Button/LinkedButton";
 
 export type BasicFormProps = {
   title?: string;

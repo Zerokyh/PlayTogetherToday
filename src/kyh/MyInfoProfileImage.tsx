@@ -1,8 +1,8 @@
 import { Box } from "@mui/material";
-import ImgAvatar from "../components/atom/ImgAvatar";
 import EditIcon from "@mui/icons-material/Edit";
 import { sizes } from "../styles/sizes";
 import { colors } from "../styles/colors";
+import ImgAvatar from "../components/atom/Avatar/ImgAvatar";
 
 const MyInfoProfileImage = () => {
   return (

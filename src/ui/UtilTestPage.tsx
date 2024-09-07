@@ -1,6 +1,6 @@
 import * as React from "react";
 import { FullPageBox } from "../styles/mui";
-import BasicButton from "../components/atom/BasicButton";
+import BasicButton from "../components/atom/Button/BasicButton";
 import { colors } from "../styles/colors";
 import { Box, Button, Card, CardMedia, Grid, Typography } from "@mui/material";
 import BasicModal from "../components/organism/Modal/BasicModal";

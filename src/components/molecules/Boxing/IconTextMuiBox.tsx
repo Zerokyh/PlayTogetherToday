@@ -1,8 +1,7 @@
 import { Box, Typography } from "@mui/material";
-import { colors } from "../../styles/colors";
-import { sizes } from "../../styles/sizes";
-import IconTextButton from "../atom/IconTextButton";
-import { IconTextMuiBoxProp } from "../../utils/type";
+import { sizes } from "../../../styles/sizes";
+import IconTextButton from "../Button/IconTextButton";
+import { IconTextMuiBoxProp } from "../../../utils/type";
 
 const IconTextMuiBox = ({
   icontextboxprops,
