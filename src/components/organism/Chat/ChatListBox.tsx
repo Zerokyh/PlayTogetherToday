@@ -2,7 +2,7 @@ import { Box } from "@mui/material";
 import WidthHalfBox from "../../molecules/WidthHalfBox";
 import ChatListItem from "../../molecules/Chat/ChatListItem";
 import { useEffect, useState } from "react";
-import axios from "axios";
+// import axios from "axios";
 
 type ChatData = {
   chat_id: number;
@@ -15,18 +15,18 @@ type ChatData = {
 
 const ChatListBox = () => {
   const [chat, setChat] = useState<ChatData | null>(null);
-  useEffect(() => {
-    // Spring Boot API 호출
-    axios
-      .get("http://localhost:8080/Chat")
-      .then((response) => {
-        setChat(response.data);
-        console.log(chat);
-      })
-      .catch((error) => {
-        console.error("Error fetching chat data:", error);
-      });
-  }, []);
+  // useEffect(() => {
+  //   // Spring Boot API 호출
+  //   axios
+  //     .get("http://localhost:8080/Chat")
+  //     .then((response) => {
+  //       setChat(response.data);
+  //       console.log(chat);
+  //     })
+  //     .catch((error) => {
+  //       console.error("Error fetching chat data:", error);
+  //     });
+  // }, []);
 
   return (
     <WidthHalfBox
