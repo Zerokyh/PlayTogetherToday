@@ -19,7 +19,7 @@ const Border = () => {
         <Container
           sx={{
             width: "100%",
-            height: "95.8vh",
+            height: "100%",
             display: "flex",
             paddingX: "20px",
           }}
