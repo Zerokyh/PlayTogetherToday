@@ -46,6 +46,7 @@ const Announce = () => {
               gap: "20px",
               alignItems: "center",
               padding: "12px",
+              maxHeight: "260px",
             }}
           >
             <Box
@@ -78,10 +79,17 @@ const Announce = () => {
                 }}
                 variant="outlined"
               >
-                편집하기
+                삭제하기
               </Button>
             </Box>
-            <Box sx={{ width: "100%", paddingx: sizes.padding.medium }}>
+            <Box
+              sx={{
+                width: "100%",
+                paddingx: sizes.padding.medium,
+                overflowY: "scroll",
+                scrollbarWidth: "none",
+              }}
+            >
               <List
                 sx={{
                   width: "100%",
@@ -99,6 +107,30 @@ const Announce = () => {
                 <AnnounceList
                   title="이번주 회비 미지급자 명단입니다.."
                   member="총무"
+                ></AnnounceList>
+                <AnnounceList
+                  title="공지사항입니다."
+                  member="주인장"
+                ></AnnounceList>
+                <AnnounceList
+                  title="공지사항입니다."
+                  member="주인장"
+                ></AnnounceList>
+                <AnnounceList
+                  title="공지사항입니다."
+                  member="주인장"
+                ></AnnounceList>
+                <AnnounceList
+                  title="공지사항입니다."
+                  member="주인장"
+                ></AnnounceList>
+                <AnnounceList
+                  title="공지사항입니다."
+                  member="주인장"
+                ></AnnounceList>
+                <AnnounceList
+                  title="공지사항입니다."
+                  member="주인장"
                 ></AnnounceList>
               </List>
             </Box>

@@ -32,11 +32,11 @@ const Border = () => {
               gap: "40px",
             }}
           >
-            {/* 첫번째 박스 */}
+            {/* FirstBox */}
             <BorderSetBox>
               <BorderGroupFirstBox title="다양한 모임들이 있어요~"></BorderGroupFirstBox>
             </BorderSetBox>
-            {/* 두번째 박스 */}
+            {/* SecondBox */}
             <BorderSetBox>
               <BorderListBox>
                 <BorderGroupSecondBox title="추천 모임 TOP3"></BorderGroupSecondBox>

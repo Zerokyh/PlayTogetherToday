@@ -112,7 +112,11 @@ const BorderProfile = ({
             >
               <Box>
                 <Typography
-                  sx={{ fontSize: "16px", fontWeight: "600" }}
+                  sx={{
+                    fontSize: "16px",
+                    fontWeight: "600",
+                    textAlign: "center",
+                  }}
                   variant="inherit"
                 >
                   이벤트 게시판
@@ -135,11 +139,17 @@ const BorderProfile = ({
               flexDirection: "column",
               gap: "14px",
               padding: "10px",
+              overflowY: "scroll",
+              scrollbarWidth: "none",
             }}
           >
             <Box sx={{}}>
               <Typography
-                sx={{ fontSize: "16px", fontWeight: "600" }}
+                sx={{
+                  fontSize: "16px",
+                  fontWeight: "600",
+                  textAlign: "center",
+                }}
                 variant="inherit"
               >
                 멤버 리스트
@@ -163,9 +173,24 @@ const BorderProfile = ({
                 profileImgSrc="profile_icon.png"
               />
               <GetMember
+                memberName="알라딘"
+                memberPosition="램프"
+                profileImgSrc="lamp.jpeg"
+              />
+              <GetMember
+                memberName="먼데이키즈"
+                memberPosition="월요일"
+                profileImgSrc="monday.jpeg"
+              />
+              <GetMember
                 memberName="임한별"
                 memberPosition="운전"
                 profileImgSrc="profile_icon.png"
+              />
+              <GetMember
+                memberName="씨엔블루"
+                memberPosition="밴드"
+                profileImgSrc="cnblue.jpeg"
               />
             </Box>
           </Box>

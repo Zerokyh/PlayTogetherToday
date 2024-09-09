@@ -13,6 +13,7 @@ const GetGroupBirth = ({ birthName, birthday }: GetGroupBirthProps) => {
       sx={{
         display: "flex",
         justifyContent: "space-between",
+        paddingTop: "0px",
       }}
     >
       <Typography sx={{ fontSize: "12px" }} variant="inherit">
