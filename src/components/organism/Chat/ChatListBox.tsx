@@ -3,6 +3,7 @@ import WidthHalfBox from "../../molecules/WidthHalfBox";
 import ChatListItem from "../../molecules/Chat/ChatListItem";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import LoadingSpiner from "../../atom/Loading/LoadingSpiner";
 
 type ChatData = {
   chat_id: number;
@@ -15,16 +16,19 @@ type ChatData = {
 
 const ChatListBox = () => {
   const [chat, setChat] = useState<ChatData | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
     // Spring Boot API 호출
     axios
       .get("http://localhost:8080/Chat")
       .then((response) => {
         setChat(response.data);
-        console.log(chat);
+        setIsLoading(false);
       })
       .catch((error) => {
         console.error("Error fetching chat data:", error);
+        // setLoading(false);
       });
   }, []);
 
@@ -40,16 +44,18 @@ const ChatListBox = () => {
       }}
     >
       <Box sx={{ padding: 3, width: "100%", overflowY: "scroll" }}>
-        {chat ? (
-          <ChatListItem
-            avatarsrc="cat.jpg"
-            nickname={chat.freind_member_nickname}
-            lastchatmsg="뭐해?"
-            lastchattime_day="YYYY년 MM월 DD일"
-            lastchattime_time="hh시 mm분 ss초"
-          />
+        {isLoading ? (
+          <LoadingSpiner loading={isLoading} />
         ) : (
-          <Box>채팅 데이터를 불러오는 중입니다...</Box>
+          chat && (
+            <ChatListItem
+              avatarsrc="cat.jpg"
+              nickname={chat.freind_member_nickname}
+              lastchatmsg="뭐해?"
+              lastchattime_day="YYYY년 MM월 DD일"
+              lastchattime_time="hh시 mm분 ss초"
+            />
+          )
         )}
       </Box>
     </WidthHalfBox>
