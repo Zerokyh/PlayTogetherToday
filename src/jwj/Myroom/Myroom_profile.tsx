@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Link, Typography } from "@mui/material";
 import { sizes } from "../../styles/sizes";
 import useThemeStore, { ThemeType } from "../../store/store";
 import { colors } from "../../styles/colors";
@@ -54,8 +54,31 @@ const Myroom_profile = ({
           <Typography variant="body2" sx={{ fontSize: sizes.fontSize.medium }}>
             {info_name}:
           </Typography>
-          <Typography variant="body2" sx={{ fontSize: sizes.fontSize.medium }}>
-            공개되지않습니다
+          <Typography
+            variant="body2"
+            sx={{ width: "60%", fontSize: sizes.fontSize.medium }}
+          >
+            <Box
+              sx={{
+                width: "100%",
+                display: "flex",
+                alignItems: "center",
+                gap: "20px",
+              }}
+            >
+              <Typography sx={{ fontSize: sizes.fontSize.medium }}>
+                공개되지않습니다.
+              </Typography>
+              <Link
+                component="button"
+                variant="body2"
+                onClick={() => {
+                  console.info("I'm a button.");
+                }}
+              >
+                권한 요청
+              </Link>
+            </Box>
           </Typography>
         </>
       )}

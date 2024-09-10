@@ -13,8 +13,7 @@ const Gameroom = () => {
     <Box
       sx={{
         width: "100%",
-        height: "100vh",
-        paddingY: "20px",
+        height: "100%",
         display: "grid",
         gridTemplateColumns: "repeat(5, 1fr)",
         gridTemplateRows: "repeat(5, 1fr)",

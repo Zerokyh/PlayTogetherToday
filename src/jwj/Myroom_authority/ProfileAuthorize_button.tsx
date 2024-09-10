@@ -32,12 +32,19 @@ const ProfileAuthorize_button = ({
   };
 
   return (
-    <Box sx={{ display: "flex", gap: "8px" }}>
+    <Box
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+        alignitems: "center",
+        gap: "8px",
+      }}
+    >
       <Button
         sx={{
           fontSize: sizes.fontSize.large,
-          width: "70px",
-          height: "30px",
+          width: "40px",
+          height: "20px",
           padding: "4px",
           borderColor: theme.palette.grey[400],
           backgroundColor:
@@ -65,7 +72,7 @@ const ProfileAuthorize_button = ({
         sx={{
           fontSize: sizes.fontSize.large,
           width: "80px",
-          height: "30px",
+          height: "20px",
           padding: "4px",
           borderColor: theme.palette.grey[400],
           backgroundColor:

@@ -14,6 +14,8 @@ import { useNavigate } from "react-router-dom";
 import useThemeStore, { ThemeType } from "../../store/store";
 import { colors } from "../../styles/colors";
 import ImgAvatar from "../../components/atom/Avatar/ImgAvatar";
+import { borderRadius, display } from "@mui/system";
+import { Link } from "@mui/material";
 
 const Myroom = () => {
   const navigate = useNavigate();
@@ -29,7 +31,7 @@ const Myroom = () => {
   //쪽지함 공개/비공개
   const MessageisPublic = true;
   //그룹함 공개/비공개
-  const GroupisPublic = true;
+  const GroupisPublic = false;
   //친구리스트 공개/비공개
   const FreindsListisPublic = true;
 
@@ -37,12 +39,11 @@ const Myroom = () => {
     <Box
       sx={{
         width: "100%",
-        height: "100vh",
+        height: "100%",
         display: "grid",
         gridTemplateColumns: "repeat(4, 1fr)",
         gridTemplateRows: "repeat(8, 1fr)",
         gap: 2,
-        paddingY: "20px",
       }}
     >
       <Grid
@@ -124,15 +125,17 @@ const Myroom = () => {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
+            padding: "15px",
           }}
         >
           <ImgAvatar
             src="cat.jpg"
             alt="프로필"
             sx={{
-              width: sizes.avatar.info,
-              height: sizes.avatar.info,
+              width: "100%",
+              height: "100%",
               mx: "auto",
+              borderRadius: 5,
             }}
           />
         </Box>
@@ -191,13 +194,32 @@ const Myroom = () => {
             <Myroom_freindsList name="닉네임" anni="기념일" group="그룹명" />
           </Box>
         ) : (
-          <Box>공개되지않습니다.</Box>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            <Typography>공개되지않습니다.</Typography>
+            <Link
+              component="button"
+              variant="body2"
+              onClick={() => {
+                console.info("I'm a button.");
+              }}
+            >
+              권한 요청
+            </Link>
+          </Box>
         )}
       </Grid>
 
       <Grid
         container
         sx={{
+          width: "100%",
+          height: "100%",
           gridColumn: "span 2",
           gridRow: "span 5",
           backgroundColor:
@@ -235,6 +257,7 @@ const Myroom = () => {
           <Box
             sx={{
               width: "100%",
+              height: "80%",
               flex: 1,
               display: "flex",
               flexDirection: "column",
@@ -276,7 +299,24 @@ const Myroom = () => {
             />
           </Box>
         ) : (
-          <Box>공개되지않습니다.</Box>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            <Typography>공개되지않습니다.</Typography>
+            <Link
+              component="button"
+              variant="body2"
+              onClick={() => {
+                console.info("I'm a button.");
+              }}
+            >
+              권한 요청
+            </Link>
+          </Box>
         )}
       </Grid>
 
@@ -330,16 +370,61 @@ const Myroom = () => {
               overflowY: "auto",
             }}
           >
-            <Myroom_message contents="쪽지 내용" time="쪽지 보낸시간" />
-            <Myroom_message contents="쪽지 내용" time="쪽지 보낸시간" />
-            <Myroom_message contents="쪽지 내용" time="쪽지 보낸시간" />
-            <Myroom_message contents="쪽지 내용" time="쪽지 보낸시간" />
-            <Myroom_message contents="쪽지 내용" time="쪽지 보낸시간" />
-            <Myroom_message contents="쪽지 내용" time="쪽지 보낸시간" />
-            <Myroom_message contents="쪽지 내용" time="쪽지 보낸시간" />
+            <Myroom_message
+              contents="권한 요청"
+              time="쪽지 보낸시간"
+              type={1}
+            />
+            <Myroom_message
+              contents="기념일 알림"
+              time="쪽지 보낸시간"
+              type={7}
+            />
+            <Myroom_message
+              contents="친구 요청"
+              time="쪽지 보낸시간"
+              type={2}
+            />
+            <Myroom_message
+              contents="탈퇴 신청"
+              time="쪽지 보낸시간"
+              type={9}
+            />
+            <Myroom_message
+              contents="쪽지 내용"
+              time="쪽지 보낸시간"
+              type={3}
+            />
+            <Myroom_message
+              contents="쪽지 내용"
+              time="쪽지 보낸시간"
+              type={3}
+            />
+            <Myroom_message
+              contents="쪽지 내용"
+              time="쪽지 보낸시간"
+              type={3}
+            />
           </Box>
         ) : (
-          <Box>공개되지않습니다.</Box>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            <Typography>공개되지않습니다.</Typography>
+            <Link
+              component="button"
+              variant="body2"
+              onClick={() => {
+                console.info("I'm a button.");
+              }}
+            >
+              권한 요청
+            </Link>
+          </Box>
         )}
       </Grid>
     </Box>

@@ -3,12 +3,15 @@ import { colors } from "../styles/colors";
 import { sizes } from "../styles/sizes";
 import GroupMoneyPlusMinus from "./GroupMoneyPlusMinus";
 
-type GroupMoneyListProps = {
+type GroupMoneyMinusListProps = {
   allMoney?: number;
   profit?: boolean;
 };
 
-const GroupMoneyList = ({ allMoney, profit }: GroupMoneyListProps) => {
+const GroupMoneyMinusList = ({
+  allMoney,
+  profit,
+}: GroupMoneyMinusListProps) => {
   return (
     <Box
       sx={{
@@ -36,7 +39,13 @@ const GroupMoneyList = ({ allMoney, profit }: GroupMoneyListProps) => {
           {profit ? "총 수익 :" : "총 지출 :"} {allMoney}원
         </Typography>
       </Box>
-      <Box sx={{ width: "100%", display: "flex", flexDirection: "column" }}>
+      <Box
+        sx={{
+          width: "100%",
+          display: "flex",
+          flexDirection: "column",
+        }}
+      >
         <GroupMoneyPlusMinus
           profit={profit}
           countMoney={10000}
@@ -54,4 +63,4 @@ const GroupMoneyList = ({ allMoney, profit }: GroupMoneyListProps) => {
   );
 };
 
-export default GroupMoneyList;
+export default GroupMoneyMinusList;

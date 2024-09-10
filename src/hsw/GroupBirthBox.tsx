@@ -12,14 +12,19 @@ const GroupBirthBox = () => {
         bgcolor: colors.background.tertiary,
         display: "flex",
         flexDirection: "column",
-        gap: "14px",
         padding: "10px",
+        overflowY: "scroll",
       }}
     >
-      <Typography sx={{ fontSize: "16px", fontWeight: "600" }}>
+      <Typography
+        sx={{ fontSize: "16px", fontWeight: "600", textAlign: "center" }}
+      >
         이번달 주인공
       </Typography>
       <GetGroupBirth birthName="광복절" birthday="8/15"></GetGroupBirth>
+      {/* <GetGroupBirth birthName="광복절" birthday="8/15"></GetGroupBirth>
+      <GetGroupBirth birthName="광복절" birthday="8/15"></GetGroupBirth>
+      <GetGroupBirth birthName="광복절" birthday="8/15"></GetGroupBirth> */}
     </Box>
   );
 };

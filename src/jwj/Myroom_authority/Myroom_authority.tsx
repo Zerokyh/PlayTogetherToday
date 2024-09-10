@@ -28,12 +28,11 @@ const Myroom_authority = () => {
     <Box
       sx={{
         width: "100%",
-        height: "100vh",
+        height: "100%",
         display: "grid",
         gridTemplateColumns: "repeat(4, 1fr)",
         gridTemplateRows: "repeat(8, 1fr)",
         gap: 2,
-        paddingY: "20px",
       }}
     >
       <Grid
@@ -128,7 +127,7 @@ const Myroom_authority = () => {
             alignItems: "center",
             justifyContent: "center",
             flexDirection: "column",
-            gap: 3,
+            gap: 2,
           }}
         >
           <Profile_TotalButton toggleAllProfiles={toggleAllProfiles} />
@@ -140,7 +139,7 @@ const Myroom_authority = () => {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              borderRadius: "100%",
+              borderRadius: 10,
               bgcolor: "purple.200",
             }}
           >
