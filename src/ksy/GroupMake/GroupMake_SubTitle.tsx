@@ -1,17 +1,22 @@
 import { Typography } from "@mui/material";
-import useThemeStore from "../../store/store";
+import { useNavigate } from "react-router-dom";
 import { colors } from "../../styles/colors";
+import useThemeStore from "../../store/store";
 import { sizes } from "../../styles/sizes";
 
-const GroupMake_Title = () => {
+const GroupMake_SubTitle = () => {
   const { isTheme } = useThemeStore();
+  const navigate = useNavigate();
 
   return (
     <Typography
-      sx={{
+        onClick={() => navigate("/GroupEnter")}
+        sx={{
+          cursor: "pointer",
+          "&:hover": { textDecoration: "underline" },
           width: "100%",
           padding: sizes.padding.xlarge,
-          marginBottom: 1,
+          marginBottom: 2,
           bgcolor:
             isTheme == "기본"
             ? colors.background.tertiary
@@ -24,10 +29,10 @@ const GroupMake_Title = () => {
           fontSize: sizes.fontSize.large,
           color: colors.text.primary,
           borderRadius: sizes.borderRadius.normal,
-      }}>
-      새로운 인연이 시작되고 있어요 (모임장만 가능)
-    </Typography>
+        }}>
+        모임에 초대받았어요
+      </Typography>
   );
 };
 
-export default GroupMake_Title;
+export default GroupMake_SubTitle;

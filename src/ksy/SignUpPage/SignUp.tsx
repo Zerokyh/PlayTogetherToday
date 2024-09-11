@@ -3,7 +3,9 @@ import { FullPageBox } from "../../styles/mui";
 import InputContents from "./InputContents";
 import { useSignUpForm } from "./InputFunction/UseForm";
 import { useNavigate } from "react-router-dom";
-
+import useThemeStore from "../../store/store";
+import { colors } from "../../styles/colors";
+import { sizes } from "../../styles/sizes";
 
 const SignUp = () => {
   const {
@@ -18,6 +20,7 @@ const SignUp = () => {
     setShowPasswordCheck,
   } = useSignUpForm();
 
+  const { isTheme } = useThemeStore();
   const navigate = useNavigate();
 
   const handleCancel = () => {
@@ -37,52 +40,56 @@ const SignUp = () => {
 
     setTimeout(() => {
       alert("처음 화면으로 돌아갑니다. 내용은 저장되지 않습니다.");
-      navigate("/LogIn");
+      navigate("/");
     }, 0);
   };
 
   const handelJoin = () => {
-    // 모달? 등등 데이터 저장 코드 입력하기
     setTimeout(() => {
-      alert("정말 가입 하시겠습니까?");
-      navigate("/LogIn");
+      alert("이대로 가입하시겠습니까?");
+      navigate("/");
+      // after : Save Data Code
     })
   }
 
   return (
-    // 기본바탕 화면설정
     <FullPageBox>
 
       {/* Container */}
       <Box
         sx={{
-          width: "100%",
-          height: "95.8vh",
-          paddingX: "100px",
-          paddingY: 0,
-          bgcolor: "#EEEEEE",
+          width: sizes.width.half,
+          height: sizes.height.full,
+          padding: "8%",
+          bgcolor:
+            isTheme == "기본"
+            ? colors.background.secondary
+            : colors.sub_background.secondary,
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
-          borderRadius: 6,
+          borderRadius: sizes.borderRadius.normal,
         }}>
         
         {/* Title Box */}
         <Typography
           sx={{
-            width: "60%",
-            padding: "20px",
-            marginBottom: "20px",
-            bgcolor: "#E5E5E5",
+            width: "100%",
+            padding: sizes.padding.xlarge,
+            marginBottom: 1,
+            bgcolor:
+              isTheme == "기본"
+              ? colors.background.tertiary
+              : colors.sub_background.tertiary,
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
             textAlign: "center",
             fontWeight: "bold",
-            fontSize: 20,
-            color: "#23374D",
-            borderRadius: 6
+            fontSize: sizes.fontSize.large,
+            color: colors.text.primary,
+            borderRadius: sizes.borderRadius.normal,
           }}>
             소모임의 소중한 회원으로 모시겠습니다
         </Typography>
@@ -90,11 +97,10 @@ const SignUp = () => {
         {/* Input Group */}
           <Box
           sx={{
-            width: "60%",
-            padding: 0
+            width: "100%",
             }}>
 
-            {/* 아이디 입력 */}
+            {/* ID*/}
             <InputContents
               label="아이디(이메일주소)*"
               value={formState.idEmail}
@@ -104,7 +110,7 @@ const SignUp = () => {
               onBlur={() => setBlurred((prev) => ({ ...prev, idEmailBlurred: true }))}
               onFocus={() => setBlurred((prev) => ({ ...prev, idEmailBlurred: false }))}
             />
-            {/* 비밀번호 입력 */}
+            {/* Password */}
             <InputContents
               label="비밀번호*"
               value={formState.password}
@@ -118,7 +124,7 @@ const SignUp = () => {
               onBlur={() => setBlurred((prev) => ({ ...prev, passwordBlurred: true }))}
               onFocus={() => setBlurred((prev) => ({ ...prev, passwordBlurred: false }))}
             />
-            {/* 비밀번호 확인 */}
+            {/* Password Check */}
             <InputContents
               label="비밀번호 확인*"
               value={formState.passwordCheck}
@@ -132,21 +138,21 @@ const SignUp = () => {
               onBlur={() => setBlurred((prev) => ({ ...prev, passwordCheckBlurred: true }))}
               onFocus={() => setBlurred((prev) => ({ ...prev, passwordCheckBlurred: false }))}
             />
-            {/* 백업 이메일 */}
+            {/* Backup Email */}
             <InputContents
               label="백업 이메일"
               value={formState.backupEmail}
               setValue={(val) => setFormState((prev) => ({ ...prev, backupEmail: val }))}
               optional
             />
-            {/* 그룹 만들기 */}
+            {/* GroupMake */}
             <InputContents
               label="그룹 만들기"
               value={formState.groupName}
               setValue={(val) => setFormState((prev) => ({ ...prev, groupName: val }))}
               optional
             />
-            {/* 그룹 가입 암호 */}
+            {/* Group Join Password */}
             <InputContents
               label="그룹 가입 암호"
               value={formState.groupPassword}
@@ -159,32 +165,38 @@ const SignUp = () => {
             sx={{
                 display: "flex",
                 justifyContent: "center",
-                padding: "15px",
+                padding: sizes.padding.xlarge,
                 gap: 3
             }}>
             
-            {/* 가입버튼 / 취소버튼 */}
+            {/* EnterBtn / CancleBtn */}
             <Button
               onClick={handelJoin}
               sx={{
-                width: 100,
+                width: "20%",
                 height: 45,
-                bgcolor: "#006DFF",
-                fontSize: 18,
-                color: "#EEEEEE",
-                borderRadius: 10,
+                bgcolor:
+                  isTheme == "기본"
+                  ? colors.background.button
+                  : colors.sub_background.button,
+                color: colors.text.secondary,
+                fontSize: sizes.fontSize.normal,
+                borderRadius: sizes.borderRadius.normal,
               }}>
               가입하기
             </Button>
             <Button
               onClick={handleCancel}
               sx={{
-                width: 100,
+                width: "20%",
                 height: 45,
-                bgcolor: "white",
-                fontSize: 18,
-                color: "#23374D",
-                borderRadius: 10
+                bgcolor:
+                  isTheme == "기본"
+                  ? colors.background.drawer
+                  : colors.sub_background.drawer,
+                color: colors.text.primary,
+                fontSize: sizes.fontSize.normal,
+                borderRadius: sizes.borderRadius.normal,
               }}>
               취소
             </Button>
