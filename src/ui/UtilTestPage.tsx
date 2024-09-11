@@ -7,7 +7,6 @@ import BasicModal from "../components/organism/Modal/BasicModal";
 import { dashBoardData } from "../constants/dashBoardData";
 import useThemeStore from "../store/store";
 import { useNavigate } from "react-router-dom";
-import ImageUpload from "../kyh/ImageUpload";
 
 const UtilTestPage = () => {
   const [open, setOpen] = React.useState(false);
@@ -18,13 +17,13 @@ const UtilTestPage = () => {
   return (
     <FullPageBox>
       <Box>
-        {/* <Box>
+        <Box>
           <BasicButton
             text="가입하기"
             onClick={handleOpen}
             sx={{ bgcolor: colors.background.tertiary }}
-          /> */}
-        {/* <RegisterModal
+          />
+          {/* <RegisterModal
             registerformprops={{
               title: "회원 가입을 진행하겠습니까?",
               handleClose,
@@ -32,7 +31,7 @@ const UtilTestPage = () => {
             open={open}
             handleClose={handleClose}
           /> */}
-        {/* </Box>
+        </Box>
         <Box>
           <BasicButton text="친구정보보기" onClick={handleOpen} />
           <BasicModal
@@ -44,8 +43,7 @@ const UtilTestPage = () => {
             open={open}
             handleClose={handleClose}
           />
-        </Box> */}
-        <ImageUpload />
+        </Box>
       </Box>
     </FullPageBox>
   );

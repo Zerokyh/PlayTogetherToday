@@ -5,7 +5,8 @@ import FadeLoader from "react-spinners/FadeLoader";
 type LoadingSpinerProps = {
   loading: boolean;
   color?: string;
-  height?: string | number;
+  boxWidth?: string | number;
+  boxHeight?: string | number;
 };
 
 const override: CSSProperties = {
@@ -17,12 +18,14 @@ const override: CSSProperties = {
 const LoadingSpiner = ({
   loading,
   color = "black",
-  height = "652px",
+  boxWidth,
+  boxHeight,
 }: LoadingSpinerProps) => {
   return (
     <Box
       sx={{
-        height: { height },
+        width: boxWidth,
+        height: boxHeight,
         display: "flex",
         justifyContent: "center",
         alignItems: "center",

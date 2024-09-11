@@ -28,7 +28,6 @@ const DisplayEvent = ({}: DisplayEventProps) => {
           onChange={handleChange}
           variant="scrollable"
           scrollButtons="auto"
-          centered
           sx={{ width: 290 }}
         >
           <Tab label="오늘의 이벤트" value="1" sx={{ width: 210 }} />

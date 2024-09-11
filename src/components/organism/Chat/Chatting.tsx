@@ -56,7 +56,7 @@ const Chatting = () => {
         }}
       >
         {isLoading ? (
-          <LoadingSpiner loading={isLoading} height={"564px"} />
+          <LoadingSpiner loading={isLoading} boxHeight={"564px"} />
         ) : (
           <Box
             sx={{

@@ -1,17 +1,15 @@
 import * as React from "react";
-import { Box, Snackbar, Alert, CircularProgress } from "@mui/material";
+import { Box, Snackbar, Alert } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
 import { sizes } from "../styles/sizes";
 import { colors } from "../styles/colors";
 import ImgAvatar from "../components/atom/Avatar/ImgAvatar";
+import LoadingSpiner from "../components/atom/Loading/LoadingSpiner";
 
 const MyInfoProfileImage = () => {
-  const [selectedFile, setSelectedFile] = React.useState<File | null>(null);
   const [imageUrl, setImageUrl] = React.useState<string>(""); // 이미지 URL 상태
   const [loading, setLoading] = React.useState<boolean>(false); // 로딩 상태
-  const [uploadSuccess, setUploadSuccess] = React.useState<boolean | null>(
-    null
-  ); // 업로드 성공 여부
+  const [uploadSuccess, setUploadSuccess] = React.useState<boolean | "">(""); // 업로드 성공 여부
   const [openSnackbar, setOpenSnackbar] = React.useState<boolean>(false); // 스낵바 상태
 
   const apiKey = "71fd1a030761c873bc2c144f69ce00e0"; // 자신의 API 키
@@ -21,7 +19,6 @@ const MyInfoProfileImage = () => {
   ) => {
     if (event.target.files) {
       const file = event.target.files[0];
-      setSelectedFile(file); // 선택된 파일 저장
       await handleUpload(file); // 파일 선택 후 업로드 호출
     }
   };
@@ -89,7 +86,12 @@ const MyInfoProfileImage = () => {
     >
       <Box sx={{ position: "relative" }}>
         {loading ? (
-          <CircularProgress />
+          <LoadingSpiner
+            color={colors.text.primary}
+            loading={loading}
+            boxWidth={sizes.avatar.info}
+            boxHeight={sizes.avatar.info}
+          />
         ) : imageUrl ? (
           <ImgAvatar
             src={imageUrl} // 업로드된 이미지 URL
@@ -102,7 +104,7 @@ const MyInfoProfileImage = () => {
           />
         ) : (
           <ImgAvatar
-            src="default_avatar.png" // 기본 프로필 이미지
+            src="onlylogo.png" // 기본 프로필 이미지
             alt="프로필"
             sx={{
               width: sizes.avatar.info,
@@ -122,7 +124,7 @@ const MyInfoProfileImage = () => {
             position: "absolute",
             top: 80,
             right: 20,
-            color: "white",
+            color: colors.text.primary,
             ":hover": {
               cursor: "pointer",
               color: colors.text.secondary,

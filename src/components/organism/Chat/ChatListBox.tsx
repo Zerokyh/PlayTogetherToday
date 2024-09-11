@@ -45,7 +45,7 @@ const ChatListBox = () => {
     >
       <Box sx={{ padding: 3, width: "100%", overflowY: "scroll" }}>
         {isLoading ? (
-          <LoadingSpiner loading={isLoading} />
+          <LoadingSpiner loading={isLoading} boxHeight={"652px"} />
         ) : (
           chat && (
             <ChatListItem
