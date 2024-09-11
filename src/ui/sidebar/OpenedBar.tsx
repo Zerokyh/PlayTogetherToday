@@ -13,6 +13,7 @@ import DisplayEvent from "../../kyh/DisplayEvent";
 
 const OpenedBar = () => {
   const { isLogin, isOpen } = useThemeStore();
+  const [selectedDate, setSelectedDate] = React.useState<Date | null>(null);
   return (
     <>
       <List sx={{ ...(isOpen == false && { display: "none" }) }}>
@@ -22,13 +23,13 @@ const OpenedBar = () => {
           <OpenedBarTopIsLogin />
           <OpenedBarMiddle />
           <Box>
-            <Calendar />
+            <Calendar onDateChange={setSelectedDate} />
           </Box>
           <Box>
             {isLogin ? (
               // <Skeleton variant="rounded" sx={{ ...SkeletonMini }} />
               <Box sx={{ mx: "auto", width: 290, height: 140 }}>
-                <DisplayEvent />
+                <DisplayEvent selectedDate={selectedDate} />
               </Box>
             ) : (
               <TextCard text="소모임은 여러분들의 갓생살기의 도우미입니다." />
