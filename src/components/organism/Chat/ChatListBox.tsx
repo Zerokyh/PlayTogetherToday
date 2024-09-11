@@ -3,7 +3,8 @@ import WidthHalfBox from "../../molecules/WidthHalfBox";
 import ChatListItem from "../../molecules/Chat/ChatListItem";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import LoadingSpiner from "../../atom/Loading/LoadingSpiner";
+import LoadingSpiner from "../../atom/Loading/LoadingSpinner";
+import { colors } from "../../../styles/colors";
 
 type ChatListsData = {
   chat_id: number;
@@ -47,7 +48,11 @@ const ChatListBox = () => {
     >
       <Box sx={{ padding: 3, width: "100%", overflowY: "scroll" }}>
         {isLoading ? (
-          <LoadingSpiner loading={isLoading} boxHeight={"652px"} />
+          <LoadingSpiner
+            loading={isLoading}
+            boxHeight={"652px"}
+            color={colors.text.primary}
+          />
         ) : (
           chatList && (
             <ChatListItem
