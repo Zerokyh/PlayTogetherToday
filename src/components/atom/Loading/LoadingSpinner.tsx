@@ -2,7 +2,7 @@ import { CSSProperties } from "react";
 import { Box } from "@mui/material";
 import FadeLoader from "react-spinners/FadeLoader";
 
-type LoadingSpinerProps = {
+type LoadingSpinnerProps = {
   loading: boolean;
   color?: string;
   boxWidth?: string | number;
@@ -15,12 +15,12 @@ const override: CSSProperties = {
   borderColor: "black",
 };
 
-const LoadingSpiner = ({
+const LoadingSpinner = ({
   loading,
   color = "black",
   boxWidth,
   boxHeight,
-}: LoadingSpinerProps) => {
+}: LoadingSpinnerProps) => {
   return (
     <Box
       sx={{
@@ -42,4 +42,4 @@ const LoadingSpiner = ({
   );
 };
 
-export default LoadingSpiner;
+export default LoadingSpinner;

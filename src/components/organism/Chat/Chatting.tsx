@@ -6,7 +6,7 @@ import { colors } from "../../../styles/colors";
 import { useEffect, useRef, useState } from "react";
 import useThemeStore from "../../../store/store";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-import LoadingSpiner from "../../atom/Loading/LoadingSpiner";
+import LoadingSpiner from "../../atom/Loading/LoadingSpinner";
 import { sizes } from "../../../styles/sizes";
 
 type ChattingProps = {

@@ -4,7 +4,7 @@ import EditIcon from "@mui/icons-material/Edit";
 import { sizes } from "../styles/sizes";
 import { colors } from "../styles/colors";
 import ImgAvatar from "../components/atom/Avatar/ImgAvatar";
-import LoadingSpiner from "../components/atom/Loading/LoadingSpiner";
+import LoadingSpiner from "../components/atom/Loading/LoadingSpinner";
 
 const MyInfoProfileImage = () => {
   const [imageUrl, setImageUrl] = React.useState<string>(""); // 이미지 URL 상태
