@@ -7,27 +7,31 @@ import {
 } from "@mui/material";
 import * as React from "react";
 import { groupData } from "../../../constants/groupData";
+import { sizes } from "../../../styles/sizes";
 
 const SelectDropDown = () => {
-  const [game, setGame] = React.useState("");
+  const [group, setGroup] = React.useState("");
   const handleChange = (event: SelectChangeEvent) => {
-    setGame(event.target.value as string);
+    setGroup(event.target.value as string);
   };
   return (
     <FormControl
       sx={{
         my: 1,
-        width: 124,
-        height: 30,
+        width: 130,
+        height: 24,
         "& .MuiSelect-root": {
           height: "100%",
-          paddingTop: 0,
-          paddingBottom: 0,
+          display: "flex",
+          alignItems: "center",
         },
         "& .MuiInputLabel-root": {
-          height: 30,
-          fontSize: 10,
-          lineHeight: "13px",
+          height: 10,
+          fontSize: sizes.fontSize.small,
+          lineHeight: "24px",
+
+          display: "flex",
+          alignItems: "center",
         },
       }}
       size="small"
@@ -35,14 +39,16 @@ const SelectDropDown = () => {
       <InputLabel
         id="group-select-label"
         size="small"
-        sx={{ height: 30, fontSize: 10 }}
+        sx={{
+          height: 24,
+        }}
       >
-        Select Group
+        그룹을 선택해주세요
       </InputLabel>
       <Select
         labelId="group-select-label"
         id="group-select"
-        value={game}
+        value={group}
         label="Select Group"
         onChange={handleChange}
         sx={{
@@ -52,7 +58,7 @@ const SelectDropDown = () => {
         }}
       >
         {Object.entries(groupData).map(([key, item]) => (
-          <MenuItem key={item.value} value={item.value}>
+          <MenuItem key={key} value={item.value}>
             {item.group}
           </MenuItem>
         ))}

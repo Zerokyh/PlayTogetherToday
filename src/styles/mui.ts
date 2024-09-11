@@ -167,19 +167,19 @@ export const SkeletonNormal = {
 };
 
 export const LinkedButtonNormal = {
-  width: 120,
-  height: 40,
+  width: 129,
+  height: 37,
   fontWeight: 600,
   border: `1px solid ${colors.border.drawer}`,
-  fontSize: sizes.fontSize.xsmall,
+  fontSize: sizes.fontSize.medium,
 };
 
 export const LinkedButtonHeightSmall = {
-  width: 120,
-  height: 30,
+  width: 130,
+  height: 24,
   fontWeight: 600,
   border: `1px solid ${colors.text.primary}`,
-  fontSize: sizes.fontSize.xsmall,
+  fontSize: sizes.fontSize.medium,
 };
 
 export const TextButtonNormal = {

@@ -18,7 +18,7 @@ const OpenedBarMiddle = () => {
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
-              gap: 2.8,
+              gap: 2,
             }}
           >
             <SelectDropDown />
@@ -42,7 +42,7 @@ const OpenedBarMiddle = () => {
             <Grid
               container
               spacing={0}
-              sx={{ display: "flex", gap: 3, justifyContent: "center" }}
+              sx={{ display: "flex", gap: 2, justifyContent: "center" }}
             >
               {Object.entries(fourMenuData).map(([key, item]) => (
                 <Grid item xs={5} md={5} key={key}>
