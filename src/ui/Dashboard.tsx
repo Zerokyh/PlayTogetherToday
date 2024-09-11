@@ -3,7 +3,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import ContentsBox from "../components/organism/Dashboard/ContentsBox";
 import { DashboardGridBox } from "../styles/mui";
 import { dashBoardData } from "../constants/dashBoardData";
-import { Box, Grid } from "@mui/material";
+import { Grid } from "@mui/material";
 
 const Dashboard = () => {
   return (
