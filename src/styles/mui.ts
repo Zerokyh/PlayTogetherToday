@@ -66,7 +66,7 @@ export const WidthHalfOutterBox = styled(Box)({
   flexDirection: "row",
   width: "100%",
   height: "100%",
-  gap: 30,
+  gap: 16,
 });
 
 export const WidthHalfInnerBox = styled(Box)({

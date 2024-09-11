@@ -5,17 +5,19 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import LoadingSpiner from "../../atom/Loading/LoadingSpiner";
 
-type ChatData = {
+type ChatListsData = {
   chat_id: number;
-  member_id: number;
-  freind_member_nickname: string;
+  friend_member_id: number;
+  friend_member_profile: string;
+  friend_member_nickname: string;
+  last_message_detail: string;
   last_message_date: string;
   last_message_time: string;
   message_confirmation: boolean;
 };
 
 const ChatListBox = () => {
-  const [chat, setChat] = useState<ChatData | null>(null);
+  const [chatList, setChatList] = useState<ChatListsData | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -23,12 +25,12 @@ const ChatListBox = () => {
     axios
       .get("http://localhost:8080/Chat")
       .then((response) => {
-        setChat(response.data);
+        setChatList(response.data);
         setIsLoading(false);
       })
       .catch((error) => {
         console.error("Error fetching chat data:", error);
-        // setLoading(false);
+        setIsLoading(false);
       });
   }, []);
 
@@ -47,13 +49,13 @@ const ChatListBox = () => {
         {isLoading ? (
           <LoadingSpiner loading={isLoading} boxHeight={"652px"} />
         ) : (
-          chat && (
+          chatList && (
             <ChatListItem
-              avatarsrc="cat.jpg"
-              nickname={chat.freind_member_nickname}
-              lastchatmsg="뭐해?"
-              lastchattime_day="YYYY년 MM월 DD일"
-              lastchattime_time="hh시 mm분 ss초"
+              avatarsrc={chatList.friend_member_profile}
+              nickname={chatList.friend_member_nickname}
+              lastchatmsg={chatList.last_message_detail}
+              lastchattime_day={chatList.last_message_date}
+              lastchattime_time={chatList.last_message_time}
             />
           )
         )}

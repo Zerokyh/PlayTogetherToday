@@ -6,8 +6,8 @@ import ImgAvatar from "../../atom/Avatar/ImgAvatar";
 
 type ChatReceiveMsgBoxProps = {
   avatarSrc?: string;
-  chatMsg: string;
-  msgTime: string;
+  chatMsg?: string;
+  msgTime?: string;
   onClick?: () => void;
 };
 

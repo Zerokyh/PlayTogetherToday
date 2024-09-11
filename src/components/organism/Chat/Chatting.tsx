@@ -1,4 +1,4 @@
-import { Box, TextField } from "@mui/material";
+import { Box, TextField, Typography } from "@mui/material";
 import WidthHalfBox from "../../molecules/WidthHalfBox";
 import ChatSendMsgBox from "../../molecules/Chat/ChatSendMsgBox";
 import ChatReceiveMsgBox from "../../molecules/Chat/ChatReceiveMsgBox";
@@ -7,6 +7,13 @@ import { useEffect, useRef, useState } from "react";
 import useThemeStore from "../../../store/store";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import LoadingSpiner from "../../atom/Loading/LoadingSpiner";
+import { sizes } from "../../../styles/sizes";
+
+type ChattingProps = {
+  friend_member_nickname?: string;
+  message_detail?: string;
+  message_time?: string;
+};
 
 const theme = createTheme({
   palette: {
@@ -19,7 +26,11 @@ const theme = createTheme({
   },
 });
 
-const Chatting = () => {
+const Chatting = ({
+  friend_member_nickname,
+  message_detail,
+  message_time,
+}: ChattingProps) => {
   const { isTheme } = useThemeStore();
   const [isLoading] = useState(false);
 
@@ -46,6 +57,34 @@ const Chatting = () => {
         padding: 0,
       }}
     >
+      <Box
+        component="form"
+        sx={{
+          width: "100%",
+
+          backgroundColor:
+            isTheme == "기본"
+              ? colors.background.primary
+              : colors.sub_background.primary,
+          position: "sticky", // 입력란을 고정
+          bottom: 4,
+        }}
+        noValidate
+        autoComplete="off"
+      >
+        <Typography
+          sx={{
+            height: 60,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            fontSize: sizes.fontSize.medium,
+          }}
+        >
+          {/* {friend_member_nickname} */}
+          뒹굴뒹굴
+        </Typography>
+      </Box>
       <Box
         sx={{
           padding: 4,
@@ -87,7 +126,10 @@ const Chatting = () => {
             <ChatSendMsgBox chatMsg="아 꺼져 좀 쉬자" msgTime="11:43" />
             <ChatReceiveMsgBox chatMsg="밥사줌 당장 기어나와" msgTime="11:44" />
             <ChatSendMsgBox chatMsg="ㅇㅇ 모자쓰고 나감" msgTime="11:44" />
-            <ChatReceiveMsgBox chatMsg="편의점 앞으로와" msgTime="11:44" />
+            <ChatReceiveMsgBox
+              chatMsg={message_detail}
+              msgTime={message_time}
+            />
             <div ref={messagesEndRef} />
           </Box>
         )}
