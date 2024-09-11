@@ -1,15 +1,22 @@
-import { Box, List, ListItem, Typography } from "@mui/material";
+import { Box, Checkbox, List, ListItem, Typography } from "@mui/material";
 import { sizes } from "../styles/sizes";
 import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
 
 type AnnounceListProps = {
   title?: string;
   member?: string;
+  checked?: boolean;
 };
 
-const AnnounceList = ({ title, member }: AnnounceListProps) => {
+const AnnounceList = ({ title, member, checked }: AnnounceListProps) => {
   return (
-    <Box sx={{}}>
+    <Box
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+      }}
+    >
+      <Checkbox checked={checked} />
       <ListItem
         sx={{
           width: "100%",

@@ -8,20 +8,6 @@ import Announce from "./Announce";
 import { sizes } from "../styles/sizes";
 
 const BorderDetail = () => {
-  const theme = createTheme({
-    palette: {
-      primary: {
-        main: "#F3EAFB",
-        dark: "#ddc6f5",
-        light: "#bdbdbd",
-      },
-      secondary: {
-        main: "#bdbdbd",
-        dark: "#000000",
-      },
-    },
-  });
-
   const [value, setValue] = useState(0);
 
   return (
@@ -62,7 +48,6 @@ const BorderDetail = () => {
             height: "50%",
             display: "flex",
             gap: sizes.gap.large,
-            padding: sizes.gap.xLarge,
           }}
         >
           <Box

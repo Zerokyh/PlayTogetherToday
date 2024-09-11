@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import BasicButton from "../../atom/BasicButton";
+import BasicButton from "../../atom/Button/BasicButton";
 
 export type RegisterFormProps = {
   title?: string;

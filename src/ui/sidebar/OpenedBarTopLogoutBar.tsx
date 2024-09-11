@@ -1,6 +1,6 @@
 import { Box, IconButton } from "@mui/material";
 import { sizes } from "../../styles/sizes";
-import LinkedButton from "../../components/atom/LinkedButton";
+import LinkedButton from "../../components/atom/Button/LinkedButton";
 import useThemeStore from "../../store/store";
 import { handleDrawerClose, handleLogOut } from "../../utils/func";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";

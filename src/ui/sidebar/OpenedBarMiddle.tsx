@@ -1,13 +1,11 @@
 import useThemeStore from "../../store/store";
-import { Box, Grid, Skeleton, Typography } from "@mui/material";
-import SelectDropDown from "../../components/molecules/SelectDropDown";
-import LinkedButton from "../../components/atom/LinkedButton";
+import { Box, Grid, Skeleton } from "@mui/material";
+import LinkedButton from "../../components/atom/Button/LinkedButton";
 import { LinkedButtonHeightSmall, SkeletonNormal } from "../../styles/mui";
-import NotLoginButton from "../../components/molecules/NotLoginButton";
+import NotLoginButton from "../../components/molecules/Button/NotLoginButton";
 import { fourMenuData } from "../../constants/fourMenuData";
-import GroupMemberList from "../../kyh/GroupMemberList";
 import GroupMemberBox from "../../kyh/GroupMemberBox";
-import { relative } from "path";
+import SelectDropDown from "../../components/molecules/Button/SelectDropDown";
 
 const OpenedBarMiddle = () => {
   const { isLogin } = useThemeStore();
@@ -20,7 +18,7 @@ const OpenedBarMiddle = () => {
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
-              gap: 1.2,
+              gap: 2,
             }}
           >
             <SelectDropDown />
@@ -34,14 +32,20 @@ const OpenedBarMiddle = () => {
           </Box>
           {/* <Skeleton variant="rounded" sx={{ ...SkeletonNormal }} /> */}
           <GroupMemberBox />
-          <Box sx={{ height: 120, display: "flex", alignItems: "center" }}>
+          <Box
+            sx={{
+              height: 120,
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
             <Grid
               container
               spacing={0}
-              sx={{ gap: 2, justifyContent: "center" }}
+              sx={{ display: "flex", gap: 2, justifyContent: "center" }}
             >
               {Object.entries(fourMenuData).map(([key, item]) => (
-                <Grid item xs={5} md={5}>
+                <Grid item xs={5} md={5} key={key}>
                   <LinkedButton
                     variantType="outlined"
                     textcolor="primary"

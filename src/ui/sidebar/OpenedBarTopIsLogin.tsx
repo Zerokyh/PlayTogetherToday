@@ -1,13 +1,13 @@
 import * as React from "react";
 import { Box, ListItemText, Typography } from "@mui/material";
 import { sizes } from "../../styles/sizes";
-import ImgAvatar from "../../components/atom/ImgAvatar";
 import { AvatarSize, OpenSideBarSettingButtonStyle } from "../../styles/mui";
 import useThemeStore from "../../store/store";
-import LinkedButton from "../../components/atom/LinkedButton";
+import LinkedButton from "../../components/atom/Button/LinkedButton";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { colors } from "../../styles/colors";
+import ImgAvatar from "../../components/atom/Avatar/ImgAvatar";
 
 const OpenedBarTopIsLogin = () => {
   const { isLogin } = useThemeStore();
@@ -18,7 +18,7 @@ const OpenedBarTopIsLogin = () => {
     <Box
       sx={{
         display: "flex",
-        justifyContent: "space-evenly",
+        justifyContent: "space-around",
         alignItems: "center",
         py: sizes.padding.large,
       }}
@@ -68,7 +68,7 @@ const OpenedBarTopIsLogin = () => {
                 primaryTypographyProps={{ fontSize: sizes.fontSize.small }}
               />
             ) : (
-              <Box>
+              <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
                 <ListItemText
                   primary={`아직 모임을 시작하지 않았네요!`}
                   primaryTypographyProps={{ fontSize: sizes.fontSize.small }}
@@ -76,10 +76,6 @@ const OpenedBarTopIsLogin = () => {
                 <Box
                   sx={{
                     ":hover": { cursor: "pointer" },
-                    position: "absolute",
-                    zIndex: 1,
-                    top: 116,
-                    right: 8,
                   }}
                 >
                   <Typography

@@ -65,8 +65,8 @@ export const WidthHalfOutterBox = styled(Box)({
   display: "flex",
   flexDirection: "row",
   width: "100%",
-  height: "95.8vh",
-  gap: 30,
+  height: "100%",
+  gap: 16,
 });
 
 export const WidthHalfInnerBox = styled(Box)({
@@ -114,7 +114,7 @@ export const MyInfoInnerBox = styled(Box)({
 
 export const DashboardGridBox = styled(Box)({
   width: "100%",
-  height: "100vh",
+  height: "100%",
   // maxHeight: "95.8vh",
   display: "flex",
   flexDirection: "column",
@@ -167,19 +167,19 @@ export const SkeletonNormal = {
 };
 
 export const LinkedButtonNormal = {
-  width: 100,
-  height: 40,
+  width: 129,
+  height: 37,
   fontWeight: 600,
   border: `1px solid ${colors.border.drawer}`,
-  fontSize: sizes.fontSize.xsmall,
+  fontSize: sizes.fontSize.medium,
 };
 
 export const LinkedButtonHeightSmall = {
-  width: 100,
-  height: 30,
+  width: 130,
+  height: 24,
   fontWeight: 600,
   border: `1px solid ${colors.text.primary}`,
-  fontSize: sizes.fontSize.xsmall,
+  fontSize: sizes.fontSize.medium,
 };
 
 export const TextButtonNormal = {
@@ -252,7 +252,7 @@ export const OpenSideBarSettingButtonStyle = {
   color: colors.background.drawer,
   position: "absolute",
   top: 5,
-  right: -12,
+  right: -6,
 };
 
 export const SideBarLogoStyle = {

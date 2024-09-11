@@ -41,8 +41,13 @@ const PttLayout = () => {
         <FullPageBox>
           <Box
             sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
               maxWidth: "1280px",
               width: "1280px",
+              maxHeight: "700px",
+              height: "700px",
             }}
           >
             <Outlet /> {/* 페이지가 바뀔 공간 등록 */}

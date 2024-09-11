@@ -1,7 +1,8 @@
 import { Box, Typography } from "@mui/material";
 import { colors } from "../styles/colors";
 import { sizes } from "../styles/sizes";
-import GroupMoneyList from "./GroupMoneyList";
+import GroupMoneyPlusList from "./GroupMoneyPlusList";
+import GroupMoneyMinusList from "./GroupMoneyMinusList";
 
 const GroupMoneyCheck = () => {
   return (
@@ -33,10 +34,16 @@ const GroupMoneyCheck = () => {
           ₩ 000,000,000원
         </Typography>
       </Box>
-      <div className="w-full flex gap-3 h-full">
-        <GroupMoneyList profit={true} allMoney={60000}></GroupMoneyList>
-        <GroupMoneyList profit={false} allMoney={60000}></GroupMoneyList>
-      </div>
+
+      <Box
+        sx={{ width: "100%", display: "flex", gap: "12px", maxHeight: "240px" }}
+      >
+        <GroupMoneyPlusList profit={true} allMoney={60000}></GroupMoneyPlusList>
+        <GroupMoneyMinusList
+          profit={false}
+          allMoney={60000}
+        ></GroupMoneyMinusList>
+      </Box>
     </Box>
   );
 };

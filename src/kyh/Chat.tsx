@@ -1,7 +1,7 @@
 import * as React from "react";
 import CssBaseline from "@mui/material/CssBaseline";
-import Chatting from "../components/organism/Chatting";
-import ChatListBox from "../components/organism/ChatListBox";
+import Chatting from "../components/organism/Chat/Chatting";
+import ChatListBox from "../components/organism/Chat/ChatListBox";
 import { WidthHalfInnerBox, WidthHalfOutterBox } from "../styles/mui";
 
 const Chat = () => {

@@ -6,8 +6,8 @@ const GroupMemberBox = () => {
     <Box
       sx={{
         mx: "auto",
-        width: 214,
-        height: 180,
+        width: 264,
+        height: 140,
         my: 1,
       }}
     >

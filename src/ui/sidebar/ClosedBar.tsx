@@ -9,11 +9,11 @@ import {
   ListItemButton,
   ListItemIcon,
 } from "@mui/material";
-import LogoIconBtn from "../../components/molecules/LogoIconBtn";
+import LogoIconBtn from "../../components/molecules/Button/LogoIconBtn";
 import { AvatarSize } from "../../styles/mui";
-import IconButton from "../../components/molecules/BasicIconButton";
 import { geListItemStyles, getListItemIconStyles } from "../../utils/func";
 import { menuData } from "../../constants/menuData";
+import BasicIconButton from "../../components/molecules/Button/BasicIconButton";
 
 const ClosedBar = () => {
   const navigate = useNavigate();
@@ -64,13 +64,13 @@ const ClosedBar = () => {
         <List disablePadding>
           <ListItem disablePadding sx={{ display: "block" }}>
             {isLogin ? (
-              <IconButton
+              <BasicIconButton
                 text="로그아웃"
                 icon={<LogoutIcon />}
                 onClick={() => setIsLogin(false)}
               />
             ) : (
-              <IconButton
+              <BasicIconButton
                 text="로그인"
                 icon={<PowerSettingsNewIcon />}
                 onClick={() => setIsLogin(true)}

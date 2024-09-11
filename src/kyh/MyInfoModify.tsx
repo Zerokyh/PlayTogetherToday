@@ -2,13 +2,13 @@ import * as React from "react";
 import { Box, ThemeProvider, Typography } from "@mui/material";
 import { FullPageBox, InputMuiStyle, MyInfoInnerBox } from "../styles/mui";
 import { colors, theme } from "../styles/colors";
-import ChipTextBox from "../components/atom/ChipTextBox";
+import ChipTextBox from "../components/atom/Text/ChipTextBox";
 import { sizes } from "../styles/sizes";
 import { infoData } from "../constants/myInfoModifyMenuData";
-import InputModifyBox from "../components/atom/InputModifyBox";
 import { styled } from "@mui/material/styles";
 import useThemeStore from "../store/store";
 import MyInfoProfileImage from "./MyInfoProfileImage";
+import InputModifyBox from "../components/atom/Input/InputModifyBox";
 
 const MyInfoModify = () => {
   const { isTheme } = useThemeStore();

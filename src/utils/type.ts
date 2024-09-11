@@ -52,6 +52,7 @@ export type IconTextButtonProps = {
   text?: string;
   iconsize?: string;
   fontsize?: string;
+  onClick?: () => void;
 };
 
 export type IconTextTextBoxProp = {

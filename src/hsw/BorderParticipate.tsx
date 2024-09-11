@@ -120,19 +120,39 @@ const BorderParticipate = ({
               width: "100%",
               display: "flex",
               flexDirection: "column",
+              overflowY: "scroll",
+              scrollbarWidth: "none",
             }}
           >
             <ParticipateList
               memberName="창모"
               memberPosition="총무"
-              profileImgSrc="profile_icon.jpg"
+              profileImgSrc="profile_icon.png"
               participate={true}
-            ></ParticipateList>
+            />
             <ParticipateList
               memberName="DAY6"
               memberPosition="분위기메이커"
-              profileImgSrc="profile_icon.jpg"
+              profileImgSrc="day6.jpeg"
               participate={false}
+            />
+            <ParticipateList
+              memberName="FT아일랜드"
+              memberPosition="운전"
+              profileImgSrc="ftisland.jpeg"
+              participate={true}
+            />
+            <ParticipateList
+              memberName="zico"
+              memberPosition="래퍼"
+              participate={true}
+              profileImgSrc="zico.jpeg"
+            ></ParticipateList>
+            <ParticipateList
+              memberName="newjeans"
+              memberPosition="아이돌"
+              participate={false}
+              profileImgSrc="newjeans.jpeg"
             ></ParticipateList>
           </Box>
           <Box

@@ -1,8 +1,8 @@
 import { Box, Typography } from "@mui/material";
 import { sizes } from "../../styles/sizes";
-import ImgAvatar from "../../components/atom/ImgAvatar";
 import useThemeStore, { ThemeType } from "../../store/store";
 import { colors } from "../../styles/colors";
+import ImgAvatar from "../../components/atom/Avatar/ImgAvatar";
 
 type FriendListProps = {
   name?: string;
@@ -40,26 +40,14 @@ const Myroom_freindsList = ({ name, anni, group }: FriendListProps) => {
             mx: "auto",
           }}
         />
-        <Typography
-          variant="body2"
-          fontWeight="bold"
-          sx={{ fontSize: sizes.fontSize.medium }}
-        >
+        <Typography variant="body2" sx={{ fontSize: sizes.fontSize.medium }}>
           {name}
         </Typography>
-        <Typography
-          variant="caption"
-          fontWeight="bold"
-          sx={{ fontSize: sizes.fontSize.xsmall }}
-        >
+        <Typography variant="caption" sx={{ fontSize: sizes.fontSize.xsmall }}>
           {anni}
         </Typography>
       </Box>
-      <Typography
-        variant="body2"
-        fontWeight="bold"
-        sx={{ fontSize: sizes.fontSize.medium }}
-      >
+      <Typography variant="body2" sx={{ fontSize: sizes.fontSize.medium }}>
         {group}
       </Typography>
     </Box>
