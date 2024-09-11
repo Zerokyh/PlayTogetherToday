@@ -6,7 +6,6 @@ import ImgAvatar from "../../atom/Avatar/ImgAvatar";
 
 type ChatReceiveMsgBoxProps = {
   avatarSrc?: string;
-  nickName: string;
   chatMsg: string;
   msgTime: string;
   onClick?: () => void;
@@ -14,7 +13,6 @@ type ChatReceiveMsgBoxProps = {
 
 const ChatReceiveMsgBox = ({
   avatarSrc,
-  nickName,
   chatMsg,
   msgTime,
   onClick,
@@ -30,18 +28,12 @@ const ChatReceiveMsgBox = ({
           flex: 1,
           display: "flex",
           flexDirection: "column",
+          justifyContent: "center",
           marginLeft: 2,
           position: "relative",
+          height: sizes.avatar.chat,
         }}
       >
-        <Typography
-          gutterBottom
-          variant="subtitle1"
-          component="div"
-          fontWeight={800}
-        >
-          {nickName}
-        </Typography>
         <Box
           sx={{
             display: "flex",
