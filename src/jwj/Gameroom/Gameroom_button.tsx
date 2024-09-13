@@ -19,8 +19,8 @@ const Gameroom_button = ({ name = "game" }: ButtonNameProps) => {
         height: 56,
         bgcolor:
           isTheme == ("기본" as ThemeType)
-            ? colors.background.button
-            : colors.sub_background.button,
+            ? colors.background.subbutton
+            : colors.sub_background.subbutton,
         borderRadius: "12px",
         textTransform: "none",
         fontSize: sizes.fontSize.large,

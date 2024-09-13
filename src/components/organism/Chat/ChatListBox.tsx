@@ -21,19 +21,19 @@ const ChatListBox = () => {
   const [chatList, setChatList] = useState<ChatListsData | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    // Spring Boot API 호출
-    axios
-      .get("http://localhost:8080/Chat")
-      .then((response) => {
-        setChatList(response.data);
-        setIsLoading(false);
-      })
-      .catch((error) => {
-        console.error("Error fetching chat data:", error);
-        setIsLoading(false);
-      });
-  }, []);
+  // useEffect(() => {
+  //   Spring Boot API 호출
+  //   axios
+  //     .get("http://localhost:8080/Chat")
+  //     .then((response) => {
+  //       setChatList(response.data);
+  //       setIsLoading(false);
+  //     })
+  //     .catch((error) => {
+  //       console.error("Error fetching chat data:", error);
+  //       setIsLoading(false);
+  //     });
+  // }, []);
 
   return (
     <WidthHalfBox
