@@ -1,6 +1,11 @@
 import { Box } from "@mui/material";
+import useThemeStore from "../../store/store";
+import { colors } from "../../styles/colors"
+import { sizes } from "../../styles/sizes";
 
 function MyProfileImg() {
+    const { isTheme } = useThemeStore();
+
     return (
         <Box display={"flex"} justifyContent={"center"}>
             <Box sx={{
@@ -9,8 +14,12 @@ function MyProfileImg() {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                bgcolor: "#E5E5E5",
-                borderRadius: "100%",
+                margin: sizes.margin.xlarge,
+                bgcolor:
+                    isTheme == "기본"
+                    ? colors.background.secondary
+                    : colors.sub_background.secondary,
+                borderRadius: sizes.borderRadius.circle,
             }}>
             <Box
                 component="img"
@@ -19,7 +28,7 @@ function MyProfileImg() {
                 sx={{
                     width: "200px",
                     height: "200px",
-                    borderRadius: '100%',
+                    borderRadius: sizes.borderRadius.circle,
             }}/>
             </Box>
         </Box>

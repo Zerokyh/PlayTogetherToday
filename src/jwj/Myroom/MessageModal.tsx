@@ -8,7 +8,7 @@ import ModalAuthorize from "./ModalAuthorize";
 
 type MessageModalProps = {
   content: string;
-  type: number;
+  type: string;
   handleClose: () => void;
 };
 
@@ -16,26 +16,17 @@ const MessageModal = ({ content, type, handleClose }: MessageModalProps) => {
   let modalContent;
 
   switch (type) {
-    case 1:
+    case "authorize":
       modalContent = (
         <ModalAuthorize content={content} handleClose={handleClose} />
       );
       break;
-    case 2:
-    case 3:
-    case 5:
-    case 9:
+    case "normal":
       modalContent = (
         <ModalType_Normal content={content} handleClose={handleClose} />
       );
       break;
-    case 4:
-    case 6:
-    case 7:
-    case 8:
-    case 10:
-    case 11:
-    case 12:
+    case "contents":
       modalContent = (
         <ModalType_Contents content={content} handleClose={handleClose} />
       );

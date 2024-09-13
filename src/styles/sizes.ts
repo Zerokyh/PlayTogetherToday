@@ -14,6 +14,7 @@ export const sizes = {
   width: {
     sidebar: 224,
     half: "800px",
+    block: "600px"
   },
 
   height: {

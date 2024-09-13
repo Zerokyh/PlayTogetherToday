@@ -8,6 +8,7 @@ export const colors = {
     secondary: "#EEEEEE", // 보조 배경 색상
     tertiary: "#E5E5E5", // 3번째 배경 색상
     button: "#006DFF", // 주 버튼 색상
+    subbutton: "#F5F7F8", //서브 버튼 색상
     drawer: "#FFFFFF", // 드로어 배경 색상
   },
 
@@ -30,6 +31,7 @@ export const colors = {
     secondary: "#FFF3E2", // 보조 배경 색상
     tertiary: "#FFE5CA", // 3번째 배경 색상
     button: "#FA9884", // 주 버튼 색상
+    subbutton: "#FFFAF4", //서브 버튼 색상
     drawer: "#FFFFFF", // 드로어 배경 색상
   },
 

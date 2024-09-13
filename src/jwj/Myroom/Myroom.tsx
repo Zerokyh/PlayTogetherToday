@@ -373,37 +373,38 @@ const Myroom = () => {
             <Myroom_message
               contents="권한 요청"
               time="쪽지 보낸시간"
-              type={1}
+              type="authorize"
+              alarm="System"
             />
             <Myroom_message
               contents="기념일 알림"
               time="쪽지 보낸시간"
-              type={7}
+              type="contents"
+              alarm="Group"
             />
             <Myroom_message
               contents="친구 요청"
               time="쪽지 보낸시간"
-              type={2}
+              type="normal"
+              alarm="System"
             />
             <Myroom_message
               contents="탈퇴 신청"
               time="쪽지 보낸시간"
-              type={9}
+              type="contents"
+              alarm="Group"
             />
             <Myroom_message
               contents="쪽지 내용"
               time="쪽지 보낸시간"
-              type={3}
+              type="contents"
+              alarm="Group"
             />
             <Myroom_message
               contents="쪽지 내용"
               time="쪽지 보낸시간"
-              type={3}
-            />
-            <Myroom_message
-              contents="쪽지 내용"
-              time="쪽지 보낸시간"
-              type={3}
+              type="normal"
+              alarm="System"
             />
           </Box>
         ) : (
