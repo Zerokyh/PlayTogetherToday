@@ -14,9 +14,11 @@ const GroupMake_SubTitle = () => {
         sx={{
           cursor: "pointer",
           "&:hover": { textDecoration: "underline" },
-          width: "100%",
-          padding: sizes.padding.xlarge,
-          marginBottom: 2,
+          width: "500px",
+          height: "40px",
+          paddingX: sizes.padding.xlarge,
+          paddingY: sizes.padding.large,
+          marginBottom: 6,
           bgcolor:
             isTheme == "기본"
             ? colors.background.tertiary

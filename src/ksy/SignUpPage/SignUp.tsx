@@ -1,11 +1,13 @@
 import { Box, Button, Typography } from "@mui/material";
 import { FullPageBox } from "../../styles/mui";
-import InputContents from "./InputContents";
+import InputGroups from "./InputGroups";
 import { useSignUpForm } from "./InputFunction/UseForm";
 import { useNavigate } from "react-router-dom";
 import useThemeStore from "../../store/store";
 import { colors } from "../../styles/colors";
 import { sizes } from "../../styles/sizes";
+import ButtonGroups from "./ButtonGroups";
+import FindAccount from "../LogInPage/Find_Account";
 
 const SignUp = () => {
   const {
@@ -29,6 +31,7 @@ const SignUp = () => {
       password: "",
       passwordCheck: "",
       backupEmail: "",
+      phoneNumber: "",
       groupName: "",
       groupPassword: "",
     });
@@ -36,6 +39,7 @@ const SignUp = () => {
       idEmailBlurred: false,
       passwordBlurred: false,
       passwordCheckBlurred: false,
+      phoneNumberBlurred: false,
     });
 
     setTimeout(() => {
@@ -52,9 +56,21 @@ const SignUp = () => {
     })
   }
 
+  const validatePhoneNumber = (phoneNumber: string) => {
+    if (phoneNumber === "") {
+      return "";
+    }
+    if (!/^\d+$/.test(phoneNumber)) {
+      return "숫자만 입력하세요";
+    }
+    if (phoneNumber.length < 7) {
+      return "숫자는 7자 이상이어야 합니다";
+    }
+    return "";
+  };
+
   return (
     <FullPageBox>
-
       {/* Container */}
       <Box
         sx={{
@@ -62,7 +78,7 @@ const SignUp = () => {
           height: sizes.height.full,
           padding: "8%",
           bgcolor:
-            isTheme == "기본"
+            isTheme === "기본"
             ? colors.background.secondary
             : colors.sub_background.secondary,
           display: "flex",
@@ -70,139 +86,80 @@ const SignUp = () => {
           justifyContent: "center",
           alignItems: "center",
           borderRadius: sizes.borderRadius.normal,
-        }}>
-        
+        }}
+      >
         {/* Title Box */}
         <Typography
           sx={{
-            width: "100%",
-            padding: sizes.padding.xlarge,
-            marginBottom: 1,
-            bgcolor:
-              isTheme == "기본"
-              ? colors.background.tertiary
-              : colors.sub_background.tertiary,
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            textAlign: "center",
-            fontWeight: "bold",
-            fontSize: sizes.fontSize.large,
-            color: colors.text.primary,
-            borderRadius: sizes.borderRadius.normal,
+            width: "500px",
+          height: "40px",
+          padding: sizes.padding.xlarge,
+          marginBottom: 1,
+          bgcolor:
+            isTheme == "기본"
+            ? colors.background.tertiary
+            : colors.sub_background.tertiary,
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          textAlign: "center",
+          fontWeight: "bold",
+          fontSize: sizes.fontSize.large,
+          color: colors.text.primary,
+          borderRadius: sizes.borderRadius.normal,
           }}>
-            소모임의 소중한 회원으로 모시겠습니다
+          소모임의 소중한 회원으로 모시겠습니다
         </Typography>
 
-        {/* Input Group */}
-          <Box
-          sx={{
-            width: "100%",
-            }}>
+        <Typography
+        onClick={() => navigate("/LogIn")}
+        sx={{
+          cursor: "pointer",
+          "&:hover": { textDecoration: "underline" },
+          width: "500px",
+          height: "40px",
+          paddingX: sizes.padding.xlarge,
+          paddingY: sizes.padding.large,
+          marginBottom: 6,
+          bgcolor:
+            isTheme == "기본"
+            ? colors.background.tertiary
+            : colors.sub_background.tertiary,
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          textAlign: "center",
+          fontWeight: "bold",
+          fontSize: sizes.fontSize.large,
+          color: colors.text.primary,
+          borderRadius: sizes.borderRadius.normal,
+        }}>
+        계정이 있어요! 로그인 하러 갈게요
+      </Typography>
 
-            {/* ID*/}
-            <InputContents
-              label="아이디(이메일주소)*"
-              value={formState.idEmail}
-              setValue={(val) => setFormState((prev) => ({ ...prev, idEmail: val }))}
-              isValid={validity.isIdEmailValid || !blurred.idEmailBlurred}
-              validationMessage="올바른 이메일 형식이 아닙니다"
-              onBlur={() => setBlurred((prev) => ({ ...prev, idEmailBlurred: true }))}
-              onFocus={() => setBlurred((prev) => ({ ...prev, idEmailBlurred: false }))}
-            />
-            {/* Password */}
-            <InputContents
-              label="비밀번호*"
-              value={formState.password}
-              setValue={(val) => setFormState((prev) => ({ ...prev, password: val }))}
-              type="password"
-              isValid={validity.isPasswordValid || !blurred.passwordBlurred}
-              validationMessage={`올바른 비밀번호가 아닙니다 (영문, 숫자, 특수문자 포함)`}
-              showPasswordToggle
-              showPassword={showPassword}
-              togglePasswordVisibility={() => setShowPassword(!showPassword)}
-              onBlur={() => setBlurred((prev) => ({ ...prev, passwordBlurred: true }))}
-              onFocus={() => setBlurred((prev) => ({ ...prev, passwordBlurred: false }))}
-            />
-            {/* Password Check */}
-            <InputContents
-              label="비밀번호 확인*"
-              value={formState.passwordCheck}
-              setValue={(val) => setFormState((prev) => ({ ...prev, passwordCheck: val }))}
-              type="password"
-              isValid={validity.isPasswordMatch || !blurred.passwordCheckBlurred}
-              validationMessage="비밀번호가 일치하지 않습니다"
-              showPasswordToggle
-              showPassword={showPasswordCheck}
-              togglePasswordVisibility={() => setShowPasswordCheck(!showPasswordCheck)}
-              onBlur={() => setBlurred((prev) => ({ ...prev, passwordCheckBlurred: true }))}
-              onFocus={() => setBlurred((prev) => ({ ...prev, passwordCheckBlurred: false }))}
-            />
-            {/* Backup Email */}
-            <InputContents
-              label="백업 이메일"
-              value={formState.backupEmail}
-              setValue={(val) => setFormState((prev) => ({ ...prev, backupEmail: val }))}
-              optional
-            />
-            {/* GroupMake */}
-            <InputContents
-              label="그룹 만들기"
-              value={formState.groupName}
-              setValue={(val) => setFormState((prev) => ({ ...prev, groupName: val }))}
-              optional
-            />
-            {/* Group Join Password */}
-            <InputContents
-              label="그룹 가입 암호"
-              value={formState.groupPassword}
-              setValue={(val) => setFormState((prev) => ({ ...prev, groupPassword: val }))}
-              optional
-            />
+         {/* 아이디 정보 표시 */}{/* idEmail 전달 */}
+        {/* <FindAccount idEmail={formState.idEmail} />  */}
 
-            {/* Button Group */}          
-            <Box
-            sx={{
-                display: "flex",
-                justifyContent: "center",
-                padding: sizes.padding.xlarge,
-                gap: 3
-            }}>
-            
-            {/* EnterBtn / CancleBtn */}
-            <Button
-              onClick={handelJoin}
-              sx={{
-                width: "20%",
-                height: 45,
-                bgcolor:
-                  isTheme == "기본"
-                  ? colors.background.button
-                  : colors.sub_background.button,
-                color: colors.text.secondary,
-                fontSize: sizes.fontSize.normal,
-                borderRadius: sizes.borderRadius.normal,
-              }}>
-              가입하기
-            </Button>
-            <Button
-              onClick={handleCancel}
-              sx={{
-                width: "20%",
-                height: 45,
-                bgcolor:
-                  isTheme == "기본"
-                  ? colors.background.drawer
-                  : colors.sub_background.drawer,
-                color: colors.text.primary,
-                fontSize: sizes.fontSize.normal,
-                borderRadius: sizes.borderRadius.normal,
-              }}>
-              취소
-            </Button>
-          </Box>
-            
-        </Box>
+        {/* Input Groups */}
+        <InputGroups
+          formState={formState}
+          setFormState={setFormState}
+          validity={validity}
+          blurred={blurred}
+          setBlurred={setBlurred}
+          showPassword={showPassword}
+          setShowPassword={setShowPassword}
+          showPasswordCheck={showPasswordCheck}
+          setShowPasswordCheck={setShowPasswordCheck}
+          validatePhoneNumber={validatePhoneNumber}
+        />
+
+        {/* Button Group */}
+        <ButtonGroups
+          isTheme={isTheme}
+          onJoin={handelJoin}
+          onCancel={handleCancel}
+        />
       </Box>
     </FullPageBox>
   );

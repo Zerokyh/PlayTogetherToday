@@ -9,7 +9,8 @@ const GroupMake_Title = () => {
   return (
     <Typography
       sx={{
-          width: "100%",
+          width: "500px",
+          height: "40px",
           padding: sizes.padding.xlarge,
           marginBottom: 1,
           bgcolor:

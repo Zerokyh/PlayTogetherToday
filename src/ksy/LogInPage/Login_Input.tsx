@@ -30,7 +30,6 @@ const LoginInput = () => {
       <Box
         width={ sizes.width.block }
         height={ sizes.height.sidebarnormal }
-        padding={ sizes.padding.small }
         display={"flex"}
         flexDirection={"column"}
         justifyContent={"center"}
@@ -39,8 +38,11 @@ const LoginInput = () => {
         {/* Input ID Box*/}
         <Box
           sx={{
-            width: "100%",
-            padding: sizes.padding.xlarge,
+          width: "100%",
+          height: "124px",
+          textAlign: "center",
+            gap: sizes.gap.large,
+            padding: sizes.padding.xxlarge,
             marginBottom: 2,
             bgcolor:
               isTheme == "기본"
@@ -52,22 +54,27 @@ const LoginInput = () => {
           
           {/* Login ID Title */}
             <Box display={"flex"}>
-              <Typography fontWeight={"bold"}>로그인 계정</Typography>
-              <Typography
-                sx={{
-                    marginTop: sizes.margin.small,
-                    marginLeft: sizes.margin.xlarge,
-                    fontSize: sizes.fontSize.xsmall,
-                    color: !isIdEmailValid
-                      ? theme.palette.error.main
-                      : theme.palette.text.secondary
-                  }}
-                className={`${!isIdEmailValid && idEmailBlurred
-                  ? "text-red-500" : "text-gray-500"}`}>
-                {!isIdEmailValid && idEmailBlurred
-                  ? "올바른 이메일 형식이 아닙니다" : ""}
-              </Typography>
-            </Box>
+          <Typography
+            textAlign={"start"}
+            fontSize={sizes.fontSize.large}
+            fontWeight={"bold"}>
+            로그인 계정
+          </Typography>
+          <Typography
+            sx={{
+                marginTop: sizes.margin.large,
+                marginLeft: sizes.margin.xlarge,
+                fontSize: sizes.fontSize.xsmall,
+                color: !isIdEmailValid
+                  ? theme.palette.error.main
+                  : theme.palette.text.secondary
+              }}
+            className={`${!isIdEmailValid && idEmailBlurred
+              ? "text-red-500" : "text-gray-500"}`}>
+            {!isIdEmailValid && idEmailBlurred
+              ? "올바른 이메일 형식이 아닙니다" : ""}
+          </Typography>
+      </Box>
           
             {/* Login ID Input */}
             <Input
@@ -78,8 +85,9 @@ const LoginInput = () => {
               onBlur={() => setIdEmailBlurred(true)}
               onFocus={() => setIdEmailBlurred(false)}
               sx={{
-                width: "100%",
+                width: "382px",
                 outline: "none",
+                marginTop: "14px"
               }}/>
         </Box>
 
@@ -87,6 +95,8 @@ const LoginInput = () => {
         <Box
           sx={{
             width: "100%",
+            height: "124px",
+            textAlign: "center",
             padding: sizes.padding.xlarge,
             bgcolor:
               isTheme == "기본"
@@ -97,7 +107,10 @@ const LoginInput = () => {
           }}>
           
         {/* Login Password Title */}
-        <Typography fontWeight={"bold"}>로그인 비밀번호</Typography>
+        <Typography
+          textAlign={"start"}
+          fontSize={sizes.fontSize.large}
+          fontWeight={"bold"}>로그인 비밀번호</Typography>
         
         {/* Login Password Input */}
         <Box position={"relative"}>
@@ -107,8 +120,9 @@ const LoginInput = () => {
             placeholder="영문, 숫자, 특수기호 포함 8~20자"
             onChange={(e) => setPassword(e.target.value)}
             sx={{
-              width: "100%",
+              width: "382px",
               outline: "none",
+              marginTop: "14px"
             }} />
           
           {/* Show password icon */}
@@ -117,7 +131,7 @@ const LoginInput = () => {
             onClick={togglePasswordVisibility}
             sx={{
               position: "absolute",
-              right: sizes.margin.small,
+              right: "24px",
               bottom: sizes.margin.small,
               padding: sizes.padding.small,
               margin: sizes.margin.small,
@@ -133,3 +147,64 @@ const LoginInput = () => {
 }
 
 export default LoginInput;
+
+{/* <Box
+            sx={{
+                display: "flex",
+                justifyContent: "center",
+                margin: sizes.margin.xlarge,
+            }}>
+            <Typography
+                sx={{
+                    fontSize: sizes.fontSize.xlarge,
+                    fontWeight: 600
+                }}>
+              아이디 / 비밀번호 찾기
+            </Typography>
+          </Box>
+                  
+        <Box sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            width: sizes.width.half,
+            height: sizes.height.full,
+            bgcolor:
+            isTheme == "기본"
+            ? colors.background.secondary
+            : colors.sub_background.secondary,
+            margin: sizes.margin.xlarge,
+            borderRadius: sizes.borderRadius.normal,
+        }}>
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                padding: sizes.padding.xlarge,
+                gap: "2",
+              }}>
+              
+              {/* 데이터 받아와서 나타내게 하기 */}
+              // <Typography
+              //   fontSize={sizes.fontSize.large}
+              //   fontWeight={"bold"}
+              //   margin={"50px"}>
+              //   아이디 : { idEmail || "ptt0922@gmail.com"}
+              // </Typography>
+
+              // <Box width={sizes.width.block}>
+              //   <InputContents
+              //   label={"이메일 입력*"}
+              //   value={formState.idEmail}
+              //   setValue={(val) => setFormState((prev) => ({ ...prev, idEmail: val }))}
+              //   isValid={validity.isIdEmailValid || !blurred.idEmailBlurred}
+              //   validationMessage="올바른 이메일 형식이 아닙니다"
+              //   onBlur={() => setBlurred((prev) => ({ ...prev, idEmailBlurred: true }))}
+              //   onFocus={() => setBlurred((prev) => ({ ...prev, idEmailBlurred: false }))}/>
+                          
+              //   <InputContents
+              //   label={"연락처 (숫자만 입력)*"}
+              //   value={formState.phoneNumber}
+              //   setValue={(val) => setFormState((prev) => ({ ...prev, phoneNumber: val }))}/>   
+              // </Box> */}

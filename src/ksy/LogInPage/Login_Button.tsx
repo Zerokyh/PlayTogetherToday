@@ -19,28 +19,30 @@ const LoginBtn = () => {
   return (
     <Box width={ sizes.width.block }>
       <Box display={"flex"}
-        justifyContent={"end"}
-        marginRight={sizes.margin.small}
-        gap={sizes.gap.small}>
-        <Button
-          onClick={() => navigate("/SignUp")}
-          sx={{
-            padding: sizes.padding.small,
-            fontWeight: "bold",
-            fontSize: sizes.fontSize.xsmall,
-            color: colors.text.primary,
-          }}>
-          회원가입
-        </Button>
+        justifyContent={"end"}>
         <Button
           onClick={handleFindAccount}
           sx={{
-            paddingX: sizes.padding.small,
+            width: "100px",
+            height: "22px",
+            marginTop: "20px",
             fontWeight: "bold",
-            fontSize:  sizes.fontSize.xsmall,
+            fontSize: sizes.fontSize.small,
             color: colors.text.primary,
           }}>
           아이디/비번 찾기
+        </Button>
+        <Button
+          onClick={() => navigate("/SignUp")}
+          sx={{
+            width: "65px",
+            height: "22px",
+            marginTop: "20px",
+            fontWeight: "bold",
+            fontSize: sizes.fontSize.small,
+            color: colors.text.primary,
+          }}>
+          회원가입
         </Button>
       </Box>
 
@@ -49,15 +51,16 @@ const LoginBtn = () => {
         <Button
           onClick={handleLogIn}
           sx={{
-            width: sizes.width.block,
-            height: 45,
+            width: "450px",
+            height: "44px",
+            marginTop: 3,
             bgcolor:
-              isTheme == "기본"
-              ? colors.background.button
-              : colors.sub_background.button,
-            fontSize: sizes.fontSize.normal,
+            isTheme == "기본"
+            ? colors.background.button
+            : colors.sub_background.button,
             color: colors.text.secondary,
-            borderRadius: sizes.borderRadius.normal,
+            fontSize: sizes.fontSize.large,
+            borderRadius: sizes.borderRadius.medium,
           }}>
           로그인
         </Button>

@@ -16,30 +16,33 @@ const GroupEnterButton = () => {
 
   const handleJoinRequest = () => {
     alert("모임 가입이 요청되었습니다!");
-    navigate("/GroupBoardList");
+    // 쪽지함으로 이동하도록 수정하기
+    navigate("/Myroom");
   }
 
   return (
     <Box width={sizes.width.block}>
-      <Box display={"flex"}
+      <Box
+        display={"flex"}
         justifyContent={"end"}
-        marginRight={sizes.margin.small}
-        gap={sizes.gap.small}>
+      >
         <Button
           sx={{
-            paddingX: sizes.padding.small,
+            width: "75px",
+            height: "20px",
             fontWeight: "bold",
             fontSize: sizes.fontSize.small,
             color: colors.text.primary,
           }}
-          onClick={() => navigate("/SignUp")}
+          onClick={() => navigate("/GroupMake")}
         >
           새로운 모임
         </Button>
         <Button
           onClick={handledeleteID}
           sx={{
-            paddingX: sizes.padding.small,
+            width: "75px",
+            height: "20px",
             fontWeight: "bold",
             fontSize: sizes.fontSize.small,
             color: colors.text.primary,
@@ -54,15 +57,16 @@ const GroupEnterButton = () => {
         <Button
           onClick={handleJoinRequest}
           sx={{
-            width: sizes.width.block,
-            height: 45,
+            width: "450px",
+            height: "44px",
+            marginTop: 3,
             bgcolor:
             isTheme == "기본"
             ? colors.background.button
             : colors.sub_background.button,
             color: colors.text.secondary,
-            fontSize: sizes.fontSize.normal,
-            borderRadius: sizes.borderRadius.normal,
+            fontSize: sizes.fontSize.large,
+            borderRadius: sizes.borderRadius.medium,
           }}>
           모임 가입 요청
         </Button>

@@ -1,4 +1,4 @@
-import { Box, Button } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import { FullPageBox } from "../../styles/mui";
 import GroupMake_SubTitle from "./GroupMake_SubTitle";
 import GroupMake_Title from "./GroupMake_Title";
@@ -9,6 +9,9 @@ import { isGroupPasswordValid } from "./GroupMakeFuction/JoinValidation";
 import useThemeStore from "../../store/store";
 import { colors } from "../../styles/colors";
 import { sizes } from "../../styles/sizes";
+
+import TextField from '@mui/material/TextField';
+import Autocomplete from '@mui/material/Autocomplete';
 
 const GroupMake = () => {
   const { isTheme } = useThemeStore();
@@ -53,6 +56,27 @@ const GroupMake = () => {
     }, 0);
   };
 
+  // Group Type list
+  const top100films = [
+    { title: '게임' },
+    { title: '댄스' },
+    { title: '도서' },
+    { title: '문화' },
+    { title: '반려동물' },
+    { title: '봉사활동' },
+    { title: '스포츠' },
+    { title: '언어'},
+    { title: '여행'},
+    { title: '요리' },
+    { title: '음악' },
+    { title: '자기계발' },
+];
+
+  const defaultProps = {
+  options: top100films,
+  getOptionLabel: (option: { title: string }) => option.title,
+};
+
   return (
     <FullPageBox>
 
@@ -78,7 +102,8 @@ const GroupMake = () => {
 
         <Box
           sx={{
-            width: "100%",
+            width: "500px",
+            fontSize: sizes.fontSize.normal
           }}
         >
           <InputContents
@@ -93,6 +118,45 @@ const GroupMake = () => {
             optional
             optionalText={"(추후 변경 가능)"}
           />
+          <Autocomplete
+            {...defaultProps}
+            id="disable-close-on-select"
+            disableCloseOnSelect
+            renderInput={(params) => (
+              <Box
+              sx={{
+                    width: "100%",
+                    height: "60px",
+                    paddingX: sizes.padding.xlarge,
+                    paddingY: sizes.padding.medium,
+                    marginBottom: 3,
+                    bgcolor:
+                      isTheme == "기본"
+                      ? colors.background.tertiary
+                      : colors.sub_background.tertiary,
+                    color: colors.text.primary,
+                    borderRadius: "15px"
+                  }}>
+                <Typography
+                  sx={{
+                    fontWeight:"bold",
+                    height: "10px",
+                    fontSize: sizes.fontSize.medium,
+                  }}>모임 타입 설정*
+                </Typography>
+                <TextField {...params} variant="standard"
+                  sx={{
+                    width: "470px",
+                    padding: "0",
+                    margin: "0",
+                    outline: "none",
+                    borderColor: colors.border.primary
+                    }}
+                />
+              </Box>
+              )}
+            />
+
           <InputContents
             label="모임 가입 암호*"
             value={formState.groupPassword}
@@ -141,7 +205,7 @@ const GroupMake = () => {
             <Button
               onClick={handleGroupEnter}
               sx={{
-                width: "20%",
+                width: "100px",
                 height: 45,
                 bgcolor:
                   isTheme == "기본"
@@ -156,7 +220,7 @@ const GroupMake = () => {
             <Button
               onClick={handleCancel}
               sx={{
-                width: "20%",
+                width: "100px",
                 height: 45,
                 bgcolor:
                   isTheme == "기본"

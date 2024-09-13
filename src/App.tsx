@@ -37,7 +37,8 @@ const App = () => {
             {/* 로그인 페이지 등록 */}
             <Route path="/SignUp" Component={SignUp} />
             {/* 아이디/비번 찾기 페이지 */}
-            <Route path="/FindAccount" Component={FindAccount}/>
+            {/* <Route path="/FindAccount" Component={FindAccount} /> */}
+            <Route path="/FindAccount" element={<FindAccount idEmail={""}/>}/>
             {/* 회원가입 페이지 등록 */}
             <Route path="/Myroom" Component={Myroom} />
             {/* 마이룸 페이지 등록 */}

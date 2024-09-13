@@ -2,7 +2,7 @@ import MyProfileImg from "./ProfileIMG";
 import LoginInput from "./Login_Input";
 import LoginBtn from "./Login_Button";
 import { Box } from "@mui/material";
-import { FullPageBox } from "../../styles/mui";
+import { FullPageBox, MyInfoInnerBox } from "../../styles/mui";
 import { sizes } from "../../styles/sizes";
 
 const Login = () => {
@@ -19,7 +19,11 @@ const Login = () => {
         borderRadius: sizes.borderRadius.xs,
         gap: sizes.gap.medium
       }}>
-        <MyProfileImg />
+        <MyInfoInnerBox sx={{ width: "377px" }}>
+          {/* <MyInfoProfileImage />/ */}
+          <MyProfileImg/>
+        </MyInfoInnerBox>
+        
         <LoginInput />
         <LoginBtn/>
       </Box>

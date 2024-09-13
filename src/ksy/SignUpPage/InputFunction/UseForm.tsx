@@ -7,6 +7,7 @@ export const useSignUpForm = () => {
     password: "",
     passwordCheck: "",
     backupEmail: "",
+    phoneNumber: "",
     groupName: "",
     groupPassword: "",
   });
@@ -21,6 +22,7 @@ export const useSignUpForm = () => {
     idEmailBlurred: false,
     passwordBlurred: false,
     passwordCheckBlurred: false,
+    phoneNumberBlurred: false,
   });
 
   const [showPassword, setShowPassword] = useState(false);

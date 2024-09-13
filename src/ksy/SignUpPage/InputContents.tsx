@@ -29,32 +29,37 @@ const InputContents: React.FC<InputProps> = ({
         // Input Box (Contents)
         <Box
             sx={{
-            width: "100%",
-            padding: sizes.padding.xlarge,
-            marginBottom: 1,
-            bgcolor:
-                isTheme == "기본"
-                ? colors.background.tertiary
-                : colors.sub_background.tertiary,
-            color: colors.text.primary,
-            borderRadius: sizes.borderRadius.normal
-            }}>
+                width: "100%",
+                height: "60px",
+                paddingX: sizes.padding.xlarge,
+                paddingY: sizes.padding.medium,
+                marginBottom: 3,
+                bgcolor:
+                    isTheme == "기본"
+                    ? colors.background.tertiary
+                    : colors.sub_background.tertiary,
+                color: colors.text.primary,
+                borderRadius: "15px"
+                }}>
             
             {/* Optional Setting */}
             <Box display={"flex"}>
-                <Typography display={"flex"} fontWeight={"bold"}>
+                <Typography
+                    display={"flex"}
+                    height={"16px"}
+                    fontWeight={"bold"}>
                     {label}
                     {optional && (
                         <>
                             <Typography
-                                marginTop={sizes.margin.small}
+                                marginTop={sizes.margin.medium}
                                 marginLeft={sizes.margin.large}
                                 color={colors.text.grey}
                                 fontSize={sizes.fontSize.xsmall}>
                             </Typography>
                             {optionalText && (
                                 <Typography
-                                    marginTop={sizes.margin.small}
+                                    marginTop={sizes.margin.medium}
                                     color={colors.text.grey}
                                     fontSize={sizes.fontSize.xsmall}>
                                     {optionalText}
@@ -86,8 +91,12 @@ const InputContents: React.FC<InputProps> = ({
                     onBlur={onBlur}
                     onFocus={onFocus}
                     sx={{
-                        width: "100%",
+                        width: "470px",
+                        height: "18px",
+                        padding: "0",
+                        margin: "0",
                         outline: "none",
+                        fontSize: sizes.fontSize.small,
                         borderColor: colors.border.primary,
                     }} />
                 
@@ -105,9 +114,9 @@ const InputContents: React.FC<InputProps> = ({
                         }}>
                         {showPassword
                             ? (<VisibilityIcon
-                                sx={{ fontSize: sizes.fontSize.medium }} />) 
+                                sx={{ fontSize: sizes.fontSize.normal }} />) 
                             : (<VisibilityOffIcon
-                                sx={{ fontSize: sizes.fontSize.medium }} />)}
+                                sx={{ fontSize: sizes.fontSize.normal }} />)}
                 </IconButton> )}
             </Box>
         </Box>

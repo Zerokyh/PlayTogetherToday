@@ -27,7 +27,6 @@ const GroupEnterText = () => {
   return (
     <Box
       width={sizes.width.block}
-      padding={sizes.padding.small}
       display={"flex"}
       flexDirection={"column"}
       gap={sizes.gap.normal}
@@ -36,27 +35,34 @@ const GroupEnterText = () => {
       <Box
         sx={{
           width: "100%",
-          padding: sizes.padding.xlarge,
-          marginBottom: 1,
+          height: "124px",
+          textAlign: "center",
+          gap: sizes.gap.large,
+          padding: sizes.padding.xxlarge,
+          marginBottom: 2,
           bgcolor:
             isTheme == "기본"
             ? colors.background.secondary
             : colors.sub_background.secondary,
           color: colors.text.primary,
-          borderRadius: sizes.borderRadius.normal
+          borderRadius: sizes.borderRadius.medium
         }}
       >
         {/* Group Name Title */}
-        <Typography fontWeight={"bold"}>모임 이름*</Typography>
+        <Typography
+          textAlign={"start"}
+          fontSize={sizes.fontSize.large}
+          fontWeight={"bold"}>모임 이름*</Typography>
 
         {/* Group Name Input */}
         <Input
-          placeholder="필수 입력"
+          placeholder=""
           value={groupName}
           onChange={(e) => setGroupName(e.target.value)}
           sx={{
-            width: "100%",
+            width: "382px",
             outline: "none",
+            marginTop: "18px"
           }}
         />
       </Box>
@@ -65,29 +71,41 @@ const GroupEnterText = () => {
       <Box
         sx={{
           width: "100%",
-          padding: sizes.padding.xlarge,
-          marginBottom: 1,
+          height: "124px",
+          textAlign: "center",
+          padding: sizes.padding.xxlarge,
           bgcolor:
             isTheme == "기본"
             ? colors.background.secondary
             : colors.sub_background.secondary,
           color: colors.text.primary,
-          borderRadius: sizes.borderRadius.normal
+          borderRadius: sizes.borderRadius.medium
         }}
       >
         <Box display={"flex"}>
           {/* Group Password Title */}
-          <Typography fontWeight={"bold"}>모임 가입 암호*</Typography>
+          <Typography
+            textAlign={"start"}
+            fontSize={sizes.fontSize.large}
+            fontWeight={"bold"}>모임 가입 암호*</Typography>
+          {/* optional */}
+          <Typography
+            marginTop={sizes.margin.small}
+            marginLeft={sizes.margin.large}
+            color={colors.text.grey}
+            fontSize={sizes.fontSize.xsmall}>
+            (탈퇴 시 입력 안함)
+        </Typography>
           {/* Validation Message */}
           {!isPasswordValid && (
             <Typography
               sx={{
                 fontSize: sizes.fontSize.xsmall,
-                color: "text-red-500",
+                color: "#F94449",
                 marginTop: sizes.margin.small,
                 marginLeft: sizes.margin.xlarge
               }}>
-              올바른 암호가 아닙니다 (영문, 숫자, 또는 영문/숫자 + 특수기호)
+              올바른 암호가 아닙니다 (영문 / 숫자 / + 특수기호)
             </Typography>
           )}
         </Box>
@@ -95,13 +113,14 @@ const GroupEnterText = () => {
         {/* Group Password Input */}
         <Box position={"relative"}>
           <Input
-            placeholder="영문 / 숫자 / 영문 또는 숫자 + 특수기호"
+            placeholder=""
             type={showPassword ? "text" : "password"}
             value={groupPassword}
             onChange={handlePasswordChange}
             sx={{
-              width: "100%",
+              width: "382px",
               outline: "none",
+              marginTop: "18px"
             }}
           />
 
@@ -111,7 +130,7 @@ const GroupEnterText = () => {
             onClick={togglePasswordVisibility}
             sx={{
              position: "absolute",
-              right: sizes.margin.small,
+              right: "24px",
               bottom: sizes.margin.small,
               padding: sizes.padding.small,
               margin: sizes.margin.small,
