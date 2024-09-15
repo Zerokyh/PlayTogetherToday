@@ -111,13 +111,13 @@ const GroupMake = () => {
             value={formState.groupName}
             setValue={(val) => setFormState((prev) => ({ ...prev, groupName: val }))}
           />
-          <InputContents
+          {/* <InputContents
             label="모임 타입 설정*"
             value={formState.groupType}
             setValue={(val) => setFormState((prev) => ({ ...prev, groupType: val }))}
             optional
             optionalText={"(추후 변경 가능)"}
-          />
+          /> */}
           <Autocomplete
             {...defaultProps}
             id="disable-close-on-select"
@@ -153,6 +153,13 @@ const GroupMake = () => {
                     borderColor: colors.border.primary
                     }}
                 />
+                {/* <Typography
+                  display={"flex"}
+                  marginTop={sizes.margin.medium}
+                  marginLeft={sizes.margin.large}
+                  color={colors.text.grey}
+                  fontSize={sizes.fontSize.xsmall}>(추후 변경 가능)
+                </Typography> */}
               </Box>
               )}
             />
