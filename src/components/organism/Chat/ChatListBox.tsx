@@ -9,14 +9,16 @@ import useThemeStore from "../../../store/store";
 import { sizes } from "../../../styles/sizes";
 
 type ChatListsData = {
-  chat_id: number;
-  friend_member_id: number;
-  friend_member_profile: string;
+  // chat_id: number;
+  // friend_member_id: number;
+  // friend_member_profile: string;
+  // friend_member_nickname: string;
+  // last_message_detail: string;
+  // last_message_date: string;
+  // last_message_time: string;
+  // message_confirmation: boolean;
   friend_member_nickname: string;
-  last_message_detail: string;
   last_message_date: string;
-  last_message_time: string;
-  message_confirmation: boolean;
 };
 
 const ChatListBox = () => {
@@ -24,19 +26,19 @@ const ChatListBox = () => {
   const [chatList, setChatList] = useState<ChatListsData | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
-  // useEffect(() => {
-  //   Spring Boot API 호출
-  //   axios
-  //     .get("http://localhost:8080/Chat")
-  //     .then((response) => {
-  //       setChatList(response.data);
-  //       setIsLoading(false);
-  //     })
-  //     .catch((error) => {
-  //       console.error("Error fetching chat data:", error);
-  //       setIsLoading(false);
-  //     });
-  // }, []);
+  useEffect(() => {
+    // Spring Boot API 호출
+    axios
+      .get("http://localhost:8080/Chat")
+      .then((response) => {
+        setChatList(response.data);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching chat data:", error);
+        setIsLoading(false);
+      });
+  }, []);
 
   return (
     <WidthHalfBox
@@ -87,11 +89,14 @@ const ChatListBox = () => {
         ) : (
           chatList && (
             <ChatListItem
-              avatarsrc={chatList.friend_member_profile}
+              // avatarsrc={chatList.chat_id}
+              // nickname={chatList.friend_member_nickname}
+              // lastchatmsg={chatList.last_message_detail}
+              // lastchattime_day={chatList.last_message_date}
+              // lastchattime_time={chatList.last_message_time}
+
               nickname={chatList.friend_member_nickname}
-              lastchatmsg={chatList.last_message_detail}
               lastchattime_day={chatList.last_message_date}
-              lastchattime_time={chatList.last_message_time}
             />
           )
         )}
