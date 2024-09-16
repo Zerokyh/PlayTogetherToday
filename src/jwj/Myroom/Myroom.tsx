@@ -289,14 +289,6 @@ const Myroom = () => {
               comming="다가오는 모임 날짜"
               group_anni="그룹 기념일"
             />
-            <Myroom_meeting_button
-              group="그룹4"
-              type="그룹 타입"
-              count="그룹 멤버수"
-              position="직책"
-              comming="다가오는 모임 날짜"
-              group_anni="그룹 기념일"
-            />
           </Box>
         ) : (
           <Box
