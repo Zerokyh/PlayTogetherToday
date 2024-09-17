@@ -2,6 +2,7 @@ import { Box, Typography } from "@mui/material";
 import { colors } from "../styles/colors";
 import { sizes } from "../styles/sizes";
 import GroupMoneyPlusMinus from "./GroupMoneyPlusMinus";
+import useThemeStore from "../store/store";
 
 type GroupMoneyPlusListProps = {
   allMoney?: number;
@@ -9,13 +10,17 @@ type GroupMoneyPlusListProps = {
 };
 
 const GroupMoneyPlusList = ({ allMoney, profit }: GroupMoneyPlusListProps) => {
+  const { isTheme } = useThemeStore();
   return (
     <Box
       sx={{
         width: "100%",
         height: "100%",
         borderRadius: 4,
-        bgcolor: colors.background.tertiary,
+        bgcolor:
+          isTheme === "기본"
+            ? colors.background.tertiary
+            : colors.sub_background.tertiary,
         display: "flex",
         flexDirection: "column",
         gap: "20px",

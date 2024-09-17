@@ -13,39 +13,35 @@ const Border = () => {
   };
 
   return (
-    <>
-      <React.Fragment>
-        <CssBaseline />
-        <Container
+    <React.Fragment>
+      <CssBaseline />
+      <Box
+        sx={{
+          width: "100%",
+          height: "100%",
+          display: "flex",
+        }}
+      >
+        <Box
           sx={{
             width: "100%",
-            height: "100%",
             display: "flex",
-            paddingX: "20px",
+            gap: "20px",
           }}
         >
-          <Box
-            sx={{
-              width: "100%",
-              margin: "16px 12px 0px 12px",
-              display: "flex",
-              gap: "40px",
-            }}
-          >
-            {/* FirstBox */}
-            <BorderSetBox>
-              <BorderGroupFirstBox title="다양한 모임들이 있어요~"></BorderGroupFirstBox>
-            </BorderSetBox>
-            {/* SecondBox */}
-            <BorderSetBox>
-              <BorderListBox>
-                <BorderGroupSecondBox title="추천 모임 TOP3"></BorderGroupSecondBox>
-              </BorderListBox>
-            </BorderSetBox>
-          </Box>
-        </Container>
-      </React.Fragment>
-    </>
+          {/* FirstBox */}
+          <BorderSetBox>
+            <BorderGroupFirstBox title="다양한 모임들이 있어요~"></BorderGroupFirstBox>
+          </BorderSetBox>
+          {/* SecondBox */}
+          <BorderSetBox>
+            <BorderListBox>
+              <BorderGroupSecondBox title="추천 모임 TOP3"></BorderGroupSecondBox>
+            </BorderListBox>
+          </BorderSetBox>
+        </Box>
+      </Box>
+    </React.Fragment>
   );
 };
 

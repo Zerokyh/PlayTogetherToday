@@ -1,5 +1,6 @@
 import { Box, Card, CardActions, CardMedia, Typography } from "@mui/material";
 import { colors } from "../styles/colors";
+import useThemeStore from "../store/store";
 
 type TopBoxProps = {
   rank?: string;
@@ -8,6 +9,7 @@ type TopBoxProps = {
 };
 
 const TopBox = ({ rank, alt, src }: TopBoxProps) => {
+  const { isTheme } = useThemeStore();
   return (
     <>
       <Box
@@ -15,7 +17,10 @@ const TopBox = ({ rank, alt, src }: TopBoxProps) => {
           width: "100%",
           height: "100%",
           borderRadius: 4,
-          bgcolor: colors.background.tertiary,
+          bgcolor:
+            isTheme == "기본"
+              ? colors.background.tertiary
+              : colors.sub_background.tertiary,
           padding: "10px",
         }}
       >

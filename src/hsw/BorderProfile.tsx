@@ -4,6 +4,7 @@ import { sizes } from "../styles/sizes";
 import GetMember from "./GetMember";
 import GroupBirthBox from "./GroupBirthBox";
 import GroupEventBox from "./GroupEventBox";
+import useThemeStore from "../store/store";
 
 type BorderProfileProps = {
   groupProfileImgSrc: string;
@@ -20,13 +21,18 @@ const BorderProfile = ({
   groupCount,
   groupLeaderName,
 }: BorderProfileProps) => {
+  const { isTheme } = useThemeStore();
+
   return (
     <Box
       sx={{
         width: "100%",
         height: "100%",
         borderRadius: 4,
-        bgcolor: colors.background.secondary,
+        bgcolor:
+          isTheme === "기본"
+            ? colors.background.secondary
+            : colors.sub_background.secondary,
         display: "flex",
         flexDirection: "column",
         gap: "10px",
@@ -97,7 +103,10 @@ const BorderProfile = ({
               width: "100%",
               height: "70%",
               borderRadius: 4,
-              bgcolor: colors.background.tertiary,
+              bgcolor:
+                isTheme === "기본"
+                  ? colors.background.tertiary
+                  : colors.sub_background.tertiary,
               display: "flex",
               flexDirection: "column",
               gap: "14px",
@@ -134,7 +143,10 @@ const BorderProfile = ({
               width: "100%",
               height: "100%",
               borderRadius: 4,
-              bgcolor: colors.background.tertiary,
+              bgcolor:
+                isTheme === "기본"
+                  ? colors.background.tertiary
+                  : colors.sub_background.tertiary,
               display: "flex",
               flexDirection: "column",
               gap: "14px",

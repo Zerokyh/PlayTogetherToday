@@ -3,15 +3,20 @@ import { colors } from "../styles/colors";
 import { sizes } from "../styles/sizes";
 import GroupMoneyPlusList from "./GroupMoneyPlusList";
 import GroupMoneyMinusList from "./GroupMoneyMinusList";
+import useThemeStore from "../store/store";
 
 const GroupMoneyCheck = () => {
+  const { isTheme } = useThemeStore();
   return (
     <Box
       sx={{
         width: "100%",
         height: "100%",
         borderRadius: 4,
-        bgcolor: colors.background.secondary,
+        bgcolor:
+          isTheme === "기본"
+            ? colors.background.secondary
+            : colors.sub_background.secondary,
         display: "flex",
         flexDirection: "column",
         gap: "6px",

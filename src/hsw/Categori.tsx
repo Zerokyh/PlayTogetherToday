@@ -11,6 +11,7 @@ import UnfoldMoreRoundedIcon from "@mui/icons-material/UnfoldMoreRounded";
 import { PopupContext } from "@mui/base/Unstable_Popup";
 import { CssTransition } from "@mui/base";
 import { colors } from "../styles/colors";
+import useThemeStore from "../store/store";
 
 export default function UnstyledSelectIntroduction() {
   return (
@@ -131,6 +132,7 @@ function useIsDarkMode() {
 function Styles() {
   // Replace this with your app logic for determining dark mode
   const isDarkMode = useIsDarkMode();
+  const { isTheme } = useThemeStore();
 
   return (
     <style>
@@ -144,7 +146,11 @@ function Styles() {
         border-radius: 20px;
         text-align: left;
         line-height: 1.5;
-        background: ${isDarkMode ? grey[900] : colors.background.tertiary};
+        background: ${
+          isTheme === "기본"
+            ? colors.background.tertiary
+            : colors.sub_background.tertiary
+        };
         border: 1px solid ${isDarkMode ? grey[700] : grey[200]};
         color: ${isDarkMode ? grey[300] : grey[900]};
         position: relative;

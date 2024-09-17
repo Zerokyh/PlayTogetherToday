@@ -5,7 +5,8 @@ import { colors, theme } from "./colors";
 import { sizes } from "./sizes";
 import { Box } from "@mui/material";
 import { MyInfoInnerBoxProps } from "../utils/type";
-import { bgcolor, borderRadius, height, minWidth } from "@mui/system";
+import { bgcolor, borderRadius, color, height, minWidth } from "@mui/system";
+import useThemeStore, { ThemeType } from "../store/store";
 
 export const openedMixin = (theme: Theme): CSSObject => ({
   width: sizes.drawerWidth,
@@ -307,23 +308,35 @@ export const ModalFormContentsStyle = {
 
 // groupBorder
 
-export const BorderListBox = styled(Box)({
-  width: "100%",
-  height: "100%",
-  borderRadius: sizes.borderRadius.normal,
-  backgroundColor: colors.background.secondary,
-  display: "flex",
-  flexDirection: "column",
-  gap: sizes.gap.xLarge,
-  alignItems: "center",
-  padding: "10px 12px",
+export const BorderListBox = styled(Box)(({}) => {
+  const { isTheme } = useThemeStore();
+  return {
+    width: "100%",
+    height: "100%",
+    borderRadius: sizes.borderRadius.normal,
+    backgroundColor:
+      isTheme === "기본"
+        ? colors.background.secondary
+        : colors.sub_background.secondary,
+    display: "flex",
+    flexDirection: "column",
+    gap: sizes.gap.xLarge,
+    alignItems: "center",
+    padding: "10px 12px",
+  };
 });
 
-export const GroupListBox = styled(Box)({
-  width: "100%",
-  height: "fit-content",
-  borderRadius: sizes.borderRadius.normal,
-  backgroundColor: colors.background.tertiary,
+export const GroupListBox = styled(Box)(({ theme }) => {
+  const { isTheme } = useThemeStore();
+  return {
+    width: "100%",
+    height: "fit-content",
+    borderRadius: sizes.borderRadius.normal,
+    backgroundColor:
+      isTheme === "기본"
+        ? colors.background.tertiary
+        : colors.sub_background.tertiary,
+  };
 });
 
 export const GroupImgAvatar = {

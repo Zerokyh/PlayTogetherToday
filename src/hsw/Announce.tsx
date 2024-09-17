@@ -5,6 +5,7 @@ import { sizes } from "../styles/sizes";
 import AnnounceList from "./AnnounceList";
 import { useState } from "react";
 import { height } from "@mui/system";
+import useThemeStore from "../store/store";
 
 const Announce = () => {
   const style = {
@@ -41,10 +42,11 @@ const Announce = () => {
     setOpen(false);
   };
 
+  const { isTheme } = useThemeStore();
   return (
     <Box
       sx={{
-        width: "33.33%",
+        width: "100%",
       }}
     >
       <Box
@@ -52,7 +54,10 @@ const Announce = () => {
           width: "100%",
           height: "100%",
           borderRadius: 4,
-          bgcolor: colors.background.secondary,
+          bgcolor:
+            isTheme === "기본"
+              ? colors.background.secondary
+              : colors.sub_background.secondary,
           display: "flex",
           flexDirection: "column",
           gap: "20px",
@@ -76,7 +81,10 @@ const Announce = () => {
               width: "100%",
               height: "100%",
               borderRadius: 4,
-              bgcolor: colors.background.tertiary,
+              bgcolor:
+                isTheme === "기본"
+                  ? colors.background.tertiary
+                  : colors.sub_background.tertiary,
               display: "flex",
               flexDirection: "column",
               gap: "20px",
