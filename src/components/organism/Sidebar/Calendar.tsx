@@ -19,16 +19,27 @@ const CustomDatePicker = styled(StaticDatePicker)(() => ({
 }));
 
 const Calendar = ({ onDateChange }: CalendarProps) => {
+  const today = dayjs().toDate();
   const [selectedDate, setSelectedDate] = React.useState<Date | null>(null);
+
   const handleDateChange = (newValue: Dayjs | null) => {
     const date = newValue ? newValue.toDate() : null;
     setSelectedDate(date);
     onDateChange(date);
   };
+
+  // 컴포넌트가 처음 렌더링될 때 오늘 날짜를 설정
+  React.useEffect(() => {
+    if (!selectedDate) {
+      setSelectedDate(today);
+      onDateChange(today);
+    }
+  }, [onDateChange, selectedDate, today]);
+
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="ko">
       <CustomDatePicker
-        defaultValue={selectedDate ? dayjs(selectedDate) : null}
+        value={selectedDate ? dayjs(selectedDate) : null} // 선택된 날짜를 표시
         onChange={handleDateChange}
         sx={{
           width: 258,

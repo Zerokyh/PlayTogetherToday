@@ -2,28 +2,29 @@ import MyProfileImg from "./ProfileIMG";
 import LoginInput from "./Login_Input";
 import LoginBtn from "./Login_Button";
 import { Box } from "@mui/material";
-import { FullPageBox } from "../../styles/mui";
+import { FullPageBox, MyInfoInnerBox } from "../../styles/mui";
+import { sizes } from "../../styles/sizes";
 
 const Login = () => {
   return (
     <FullPageBox>
       <Box sx={{
-          width: "100%",
-          height: "95.8vh",
-          padding: "70px",
-          // bgcolor: "#EEEEEE",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-          borderRadius: 6,
-          gap: 3
-        }}>
-        {/* 이미지 */}
-        <MyProfileImg />
-        {/* 로그인 입력창 (계정이메일 및 비밀번호 입력) */}
+        width: sizes.width.half,
+        height: sizes.height.full,
+        padding: sizes.padding.xlarge,
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        borderRadius: sizes.borderRadius.xs,
+        gap: sizes.gap.medium
+      }}>
+        <MyInfoInnerBox sx={{ width: "377px" }}>
+          {/* <MyInfoProfileImage />/ */}
+          <MyProfileImg/>
+        </MyInfoInnerBox>
+        
         <LoginInput />
-        {/* 회원가입 및 아이디/비번 찾기 버튼 */}
         <LoginBtn/>
       </Box>
     </FullPageBox>

@@ -11,6 +11,7 @@ interface InputProps {
     onBlur?: () => void;
     onFocus?: () => void;
     optional?: boolean;
+    optionalText?: String;
 };
 
 export default InputProps;

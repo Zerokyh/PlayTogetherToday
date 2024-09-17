@@ -1,9 +1,13 @@
 import { Box, Button, Typography } from "@mui/material";
 import { FullPageBox } from "../../styles/mui";
-import InputContents from "./InputContents";
+import InputGroups from "./InputGroups";
 import { useSignUpForm } from "./InputFunction/UseForm";
 import { useNavigate } from "react-router-dom";
-
+import useThemeStore from "../../store/store";
+import { colors } from "../../styles/colors";
+import { sizes } from "../../styles/sizes";
+import ButtonGroups from "./ButtonGroups";
+import FindAccount from "../LogInPage/Find_Account";
 
 const SignUp = () => {
   const {
@@ -18,6 +22,7 @@ const SignUp = () => {
     setShowPasswordCheck,
   } = useSignUpForm();
 
+  const { isTheme } = useThemeStore();
   const navigate = useNavigate();
 
   const handleCancel = () => {
@@ -26,6 +31,7 @@ const SignUp = () => {
       password: "",
       passwordCheck: "",
       backupEmail: "",
+      phoneNumber: "",
       groupName: "",
       groupPassword: "",
     });
@@ -33,164 +39,127 @@ const SignUp = () => {
       idEmailBlurred: false,
       passwordBlurred: false,
       passwordCheckBlurred: false,
+      phoneNumberBlurred: false,
     });
 
     setTimeout(() => {
       alert("처음 화면으로 돌아갑니다. 내용은 저장되지 않습니다.");
-      navigate("/LogIn");
+      navigate("/");
     }, 0);
   };
 
   const handelJoin = () => {
-    // 모달? 등등 데이터 저장 코드 입력하기
     setTimeout(() => {
-      alert("정말 가입 하시겠습니까?");
-      navigate("/LogIn");
+      alert("이대로 가입하시겠습니까?");
+      navigate("/");
+      // after : Save Data Code
     })
   }
 
-  return (
-    // 기본바탕 화면설정
-    <FullPageBox>
+  const validatePhoneNumber = (phoneNumber: string) => {
+    if (phoneNumber === "") {
+      return "";
+    }
+    if (!/^\d+$/.test(phoneNumber)) {
+      return "숫자만 입력하세요";
+    }
+    if (phoneNumber.length < 7) {
+      return "숫자는 7자 이상이어야 합니다";
+    }
+    return "";
+  };
 
+  return (
+    <FullPageBox>
       {/* Container */}
       <Box
         sx={{
-          width: "100%",
-          height: "95.8vh",
-          paddingX: "100px",
-          paddingY: 0,
-          bgcolor: "#EEEEEE",
+          width: sizes.width.half,
+          height: sizes.height.full,
+          padding: "8%",
+          bgcolor:
+            isTheme === "기본"
+            ? colors.background.secondary
+            : colors.sub_background.secondary,
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
-          borderRadius: 6,
-        }}>
-        
+          borderRadius: sizes.borderRadius.normal,
+        }}
+      >
         {/* Title Box */}
         <Typography
           sx={{
-            width: "60%",
-            padding: "20px",
-            marginBottom: "20px",
-            bgcolor: "#E5E5E5",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            textAlign: "center",
-            fontWeight: "bold",
-            fontSize: 20,
-            color: "#23374D",
-            borderRadius: 6
+            width: "500px",
+          height: "40px",
+          padding: sizes.padding.xlarge,
+          marginBottom: 1,
+          bgcolor:
+            isTheme == "기본"
+            ? colors.background.tertiary
+            : colors.sub_background.tertiary,
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          textAlign: "center",
+          fontWeight: "bold",
+          fontSize: sizes.fontSize.large,
+          color: colors.text.primary,
+          borderRadius: sizes.borderRadius.normal,
           }}>
-            소모임의 소중한 회원으로 모시겠습니다
+          소모임의 소중한 회원으로 모시겠습니다
         </Typography>
 
-        {/* Input Group */}
-          <Box
-          sx={{
-            width: "60%",
-            padding: 0
-            }}>
+        <Typography
+        onClick={() => navigate("/LogIn")}
+        sx={{
+          cursor: "pointer",
+          "&:hover": { textDecoration: "underline" },
+          width: "500px",
+          height: "40px",
+          paddingX: sizes.padding.xlarge,
+          paddingY: sizes.padding.large,
+          marginBottom: 6,
+          bgcolor:
+            isTheme == "기본"
+            ? colors.background.tertiary
+            : colors.sub_background.tertiary,
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          textAlign: "center",
+          fontWeight: "bold",
+          fontSize: sizes.fontSize.large,
+          color: colors.text.primary,
+          borderRadius: sizes.borderRadius.normal,
+        }}>
+        계정이 있어요! 로그인 하러 갈게요
+      </Typography>
 
-            {/* 아이디 입력 */}
-            <InputContents
-              label="아이디(이메일주소)*"
-              value={formState.idEmail}
-              setValue={(val) => setFormState((prev) => ({ ...prev, idEmail: val }))}
-              isValid={validity.isIdEmailValid || !blurred.idEmailBlurred}
-              validationMessage="올바른 이메일 형식이 아닙니다"
-              onBlur={() => setBlurred((prev) => ({ ...prev, idEmailBlurred: true }))}
-              onFocus={() => setBlurred((prev) => ({ ...prev, idEmailBlurred: false }))}
-            />
-            {/* 비밀번호 입력 */}
-            <InputContents
-              label="비밀번호*"
-              value={formState.password}
-              setValue={(val) => setFormState((prev) => ({ ...prev, password: val }))}
-              type="password"
-              isValid={validity.isPasswordValid || !blurred.passwordBlurred}
-              validationMessage={`올바른 비밀번호가 아닙니다 (영문, 숫자, 특수문자 포함)`}
-              showPasswordToggle
-              showPassword={showPassword}
-              togglePasswordVisibility={() => setShowPassword(!showPassword)}
-              onBlur={() => setBlurred((prev) => ({ ...prev, passwordBlurred: true }))}
-              onFocus={() => setBlurred((prev) => ({ ...prev, passwordBlurred: false }))}
-            />
-            {/* 비밀번호 확인 */}
-            <InputContents
-              label="비밀번호 확인*"
-              value={formState.passwordCheck}
-              setValue={(val) => setFormState((prev) => ({ ...prev, passwordCheck: val }))}
-              type="password"
-              isValid={validity.isPasswordMatch || !blurred.passwordCheckBlurred}
-              validationMessage="비밀번호가 일치하지 않습니다"
-              showPasswordToggle
-              showPassword={showPasswordCheck}
-              togglePasswordVisibility={() => setShowPasswordCheck(!showPasswordCheck)}
-              onBlur={() => setBlurred((prev) => ({ ...prev, passwordCheckBlurred: true }))}
-              onFocus={() => setBlurred((prev) => ({ ...prev, passwordCheckBlurred: false }))}
-            />
-            {/* 백업 이메일 */}
-            <InputContents
-              label="백업 이메일"
-              value={formState.backupEmail}
-              setValue={(val) => setFormState((prev) => ({ ...prev, backupEmail: val }))}
-              optional
-            />
-            {/* 그룹 만들기 */}
-            <InputContents
-              label="그룹 만들기"
-              value={formState.groupName}
-              setValue={(val) => setFormState((prev) => ({ ...prev, groupName: val }))}
-              optional
-            />
-            {/* 그룹 가입 암호 */}
-            <InputContents
-              label="그룹 가입 암호"
-              value={formState.groupPassword}
-              setValue={(val) => setFormState((prev) => ({ ...prev, groupPassword: val }))}
-              optional
-            />
+         {/* 아이디 정보 표시 */}{/* idEmail 전달 */}
+        {/* <FindAccount idEmail={formState.idEmail} />  */}
 
-            {/* Button Group */}          
-            <Box
-            sx={{
-                display: "flex",
-                justifyContent: "center",
-                padding: "15px",
-                gap: 3
-            }}>
-            
-            {/* 가입버튼 / 취소버튼 */}
-            <Button
-              onClick={handelJoin}
-              sx={{
-                width: 100,
-                height: 45,
-                bgcolor: "#006DFF",
-                fontSize: 18,
-                color: "#EEEEEE",
-                borderRadius: 10,
-              }}>
-              가입하기
-            </Button>
-            <Button
-              onClick={handleCancel}
-              sx={{
-                width: 100,
-                height: 45,
-                bgcolor: "white",
-                fontSize: 18,
-                color: "#23374D",
-                borderRadius: 10
-              }}>
-              취소
-            </Button>
-          </Box>
-            
-        </Box>
+        {/* Input Groups */}
+        <InputGroups
+          formState={formState}
+          setFormState={setFormState}
+          validity={validity}
+          blurred={blurred}
+          setBlurred={setBlurred}
+          showPassword={showPassword}
+          setShowPassword={setShowPassword}
+          showPasswordCheck={showPasswordCheck}
+          setShowPasswordCheck={setShowPasswordCheck}
+          validatePhoneNumber={validatePhoneNumber}
+        />
+
+        {/* Button Group */}
+        <ButtonGroups
+          isTheme={isTheme}
+          onJoin={handelJoin}
+          onCancel={handleCancel}
+        />
       </Box>
     </FullPageBox>
   );

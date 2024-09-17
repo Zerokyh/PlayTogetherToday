@@ -16,6 +16,7 @@ import Border from "./hsw/Border";
 import BorderDetail from "./hsw/BorderDetail";
 import Login from "./ksy/LogInPage/LogIn";
 import SignUp from "./ksy/SignUpPage/SignUp";
+import FindAccount from "./ksy/LogInPage/Find_Account";
 
 const App = () => {
   return (
@@ -35,6 +36,9 @@ const App = () => {
             <Route path="/Login" Component={Login} />
             {/* 로그인 페이지 등록 */}
             <Route path="/SignUp" Component={SignUp} />
+            {/* 아이디/비번 찾기 페이지 */}
+            {/* <Route path="/FindAccount" Component={FindAccount} /> */}
+            <Route path="/FindAccount" element={<FindAccount idEmail={""}/>}/>
             {/* 회원가입 페이지 등록 */}
             <Route path="/Myroom" Component={Myroom} />
             {/* 마이룸 페이지 등록 */}

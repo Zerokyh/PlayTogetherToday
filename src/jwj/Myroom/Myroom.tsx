@@ -31,7 +31,7 @@ const Myroom = () => {
   //쪽지함 공개/비공개
   const MessageisPublic = true;
   //그룹함 공개/비공개
-  const GroupisPublic = false;
+  const GroupisPublic = true;
   //친구리스트 공개/비공개
   const FreindsListisPublic = true;
 
@@ -289,14 +289,6 @@ const Myroom = () => {
               comming="다가오는 모임 날짜"
               group_anni="그룹 기념일"
             />
-            <Myroom_meeting_button
-              group="그룹4"
-              type="그룹 타입"
-              count="그룹 멤버수"
-              position="직책"
-              comming="다가오는 모임 날짜"
-              group_anni="그룹 기념일"
-            />
           </Box>
         ) : (
           <Box
@@ -373,37 +365,38 @@ const Myroom = () => {
             <Myroom_message
               contents="권한 요청"
               time="쪽지 보낸시간"
-              type={1}
+              type="authorize"
+              alarm="System"
             />
             <Myroom_message
               contents="기념일 알림"
               time="쪽지 보낸시간"
-              type={7}
+              type="contents"
+              alarm="Group"
             />
             <Myroom_message
               contents="친구 요청"
               time="쪽지 보낸시간"
-              type={2}
+              type="normal"
+              alarm="System"
             />
             <Myroom_message
               contents="탈퇴 신청"
               time="쪽지 보낸시간"
-              type={9}
+              type="contents"
+              alarm="Group"
             />
             <Myroom_message
               contents="쪽지 내용"
               time="쪽지 보낸시간"
-              type={3}
+              type="contents"
+              alarm="Group"
             />
             <Myroom_message
               contents="쪽지 내용"
               time="쪽지 보낸시간"
-              type={3}
-            />
-            <Myroom_message
-              contents="쪽지 내용"
-              time="쪽지 보낸시간"
-              type={3}
+              type="normal"
+              alarm="System"
             />
           </Box>
         ) : (

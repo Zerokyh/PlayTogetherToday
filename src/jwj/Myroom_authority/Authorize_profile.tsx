@@ -49,6 +49,7 @@ const Authorize_profile = ({
         paddingX: "8px",
         display: "flex",
         alignItems: "center",
+        justifyContent: "space-between",
         gap: "8px",
         flex: 1,
         minHeight: 0,

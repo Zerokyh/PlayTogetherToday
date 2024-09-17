@@ -2,16 +2,17 @@ import { Button, Box, Typography, Modal } from "@mui/material";
 import { sizes } from "../../styles/sizes";
 import useThemeStore, { ThemeType } from "../../store/store";
 import { colors } from "../../styles/colors";
-import ImgAvatar from "../../components/atom/Avatar/ImgAvatar";
-import BasicModal from "../../components/organism/Modal/BasicModal";
+import { FaRegBell } from "react-icons/fa6";
 import React from "react";
-import MessageModal_Authorize from "./MessageModal";
 import MessageModal from "./MessageModal";
+import { GrGroup } from "react-icons/gr";
 
 type MessageProps = {
   contents: string;
   time?: string;
-  type: number;
+  // time?: Date;
+  type: string;
+  alarm: string;
 };
 
 const style = {
@@ -26,7 +27,7 @@ const style = {
   p: 4,
 };
 
-const Myroom_message = ({ contents, time, type }: MessageProps) => {
+const Myroom_message = ({ contents, time, type, alarm }: MessageProps) => {
   //zustand로 관리하는 테마 호출
   const { isTheme } = useThemeStore();
 
@@ -56,18 +57,36 @@ const Myroom_message = ({ contents, time, type }: MessageProps) => {
         }}
       >
         <Box sx={{ display: "flex", alignItems: "center", gap: "8px" }}>
-          <ImgAvatar
-            src="cat.jpg"
-            alt="프로필"
+          {alarm == "System" ? (
+            <FaRegBell
+              style={{ width: sizes.avatar.logo, height: sizes.avatar.logo }}
+            />
+          ) : (
+            <GrGroup
+              style={{ width: sizes.avatar.logo, height: sizes.avatar.logo }}
+            />
+          )}
+          <Box
             sx={{
-              width: sizes.avatar.logo,
-              height: sizes.avatar.logo,
-              mx: "auto",
+              display: "flex",
+              alignItems: "start",
+              justifyContent: "center",
+              flexDirection: "column",
             }}
-          />
-          <Typography variant="body2" sx={{ fontSize: sizes.fontSize.medium }}>
-            {contents}
-          </Typography>
+          >
+            <Typography
+              variant="body2"
+              sx={{ fontSize: sizes.fontSize.medium }}
+            >
+              {alarm == "System" ? "시스템알림" : "그룹알림"}
+            </Typography>
+            <Typography
+              variant="body2"
+              sx={{ fontSize: sizes.fontSize.medium }}
+            >
+              {contents}
+            </Typography>
+          </Box>
         </Box>
         <Typography variant="body2" sx={{ fontSize: sizes.fontSize.small }}>
           {time}

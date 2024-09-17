@@ -1,47 +1,66 @@
 import { Box, Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import useThemeStore from "../../store/store";
+import { colors } from "../../styles/colors";
+import { sizes } from "../../styles/sizes";
 
 const LoginBtn = () => {
+  const { isTheme } = useThemeStore();
   const navigate = useNavigate();
 
+  const handleLogIn = () => {
+    navigate("/");
+  }
+
+  const handleFindAccount = () => {
+    navigate("/FindAccount");
+  }
+
   return (
-    <Box width={"60%"}>
-      <Box display={"flex"} justifyContent={"end"} marginRight={1} gap={0.2}>
+    <Box width={ sizes.width.block }>
+      <Box display={"flex"}
+        justifyContent={"end"}>
         <Button
+          onClick={handleFindAccount}
           sx={{
-            width: "fit-content",
-            paddingX: "3px",
+            width: "100px",
+            height: "22px",
+            marginTop: "20px",
             fontWeight: "bold",
-            fontSize: "12px",
-            color: "#23374D",
-          }}
-          onClick={() => navigate("/SignUp")}
-        >
-          회원가입
+            fontSize: sizes.fontSize.small,
+            color: colors.text.primary,
+          }}>
+          아이디/비번 찾기
         </Button>
         <Button
+          onClick={() => navigate("/SignUp")}
           sx={{
-            width: "fit",
-            paddingX: "3px",
+            width: "65px",
+            height: "22px",
+            marginTop: "20px",
             fontWeight: "bold",
-            fontSize: "12px",
-            color: "#23374D",
-          }}
-        >
-          아이디/비번 찾기
+            fontSize: sizes.fontSize.small,
+            color: colors.text.primary,
+          }}>
+          회원가입
         </Button>
       </Box>
 
-      {/* 로그인 버튼 */}
+      {/* LogIn button */}
       <Box display={"flex"} justifyContent={"center"}>
         <Button
+          onClick={handleLogIn}
           sx={{
-            width: "100%",
-            height: 45,
-            bgcolor: "#006DFF",
-            fontSize: 18,
-            color: "white",
-            borderRadius: 10,
+            width: "450px",
+            height: "44px",
+            marginTop: 3,
+            bgcolor:
+            isTheme == "기본"
+            ? colors.background.button
+            : colors.sub_background.button,
+            color: colors.text.secondary,
+            fontSize: sizes.fontSize.large,
+            borderRadius: sizes.borderRadius.medium,
           }}>
           로그인
         </Button>

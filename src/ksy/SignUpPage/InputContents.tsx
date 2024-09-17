@@ -1,10 +1,12 @@
+// InputContents.tsx
 import React from "react";
 import InputProps from "./InputFunction/InputProps";
-import { Box, Button, IconButton, Input, Typography } from "@mui/material";
-import { theme } from "../../styles/colors";
+import { Box, IconButton, Input, Typography } from "@mui/material";
+import { colors, theme } from "../../styles/colors";
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
-import { fontSize } from "@mui/system";
+import useThemeStore from "../../store/store";
+import { sizes } from "../../styles/sizes";
 
 const InputContents: React.FC<InputProps> = ({
   label,
@@ -19,40 +21,60 @@ const InputContents: React.FC<InputProps> = ({
   onBlur,
   onFocus,
   optional = false,
+  optionalText = "",
 }) => {
+    const { isTheme } = useThemeStore();
 
     return (
         // Input Box (Contents)
         <Box
             sx={{
-            width: "100%",
-            paddingX: 3,
-            paddingY: 1,
-            marginBottom: 1.5,
-            bgcolor: "#E5E5E5",
-            color: "#23374D",
-            borderRadius: 6
-            }}>
+                width: "100%",
+                height: "60px",
+                paddingX: sizes.padding.xlarge,
+                paddingY: sizes.padding.medium,
+                marginBottom: 3,
+                bgcolor:
+                    isTheme == "기본"
+                    ? colors.background.tertiary
+                    : colors.sub_background.tertiary,
+                color: colors.text.primary,
+                borderRadius: "15px"
+                }}>
             
-            {/* 주석(선택) */}
+            {/* Optional Setting */}
             <Box display={"flex"}>
-                <Typography display={"flex"} fontWeight={"bold"}>
+                <Typography
+                    display={"flex"}
+                    height={"16px"}
+                    fontWeight={"bold"}>
                     {label}
-                    {optional &&
-                        <Typography
-                            margin={0.3}
-                            marginLeft={0.5}
-                            color={"#23374D"}
-                            fontSize={"small"}>(선택)
-                        </Typography>}
+                    {optional && (
+                        <>
+                            <Typography
+                                marginTop={sizes.margin.medium}
+                                marginLeft={sizes.margin.large}
+                                color={colors.text.grey}
+                                fontSize={sizes.fontSize.xsmall}>
+                            </Typography>
+                            {optionalText && (
+                                <Typography
+                                    marginTop={sizes.margin.medium}
+                                    color={colors.text.grey}
+                                    fontSize={sizes.fontSize.xsmall}>
+                                    {optionalText}
+                                </Typography>
+                            )}
+                        </>
+                    )}
                 </Typography>
 
-                {/* 유효성 검사 (빨간 글씨) */}
+                {/* validationMessage (red color) */}
                 <Typography
                     sx={{
-                        margin: 0.3,
-                        marginLeft: 0.7,
-                        fontSize: 12,
+                        marginTop: sizes.margin.small,
+                        marginLeft: sizes.margin.large,
+                        fontSize: sizes.fontSize.xsmall,
                         color: !isValid ? theme.palette.error.main : theme.palette.text.secondary,
                     }}
                     className={`${!isValid ? 'text-red-500' : ''}`}>
@@ -61,7 +83,7 @@ const InputContents: React.FC<InputProps> = ({
             </Box>
             
             <Box position={"relative"}>
-                {/* Input 입력 창*/}
+                {/* Input form*/}
                 <Input
                     type={showPasswordToggle && showPassword ? "text" : type}
                     value={value}
@@ -69,19 +91,32 @@ const InputContents: React.FC<InputProps> = ({
                     onBlur={onBlur}
                     onFocus={onFocus}
                     sx={{
-                        width: "100%",
+                        width: "470px",
+                        height: "18px",
+                        padding: "0",
+                        margin: "0",
                         outline: "none",
-                        borderColor: "#23374D",
-                        fontWeight: 500
+                        fontSize: sizes.fontSize.small,
+                        borderColor: colors.border.primary,
                     }} />
                 
-                {/* 비밀번호 가시(on/off) 여부 */}
+                {/* Show password icon */}
                 {showPasswordToggle && togglePasswordVisibility && (
                 <IconButton
                     type="button"
-                        onClick={togglePasswordVisibility}
-                        sx={{ position: "absolute", right: 5, bottom: 1, padding: 0.5, margin: 0.5, color: "#23374D"}}>
-                        {showPassword ? (<VisibilityIcon sx={{ fontSize: 16 }}/>) : (<VisibilityOffIcon sx={{ fontSize: 16 }}/>)}
+                    onClick={togglePasswordVisibility}
+                        sx={{
+                            position: "absolute",
+                            right: sizes.margin.small,
+                            bottom: sizes.margin.small,
+                            padding: sizes.padding.medium,
+                            color: colors.text.primary
+                        }}>
+                        {showPassword
+                            ? (<VisibilityIcon
+                                sx={{ fontSize: sizes.fontSize.normal }} />) 
+                            : (<VisibilityOffIcon
+                                sx={{ fontSize: sizes.fontSize.normal }} />)}
                 </IconButton> )}
             </Box>
         </Box>

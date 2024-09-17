@@ -30,7 +30,7 @@ const Myroom_meeting_button = ({
       onClick={onClick}
       sx={{
         width: "100%",
-        heigth: "25%",
+        height: "100%",
         display: "flex",
         justifyContent: "space-between",
         backgroundColor:
