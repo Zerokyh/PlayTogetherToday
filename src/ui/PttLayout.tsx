@@ -9,10 +9,11 @@ import Box from "@mui/material/Box";
 
 // zustand 설정 파일 호출
 import useThemeStore from "../store/store";
+import CenteredOutlet from "./CenteredOutlet";
 
 const PttLayout = () => {
   // Zustand로 관리하는 테마를 호출
-  const { isTheme } = useThemeStore();
+  const { isOpen, isTheme } = useThemeStore();
 
   return (
     <Box
@@ -39,19 +40,27 @@ const PttLayout = () => {
         }}
       >
         <FullPageBox>
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              maxWidth: "1280px",
-              width: "1280px",
-              maxHeight: "700px",
-              height: "700px",
-            }}
-          >
-            <Outlet /> {/* 페이지가 바뀔 공간 등록 */}
-          </Box>
+          <CenteredOutlet>
+            {/* 페이지가 바뀔 공간 등록 */}
+            {isOpen ? (
+              <>
+                <Box
+                  sx={{
+                    position: "absolute",
+                    top: 0,
+                    left: "300px",
+                    width: "calc(100% - 300px)",
+                    height: "100%",
+                    backgroundColor: "rgba(0, 0, 0, 0.4)",
+                    zIndex: 10,
+                  }}
+                />
+                <Outlet />
+              </>
+            ) : (
+              <Outlet />
+            )}
+          </CenteredOutlet>
         </FullPageBox>
       </Box>
     </Box>
