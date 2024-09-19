@@ -74,9 +74,9 @@ const SignUp = () => {
       {/* Container */}
       <Box
         sx={{
-          width: sizes.width.half,
-          height: sizes.height.full,
-          padding: "8%",
+          width: "540px",
+          height: "700px",
+          padding: "20px",
           bgcolor:
             isTheme === "기본"
             ? colors.background.secondary
@@ -91,10 +91,10 @@ const SignUp = () => {
         {/* Title Box */}
         <Typography
           sx={{
-            width: "500px",
+          width: "500px",
           height: "40px",
           padding: sizes.padding.xlarge,
-          marginBottom: 1,
+          marginBottom: "12px",
           bgcolor:
             isTheme == "기본"
             ? colors.background.tertiary
@@ -120,7 +120,7 @@ const SignUp = () => {
           height: "40px",
           paddingX: sizes.padding.xlarge,
           paddingY: sizes.padding.large,
-          marginBottom: 6,
+          marginBottom: "25px",
           bgcolor:
             isTheme == "기본"
             ? colors.background.tertiary

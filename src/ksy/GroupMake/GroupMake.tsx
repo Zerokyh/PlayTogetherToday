@@ -129,7 +129,7 @@ const GroupMake = () => {
                     height: "60px",
                     paddingX: sizes.padding.xlarge,
                     paddingY: sizes.padding.medium,
-                    marginBottom: 3,
+                    marginBottom: "11px",
                     bgcolor:
                       isTheme == "기본"
                       ? colors.background.tertiary
@@ -142,16 +142,16 @@ const GroupMake = () => {
                     fontWeight:"bold",
                     height: "10px",
                     fontSize: sizes.fontSize.medium,
+                    // marginBottom: "5px"
                   }}>모임 타입 설정*
                 </Typography>
-                <TextField {...params} variant="standard"
+                <TextField {...params} variant="standard" size="small"
                   sx={{
                     width: "470px",
-                    padding: "0",
-                    margin: "0",
                     outline: "none",
                     borderColor: colors.border.primary
-                    }}
+                  }}
+                  
                 />
                 {/* <Typography
                   display={"flex"}
