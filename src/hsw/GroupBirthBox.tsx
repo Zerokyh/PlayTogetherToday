@@ -1,15 +1,20 @@
 import { Box, Typography } from "@mui/material";
 import GetGroupBirth from "./GetGroupBirth";
 import { colors } from "../styles/colors";
+import useThemeStore from "../store/store";
 
 const GroupBirthBox = () => {
+  const { isTheme } = useThemeStore();
   return (
     <Box
       sx={{
         width: "100%",
         height: "30%",
         borderRadius: 4,
-        bgcolor: colors.background.tertiary,
+        bgcolor:
+          isTheme === "기본"
+            ? colors.background.tertiary
+            : colors.sub_background.tertiary,
         display: "flex",
         flexDirection: "column",
         padding: "10px",

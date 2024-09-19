@@ -23,7 +23,7 @@ const BorderGroupSecondBox = ({ title }: BorderGroupSecondBoxProps) => {
       <Box
         sx={{
           width: "100%",
-          height: "40%",
+          height: "50%",
           display: "flex",
           gap: "16px",
           justifyContent: "space-between",

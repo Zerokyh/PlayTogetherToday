@@ -26,7 +26,7 @@ const BorderDetail = () => {
             width: "100%",
             height: "50%",
             display: "flex",
-            gap: "20px",
+            gap: "10px",
           }}
         >
           <Box sx={{ width: "33.33%", height: "100%" }}>
@@ -64,12 +64,22 @@ const BorderDetail = () => {
           </Box>
           <Box
             sx={{
-              width: "33.33%",
+              display: "flex",
+              width: "66.66%",
+              gap: "10px",
             }}
           >
-            <GroupMoneyCheck></GroupMoneyCheck>
+            <Box
+              sx={{
+                width: "50%",
+              }}
+            >
+              <GroupMoneyCheck></GroupMoneyCheck>
+            </Box>
+            <Box sx={{ width: "50%" }}>
+              <Announce></Announce>
+            </Box>
           </Box>
-          <Announce></Announce>
         </Box>
       </Box>
     </>

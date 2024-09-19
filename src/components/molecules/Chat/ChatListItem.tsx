@@ -11,9 +11,9 @@ type ChatListItemProps = {
   avatarname?: string;
   avatarsrc?: string;
   nickname: string;
-  lastchatmsg: string;
-  lastchattime_day: string;
-  lastchattime_time: string;
+  lastchatmsg?: string;
+  lastchattime_day?: string;
+  lastchattime_time?: string;
   onClick?: () => void;
 };
 
