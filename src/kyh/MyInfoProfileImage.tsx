@@ -97,8 +97,13 @@ const MyInfoProfileImage = () => {
             src={imageUrl} // 업로드된 이미지 URL
             alt="프로필"
             sx={{
-              width: sizes.avatar.info,
+              width: sizes.width.info,
               height: sizes.avatar.info,
+              borderRadius: sizes.borderRadius.none,
+              objectFit: "cover",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
               mx: "auto",
             }}
           />
@@ -107,8 +112,13 @@ const MyInfoProfileImage = () => {
             src="onlylogo.png" // 기본 프로필 이미지
             alt="프로필"
             sx={{
-              width: sizes.avatar.info,
+              width: sizes.width.default_info,
               height: sizes.avatar.info,
+              borderRadius: sizes.borderRadius.none,
+              objectFit: "contain",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
               mx: "auto",
             }}
           />
@@ -122,7 +132,7 @@ const MyInfoProfileImage = () => {
         <Box
           sx={{
             position: "absolute",
-            top: 80,
+            top: 90,
             right: 20,
             color: colors.text.primary,
             ":hover": {

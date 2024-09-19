@@ -8,13 +8,15 @@ export const sizes = {
     profileLogo: "20px",
     logo: "30px",
     chat: "60px",
-    info: "120px",
+    info: "150px",
   },
 
   width: {
     sidebar: 224,
+    default_info: "130px",
+    info: "190px",
     half: "800px",
-    block: "468px"
+    block: "468px",
   },
 
   height: {
@@ -60,6 +62,7 @@ export const sizes = {
   },
 
   borderRadius: {
+    none: "0px",
     xs: "6px",
     small: "8px",
     medium: "10px",

@@ -9,6 +9,8 @@ import { styled } from "@mui/material/styles";
 import useThemeStore from "../store/store";
 import MyInfoProfileImage from "./MyInfoProfileImage";
 import InputModifyBox from "../components/atom/Input/InputModifyBox";
+import BasicButton from "../components/atom/Button/BasicButton";
+import { borderRadius } from "@mui/system";
 
 const MyInfoModify = () => {
   const { isTheme } = useThemeStore();
@@ -69,6 +71,10 @@ const MyInfoModify = () => {
                     />
                   </Box>
                 ))}
+                <BasicButton
+                  text="변경하기"
+                  sx={{ borderRadius: sizes.borderRadius.medium }}
+                />
               </MyInfoInnerBox>
             </Box>
           </MySettingOutterBox>
