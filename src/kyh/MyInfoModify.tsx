@@ -10,10 +10,92 @@ import useThemeStore from "../store/store";
 import MyInfoProfileImage from "./MyInfoProfileImage";
 import InputModifyBox from "../components/atom/Input/InputModifyBox";
 import BasicButton from "../components/atom/Button/BasicButton";
-import { borderRadius } from "@mui/system";
+import axios from "axios";
+
+type UserProfileData = {
+  member_id: number;
+  member_nickname: string;
+  member_phone: string;
+  member_address: string;
+  member_email: string;
+  member_2nd_email: string;
+  member_anniversary: Date | string;
+};
 
 const MyInfoModify = () => {
   const { isTheme } = useThemeStore();
+  const [userProfileData, setUserProfileData] =
+    React.useState<UserProfileData | null>(null);
+  const [member_id, setMemberId] = React.useState<number | null>(null);
+  const [formValues, setFormValues] = React.useState<Record<string, string>>({
+    nickname: "",
+    phone: "",
+    address: "",
+    email: "",
+    backupEmail: "",
+    anniversary: "",
+  });
+
+  React.useEffect(() => {
+    // Spring Boot API 호출
+    axios
+      .get("http://localhost:8080/MyInfoModify/1")
+      .then((response) => {
+        console.log(response.data);
+        setUserProfileData(response.data.data);
+        setMemberId(response.data.data.member_id.toString());
+        localStorage.setItem(
+          "user_id",
+          response.data.data.member_id.toString()
+        );
+      })
+      .catch((error) => {
+        console.error("Error fetching chat data:", error);
+      });
+  }, []);
+
+  const handleInputChange =
+    (key: string) => (event: React.ChangeEvent<HTMLInputElement>) => {
+      setFormValues({
+        ...formValues,
+        [key]: event.target.value,
+      });
+    };
+
+  const getPlaceholder = (key: string) => {
+    switch (key) {
+      case "nickname":
+        return userProfileData?.member_nickname ?? "";
+      case "phone":
+        return userProfileData?.member_phone ?? "";
+      case "address":
+        return userProfileData?.member_address ?? "";
+      case "email":
+        return userProfileData?.member_email ?? "";
+      case "backupEmail":
+        return userProfileData?.member_2nd_email ?? "";
+      case "anniversary":
+        return userProfileData?.member_anniversary
+          ? new Date(userProfileData.member_anniversary).toLocaleDateString()
+          : "";
+      default:
+        return "";
+    }
+  };
+
+  const handleModify = () => {
+    axios
+      .post("http://localhost:8080/MyInfoModify", {
+        member_id: member_id,
+        ...formValues,
+      })
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching chat data:", error);
+      });
+  };
 
   const MySettingOutterBox = styled(Box)({
     backgroundColor:
@@ -61,19 +143,22 @@ const MyInfoModify = () => {
             >
               <MyInfoInnerBox sx={{ width: "377px" }}>
                 <MyInfoProfileImage />
-                {Object.entries(infoData).map(([key, item]) => (
-                  <Box sx={{ height: 60 }}>
-                    <ChipTextBox titlename={item.titlename} />
-                    <InputModifyBox
-                      width="240px"
-                      sx={InputMuiStyle}
-                      placeholder={item.inputsubject}
-                    />
-                  </Box>
-                ))}
+                {userProfileData &&
+                  Object.entries(infoData).map(([key, item]) => (
+                    <Box sx={{ height: 60 }} key={key}>
+                      <ChipTextBox titlename={item.titlename} />
+                      <InputModifyBox
+                        width="240px"
+                        sx={InputMuiStyle}
+                        value={formValues[key] || getPlaceholder(key)}
+                        onChange={handleInputChange(key)}
+                      />
+                    </Box>
+                  ))}
                 <BasicButton
                   text="변경하기"
                   sx={{ borderRadius: sizes.borderRadius.medium }}
+                  onClick={handleModify}
                 />
               </MyInfoInnerBox>
             </Box>

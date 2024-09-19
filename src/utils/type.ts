@@ -86,8 +86,10 @@ export type MyInfoInnerBoxProps = {
 export type InputModifyBoxProp = {
   type?: "text" | "password";
   placeholder?: string;
+  value?: string;
   width?: string;
   sx?: object;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 export type SwitchBoxProp = {

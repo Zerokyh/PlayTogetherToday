@@ -12,9 +12,11 @@ import { InputModifyBoxProp } from "../../../utils/type";
 
 const InputModifyBox = ({
   type = "text",
-  placeholder = "제목",
+  placeholder,
+  value,
   width = "200px",
   sx,
+  onChange,
 }: InputModifyBoxProp) => {
   const [disabled, setDisabled] = React.useState(false);
 
@@ -42,8 +44,9 @@ const InputModifyBox = ({
         {placeholder}
       </InputLabel>
       <Input
-        id="standard-adornment-password"
+        value={value}
         type={type}
+        onChange={onChange}
         sx={{
           color: inputColor, // 입력 텍스트 색상 설정
           "&:before": {
