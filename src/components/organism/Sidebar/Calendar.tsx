@@ -5,6 +5,7 @@ import { StaticDatePicker } from "@mui/x-date-pickers/StaticDatePicker";
 import dayjs, { Dayjs } from "dayjs";
 import "dayjs/locale/ko";
 import { styled } from "@mui/material/styles";
+import { margin, width } from "@mui/system";
 
 dayjs.locale("ko");
 
@@ -15,6 +16,10 @@ type CalendarProps = {
 const CustomDatePicker = styled(StaticDatePicker)(() => ({
   "& .MuiPickersToolbar-root": {
     display: "none",
+  },
+  "& .MuiDateCalendar-root": {
+    width: 300,
+    margin: 0,
   },
 }));
 
@@ -42,7 +47,7 @@ const Calendar = ({ onDateChange }: CalendarProps) => {
         value={selectedDate ? dayjs(selectedDate) : null} // 선택된 날짜를 표시
         onChange={handleDateChange}
         sx={{
-          width: 258,
+          width: 300,
           height: 300,
         }}
       />

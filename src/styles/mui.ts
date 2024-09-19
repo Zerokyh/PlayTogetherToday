@@ -53,6 +53,16 @@ export const Drawer = styled(MuiDrawer, {
   }),
 }));
 
+export const DisableOutletBox = styled(Box)({
+  position: "absolute",
+  top: 0,
+  left: "300px",
+  width: "calc(100% - 300px)",
+  height: "100%",
+  backgroundColor: "rgba(0, 0, 0, 0.4)",
+  zIndex: 10,
+});
+
 export const FullPageBox = styled(Box)({
   width: `calc(100vw - ${sizes.drawerWidth})`,
   height: "100vh",

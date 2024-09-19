@@ -4,7 +4,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import { Outlet } from "react-router-dom";
 import { colors } from "../styles/colors";
 import SideBar from "./SideBar";
-import { FullPageBox } from "../styles/mui";
+import { DisableOutletBox, FullPageBox } from "../styles/mui";
 import Box from "@mui/material/Box";
 
 // zustand 설정 파일 호출
@@ -44,17 +44,7 @@ const PttLayout = () => {
             {/* 페이지가 바뀔 공간 등록 */}
             {isOpen ? (
               <>
-                <Box
-                  sx={{
-                    position: "absolute",
-                    top: 0,
-                    left: "300px",
-                    width: "calc(100% - 300px)",
-                    height: "100%",
-                    backgroundColor: "rgba(0, 0, 0, 0.4)",
-                    zIndex: 10,
-                  }}
-                />
+                <DisableOutletBox />
                 <Outlet />
               </>
             ) : (
