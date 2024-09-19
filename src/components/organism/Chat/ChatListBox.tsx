@@ -55,7 +55,6 @@ const ChatListBox = () => {
         component="form"
         sx={{
           width: "100%",
-
           backgroundColor:
             isTheme == "기본"
               ? colors.background.primary
@@ -73,17 +72,21 @@ const ChatListBox = () => {
             justifyContent: "center",
             alignItems: "center",
             fontSize: sizes.fontSize.medium,
+            backgroundColor:
+              isTheme == "기본"
+                ? colors.background.tertiary
+                : colors.sub_background.tertiary,
           }}
         >
           {/* {friend_member_nickname} */}
-          뒹굴뒹굴
+          채팅 리스트
         </Typography>
       </Box>
       <Box sx={{ padding: 3, width: "100%", overflowY: "scroll" }}>
         {isLoading ? (
           <LoadingSpiner
             loading={isLoading}
-            boxHeight={"652px"}
+            boxHeight={"622px"}
             color={colors.text.primary}
           />
         ) : (
