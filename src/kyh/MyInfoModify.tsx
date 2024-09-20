@@ -9,25 +9,24 @@ import { styled } from "@mui/material/styles";
 import useThemeStore from "../store/store";
 import MyInfoProfileImage from "./MyInfoProfileImage";
 import InputModifyBox from "../components/atom/Input/InputModifyBox";
-import BasicButton from "../components/atom/Button/BasicButton";
 import axios from "axios";
+import { UserProfileData } from "../utils/type";
+import LinkedButton from "../components/atom/Button/LinkedButton";
 
-type UserProfileData = {
-  member_id: number;
-  member_nickname: string;
-  member_phone: string;
-  member_address: string;
-  member_email: string;
-  member_2nd_email: string;
-  member_anniversary: Date | string;
+type formValue = {
+  nickname: string;
+  phone: string;
+  address: string;
+  email: string;
+  backupEmail: string;
+  anniversary: string;
 };
 
 const MyInfoModify = () => {
   const { isTheme } = useThemeStore();
   const [userProfileData, setUserProfileData] =
     React.useState<UserProfileData | null>(null);
-  const [member_id, setMemberId] = React.useState<number | null>(null);
-  const [formValues, setFormValues] = React.useState<Record<string, string>>({
+  const [formValues, setFormValues] = React.useState<formValue>({
     nickname: "",
     phone: "",
     address: "",
@@ -35,19 +34,34 @@ const MyInfoModify = () => {
     backupEmail: "",
     anniversary: "",
   });
+  const [member_id, setMemberId] = React.useState<string | null>(null);
+  const getMember_id = localStorage.getItem("member_id");
+
+  // React.useEffect(() => {
+  //   console.log("MyInfoModify rendered");
+  // });
+
+  // React.useEffect(() => {
+  //   console.log("Form values updated:", formValues);
+  // }, [formValues]);
 
   React.useEffect(() => {
     // Spring Boot API 호출
     axios
-      .get("http://localhost:8080/MyInfoModify/1")
+      .get(`http://localhost:8080/MyInfoModify/${getMember_id}`)
       .then((response) => {
-        console.log(response.data);
-        setUserProfileData(response.data.data);
-        setMemberId(response.data.data.member_id.toString());
-        localStorage.setItem(
-          "user_id",
-          response.data.data.member_id.toString()
-        );
+        const data = response.data.data;
+        setUserProfileData(data);
+        setFormValues({
+          nickname: data.member_nickname,
+          phone: data.member_phone,
+          address: data.member_address,
+          email: data.member_email,
+          backupEmail: data.member_2nd_email,
+          anniversary: data.member_anniversary
+            ? new Date(data.member_anniversary).toLocaleDateString()
+            : "",
+        });
       })
       .catch((error) => {
         console.error("Error fetching chat data:", error);
@@ -56,34 +70,14 @@ const MyInfoModify = () => {
 
   const handleInputChange =
     (key: string) => (event: React.ChangeEvent<HTMLInputElement>) => {
-      setFormValues({
-        ...formValues,
-        [key]: event.target.value,
+      setFormValues((prevValues) => {
+        const newValue = event.target.value;
+        console.log(`Setting ${key} to ${newValue}`);
+        return { ...prevValues, [key]: newValue };
       });
     };
-
-  const getPlaceholder = (key: string) => {
-    switch (key) {
-      case "nickname":
-        return userProfileData?.member_nickname ?? "";
-      case "phone":
-        return userProfileData?.member_phone ?? "";
-      case "address":
-        return userProfileData?.member_address ?? "";
-      case "email":
-        return userProfileData?.member_email ?? "";
-      case "backupEmail":
-        return userProfileData?.member_2nd_email ?? "";
-      case "anniversary":
-        return userProfileData?.member_anniversary
-          ? new Date(userProfileData.member_anniversary).toLocaleDateString()
-          : "";
-      default:
-        return "";
-    }
-  };
-
   const handleModify = () => {
+    console.log("Submitting:", { member_id, ...formValues });
     axios
       .post("http://localhost:8080/MyInfoModify", {
         member_id: member_id,
@@ -93,7 +87,7 @@ const MyInfoModify = () => {
         console.log(response.data);
       })
       .catch((error) => {
-        console.error("Error fetching chat data:", error);
+        console.error("Error updating user data:", error);
       });
   };
 
@@ -143,21 +137,28 @@ const MyInfoModify = () => {
             >
               <MyInfoInnerBox sx={{ width: "377px" }}>
                 <MyInfoProfileImage />
-                {userProfileData &&
-                  Object.entries(infoData).map(([key, item]) => (
-                    <Box sx={{ height: 60 }} key={key}>
-                      <ChipTextBox titlename={item.titlename} />
-                      <InputModifyBox
-                        width="240px"
-                        sx={InputMuiStyle}
-                        value={formValues[key] || getPlaceholder(key)}
-                        onChange={handleInputChange(key)}
-                      />
-                    </Box>
-                  ))}
-                <BasicButton
+                {Object.entries(infoData).map(([key, item]) => (
+                  <Box sx={{ height: 60 }} key={key}>
+                    <ChipTextBox titlename={item.titlename} />
+                    <InputModifyBox
+                      width="240px"
+                      sx={InputMuiStyle}
+                      value={formValues[key as keyof typeof formValues] || ""}
+                      onChange={handleInputChange(key)}
+                    />
+                  </Box>
+                ))}
+                <LinkedButton
                   text="변경하기"
-                  sx={{ borderRadius: sizes.borderRadius.medium }}
+                  textcolor="secondary"
+                  bgcolor="button"
+                  variantType="contained"
+                  sx={{
+                    border: "0px",
+                    width: "370px",
+                    height: "40px",
+                    fontSize: 24,
+                  }}
                   onClick={handleModify}
                 />
               </MyInfoInnerBox>

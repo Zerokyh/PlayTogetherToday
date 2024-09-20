@@ -124,7 +124,7 @@ export const MyInfoInnerBox = styled(Box)({
 });
 
 export const DashboardGridBox = styled(Box)({
-  width: "100%",
+  width: "100vw",
   height: "100%",
   // maxHeight: "95.8vh",
   display: "flex",
@@ -215,20 +215,25 @@ export const MySettingInnerStyle = {
 export const InputMuiStyle = {
   position: "relative",
   bottom: 10,
-  "& .MuiInput-underline:before": {
-    borderBottomColor: "#23374D", // 기본 밑줄 색상
+  color: "#23374D", // 입력 텍스트 색상 설정
+  "&:before": {
+    borderBottom: `1px solid #23374D !important`, // 기본 상태 밑줄 색상
   },
-  "& .MuiInput-underline:hover:before": {
-    borderBottomColor: "#23374D", // 호버 시 밑줄 색상
+  "&:hover:not(.Mui-disabled):before": {
+    borderBottom: `2px solid #23374D !important`, // 호버 시 밑줄 색상
   },
-  "& .MuiInput-underline:after": {
-    borderBottomColor: "#23374D", // 포커스 시 밑줄 색상
+  "&.Mui-focused:after": {
+    borderBottom: `2px solid #23374D !important`, // 포커스 후 밑줄 색상
   },
-  "& .MuiInputLabel-root": {
-    color: "#23374D", // 라벨 색상
+  "&.Mui-disabled": {
+    color: `#23374D !important`, // 비활성화 상태에서 텍스트 색상
+    "&:before": {
+      borderBottom: `1px solid #23374D !important`, // 비활성화 상태에서 밑줄 색상
+    },
   },
+  // 레이블과 입력 필드의 전체 색상 설정
   "& .MuiInputBase-input": {
-    color: "#23374D", // 입력 텍스트 색상
+    color: "#23374D", // 입력 텍스트 색상 설정
   },
 };
 
