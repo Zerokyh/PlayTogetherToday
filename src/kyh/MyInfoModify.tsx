@@ -26,6 +26,7 @@ const MyInfoModify = () => {
   const { isTheme } = useThemeStore();
   const [userProfileData, setUserProfileData] =
     React.useState<UserProfileData | null>(null);
+  const [imageUrl, setImageUrl] = React.useState<string>(""); // 이미지 URL 상태
   const [formValues, setFormValues] = React.useState<formValue>({
     nickname: "",
     phone: "",
@@ -34,8 +35,7 @@ const MyInfoModify = () => {
     backupEmail: "",
     anniversary: "",
   });
-  const [member_id, setMemberId] = React.useState<string | null>(null);
-  const getMember_id = localStorage.getItem("member_id");
+  const member_id = localStorage.getItem("member_id");
 
   // React.useEffect(() => {
   //   console.log("MyInfoModify rendered");
@@ -48,9 +48,10 @@ const MyInfoModify = () => {
   React.useEffect(() => {
     // Spring Boot API 호출
     axios
-      .get(`http://localhost:8080/MyInfoModify/${getMember_id}`)
+      .get(`http://localhost:8080/MyInfoModify/${member_id}`)
       .then((response) => {
         const data = response.data.data;
+        console.log("Fetched user data:", data);
         setUserProfileData(data);
         setFormValues({
           nickname: data.member_nickname,
@@ -62,9 +63,10 @@ const MyInfoModify = () => {
             ? new Date(data.member_anniversary).toLocaleDateString()
             : "",
         });
+        setImageUrl(data.profile_image_url); // 프로필 이미지 URL 설정
       })
       .catch((error) => {
-        console.error("Error fetching chat data:", error);
+        console.error("Error fetching user profile data:", error);
       });
   }, []);
 
@@ -76,6 +78,7 @@ const MyInfoModify = () => {
         return { ...prevValues, [key]: newValue };
       });
     };
+
   const handleModify = () => {
     console.log("Submitting:", { member_id, ...formValues });
     axios
@@ -136,7 +139,10 @@ const MyInfoModify = () => {
               }}
             >
               <MyInfoInnerBox sx={{ width: "377px" }}>
-                <MyInfoProfileImage />
+                <MyInfoProfileImage
+                  imageUrl={imageUrl}
+                  setImageUrl={setImageUrl}
+                />
                 {Object.entries(infoData).map(([key, item]) => (
                   <Box sx={{ height: 60 }} key={key}>
                     <ChipTextBox titlename={item.titlename} />

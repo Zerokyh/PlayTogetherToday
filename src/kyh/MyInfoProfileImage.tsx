@@ -5,11 +5,19 @@ import { sizes } from "../styles/sizes";
 import { colors } from "../styles/colors";
 import ImgAvatar from "../components/atom/Avatar/ImgAvatar";
 import LoadingSpiner from "../components/atom/Loading/LoadingSpinner";
+import axios from "axios";
 
-const MyInfoProfileImage = () => {
-  const [imageUrl, setImageUrl] = React.useState<string>(""); // 이미지 URL 상태
+type MyInfoProfileImageProps = {
+  imageUrl: string;
+  setImageUrl: (url: string) => void;
+};
+
+const MyInfoProfileImage = ({
+  imageUrl,
+  setImageUrl,
+}: MyInfoProfileImageProps) => {
   const [loading, setLoading] = React.useState<boolean>(false); // 로딩 상태
-  const [uploadSuccess, setUploadSuccess] = React.useState<boolean | "">(""); // 업로드 성공 여부
+  const [uploadSuccess, setUploadSuccess] = React.useState<boolean>(false); // 업로드 성공 여부
   const [openSnackbar, setOpenSnackbar] = React.useState<boolean>(false); // 스낵바 상태
 
   const apiKey = "71fd1a030761c873bc2c144f69ce00e0"; // 자신의 API 키
@@ -46,13 +54,35 @@ const MyInfoProfileImage = () => {
       console.log("Response Data:", data); // 서버에서 받은 응답 로그
 
       if (data.success) {
-        setImageUrl(data.data.url); // 이미지 URL 상태 업데이트
-        setUploadSuccess(true); // 성공 상태
-        setOpenSnackbar(true); // 스낵바 열기
+        setImageUrl(data.data.url);
+        setUploadSuccess(true);
+        setOpenSnackbar(true);
+
+        const member_id = localStorage.getItem("member_id");
+        if (member_id) {
+          const saveResponse = await axios.post(
+            `http://localhost:8080/MyInfoModify/${member_id}/saveProfileImage`,
+            {
+              profileImageUrl: data.data.url,
+            },
+            {
+              withCredentials: true, // 필요에 따라 설정
+            }
+          );
+
+          if (saveResponse.status === 200) {
+            console.log("Profile image URL saved successfully.");
+          } else {
+            setUploadSuccess(false);
+            console.error("Failed to save profile image URL:", saveResponse);
+          }
+        } else {
+          setUploadSuccess(false);
+          console.error("Member ID not found in localStorage.");
+        }
       } else {
-        console.error("Image upload failed:", data); // 실패 로그
-        setUploadSuccess(false); // 실패 상태
-        setOpenSnackbar(true); // 스낵바 열기
+        setUploadSuccess(false);
+        console.error("Image upload failed:", data);
       }
     } catch (error) {
       console.error("Error uploading image:", error); // 에러 로그
