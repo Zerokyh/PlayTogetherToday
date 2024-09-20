@@ -15,7 +15,7 @@ const ButtonGroups = ({ isTheme, onJoin, onCancel }: ButtonGroupsProps) => {
       sx={{
         display: "flex",
         justifyContent: "center",
-        padding: sizes.padding.xlarge,
+        paddingTop: sizes.padding.medium,
         gap: 3,
       }}
     >
