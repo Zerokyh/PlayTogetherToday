@@ -12,7 +12,7 @@ const SideBar = () => {
   const { isOpen, setIsOpen, setIsLogin } = useThemeStore();
 
   React.useEffect(() => {
-    setIsLogin(true);
+    setIsLogin(false);
   }, [setIsLogin]);
 
   return (
