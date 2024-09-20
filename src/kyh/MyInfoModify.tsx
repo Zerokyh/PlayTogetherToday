@@ -10,7 +10,6 @@ import useThemeStore from "../store/store";
 import MyInfoProfileImage from "./MyInfoProfileImage";
 import InputModifyBox from "../components/atom/Input/InputModifyBox";
 import axios from "axios";
-import { UserProfileData } from "../utils/type";
 import LinkedButton from "../components/atom/Button/LinkedButton";
 
 type formValue = {
@@ -24,9 +23,7 @@ type formValue = {
 
 const MyInfoModify = () => {
   const { isTheme } = useThemeStore();
-  const [userProfileData, setUserProfileData] =
-    React.useState<UserProfileData | null>(null);
-  const [imageUrl, setImageUrl] = React.useState<string>(""); // 이미지 URL 상태
+  const [imageUrl, setImageUrl] = React.useState<string>("");
   const [formValues, setFormValues] = React.useState<formValue>({
     nickname: "",
     phone: "",
@@ -35,52 +32,59 @@ const MyInfoModify = () => {
     backupEmail: "",
     anniversary: "",
   });
+  const [disabledFields, setDisabledFields] = React.useState<{
+    [key in keyof formValue]: boolean;
+  }>({
+    nickname: true,
+    phone: true,
+    address: true,
+    email: true,
+    backupEmail: true,
+    anniversary: true,
+  });
+
   const member_id = localStorage.getItem("member_id");
 
-  // React.useEffect(() => {
-  //   console.log("MyInfoModify rendered");
-  // });
-
-  // React.useEffect(() => {
-  //   console.log("Form values updated:", formValues);
-  // }, [formValues]);
-
   React.useEffect(() => {
-    // Spring Boot API 호출
     axios
       .get(`http://localhost:8080/MyInfoModify/${member_id}`)
       .then((response) => {
         const data = response.data.data;
-        console.log("Fetched user data:", data);
-        setUserProfileData(data);
         setFormValues({
-          nickname: data.member_nickname,
-          phone: data.member_phone,
-          address: data.member_address,
-          email: data.member_email,
-          backupEmail: data.member_2nd_email,
+          nickname: data.member_nickname || "",
+          phone: data.member_phone || "",
+          address: data.member_address || "",
+          email: data.member_email || "",
+          backupEmail: data.member_2nd_email || "",
           anniversary: data.member_anniversary
             ? new Date(data.member_anniversary).toLocaleDateString()
             : "",
         });
-        setImageUrl(data.profile_image_url); // 프로필 이미지 URL 설정
+        setImageUrl(data.profile_image_url);
       })
       .catch((error) => {
         console.error("Error fetching user profile data:", error);
       });
-  }, []);
+  }, [member_id]);
+
+  const handleToggle = (key: keyof formValue) => {
+    setDisabledFields((prev) => ({
+      ...prev,
+      [key]: !prev[key],
+    }));
+  };
 
   const handleInputChange =
-    (key: string) => (event: React.ChangeEvent<HTMLInputElement>) => {
-      setFormValues((prevValues) => {
-        const newValue = event.target.value;
-        console.log(`Setting ${key} to ${newValue}`);
-        return { ...prevValues, [key]: newValue };
-      });
+    (key: keyof formValue) => (event: React.ChangeEvent<HTMLInputElement>) => {
+      const newValue = event.target.value;
+      console.log("MyInfoModify handleInputChange:", key, newValue);
+      setFormValues((prevValues) => ({
+        ...prevValues,
+        [key]: newValue,
+      }));
     };
 
   const handleModify = () => {
-    console.log("Submitting:", { member_id, ...formValues });
     axios
       .post("http://localhost:8080/MyInfoModify", {
         member_id: member_id,
@@ -116,13 +120,7 @@ const MyInfoModify = () => {
     <ThemeProvider theme={theme}>
       <FullPageBox>
         <Box sx={{ maxWidth: "1280px" }}>
-          <Box
-            sx={{
-              position: "relative",
-              top: -40,
-              left: 180,
-            }}
-          >
+          <Box sx={{ position: "relative", top: -40, left: 180 }}>
             <Typography
               sx={{ fontSize: sizes.fontSize.xlarge, fontWeight: 600 }}
             >
@@ -149,8 +147,10 @@ const MyInfoModify = () => {
                     <InputModifyBox
                       width="240px"
                       sx={InputMuiStyle}
-                      value={formValues[key as keyof typeof formValues] || ""}
-                      onChange={handleInputChange(key)}
+                      value={formValues[key as keyof formValue]}
+                      onChange={handleInputChange(key as keyof formValue)}
+                      disabled={disabledFields[key as keyof formValue]}
+                      onToggle={() => handleToggle(key as keyof formValue)}
                     />
                   </Box>
                 ))}
