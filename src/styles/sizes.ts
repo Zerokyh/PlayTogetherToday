@@ -12,7 +12,7 @@ export const sizes = {
   },
 
   width: {
-    sidebar: 224,
+    sidebar: 300,
     default_info: "130px",
     info: "190px",
     half: "800px",

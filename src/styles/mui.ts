@@ -167,7 +167,7 @@ export const WidthHalfBoxInnerMui = {
 
 export const SkeletonMini = {
   mx: "auto",
-  width: 224,
+  width: 270,
   height: 140,
 };
 
