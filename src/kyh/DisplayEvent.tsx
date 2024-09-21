@@ -159,7 +159,7 @@ const DisplayEvent = ({ selectedDate }: DisplayEventProps) => {
                 key={index}
                 groupname={event.groupname}
                 eventname={event.eventname}
-                eventtime={event.eventtime}
+                eventdate={event.date}
               />
             ))
           ) : (
@@ -173,7 +173,7 @@ const DisplayEvent = ({ selectedDate }: DisplayEventProps) => {
                 key={index}
                 groupname={event.groupname}
                 eventname={event.eventname}
-                eventtime={event.eventtime}
+                eventdate={event.date}
               />
             ))
           ) : (
