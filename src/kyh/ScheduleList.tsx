@@ -27,7 +27,7 @@ const ScheduleList = ({
         {groupname} - {eventname}
       </Typography>
       <Typography sx={{ fontSize: sizes.fontSize.small }}>
-        {eventtime} || {eventdate}
+        {eventtime} {eventdate}
       </Typography>
     </Box>
   );
