@@ -37,7 +37,6 @@ const ContentsBox = ({
       sx={{
         flexGrow: 1,
         position: "relative",
-        cursor: "pointer",
         width: { xs: 300, sm: 400, md: 500, lg: 632 },
         height: { xs: 200, sm: 200, md: 340, lg: 340 },
         minHeight: { xs: 200, sm: 200 },
@@ -52,6 +51,7 @@ const ContentsBox = ({
           isTheme === "기본"
             ? colors.background.secondary
             : colors.sub_background.secondary,
+        cursor: "pointer",
       }}
     >
       <CardMedia
