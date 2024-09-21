@@ -47,8 +47,8 @@ const BasicButton = ({
           color: textcolor,
         }}
       >
-        {buttonName.map((v) => (
-          <span>{v}</span>
+        {buttonName.map((v, index) => (
+          <span key={index}>{v}</span>
         ))}
       </Box>
     </Button>

@@ -12,6 +12,7 @@ export const handleDrawerClose = (setIsOpen: (isOpen: boolean) => void) => {
 
 export const handleLogOut = (setIsLogin: (isLogin: boolean) => void) => {
   setIsLogin(false);
+  localStorage.removeItem("member_id");
 };
 
 export const geListItemStyles = (isOpen: boolean) => ({

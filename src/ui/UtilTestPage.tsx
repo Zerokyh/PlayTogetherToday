@@ -7,6 +7,7 @@ import BasicModal from "../components/organism/Modal/BasicModal";
 import { dashBoardData } from "../constants/dashBoardData";
 import useThemeStore from "../store/store";
 import { useNavigate } from "react-router-dom";
+import TestInputModifyBox from "./TestInputModifyBox";
 
 const UtilTestPage = () => {
   const [open, setOpen] = React.useState(false);
@@ -43,6 +44,9 @@ const UtilTestPage = () => {
             open={open}
             handleClose={handleClose}
           />
+        </Box>
+        <Box>
+          <TestInputModifyBox />
         </Box>
       </Box>
     </FullPageBox>

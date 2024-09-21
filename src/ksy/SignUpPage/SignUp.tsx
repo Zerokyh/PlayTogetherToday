@@ -1,4 +1,4 @@
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Button, Modal, Typography } from "@mui/material";
 import { FullPageBox } from "../../styles/mui";
 import InputGroups from "./InputGroups";
 import { useSignUpForm } from "./InputFunction/UseForm";
@@ -8,6 +8,7 @@ import { colors } from "../../styles/colors";
 import { sizes } from "../../styles/sizes";
 import ButtonGroups from "./ButtonGroups";
 import FindAccount from "../LogInPage/Find_Account";
+import { useState } from "react";
 
 const SignUp = () => {
   const {
@@ -25,7 +26,19 @@ const SignUp = () => {
   const { isTheme } = useThemeStore();
   const navigate = useNavigate();
 
+  // Modal
+  const [openSignUpModal, setOpenSignUpModal] = useState(false);
+  const [openCancelModal, setOpenCancelModal] = useState(false);
+  
+  // Cancel Btn Modal Open logic
+  const handleOpenCancelModal = () => setOpenCancelModal(true);
+  const handleCloseCancelModal = () => setOpenCancelModal(false);
+  // Cancel Btn Modal Open
   const handleCancel = () => {
+    handleOpenCancelModal();
+  };
+  // Cancel Btn Navigate
+  const handleCancelBtn = () => {
     setFormState({
       idEmail: "",
       password: "",
@@ -42,15 +55,19 @@ const SignUp = () => {
       phoneNumberBlurred: false,
     });
 
-    setTimeout(() => {
-      alert("처음 화면으로 돌아갑니다. 내용은 저장되지 않습니다.");
-      navigate("/");
-    }, 0);
+    navigate("/");
   };
 
-  const handelJoin = () => {
+  // SignUp Join Btn Modal Open logic
+  const handleOpenSignUpModal = () => setOpenSignUpModal(true);
+  const handleCloseSignUpModal = () => setOpenSignUpModal(false);
+  // SignUp Btn Modal Open
+  const handleJoin = () => {
+    handleOpenSignUpModal();
+  }
+  // SignUp Btn Navigate
+  const handelJoinBtn = () => {
     setTimeout(() => {
-      alert("이대로 가입하시겠습니까?");
       navigate("/");
       // after : Save Data Code
     })
@@ -74,9 +91,9 @@ const SignUp = () => {
       {/* Container */}
       <Box
         sx={{
-          width: sizes.width.half,
-          height: sizes.height.full,
-          padding: "8%",
+          width: "540px",
+          height: "700px",
+          padding: "20px",
           bgcolor:
             isTheme === "기본"
             ? colors.background.secondary
@@ -91,10 +108,10 @@ const SignUp = () => {
         {/* Title Box */}
         <Typography
           sx={{
-            width: "500px",
+          width: "500px",
           height: "40px",
           padding: sizes.padding.xlarge,
-          marginBottom: 1,
+          marginBottom: "12px",
           bgcolor:
             isTheme == "기본"
             ? colors.background.tertiary
@@ -120,7 +137,7 @@ const SignUp = () => {
           height: "40px",
           paddingX: sizes.padding.xlarge,
           paddingY: sizes.padding.large,
-          marginBottom: 6,
+          marginBottom: "25px",
           bgcolor:
             isTheme == "기본"
             ? colors.background.tertiary
@@ -157,10 +174,144 @@ const SignUp = () => {
         {/* Button Group */}
         <ButtonGroups
           isTheme={isTheme}
-          onJoin={handelJoin}
-          onCancel={handleCancel}
+          onJoin={handleOpenSignUpModal}
+          onCancel={handleOpenCancelModal}
         />
       </Box>
+
+      {/* SignUp Button Modal */}
+      <Modal
+        open={openSignUpModal}
+        onClose={handleCloseSignUpModal}
+        aria-labelledby="modal-title-delete"
+        aria-describedby="modal-description-delete"
+      >
+        <Box
+          sx={{
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            width: 300,
+            bgcolor: 'background.paper',
+            border: '2px solid #000',
+            boxShadow: 24,
+            p: 4,
+          }}
+        >
+          <Typography id="modal-title-delete" variant="h6" component="h2"
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              fontWeight: "bold",
+              color: colors.text.primary
+            }}
+          >
+            모임 가입
+          </Typography>
+          <Typography id="modal-description-delete"
+            sx={{
+              mt: 2,
+              display: "flex",
+              justifyContent: "center",
+              color: colors.text.primary
+            }}
+          >
+            정말 가입하시겠습니까?
+          </Typography>
+          <Box mt={2} display={"flex"} justifyContent={"center"}>
+            <Button
+              onClick={handelJoinBtn}
+              variant="contained"
+              sx={{
+                mr: 1,
+                bgcolor:
+                  isTheme === "기본"
+                    ? colors.background.button
+                    : colors.sub_background.button,
+                color: colors.text.secondary,
+              }}
+            >
+              가입하기
+            </Button>
+            <Button
+              onClick={handleCloseSignUpModal}
+              variant="outlined"
+              sx={{
+                bgcolor:
+                  isTheme === "기본"
+                    ? colors.background.subbutton
+                    : colors.sub_background.subbutton,
+                color: colors.text.primary,
+                borderColor: colors.border.primary
+              }}
+            >
+              취소
+            </Button>
+          </Box>
+        </Box>
+      </Modal>
+
+      {/* Cancle Button Modal */}
+      <Modal
+        open={openCancelModal}
+        onClose={handleCancelBtn}
+        aria-labelledby="modal-title-join"
+        aria-describedby="modal-description-join"
+      >
+        <Box
+          sx={{
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            width: 300,
+            bgcolor: 'background.paper',
+            border: '2px solid #000',
+            boxShadow: 24,
+            p: 4,
+          }}
+        >
+          <Typography id="modal-title-join" variant="h6" component="h2"
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              fontWeight: "bold",
+              color: colors.text.primary
+            }}
+          >
+            모임 가입
+          </Typography>
+          <Typography id="modal-description-join"
+            sx={{
+              mt: 2,
+              display: "flex",
+              justifyContent: "center",
+              textAlign: "center",
+              color: colors.text.primary
+            }}>
+            처음 화면으로 돌아갑니다
+            <br/>(내용은 저장되지 않습니다)
+          </Typography>
+          <Box mt={2} display={"flex"} justifyContent={"center"}>
+            <Button
+              onClick={handleCancelBtn}
+              variant="contained"
+              sx={{
+                mr: 1,
+                bgcolor:
+                  isTheme === "기본"
+                    ? colors.background.button
+                    : colors.sub_background.button,
+                color: colors.text.secondary,
+              }}
+            >
+              확인
+            </Button>
+          </Box>
+        </Box>
+      </Modal>
+
     </FullPageBox>
   );
 };

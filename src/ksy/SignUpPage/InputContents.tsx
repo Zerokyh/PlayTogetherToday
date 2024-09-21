@@ -33,7 +33,7 @@ const InputContents: React.FC<InputProps> = ({
                 height: "60px",
                 paddingX: sizes.padding.xlarge,
                 paddingY: sizes.padding.medium,
-                marginBottom: 3,
+                marginBottom: "18px", // 11px -> before (over height)
                 bgcolor:
                     isTheme == "기본"
                     ? colors.background.tertiary
@@ -92,7 +92,7 @@ const InputContents: React.FC<InputProps> = ({
                     onFocus={onFocus}
                     sx={{
                         width: "470px",
-                        height: "18px",
+                        height: "24px",
                         padding: "0",
                         margin: "0",
                         outline: "none",
@@ -114,9 +114,9 @@ const InputContents: React.FC<InputProps> = ({
                         }}>
                         {showPassword
                             ? (<VisibilityIcon
-                                sx={{ fontSize: sizes.fontSize.normal }} />) 
+                                sx={{ fontSize: sizes.fontSize.medium }} />) 
                             : (<VisibilityOffIcon
-                                sx={{ fontSize: sizes.fontSize.normal }} />)}
+                                sx={{ fontSize: sizes.fontSize.medium }} />)}
                 </IconButton> )}
             </Box>
         </Box>

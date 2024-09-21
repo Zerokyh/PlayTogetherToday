@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Box, Button, ThemeProvider, Typography } from "@mui/material";
+import { Box, Button, Modal, ThemeProvider, Typography } from "@mui/material";
 import { FullPageBox } from "../../styles/mui";
 import { colors } from "../../styles/colors";
 import { sizes } from "../../styles/sizes";
@@ -13,7 +13,7 @@ interface FindAccountProps {
   idEmail: string;
 }
 
-const FindAccount = ({idEmail} : FindAccountProps) => {
+const FindAccount = ({ idEmail }: FindAccountProps) => {
   const {
     formState,
     setFormState,
@@ -24,25 +24,18 @@ const FindAccount = ({idEmail} : FindAccountProps) => {
 
   const { isTheme } = useThemeStore();
   const navigate = useNavigate();
-  
-  const handleEmailLink = async () => {
-    try {
-      const response = await fetch('/api/password-reset', { // 백엔드 API 경로 설정
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({ email: formState.idEmail }), // 입력된 이메일을 서버로 전송
-      });
 
-      if (response.ok) {
-        alert("입력하신 이메일로 링크를 보냈습니다!");
-      } else {
-        alert("이메일 전송에 실패했습니다. 다시 시도해 주세요.");
-      }
-    } catch (error) {
-      console.error("Error sending password reset email:", error);
-      alert("이메일 전송 중 오류가 발생했습니다. 다시 시도해 주세요.");
-    }
+  const [tempPassword, setTempPassword] = React.useState<string>("");
+  const [openResetModal, setOpenResetModal] = React.useState(false);
+
+  const handleOpenResetModal = () => {
+    const tempPW = formState.idEmail.split('@')[0]; // @ 앞부분 추출
+    setTempPassword(tempPW);
+    localStorage.setItem('tempPassword', tempPW);
+    setOpenResetModal(true);
   };
+
+  const handleCloseResetModal = () => setOpenResetModal(false);
 
   const pageBack = () => {
     setTimeout(() => {
@@ -56,32 +49,33 @@ const FindAccount = ({idEmail} : FindAccountProps) => {
         <Box sx={{ maxWidth: "1280px" }}>
           <Box
             sx={{
-                display: "flex",
-                justifyContent: "center",
-                margin: sizes.margin.xlarge,
-            }}>
+              display: "flex",
+              justifyContent: "center",
+              margin: sizes.margin.xlarge,
+            }}
+          >
             <Typography
-                sx={{
-                    fontSize: sizes.fontSize.xlarge,
-                    fontWeight: 600
-                }}>
+              sx={{
+                fontSize: sizes.fontSize.xlarge,
+                fontWeight: 600,
+              }}
+            >
               아이디 / 비밀번호 찾기
             </Typography>
           </Box>
-                  
-        <Box sx={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            width: "540px",
-            height: "700px",
-            bgcolor:
-            isTheme == "기본"
-            ? colors.background.secondary
-            : colors.sub_background.secondary,
-            margin: sizes.margin.xlarge,
-            borderRadius: sizes.borderRadius.normal,
-        }}>
+
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              width: "540px",
+              height: "700px",
+              bgcolor: isTheme === "기본" ? colors.background.secondary : colors.sub_background.secondary,
+              margin: sizes.margin.xlarge,
+              borderRadius: sizes.borderRadius.normal,
+            }}
+          >
             <Box
               sx={{
                 display: "flex",
@@ -90,9 +84,8 @@ const FindAccount = ({idEmail} : FindAccountProps) => {
                 width: sizes.width.block,
                 padding: sizes.padding.xlarge,
                 gap: "2",
-              }}>
-              
-              {/* 데이터 받아와서 나타내게 하기 */}
+              }}
+            >
               <Typography
                 sx={{
                   display: "flex",
@@ -104,74 +97,130 @@ const FindAccount = ({idEmail} : FindAccountProps) => {
                   height: "80px",
                   margin: "50px",
                   fontSize: sizes.fontSize.large,
-                  bgcolor:
-                  isTheme == "기본"
-                  ? colors.background.tertiary
-                  : colors.sub_background.tertiary,
-                }}>
-                아이디 : { idEmail || "ptt0922@gmail.com"}
+                  bgcolor: isTheme === "기본" ? colors.background.tertiary : colors.sub_background.tertiary,
+                }}
+              >
+                아이디 : {idEmail || "ptt0922@gmail.com"}
               </Typography>
 
               <Box>
                 <InputContents
-                label={"이메일 입력*"}
-                value={formState.idEmail}
-                setValue={(val) => setFormState((prev) => ({ ...prev, idEmail: val }))}
-                isValid={validity.isIdEmailValid || !blurred.idEmailBlurred}
-                validationMessage="올바른 이메일 형식이 아닙니다"
-                onBlur={() => setBlurred((prev) => ({ ...prev, idEmailBlurred: true }))}
-                onFocus={() => setBlurred((prev) => ({ ...prev, idEmailBlurred: false }))}/>
-                          
+                  label={"이메일 입력*"}
+                  value={formState.idEmail}
+                  setValue={(val) => setFormState((prev) => ({ ...prev, idEmail: val }))}
+                  isValid={validity.isIdEmailValid || !blurred.idEmailBlurred}
+                  validationMessage="올바른 이메일 형식이 아닙니다"
+                  onBlur={() => setBlurred((prev) => ({ ...prev, idEmailBlurred: true }))}
+                  onFocus={() => setBlurred((prev) => ({ ...prev, idEmailBlurred: false }))}
+                />
                 <InputContents
-                label={"연락처 (숫자만 입력)*"}
-                value={formState.phoneNumber}
-                setValue={(val) => setFormState((prev) => ({ ...prev, phoneNumber: val }))}/>   
+                  label={"연락처 (숫자만 입력)*"}
+                  value={formState.phoneNumber}
+                  setValue={(val) => setFormState((prev) => ({ ...prev, phoneNumber: val }))}
+                />
               </Box>
-                
+
               <Box
                 sx={{
                   display: "flex",
-                  gap: 3
-              }}>
+                  gap: 3,
+                }}
+              >
                 <Button
-                onClick={handleEmailLink}
-                sx={{
-                width: "150px",
-                height: 45,
-                marginY: "50px",
-                bgcolor:
-                  isTheme == "기본"
-                  ? colors.background.button
-                  : colors.sub_background.button,
-                fontSize: sizes.fontSize.normal,
-                color: colors.text.secondary,
-                borderRadius: sizes.borderRadius.normal,
-                }}>
-                비밀번호 초기화하기
-              </Button>
+                  onClick={handleOpenResetModal}
+                  sx={{
+                    width: "150px",
+                    height: 45,
+                    marginY: "50px",
+                    bgcolor: isTheme === "기본" ? colors.background.button : colors.sub_background.button,
+                    fontSize: sizes.fontSize.normal,
+                    color: colors.text.secondary,
+                    borderRadius: sizes.borderRadius.normal,
+                  }}
+                >
+                  비밀번호 초기화하기
+                </Button>
                 <Button
-                onClick={pageBack}
-                sx={{
-                width: "150px",
-                height: 45,
-                marginY: "50px",
-                bgcolor:
-                  isTheme == "기본"
-                  ? colors.background.primary
-                  : colors.sub_background.primary,
-                fontSize: sizes.fontSize.normal,
-                color: colors.text.primary,
-                borderRadius: sizes.borderRadius.normal,
-              }}>
-                뒤로가기
-              </Button>
-            </Box>
+                  onClick={pageBack}
+                  sx={{
+                    width: "150px",
+                    height: 45,
+                    marginY: "50px",
+                    bgcolor: isTheme === "기본" ? colors.background.primary : colors.sub_background.primary,
+                    fontSize: sizes.fontSize.normal,
+                    color: colors.text.primary,
+                    borderRadius: sizes.borderRadius.normal,
+                  }}
+                >
+                  뒤로가기
+                </Button>
+              </Box>
             </Box>
           </Box>
         </Box>
+
+        {/* Reset Password Modal */}
+        <Modal
+          open={openResetModal}
+          onClose={handleCloseResetModal}
+          aria-labelledby="modal-title-reset"
+          aria-describedby="modal-description-reset"
+        >
+          <Box
+            sx={{
+              position: 'absolute',
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)',
+              width: 300,
+              bgcolor: 'background.paper',
+              border: '2px solid #000',
+              boxShadow: 24,
+              p: 4,
+            }}
+          >
+            <Typography
+              id="modal-title-reset"
+              variant="h6"
+              component="h2"
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                fontWeight: "bold",
+                color: colors.text.primary,
+              }}
+            >
+            비밀번호 초기화
+            </Typography>
+            <Typography
+              id="modal-description-reset"
+              sx={{
+                mt: 2,
+                display: "flex",
+                justifyContent: "center",
+                color: colors.text.primary,
+              }}
+            >
+              초기 비밀번호는 "{tempPassword}" 입니다.
+            </Typography>
+            <Box mt={2} display={"flex"} justifyContent={"center"}>
+              <Button
+                onClick={pageBack}
+                variant="contained"
+                sx={{
+                  mr: 1,
+                  bgcolor: isTheme === "기본" ? colors.background.button : colors.sub_background.button,
+                  color: colors.text.secondary,
+                }}
+              >
+                확인
+              </Button>
+            </Box>
+          </Box>
+        </Modal>
       </FullPageBox>
     </ThemeProvider>
   );
-}
+};
 
 export default FindAccount;

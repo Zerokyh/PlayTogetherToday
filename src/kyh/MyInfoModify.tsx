@@ -9,9 +9,94 @@ import { styled } from "@mui/material/styles";
 import useThemeStore from "../store/store";
 import MyInfoProfileImage from "./MyInfoProfileImage";
 import InputModifyBox from "../components/atom/Input/InputModifyBox";
+import axios from "axios";
+import LinkedButton from "../components/atom/Button/LinkedButton";
+
+type formValue = {
+  nickname: string;
+  phone: string;
+  address: string;
+  email: string;
+  backupEmail: string;
+  anniversary: string;
+};
 
 const MyInfoModify = () => {
   const { isTheme } = useThemeStore();
+  const [imageUrl, setImageUrl] = React.useState<string>("");
+  const [formValues, setFormValues] = React.useState<formValue>({
+    nickname: "",
+    phone: "",
+    address: "",
+    email: "",
+    backupEmail: "",
+    anniversary: "",
+  });
+  const [disabledFields, setDisabledFields] = React.useState<{
+    [key in keyof formValue]: boolean;
+  }>({
+    nickname: true,
+    phone: true,
+    address: true,
+    email: true,
+    backupEmail: true,
+    anniversary: true,
+  });
+
+  const member_id = localStorage.getItem("member_id");
+
+  React.useEffect(() => {
+    axios
+      .get(`http://localhost:8080/MyInfoModify/${member_id}`)
+      .then((response) => {
+        const data = response.data.data;
+        setFormValues({
+          nickname: data.member_nickname || "",
+          phone: data.member_phone || "",
+          address: data.member_address || "",
+          email: data.member_email || "",
+          backupEmail: data.member_2nd_email || "",
+          anniversary: data.member_anniversary
+            ? new Date(data.member_anniversary).toLocaleDateString()
+            : "",
+        });
+        setImageUrl(data.profile_image_url);
+      })
+      .catch((error) => {
+        console.error("Error fetching user profile data:", error);
+      });
+  }, [member_id]);
+
+  const handleToggle = (key: keyof formValue) => {
+    setDisabledFields((prev) => ({
+      ...prev,
+      [key]: !prev[key],
+    }));
+  };
+
+  const handleInputChange =
+    (key: keyof formValue) => (event: React.ChangeEvent<HTMLInputElement>) => {
+      const newValue = event.target.value;
+      console.log("MyInfoModify handleInputChange:", key, newValue);
+      setFormValues((prevValues) => ({
+        ...prevValues,
+        [key]: newValue,
+      }));
+    };
+
+  const handleModify = () => {
+    axios
+      .post("http://localhost:8080/MyInfoModify", {
+        member_id: member_id,
+        ...formValues,
+      })
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.error("Error updating user data:", error);
+      });
+  };
 
   const MySettingOutterBox = styled(Box)({
     backgroundColor:
@@ -35,13 +120,7 @@ const MyInfoModify = () => {
     <ThemeProvider theme={theme}>
       <FullPageBox>
         <Box sx={{ maxWidth: "1280px" }}>
-          <Box
-            sx={{
-              position: "relative",
-              top: -40,
-              left: 180,
-            }}
-          >
+          <Box sx={{ position: "relative", top: -40, left: 180 }}>
             <Typography
               sx={{ fontSize: sizes.fontSize.xlarge, fontWeight: 600 }}
             >
@@ -58,17 +137,36 @@ const MyInfoModify = () => {
               }}
             >
               <MyInfoInnerBox sx={{ width: "377px" }}>
-                <MyInfoProfileImage />
+                <MyInfoProfileImage
+                  imageUrl={imageUrl}
+                  setImageUrl={setImageUrl}
+                />
                 {Object.entries(infoData).map(([key, item]) => (
-                  <Box sx={{ height: 60 }}>
+                  <Box sx={{ height: 60 }} key={key}>
                     <ChipTextBox titlename={item.titlename} />
                     <InputModifyBox
                       width="240px"
                       sx={InputMuiStyle}
-                      placeholder={item.inputsubject}
+                      value={formValues[key as keyof formValue]}
+                      onChange={handleInputChange(key as keyof formValue)}
+                      disabled={disabledFields[key as keyof formValue]}
+                      onToggle={() => handleToggle(key as keyof formValue)}
                     />
                   </Box>
                 ))}
+                <LinkedButton
+                  text="변경하기"
+                  textcolor="secondary"
+                  bgcolor="button"
+                  variantType="contained"
+                  sx={{
+                    border: "0px",
+                    width: "370px",
+                    height: "40px",
+                    fontSize: 24,
+                  }}
+                  onClick={handleModify}
+                />
               </MyInfoInnerBox>
             </Box>
           </MySettingOutterBox>

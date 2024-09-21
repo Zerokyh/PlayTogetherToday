@@ -79,6 +79,10 @@ const Chatting = ({
             justifyContent: "center",
             alignItems: "center",
             fontSize: sizes.fontSize.medium,
+            backgroundColor:
+              isTheme == "기본"
+                ? colors.background.tertiary
+                : colors.sub_background.tertiary,
           }}
         >
           {/* {friend_member_nickname} */}

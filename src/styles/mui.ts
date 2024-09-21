@@ -5,7 +5,8 @@ import { colors, theme } from "./colors";
 import { sizes } from "./sizes";
 import { Box } from "@mui/material";
 import { MyInfoInnerBoxProps } from "../utils/type";
-import { bgcolor, borderRadius, height, minWidth } from "@mui/system";
+import { bgcolor, borderRadius, color, height, minWidth } from "@mui/system";
+import useThemeStore, { ThemeType } from "../store/store";
 
 export const openedMixin = (theme: Theme): CSSObject => ({
   width: sizes.drawerWidth,
@@ -51,6 +52,16 @@ export const Drawer = styled(MuiDrawer, {
     "& .MuiDrawer-paper": closedMixin(theme),
   }),
 }));
+
+export const DisableOutletBox = styled(Box)({
+  position: "absolute",
+  top: 0,
+  left: "300px",
+  width: "calc(100% - 300px)",
+  height: "100%",
+  backgroundColor: "rgba(0, 0, 0, 0.4)",
+  zIndex: 10,
+});
 
 export const FullPageBox = styled(Box)({
   width: `calc(100vw - ${sizes.drawerWidth})`,
@@ -113,7 +124,7 @@ export const MyInfoInnerBox = styled(Box)({
 });
 
 export const DashboardGridBox = styled(Box)({
-  width: "100%",
+  width: "100vw",
   height: "100%",
   // maxHeight: "95.8vh",
   display: "flex",
@@ -156,7 +167,7 @@ export const WidthHalfBoxInnerMui = {
 
 export const SkeletonMini = {
   mx: "auto",
-  width: 224,
+  width: 270,
   height: 140,
 };
 
@@ -204,20 +215,25 @@ export const MySettingInnerStyle = {
 export const InputMuiStyle = {
   position: "relative",
   bottom: 10,
-  "& .MuiInput-underline:before": {
-    borderBottomColor: "#23374D", // 기본 밑줄 색상
+  color: "#23374D", // 입력 텍스트 색상 설정
+  "&:before": {
+    borderBottom: `1px solid #23374D !important`, // 기본 상태 밑줄 색상
   },
-  "& .MuiInput-underline:hover:before": {
-    borderBottomColor: "#23374D", // 호버 시 밑줄 색상
+  "&:hover:not(.Mui-disabled):before": {
+    borderBottom: `2px solid #23374D !important`, // 호버 시 밑줄 색상
   },
-  "& .MuiInput-underline:after": {
-    borderBottomColor: "#23374D", // 포커스 시 밑줄 색상
+  "&.Mui-focused:after": {
+    borderBottom: `2px solid #23374D !important`, // 포커스 후 밑줄 색상
   },
-  "& .MuiInputLabel-root": {
-    color: "#23374D", // 라벨 색상
+  "&.Mui-disabled": {
+    color: `#23374D !important`, // 비활성화 상태에서 텍스트 색상
+    "&:before": {
+      borderBottom: `1px solid #23374D !important`, // 비활성화 상태에서 밑줄 색상
+    },
   },
+  // 레이블과 입력 필드의 전체 색상 설정
   "& .MuiInputBase-input": {
-    color: "#23374D", // 입력 텍스트 색상
+    color: "#23374D", // 입력 텍스트 색상 설정
   },
 };
 
@@ -307,23 +323,35 @@ export const ModalFormContentsStyle = {
 
 // groupBorder
 
-export const BorderListBox = styled(Box)({
-  width: "100%",
-  height: "100%",
-  borderRadius: sizes.borderRadius.normal,
-  backgroundColor: colors.background.secondary,
-  display: "flex",
-  flexDirection: "column",
-  gap: sizes.gap.xLarge,
-  alignItems: "center",
-  padding: "10px 12px",
+export const BorderListBox = styled(Box)(({}) => {
+  const { isTheme } = useThemeStore();
+  return {
+    width: "100%",
+    height: "100%",
+    borderRadius: sizes.borderRadius.normal,
+    backgroundColor:
+      isTheme === "기본"
+        ? colors.background.secondary
+        : colors.sub_background.secondary,
+    display: "flex",
+    flexDirection: "column",
+    gap: sizes.gap.xLarge,
+    alignItems: "center",
+    padding: "10px 12px",
+  };
 });
 
-export const GroupListBox = styled(Box)({
-  width: "100%",
-  height: "fit-content",
-  borderRadius: sizes.borderRadius.normal,
-  backgroundColor: colors.background.tertiary,
+export const GroupListBox = styled(Box)(({ theme }) => {
+  const { isTheme } = useThemeStore();
+  return {
+    width: "100%",
+    height: "fit-content",
+    borderRadius: sizes.borderRadius.normal,
+    backgroundColor:
+      isTheme === "기본"
+        ? colors.background.tertiary
+        : colors.sub_background.tertiary,
+  };
 });
 
 export const GroupImgAvatar = {

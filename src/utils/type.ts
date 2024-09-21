@@ -86,8 +86,10 @@ export type MyInfoInnerBoxProps = {
 export type InputModifyBoxProp = {
   type?: "text" | "password";
   placeholder?: string;
+  value?: string;
   width?: string;
   sx?: object;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 export type SwitchBoxProp = {
@@ -127,4 +129,14 @@ export type GroupImgProps = {
   alt?: string;
   src?: string;
   sx?: object;
+};
+
+export type UserProfileData = {
+  member_id: number;
+  member_nickname: string;
+  member_phone: string;
+  member_address: string;
+  member_email: string;
+  member_2nd_email: string;
+  member_anniversary: Date | string;
 };

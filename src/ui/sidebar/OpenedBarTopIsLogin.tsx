@@ -18,7 +18,7 @@ const OpenedBarTopIsLogin = () => {
     <Box
       sx={{
         display: "flex",
-        justifyContent: "space-around",
+        justifyContent: "space-evenly",
         alignItems: "center",
         py: sizes.padding.large,
       }}

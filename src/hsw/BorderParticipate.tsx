@@ -7,6 +7,7 @@ import XIcon from "@mui/icons-material/X";
 import { colors } from "../styles/colors";
 import { sizes } from "../styles/sizes";
 import ParticipateList from "./ParticipateList";
+import useThemeStore from "../store/store";
 
 type BorderParticipateProps = {
   groupName?: string;
@@ -27,6 +28,7 @@ const BorderParticipate = ({
   useEffect(() => {
     setMemberCount(allCount - count);
   }, [allCount, count]);
+  const { isTheme } = useThemeStore();
 
   return (
     <Box
@@ -34,7 +36,10 @@ const BorderParticipate = ({
         width: "100%",
         height: "100%",
         borderRadius: 4,
-        bgcolor: colors.background.secondary,
+        bgcolor:
+          isTheme === "기본"
+            ? colors.background.secondary
+            : colors.sub_background.secondary,
         display: "flex",
         flexDirection: "column",
         gap: "12px",
@@ -63,7 +68,10 @@ const BorderParticipate = ({
         <BottomNavigation
           sx={{
             width: "fit-content",
-            bgcolor: colors.background.secondary,
+            bgcolor:
+              isTheme === "기본"
+                ? colors.background.secondary
+                : colors.sub_background.secondary,
           }}
           showLabels
           value={value}
@@ -106,7 +114,10 @@ const BorderParticipate = ({
             width: "100%",
             height: "180px",
             borderRadius: 4,
-            bgcolor: colors.background.tertiary,
+            bgcolor:
+              isTheme === "기본"
+                ? colors.background.tertiary
+                : colors.sub_background.tertiary,
             display: "flex",
             flexDirection: "column",
             gap: "20px",
