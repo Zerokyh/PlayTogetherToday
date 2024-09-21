@@ -22,10 +22,14 @@ const LoginBtn = ({ idEmail, password }: LoginBtnProps) => {
       member_pw: password,
     });
     try {
-      const response = await axios.post("http://localhost:8080/login", {
-        member_email: idEmail,
-        member_pw: password,
-      });
+      const response = await axios.post(
+        // "http://localhost:8080/login",
+        "https://playtotogether-backendserver-djbdckftbygrbraw.koreasouth-01.azurewebsites.net/login",
+        {
+          member_email: idEmail,
+          member_pw: password,
+        }
+      );
       console.log(response.data);
       if (response.status === 200 && response.data.status === "OK") {
         const message = response.data.message || "로그인 성공";
@@ -62,7 +66,7 @@ const LoginBtn = ({ idEmail, password }: LoginBtnProps) => {
 
   return (
     <Box width={sizes.width.block}>
-      <Box display={"flex"} justifyContent={"end"} marginTop={"10px"}>
+      <Box display={"flex"} justifyContent={"end"}>
         <Button
           onClick={handleFindAccount}
           sx={{

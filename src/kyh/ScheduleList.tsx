@@ -5,13 +5,15 @@ import { sizes } from "../styles/sizes";
 type ScheduleListProps = {
   groupname: string;
   eventname: string;
-  eventtime: string;
+  eventtime?: string;
+  eventdate?: string;
 };
 
 const ScheduleList = ({
   groupname,
   eventname,
   eventtime,
+  eventdate,
 }: ScheduleListProps) => {
   return (
     <Box
@@ -25,7 +27,7 @@ const ScheduleList = ({
         {groupname} - {eventname}
       </Typography>
       <Typography sx={{ fontSize: sizes.fontSize.small }}>
-        {eventtime}
+        {eventtime} {eventdate}
       </Typography>
     </Box>
   );

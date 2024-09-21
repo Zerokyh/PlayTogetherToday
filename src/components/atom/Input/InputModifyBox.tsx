@@ -20,11 +20,14 @@ const InputModifyBox = ({
   width = "200px",
   sx,
   onChange,
-  disabled,
-  onToggle,
-}: InputModifyBoxProp & { disabled: boolean; onToggle: () => void }) => {
+}: InputModifyBoxProp) => {
   const [localValue, setLocalValue] = React.useState(value);
-  const inputRef = React.useRef<HTMLInputElement | null>(null);
+  const [disabled, setDisabled] = React.useState(false);
+
+  // Toggle disabled state
+  const handleToggle = () => {
+    setDisabled((prev) => !prev);
+  };
 
   React.useEffect(() => {
     setLocalValue(value);
@@ -64,7 +67,7 @@ const InputModifyBox = ({
             <IconButton
               aria-label="toggle modify text"
               edge="end"
-              onClick={onToggle}
+              onClick={handleToggle}
             >
               {disabled ? <LockPersonIcon /> : <LockOpenIcon />}
             </IconButton>

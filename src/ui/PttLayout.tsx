@@ -13,7 +13,11 @@ import CenteredOutlet from "./CenteredOutlet";
 
 const PttLayout = () => {
   // Zustand로 관리하는 테마를 호출
-  const { isOpen, isTheme } = useThemeStore();
+  const { isOpen, isTheme, setIsOpen } = useThemeStore();
+
+  const handleDisableOutletClick = () => {
+    setIsOpen(false); // Set isOpen to false
+  };
 
   return (
     <Box
@@ -44,7 +48,7 @@ const PttLayout = () => {
             {/* 페이지가 바뀔 공간 등록 */}
             {isOpen ? (
               <>
-                <DisableOutletBox />
+                <DisableOutletBox onClick={handleDisableOutletClick} />
                 <Outlet />
               </>
             ) : (

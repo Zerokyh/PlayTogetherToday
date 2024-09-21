@@ -32,22 +32,15 @@ const MyInfoModify = () => {
     backupEmail: "",
     anniversary: "",
   });
-  const [disabledFields, setDisabledFields] = React.useState<{
-    [key in keyof formValue]: boolean;
-  }>({
-    nickname: true,
-    phone: true,
-    address: true,
-    email: true,
-    backupEmail: true,
-    anniversary: true,
-  });
 
   const member_id = localStorage.getItem("member_id");
 
   React.useEffect(() => {
     axios
-      .get(`http://localhost:8080/MyInfoModify/${member_id}`)
+      // .get(`http://localhost:8080/MyInfoModify/${member_id}`)
+      .get(
+        `https://playtotogether-backendserver-djbdckftbygrbraw.koreasouth-01.azurewebsites.net/MyInfoModify/${member_id}`
+      )
       .then((response) => {
         const data = response.data.data;
         setFormValues({
@@ -67,29 +60,25 @@ const MyInfoModify = () => {
       });
   }, [member_id]);
 
-  const handleToggle = (key: keyof formValue) => {
-    setDisabledFields((prev) => ({
-      ...prev,
-      [key]: !prev[key],
-    }));
-  };
-
   const handleInputChange =
-    (key: keyof formValue) => (event: React.ChangeEvent<HTMLInputElement>) => {
-      const newValue = event.target.value;
-      console.log("MyInfoModify handleInputChange:", key, newValue);
+    (key: string) => (event: React.ChangeEvent<HTMLInputElement>) => {
       setFormValues((prevValues) => ({
         ...prevValues,
-        [key]: newValue,
+        [key]: event.target.value,
       }));
     };
 
   const handleModify = () => {
     axios
-      .post("http://localhost:8080/MyInfoModify", {
-        member_id: member_id,
-        ...formValues,
-      })
+      // .post(
+      //   "http://localhost:8080/MyInfoModify",
+      .post(
+        "https://playtotogether-backendserver-djbdckftbygrbraw.koreasouth-01.azurewebsites.net/MyInfoModify",
+        {
+          member_id: member_id,
+          ...formValues,
+        }
+      )
       .then((response) => {
         console.log(response.data);
       })
@@ -149,8 +138,6 @@ const MyInfoModify = () => {
                       sx={InputMuiStyle}
                       value={formValues[key as keyof formValue]}
                       onChange={handleInputChange(key as keyof formValue)}
-                      disabled={disabledFields[key as keyof formValue]}
-                      onToggle={() => handleToggle(key as keyof formValue)}
                     />
                   </Box>
                 ))}

@@ -31,6 +31,9 @@ const ContentsBox = ({
 
   return (
     <Card
+      onClick={() => {
+        navigate(isLogin ? href : "/Login");
+      }}
       sx={{
         flexGrow: 1,
         position: "relative",
@@ -48,6 +51,7 @@ const ContentsBox = ({
           isTheme === "기본"
             ? colors.background.secondary
             : colors.sub_background.secondary,
+        cursor: "pointer",
       }}
     >
       <CardMedia
