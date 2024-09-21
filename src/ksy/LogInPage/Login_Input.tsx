@@ -45,11 +45,10 @@ const LoginInput = ({
     // InputBox Group
     <Box
       width={sizes.width.block}
-      height={sizes.height.sidebarnormal}
       display={"flex"}
       flexDirection={"column"}
       justifyContent={"center"}
-      marginY={"20px"}
+      // marginY={"24px"}
     >
       {/* Input ID Box*/}
       <Box
@@ -57,9 +56,9 @@ const LoginInput = ({
           width: "100%",
           height: "124px",
           textAlign: "center",
-          gap: sizes.gap.large,
-          padding: sizes.padding.xxlarge,
-          marginBottom: "25px",
+          // gap: sizes.gap.xLarge,
+          padding: "18px",
+          marginBottom: "23px",
           bgcolor:
             isTheme == "기본"
               ? colors.background.secondary
@@ -109,7 +108,7 @@ const LoginInput = ({
           sx={{
             width: "382px",
             outline: "none",
-            marginTop: "24px",
+            marginTop: "20px",
           }}
         />
       </Box>
@@ -120,7 +119,7 @@ const LoginInput = ({
           width: "100%",
           height: "124px",
           textAlign: "center",
-          padding: sizes.padding.xlarge,
+          padding: "20px",
           bgcolor:
             isTheme == "기본"
               ? colors.background.secondary
@@ -148,7 +147,7 @@ const LoginInput = ({
             sx={{
               width: "382px",
               outline: "none",
-              marginTop: "24px",
+              marginTop: "20px",
             }}
           />
 
