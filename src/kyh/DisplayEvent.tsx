@@ -138,7 +138,10 @@ const DisplayEvent = ({ selectedDate }: DisplayEventProps) => {
           <Tab label="주간 이벤트" value="2" sx={{ width: 210 }} />
           <Tab label="월간 이벤트" value="3" sx={{ width: 210 }} />
         </Tabs>
-        <TabPanel value="1" sx={{ height: 120, overflowY: "scroll" }}>
+        <TabPanel
+          value="1"
+          sx={{ height: 120, overflowY: "scroll", padding: "10px" }}
+        >
           {events.length > 0 ? (
             events.map((event, index) => (
               <ScheduleList
