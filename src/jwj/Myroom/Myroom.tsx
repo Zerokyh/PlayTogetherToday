@@ -61,7 +61,10 @@ const Myroom = () => {
   React.useEffect(() => {
     // 멤버 정보 불러오기
     axios
-      .get("http://localhost:8080/Myroom")
+      // .get("http://localhost:8080/Myroom")
+      .get(
+        "https://playtotogether-backendserver-djbdckftbygrbraw.koreasouth-01.azurewebsites.net/Myroom"
+      )
       .then((response) => {
         setMemberData(response.data);
       })

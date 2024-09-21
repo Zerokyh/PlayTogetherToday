@@ -23,6 +23,7 @@ const LoginBtn = ({ idEmail, password }: LoginBtnProps) => {
     });
     try {
       const response = await axios.post(
+        // "http://localhost:8080/login",
         "https://playtotogether-backendserver-djbdckftbygrbraw.koreasouth-01.azurewebsites.net/login",
         {
           member_email: idEmail,

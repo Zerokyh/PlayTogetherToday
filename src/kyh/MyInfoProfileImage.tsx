@@ -61,7 +61,8 @@ const MyInfoProfileImage = ({
         const member_id = localStorage.getItem("member_id");
         if (member_id) {
           const saveResponse = await axios.post(
-            `http://localhost:8080/MyInfoModify/${member_id}/saveProfileImage`,
+            // `http://localhost:8080/MyInfoModify/${member_id}/saveProfileImage`,
+            `https://playtotogether-backendserver-djbdckftbygrbraw.koreasouth-01.azurewebsites.net/MyInfoModify/${member_id}/saveProfileImage`,
             {
               profileImageUrl: data.data.url,
             },

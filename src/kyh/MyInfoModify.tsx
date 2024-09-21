@@ -37,7 +37,10 @@ const MyInfoModify = () => {
 
   React.useEffect(() => {
     axios
-      .get(`http://localhost:8080/MyInfoModify/${member_id}`)
+      // .get(`http://localhost:8080/MyInfoModify/${member_id}`)
+      .get(
+        `https://playtotogether-backendserver-djbdckftbygrbraw.koreasouth-01.azurewebsites.net/MyInfoModify/${member_id}`
+      )
       .then((response) => {
         const data = response.data.data;
         setFormValues({
