@@ -5,7 +5,7 @@ import { colors } from "../../styles/colors";
 
 type profile_props = {
   info_name?: string;
-  info?: string;
+  info?: string | Date;
   profileIsPublic: boolean;
   //   email?: string;
   //   address?: string;
@@ -22,6 +22,7 @@ const Myroom_profile = ({
   //zustand로 관리하는 테마 호출
   const { isTheme } = useThemeStore();
 
+  const formation = info instanceof Date ? info.toLocaleDateString() : info;
   return (
     <Box
       sx={{
@@ -46,7 +47,7 @@ const Myroom_profile = ({
             {info_name}:
           </Typography>
           <Typography variant="body2" sx={{ fontSize: sizes.fontSize.medium }}>
-            {info}
+            {formation}
           </Typography>
         </>
       ) : (

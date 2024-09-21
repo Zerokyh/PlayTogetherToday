@@ -9,7 +9,7 @@ type MeetingButtonProps = {
   count?: string;
   position?: string;
   comming?: string;
-  group_anni?: string;
+  group_anni?: Date;
   onClick?: () => void;
 };
 
@@ -24,6 +24,9 @@ const Myroom_meeting_button = ({
 }: MeetingButtonProps) => {
   //zustand로 관리하는 테마 호출
   const { isTheme } = useThemeStore();
+
+  const group_anniversary =
+    group_anni instanceof Date ? group_anni.toLocaleDateString() : group_anni;
 
   return (
     <Button
@@ -80,7 +83,7 @@ const Myroom_meeting_button = ({
           {comming}
         </Typography>
         <Typography variant="body2" sx={{ fontSize: sizes.fontSize.medium }}>
-          {group_anni}
+          {group_anniversary}
         </Typography>
       </Box>
     </Button>
