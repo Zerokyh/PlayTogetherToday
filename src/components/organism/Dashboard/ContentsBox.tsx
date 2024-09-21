@@ -31,6 +31,9 @@ const ContentsBox = ({
 
   return (
     <Card
+      onClick={() => {
+        navigate(isLogin ? href : "/Login");
+      }}
       sx={{
         flexGrow: 1,
         position: "relative",
