@@ -39,13 +39,13 @@ const GroupEnterText = () => {
           textAlign: "center",
           gap: sizes.gap.large,
           padding: sizes.padding.xxlarge,
-          marginBottom: 2,
+          marginBottom: "16px",
           bgcolor:
             isTheme == "기본"
             ? colors.background.secondary
             : colors.sub_background.secondary,
           color: colors.text.primary,
-          borderRadius: sizes.borderRadius.medium
+          borderRadius: sizes.borderRadius.normal
         }}
       >
         {/* Group Name Title */}
@@ -62,7 +62,7 @@ const GroupEnterText = () => {
           sx={{
             width: "382px",
             outline: "none",
-            marginTop: "18px"
+            marginTop: "20px"
           }}
         />
       </Box>
@@ -90,7 +90,7 @@ const GroupEnterText = () => {
             fontWeight={"bold"}>모임 가입 암호*</Typography>
           {/* optional */}
           <Typography
-            marginTop={sizes.margin.small}
+            marginTop={sizes.margin.medium}
             marginLeft={sizes.margin.large}
             color={colors.text.grey}
             fontSize={sizes.fontSize.xsmall}>
@@ -120,7 +120,7 @@ const GroupEnterText = () => {
             sx={{
               width: "382px",
               outline: "none",
-              marginTop: "18px"
+              marginTop: "20px"
             }}
           />
 

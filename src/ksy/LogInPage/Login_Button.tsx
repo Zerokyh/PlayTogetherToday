@@ -10,6 +10,7 @@ const LoginBtn = () => {
 
   const handleLogIn = () => {
     navigate("/");
+    // 로그인 되는 것 물어보기
   }
 
   const handleFindAccount = () => {
@@ -18,14 +19,12 @@ const LoginBtn = () => {
 
   return (
     <Box width={ sizes.width.block }>
-      <Box display={"flex"}
-        justifyContent={"end"}>
+      <Box display={"flex"} justifyContent={"end"} marginTop={"6px"}>
         <Button
           onClick={handleFindAccount}
           sx={{
             width: "100px",
             height: "22px",
-            marginTop: "20px",
             fontWeight: "bold",
             fontSize: sizes.fontSize.small,
             color: colors.text.primary,
@@ -37,7 +36,6 @@ const LoginBtn = () => {
           sx={{
             width: "65px",
             height: "22px",
-            marginTop: "20px",
             fontWeight: "bold",
             fontSize: sizes.fontSize.small,
             color: colors.text.primary,

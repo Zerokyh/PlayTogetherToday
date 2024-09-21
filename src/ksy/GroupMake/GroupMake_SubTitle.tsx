@@ -18,7 +18,7 @@ const GroupMake_SubTitle = () => {
           height: "40px",
           paddingX: sizes.padding.xlarge,
           paddingY: sizes.padding.large,
-          marginBottom: 6,
+          marginBottom: "25px",
           bgcolor:
             isTheme == "기본"
             ? colors.background.tertiary

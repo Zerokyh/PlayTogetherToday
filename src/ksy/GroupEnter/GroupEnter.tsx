@@ -13,9 +13,9 @@ const GroupEnter = () => {
     <FullPageBox>
       <Box
         sx={{
-            width: sizes.width.half,
-            height: sizes.height.full,
-            padding: sizes.padding.xlarge,
+            width: "540px",
+            height: "700px",
+            padding: "20px",
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",

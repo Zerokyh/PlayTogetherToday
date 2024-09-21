@@ -8,11 +8,11 @@ import { sizes } from "../../styles/sizes";
 
 const LoginInput = () => {
   const { isTheme } = useThemeStore();
-    const [idEmail, setIdEmail] = useState<string>("");
-    const [isIdEmailValid, setIdEmailValid] = useState<boolean>(true);
-    const [idEmailBlurred, setIdEmailBlurred] = useState<boolean>(false);
-    const [password, setPassword] = useState<string>("");
-    const [showPassword, setShowPassword] = useState<boolean>(false);
+  const [idEmail, setIdEmail] = useState<string>("");
+  const [isIdEmailValid, setIdEmailValid] = useState<boolean>(true);
+  const [idEmailBlurred, setIdEmailBlurred] = useState<boolean>(false);
+  const [password, setPassword] = useState<string>("");
+  const [showPassword, setShowPassword] = useState<boolean>(false);
 
   // ID Regex
     useEffect(() => {
@@ -23,13 +23,21 @@ const LoginInput = () => {
   // show icon
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
-    };
+  };
+
+  // Use Temp Password
+  useEffect(() => {
+    const loadTempPassword = localStorage.getItem('tempPassword');
+    if (loadTempPassword) {
+      setPassword(loadTempPassword);
+    }
+  }, []);
         
   return (
       // InputBox Group
       <Box
         width={ sizes.width.block }
-        height={ sizes.height.sidebarnormal }
+        // height={ sizes.height.sidebarnormal }
         display={"flex"}
         flexDirection={"column"}
         justifyContent={"center"}
@@ -43,7 +51,7 @@ const LoginInput = () => {
           textAlign: "center",
             gap: sizes.gap.large,
             padding: sizes.padding.xxlarge,
-            marginBottom: 2,
+            marginBottom: "20px",
             bgcolor:
               isTheme == "기본"
               ? colors.background.secondary
@@ -87,7 +95,7 @@ const LoginInput = () => {
               sx={{
                 width: "382px",
                 outline: "none",
-                marginTop: "14px"
+                marginTop: "20px"
               }}/>
         </Box>
 
@@ -97,7 +105,7 @@ const LoginInput = () => {
             width: "100%",
             height: "124px",
             textAlign: "center",
-            padding: sizes.padding.xlarge,
+            padding: sizes.padding.xxlarge,
             bgcolor:
               isTheme == "기본"
               ? colors.background.secondary
@@ -116,13 +124,13 @@ const LoginInput = () => {
         <Box position={"relative"}>
           <Input
             type={showPassword ? "text" : "password"}
-            value={password}
+            value={password} // password || tempPW
             placeholder="영문, 숫자, 특수기호 포함 8~20자"
             onChange={(e) => setPassword(e.target.value)}
             sx={{
               width: "382px",
               outline: "none",
-              marginTop: "14px"
+              marginTop: "20px"
             }} />
           
           {/* Show password icon */}
