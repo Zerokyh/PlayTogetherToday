@@ -26,12 +26,14 @@ interface InputGroupsProps {
     passwordCheckBlurred: boolean;
     phoneNumberBlurred: boolean;
   };
-  setBlurred: React.Dispatch<React.SetStateAction<{
-    idEmailBlurred: boolean;
-    passwordBlurred: boolean;
-    passwordCheckBlurred: boolean;
-    phoneNumberBlurred: boolean;
-  }>>;
+  setBlurred: React.Dispatch<
+    React.SetStateAction<{
+      idEmailBlurred: boolean;
+      passwordBlurred: boolean;
+      passwordCheckBlurred: boolean;
+      phoneNumberBlurred: boolean;
+    }>
+  >;
   showPassword: boolean;
   setShowPassword: React.Dispatch<React.SetStateAction<boolean>>;
   showPasswordCheck: boolean;
@@ -49,7 +51,7 @@ const InputGroups = ({
   setShowPassword,
   showPasswordCheck,
   setShowPasswordCheck,
-  validatePhoneNumber
+  validatePhoneNumber,
 }: InputGroupsProps) => {
   const handleValueChange = (key: keyof FormState) => (val: string) => {
     setFormState((prev) => ({ ...prev, [key]: val }));
@@ -67,8 +69,9 @@ const InputGroups = ({
     <Box
       sx={{
         width: "500px",
-        fontSize: sizes.fontSize.normal
-      }}>
+        fontSize: sizes.fontSize.normal,
+      }}
+    >
       <InputContents
         label="아이디(이메일주소)*"
         value={formState.idEmail}
@@ -100,7 +103,9 @@ const InputGroups = ({
         validationMessage="비밀번호가 일치하지 않습니다"
         showPasswordToggle
         showPassword={showPasswordCheck}
-        togglePasswordVisibility={() => setShowPasswordCheck(!showPasswordCheck)}
+        togglePasswordVisibility={() =>
+          setShowPasswordCheck(!showPasswordCheck)
+        }
         onBlur={handleBlur("passwordCheck")}
         onFocus={handleFocus("passwordCheck")}
       />
@@ -114,7 +119,10 @@ const InputGroups = ({
         label="연락처 (전화번호)"
         value={formState.phoneNumber}
         setValue={handleValueChange("phoneNumber")}
-        isValid={validatePhoneNumber(formState.phoneNumber) === "" || !blurred.phoneNumberBlurred}
+        isValid={
+          validatePhoneNumber(formState.phoneNumber) === "" ||
+          !blurred.phoneNumberBlurred
+        }
         validationMessage={validatePhoneNumber(formState.phoneNumber)}
         onBlur={handleBlur("phoneNumber")}
         onFocus={handleFocus("phoneNumber")}

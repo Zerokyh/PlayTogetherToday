@@ -22,7 +22,7 @@ const Login = () => {
           justifyContent: "center",
           alignItems: "center",
           borderRadius: sizes.borderRadius.xs,
-          gap: sizes.gap.medium,
+          gap: sizes.gap.mLarge,
         }}
       >
         <MyInfoInnerBox sx={{ width: "377px" }}>

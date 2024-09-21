@@ -61,9 +61,8 @@ const LoginBtn = ({ idEmail, password }: LoginBtnProps) => {
   };
 
   return (
-    <Box width={ sizes.width.block }>
-      <Box display={"flex"}
-        justifyContent={"end"}>
+    <Box width={sizes.width.block}>
+      <Box display={"flex"} justifyContent={"end"} marginTop={"10px"}>
         <Button
           onClick={handleFindAccount}
           sx={{

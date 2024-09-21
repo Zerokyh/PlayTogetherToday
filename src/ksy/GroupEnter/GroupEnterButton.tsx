@@ -1,11 +1,23 @@
-import React, { useState } from 'react';
-import { Button, Box, Modal, Typography } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
-import useThemeStore from '../../store/store';
-import { colors } from '../../styles/colors';
-import { sizes } from '../../styles/sizes';
+import React, { useState } from "react";
+import { Button, Box, Modal, Typography } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+import useThemeStore from "../../store/store";
+import { colors } from "../../styles/colors";
+import { sizes } from "../../styles/sizes";
 
-const GroupEnterButton = () => {
+type GroupEnterInputProps = {
+  groupName: string;
+  setGroupName: (value: string) => void;
+  groupPassword: string;
+  setGroupPassword: (value: string) => void;
+};
+
+const GroupEnterButton = ({
+  groupName,
+  setGroupName,
+  groupPassword,
+  setGroupPassword,
+}: GroupEnterInputProps) => {
   const { isTheme } = useThemeStore();
   const navigate = useNavigate();
 
@@ -27,16 +39,20 @@ const GroupEnterButton = () => {
   const handleCloseJoinModal = () => setOpenJoinModal(false);
   // Join Btn Open
   const handleJoinRequest = () => {
-    handleOpenJoinModal();
+    // if (!groupName || !groupPassword) {
+    //   alert("입력하지 않은 정보가 있습니다. 필수입력란*을 확인해주세요!");
+    // } else {
+      handleOpenJoinModal();
+    // }
   };
   // Join Btn Navigate
   const handleJoinBtn = () => {
     navigate("/Myroom");
-  }
+  };
 
   return (
     <Box width={sizes.width.block}>
-      <Box display={"flex"} justifyContent={"end"} marginTop={"6px"}>
+      <Box display={"flex"} justifyContent={"end"} marginY={"4px"}>
         <Button
           onClick={() => navigate("/GroupMake")}
           sx={{
@@ -84,7 +100,6 @@ const GroupEnterButton = () => {
         </Button>
       </Box>
 
-
       {/* DeleteID Modal */}
       <Modal
         open={openDeleteModal}
@@ -94,33 +109,37 @@ const GroupEnterButton = () => {
       >
         <Box
           sx={{
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
             width: 300,
-            bgcolor: 'background.paper',
-            border: '2px solid #000',
+            bgcolor: "background.paper",
+            border: "2px solid #000",
             boxShadow: 24,
             p: 4,
           }}
         >
-          <Typography id="modal-title-delete" variant="h6" component="h2"
+          <Typography
+            id="modal-title-delete"
+            variant="h6"
+            component="h2"
             sx={{
               display: "flex",
               justifyContent: "center",
               fontWeight: "bold",
-              color: colors.text.primary
+              color: colors.text.primary,
             }}
           >
             회원 탈퇴
           </Typography>
-          <Typography id="modal-description-delete"
+          <Typography
+            id="modal-description-delete"
             sx={{
               mt: 2,
               display: "flex",
               justifyContent: "center",
-              color: colors.text.primary
+              color: colors.text.primary,
             }}
           >
             정말 탈퇴하시겠습니까?
@@ -149,7 +168,7 @@ const GroupEnterButton = () => {
                     ? colors.background.subbutton
                     : colors.sub_background.subbutton,
                 color: colors.text.primary,
-                borderColor: colors.border.primary
+                borderColor: colors.border.primary,
               }}
             >
               취소
@@ -157,7 +176,7 @@ const GroupEnterButton = () => {
           </Box>
         </Box>
       </Modal>
-      
+
       {/* Join Request Modal */}
       <Modal
         open={openJoinModal}
@@ -167,33 +186,37 @@ const GroupEnterButton = () => {
       >
         <Box
           sx={{
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
             width: 300,
-            bgcolor: 'background.paper',
-            border: '2px solid #000',
+            bgcolor: "background.paper",
+            border: "2px solid #000",
             boxShadow: 24,
             p: 4,
           }}
         >
-          <Typography id="modal-title-join" variant="h6" component="h2"
+          <Typography
+            id="modal-title-join"
+            variant="h6"
+            component="h2"
             sx={{
               display: "flex",
               justifyContent: "center",
               fontWeight: "bold",
-              color: colors.text.primary
+              color: colors.text.primary,
             }}
           >
             모임 가입
           </Typography>
-          <Typography id="modal-description-join"
+          <Typography
+            id="modal-description-join"
             sx={{
               mt: 2,
               display: "flex",
               justifyContent: "center",
-              color: colors.text.primary
+              color: colors.text.primary,
             }}
           >
             모임 가입이 요청되었습니다!
@@ -216,7 +239,6 @@ const GroupEnterButton = () => {
           </Box>
         </Box>
       </Modal>
-      
     </Box>
   );
 };

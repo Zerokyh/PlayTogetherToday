@@ -37,31 +37,31 @@ const LoginInput = ({
   }, [idEmail]);
 
   // show icon
-    const togglePasswordVisibility = () => {
-        setShowPassword(!showPassword);
-    };
-        
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
   return (
-      // InputBox Group
+    // InputBox Group
+    <Box
+      width={sizes.width.block}
+      height={sizes.height.sidebarnormal}
+      display={"flex"}
+      flexDirection={"column"}
+      justifyContent={"center"}
+      marginY={"20px"}
+    >
+      {/* Input ID Box*/}
       <Box
-        width={ sizes.width.block }
-        height={ sizes.height.sidebarnormal }
-        display={"flex"}
-        flexDirection={"column"}
-        justifyContent={"center"}
-      >
-        
-        {/* Input ID Box*/}
-        <Box
-          sx={{
+        sx={{
           width: "100%",
           height: "124px",
           textAlign: "center",
-            gap: sizes.gap.large,
-            padding: sizes.padding.xxlarge,
-            marginBottom: 2,
-            bgcolor:
-              isTheme == "기본"
+          gap: sizes.gap.large,
+          padding: sizes.padding.xxlarge,
+          marginBottom: "25px",
+          bgcolor:
+            isTheme == "기본"
               ? colors.background.secondary
               : colors.sub_background.secondary,
           color: colors.text.primary,
@@ -96,32 +96,33 @@ const LoginInput = ({
               ? "올바른 이메일 형식이 아닙니다"
               : ""}
           </Typography>
-      </Box>
-          
-            {/* Login ID Input */}
-            <Input
-              type="email"
-              value={idEmail}
-              placeholder="이메일 계정을 입력하세요"
-              onChange={(e) => setIdEmail(e.target.value)}
-              onBlur={() => setIdEmailBlurred(true)}
-              onFocus={() => setIdEmailBlurred(false)}
-              sx={{
-                width: "382px",
-                outline: "none",
-                marginTop: "14px"
-              }}/>
         </Box>
 
-        {/* Login Password Input Box */}
-        <Box
+        {/* Login ID Input */}
+        <Input
+          placeholder="이메일 계정을 입력하세요"
+          type="email"
+          value={idEmail}
+          onChange={(e) => setIdEmail(e.target.value)}
+          onBlur={() => setIdEmailBlurred(true)}
+          onFocus={() => setIdEmailBlurred(false)}
           sx={{
-            width: "100%",
-            height: "124px",
-            textAlign: "center",
-            padding: sizes.padding.xlarge,
-            bgcolor:
-              isTheme == "기본"
+            width: "382px",
+            outline: "none",
+            marginTop: "24px",
+          }}
+        />
+      </Box>
+
+      {/* Login Password Input Box */}
+      <Box
+        sx={{
+          width: "100%",
+          height: "124px",
+          textAlign: "center",
+          padding: sizes.padding.xlarge,
+          bgcolor:
+            isTheme == "기본"
               ? colors.background.secondary
               : colors.sub_background.secondary,
           color: colors.text.primary,
@@ -147,9 +148,10 @@ const LoginInput = ({
             sx={{
               width: "382px",
               outline: "none",
-              marginTop: "14px"
-            }} />
-          
+              marginTop: "24px",
+            }}
+          />
+
           {/* Show password icon */}
           <IconButton
             type="button"
@@ -176,66 +178,3 @@ const LoginInput = ({
 };
 
 export default LoginInput;
-
-{
-  /* <Box
-            sx={{
-                display: "flex",
-                justifyContent: "center",
-                margin: sizes.margin.xlarge,
-            }}>
-            <Typography
-                sx={{
-                    fontSize: sizes.fontSize.xlarge,
-                    fontWeight: 600
-                }}>
-              아이디 / 비밀번호 찾기
-            </Typography>
-          </Box>
-                  
-        <Box sx={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            width: sizes.width.half,
-            height: sizes.height.full,
-            bgcolor:
-            isTheme == "기본"
-            ? colors.background.secondary
-            : colors.sub_background.secondary,
-            margin: sizes.margin.xlarge,
-            borderRadius: sizes.borderRadius.normal,
-        }}>
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                padding: sizes.padding.xlarge,
-                gap: "2",
-              }}>
-              
-              {/* 데이터 받아와서 나타내게 하기 */
-}
-// <Typography
-//   fontSize={sizes.fontSize.large}
-//   fontWeight={"bold"}
-//   margin={"50px"}>
-//   아이디 : { idEmail || "ptt0922@gmail.com"}
-// </Typography>
-
-// <Box width={sizes.width.block}>
-//   <InputContents
-//   label={"이메일 입력*"}
-//   value={formState.idEmail}
-//   setValue={(val) => setFormState((prev) => ({ ...prev, idEmail: val }))}
-//   isValid={validity.isIdEmailValid || !blurred.idEmailBlurred}
-//   validationMessage="올바른 이메일 형식이 아닙니다"
-//   onBlur={() => setBlurred((prev) => ({ ...prev, idEmailBlurred: true }))}
-//   onFocus={() => setBlurred((prev) => ({ ...prev, idEmailBlurred: false }))}/>
-
-//   <InputContents
-//   label={"연락처 (숫자만 입력)*"}
-//   value={formState.phoneNumber}
-//   setValue={(val) => setFormState((prev) => ({ ...prev, phoneNumber: val }))}/>
-// </Box> */}

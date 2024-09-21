@@ -11,27 +11,49 @@ import { useNavigate } from "react-router-dom";
 
 interface FindAccountProps {
   idEmail: string;
+  backupEmail: string;
 }
 
-const FindAccount = ({ idEmail }: FindAccountProps) => {
-  const {
-    formState,
-    setFormState,
-    validity,
-    blurred,
-    setBlurred,
-  } = useSignUpForm();
+const FindAccount = ({ idEmail, backupEmail }: FindAccountProps) => {
+  const { formState, setFormState, validity, blurred, setBlurred } =
+    useSignUpForm();
 
   const { isTheme } = useThemeStore();
   const navigate = useNavigate();
 
   const [tempPassword, setTempPassword] = React.useState<string>("");
+  const [openfindbyIdModal, setOpenFindbyIdModal] = React.useState(false);
   const [openResetModal, setOpenResetModal] = React.useState(false);
 
+  const handleOpenfindbyIdModal = () => setOpenFindbyIdModal(true);
+  const handleClosefindbyIdModal = () => setOpenFindbyIdModal(false);
+
+  // FindByID - Null & OpenModal
+  const findByIDInputNull = () => {
+    if (!formState.idEmail && !formState.phoneNumber) {
+      alert("정보를 입력해주세요!");
+      return false;
+    } else {
+      handleOpenfindbyIdModal();
+    }
+  };
+
+  // FindByID - Modal IdEmail
+  const findByIdEmail = () => {
+    // if (idEmail == backupEmail){
+    //   return idEmail;
+    // }
+    // else {
+    //   return "가입 정보가 없는 아이디";
+    // }
+    return "hong@naver.com";
+  };
+
+  // Reset PW Modal
   const handleOpenResetModal = () => {
-    const tempPW = formState.idEmail.split('@')[0]; // @ 앞부분 추출
+    const tempPW = formState.idEmail.split("@")[0]; // @ 앞부분 추출
     setTempPassword(tempPW);
-    localStorage.setItem('tempPassword', tempPW);
+    localStorage.setItem("tempPassword", tempPW);
     setOpenResetModal(true);
   };
 
@@ -64,6 +86,7 @@ const FindAccount = ({ idEmail }: FindAccountProps) => {
             </Typography>
           </Box>
 
+          {/* Container Box */}
           <Box
             sx={{
               display: "flex",
@@ -71,7 +94,10 @@ const FindAccount = ({ idEmail }: FindAccountProps) => {
               alignItems: "center",
               width: "540px",
               height: "700px",
-              bgcolor: isTheme === "기본" ? colors.background.secondary : colors.sub_background.secondary,
+              bgcolor:
+                isTheme === "기본"
+                  ? colors.background.secondary
+                  : colors.sub_background.secondary,
               margin: sizes.margin.xlarge,
               borderRadius: sizes.borderRadius.normal,
             }}
@@ -80,101 +106,194 @@ const FindAccount = ({ idEmail }: FindAccountProps) => {
               sx={{
                 display: "flex",
                 flexDirection: "column",
-                alignItems: "center",
-                width: sizes.width.block,
-                padding: sizes.padding.xlarge,
-                gap: "2",
+                width: sizes.width.half,
+                padding: "20%",
+                gap: "60px",
               }}
             >
-              <Typography
-                sx={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  borderRadius: "15px",
-                  fontWeight: "bold",
-                  width: "500px",
-                  height: "80px",
-                  margin: "50px",
-                  fontSize: sizes.fontSize.large,
-                  bgcolor: isTheme === "기본" ? colors.background.tertiary : colors.sub_background.tertiary,
-                }}
-              >
-                아이디 : {idEmail || "ptt0922@gmail.com"}
-              </Typography>
+              {/* ID Box */}
+              <Box width={"100%"}>
+                <Typography
+                  sx={{
+                    width: "100%",
+                    padding: sizes.padding.large,
+                    fontSize: "22px",
+                    fontWeight: "bold",
+                    // textAlign: "center",
+                  }}
+                >
+                  아이디 찾기
+                </Typography>
 
-              <Box>
+                {/* Input Box */}
+                <Box>
+                  <InputContents
+                    label={"백업 이메일 입력*"}
+                    value={formState.backupEmail}
+                    setValue={(val) =>
+                      setFormState((prev) => ({ ...prev, backupEmail: val }))
+                    }
+                    isValid={validity.isIdEmailValid || !blurred.idEmailBlurred}
+                    validationMessage="올바른 이메일 형식이 아닙니다"
+                    onBlur={() =>
+                      setBlurred((prev) => ({ ...prev, idEmailBlurred: true }))
+                    }
+                    onFocus={() =>
+                      setBlurred((prev) => ({ ...prev, idEmailBlurred: false }))
+                    }
+                  />
+                  <InputContents
+                    label={"연락처 (숫자만 입력)*"}
+                    value={formState.phoneNumber}
+                    setValue={(val) =>
+                      setFormState((prev) => ({ ...prev, phoneNumber: val }))
+                    }
+                  />
+                </Box>
+
+                {/* find by ID Button */}
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "center",
+                    gap: 3,
+                  }}
+                >
+                  {/* find by ID */}
+                  <Button
+                    onClick={findByIDInputNull}
+                    sx={{
+                      width: "150px",
+                      height: 45,
+                      marginY: sizes.padding.small,
+                      bgcolor:
+                        isTheme === "기본"
+                          ? colors.background.button
+                          : colors.sub_background.button,
+                      fontSize: sizes.fontSize.normal,
+                      color: colors.text.secondary,
+                      borderRadius: sizes.borderRadius.normal,
+                    }}
+                  >
+                    아이디 찾기
+                  </Button>
+                  {/* page back (Login) */}
+                  <Button
+                    onClick={pageBack}
+                    sx={{
+                      width: "150px",
+                      height: 45,
+                      marginY: sizes.padding.small,
+                      bgcolor:
+                        isTheme === "기본"
+                          ? colors.background.primary
+                          : colors.sub_background.primary,
+                      fontSize: sizes.fontSize.normal,
+                      color: colors.text.primary,
+                      borderRadius: sizes.borderRadius.normal,
+                    }}
+                  >
+                    로그인하기
+                  </Button>
+                </Box>
+              </Box>
+
+              {/* PW Box */}
+              <Box width={"100%"}>
+                <Typography
+                  sx={{
+                    width: "100%",
+                    padding: sizes.padding.large,
+                    fontSize: "22px",
+                    fontWeight: "bold",
+                    // textAlign: "center",
+                  }}
+                >
+                  비밀번호 찾기
+                </Typography>
+
                 <InputContents
                   label={"이메일 입력*"}
                   value={formState.idEmail}
-                  setValue={(val) => setFormState((prev) => ({ ...prev, idEmail: val }))}
+                  setValue={(val) =>
+                    setFormState((prev) => ({ ...prev, idEmail: val }))
+                  }
                   isValid={validity.isIdEmailValid || !blurred.idEmailBlurred}
                   validationMessage="올바른 이메일 형식이 아닙니다"
-                  onBlur={() => setBlurred((prev) => ({ ...prev, idEmailBlurred: true }))}
-                  onFocus={() => setBlurred((prev) => ({ ...prev, idEmailBlurred: false }))}
+                  onBlur={() =>
+                    setBlurred((prev) => ({ ...prev, idEmailBlurred: true }))
+                  }
+                  onFocus={() =>
+                    setBlurred((prev) => ({ ...prev, idEmailBlurred: false }))
+                  }
                 />
-                <InputContents
-                  label={"연락처 (숫자만 입력)*"}
-                  value={formState.phoneNumber}
-                  setValue={(val) => setFormState((prev) => ({ ...prev, phoneNumber: val }))}
-                />
-              </Box>
 
-              <Box
-                sx={{
-                  display: "flex",
-                  gap: 3,
-                }}
-              >
-                <Button
-                  onClick={handleOpenResetModal}
+                {/* Reset Password Button */}
+                <Box
                   sx={{
-                    width: "150px",
-                    height: 45,
-                    marginY: "50px",
-                    bgcolor: isTheme === "기본" ? colors.background.button : colors.sub_background.button,
-                    fontSize: sizes.fontSize.normal,
-                    color: colors.text.secondary,
-                    borderRadius: sizes.borderRadius.normal,
+                    display: "flex",
+                    justifyContent: "center",
+                    gap: 3,
                   }}
                 >
-                  비밀번호 초기화하기
-                </Button>
-                <Button
-                  onClick={pageBack}
-                  sx={{
-                    width: "150px",
-                    height: 45,
-                    marginY: "50px",
-                    bgcolor: isTheme === "기본" ? colors.background.primary : colors.sub_background.primary,
-                    fontSize: sizes.fontSize.normal,
-                    color: colors.text.primary,
-                    borderRadius: sizes.borderRadius.normal,
-                  }}
-                >
-                  뒤로가기
-                </Button>
+                  {/* Reset PW */}
+                  <Button
+                    onClick={handleOpenResetModal}
+                    sx={{
+                      width: "150px",
+                      height: 45,
+                      marginY: sizes.padding.small,
+                      bgcolor:
+                        isTheme === "기본"
+                          ? colors.background.button
+                          : colors.sub_background.button,
+                      fontSize: sizes.fontSize.normal,
+                      color: colors.text.secondary,
+                      borderRadius: sizes.borderRadius.normal,
+                    }}
+                  >
+                    비밀번호 초기화하기
+                  </Button>
+                  {/* page back */}
+                  <Button
+                    onClick={pageBack}
+                    sx={{
+                      width: "150px",
+                      height: 45,
+                      marginY: sizes.padding.small,
+                      bgcolor:
+                        isTheme === "기본"
+                          ? colors.background.primary
+                          : colors.sub_background.primary,
+                      fontSize: sizes.fontSize.normal,
+                      color: colors.text.primary,
+                      borderRadius: sizes.borderRadius.normal,
+                    }}
+                  >
+                    뒤로가기
+                  </Button>
+                </Box>
               </Box>
             </Box>
           </Box>
         </Box>
 
-        {/* Reset Password Modal */}
+        {/* Find By ID Modal */}
         <Modal
-          open={openResetModal}
+          open={openfindbyIdModal}
           onClose={handleCloseResetModal}
           aria-labelledby="modal-title-reset"
           aria-describedby="modal-description-reset"
         >
           <Box
             sx={{
-              position: 'absolute',
-              top: '50%',
-              left: '50%',
-              transform: 'translate(-50%, -50%)',
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
               width: 300,
-              bgcolor: 'background.paper',
-              border: '2px solid #000',
+              bgcolor: "background.paper",
+              border: "2px solid #000",
               boxShadow: 24,
               p: 4,
             }}
@@ -190,7 +309,73 @@ const FindAccount = ({ idEmail }: FindAccountProps) => {
                 color: colors.text.primary,
               }}
             >
-            비밀번호 초기화
+              아이디 찾기
+            </Typography>
+            <Typography
+              id="modal-description-reset"
+              sx={{
+                mt: 2,
+                display: "flex",
+                justifyContent: "center",
+                textAlign: "center",
+                color: colors.text.primary,
+              }}
+            >
+              가입된 아이디는
+              <br />"{findByIdEmail()}"<br />
+              입니다.
+            </Typography>
+            <Box mt={2} display={"flex"} justifyContent={"center"}>
+              <Button
+                onClick={pageBack}
+                variant="contained"
+                sx={{
+                  mr: 1,
+                  bgcolor:
+                    isTheme === "기본"
+                      ? colors.background.button
+                      : colors.sub_background.button,
+                  color: colors.text.secondary,
+                }}
+              >
+                확인
+              </Button>
+            </Box>
+          </Box>
+        </Modal>
+
+        {/* Reset Password Modal */}
+        <Modal
+          open={openResetModal}
+          onClose={handleCloseResetModal}
+          aria-labelledby="modal-title-reset"
+          aria-describedby="modal-description-reset"
+        >
+          <Box
+            sx={{
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+              width: 300,
+              bgcolor: "background.paper",
+              border: "2px solid #000",
+              boxShadow: 24,
+              p: 4,
+            }}
+          >
+            <Typography
+              id="modal-title-reset"
+              variant="h6"
+              component="h2"
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                fontWeight: "bold",
+                color: colors.text.primary,
+              }}
+            >
+              비밀번호 초기화
             </Typography>
             <Typography
               id="modal-description-reset"
@@ -209,7 +394,10 @@ const FindAccount = ({ idEmail }: FindAccountProps) => {
                 variant="contained"
                 sx={{
                   mr: 1,
-                  bgcolor: isTheme === "기본" ? colors.background.button : colors.sub_background.button,
+                  bgcolor:
+                    isTheme === "기본"
+                      ? colors.background.button
+                      : colors.sub_background.button,
                   color: colors.text.secondary,
                 }}
               >

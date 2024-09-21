@@ -32,7 +32,10 @@ export const useSignUpForm = () => {
     setValidity({
       isIdEmailValid: isEmailValid(formState.idEmail),
       isPasswordValid: isPasswordValid(formState.password),
-      isPasswordMatch: doPasswordsMatch(formState.password, formState.passwordCheck),
+      isPasswordMatch: doPasswordsMatch(
+        formState.password,
+        formState.passwordCheck
+      ),
     });
   }, [formState]);
 

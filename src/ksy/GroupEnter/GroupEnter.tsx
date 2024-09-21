@@ -5,6 +5,7 @@ import { Box } from "@mui/system";
 import MyProfileImg from "../LogInPage/ProfileIMG";
 import { FullPageBox } from "../../styles/mui";
 import { sizes } from "../../styles/sizes";
+import { useState } from "react";
 
 const GroupEnter = () => {
   const navigate = useNavigate();
@@ -23,9 +24,17 @@ const GroupEnter = () => {
             borderRadius: sizes.borderRadius.xs,
             gap: sizes.gap.medium
         }}>
-        <MyProfileImg />
+        <MyProfileImg/>
         <GroupEnterText/>
-        <GroupEnterButton/>
+        <GroupEnterButton
+          groupName={""}
+          setGroupName={function (value: string): void {
+          throw new Error("Function not implemented.");
+          }}
+          groupPassword={""}
+          setGroupPassword={function (value: string): void {
+          throw new Error("Function not implemented.");
+        } }/>
       </Box>
     </FullPageBox>
   );

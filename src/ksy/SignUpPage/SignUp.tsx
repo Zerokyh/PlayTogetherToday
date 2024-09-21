@@ -9,6 +9,7 @@ import { sizes } from "../../styles/sizes";
 import ButtonGroups from "./ButtonGroups";
 import FindAccount from "../LogInPage/Find_Account";
 import { useState } from "react";
+import { isEmailValid, isPasswordValid } from "./InputFunction/validation";
 
 const SignUp = () => {
   const {
@@ -29,7 +30,7 @@ const SignUp = () => {
   // Modal
   const [openSignUpModal, setOpenSignUpModal] = useState(false);
   const [openCancelModal, setOpenCancelModal] = useState(false);
-  
+
   // Cancel Btn Modal Open logic
   const handleOpenCancelModal = () => setOpenCancelModal(true);
   const handleCloseCancelModal = () => setOpenCancelModal(false);
@@ -61,17 +62,22 @@ const SignUp = () => {
   // SignUp Join Btn Modal Open logic
   const handleOpenSignUpModal = () => setOpenSignUpModal(true);
   const handleCloseSignUpModal = () => setOpenSignUpModal(false);
-  // SignUp Btn Modal Open
+  // SignUp Btn Modal Null & Open
   const handleJoin = () => {
-    handleOpenSignUpModal();
-  }
+    if (!formState.idEmail || !formState.password || !formState.passwordCheck) {
+      alert("입력하지 않은 정보가 있습니다. 필수입력란*을 확인해주세요!");
+      return false;
+    } else {
+      handleOpenSignUpModal();
+    }
+  };
   // SignUp Btn Navigate
   const handelJoinBtn = () => {
     setTimeout(() => {
       navigate("/");
       // after : Save Data Code
-    })
-  }
+    });
+  };
 
   const validatePhoneNumber = (phoneNumber: string) => {
     if (phoneNumber === "") {
@@ -96,8 +102,8 @@ const SignUp = () => {
           padding: "20px",
           bgcolor:
             isTheme === "기본"
-            ? colors.background.secondary
-            : colors.sub_background.secondary,
+              ? colors.background.secondary
+              : colors.sub_background.secondary,
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
@@ -108,53 +114,56 @@ const SignUp = () => {
         {/* Title Box */}
         <Typography
           sx={{
-          width: "500px",
-          height: "40px",
-          padding: sizes.padding.xlarge,
-          marginBottom: "12px",
-          bgcolor:
-            isTheme == "기본"
-            ? colors.background.tertiary
-            : colors.sub_background.tertiary,
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          textAlign: "center",
-          fontWeight: "bold",
-          fontSize: sizes.fontSize.large,
-          color: colors.text.primary,
-          borderRadius: sizes.borderRadius.normal,
-          }}>
+            width: "500px",
+            height: "40px",
+            padding: sizes.padding.xlarge,
+            marginBottom: "12px",
+            bgcolor:
+              isTheme == "기본"
+                ? colors.background.tertiary
+                : colors.sub_background.tertiary,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            textAlign: "center",
+            fontWeight: "bold",
+            fontSize: sizes.fontSize.large,
+            color: colors.text.primary,
+            borderRadius: sizes.borderRadius.normal,
+          }}
+        >
           소모임의 소중한 회원으로 모시겠습니다
         </Typography>
 
         <Typography
-        onClick={() => navigate("/LogIn")}
-        sx={{
-          cursor: "pointer",
-          "&:hover": { textDecoration: "underline" },
-          width: "500px",
-          height: "40px",
-          paddingX: sizes.padding.xlarge,
-          paddingY: sizes.padding.large,
-          marginBottom: "25px",
-          bgcolor:
-            isTheme == "기본"
-            ? colors.background.tertiary
-            : colors.sub_background.tertiary,
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          textAlign: "center",
-          fontWeight: "bold",
-          fontSize: sizes.fontSize.large,
-          color: colors.text.primary,
-          borderRadius: sizes.borderRadius.normal,
-        }}>
-        계정이 있어요! 로그인 하러 갈게요
-      </Typography>
+          onClick={() => navigate("/LogIn")}
+          sx={{
+            cursor: "pointer",
+            "&:hover": { textDecoration: "underline" },
+            width: "500px",
+            height: "40px",
+            paddingX: sizes.padding.xlarge,
+            paddingY: sizes.padding.large,
+            marginBottom: "25px",
+            bgcolor:
+              isTheme == "기본"
+                ? colors.background.tertiary
+                : colors.sub_background.tertiary,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            textAlign: "center",
+            fontWeight: "bold",
+            fontSize: sizes.fontSize.large,
+            color: colors.text.primary,
+            borderRadius: sizes.borderRadius.normal,
+          }}
+        >
+          계정이 있어요! 로그인 하러 갈게요
+        </Typography>
 
-         {/* 아이디 정보 표시 */}{/* idEmail 전달 */}
+        {/* 아이디 정보 표시 */}
+        {/* idEmail 전달 */}
         {/* <FindAccount idEmail={formState.idEmail} />  */}
 
         {/* Input Groups */}
@@ -174,7 +183,7 @@ const SignUp = () => {
         {/* Button Group */}
         <ButtonGroups
           isTheme={isTheme}
-          onJoin={handleOpenSignUpModal}
+          onJoin={handleJoin}
           onCancel={handleOpenCancelModal}
         />
       </Box>
@@ -188,33 +197,37 @@ const SignUp = () => {
       >
         <Box
           sx={{
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
             width: 300,
-            bgcolor: 'background.paper',
-            border: '2px solid #000',
+            bgcolor: "background.paper",
+            border: "2px solid #000",
             boxShadow: 24,
             p: 4,
           }}
         >
-          <Typography id="modal-title-delete" variant="h6" component="h2"
+          <Typography
+            id="modal-title-delete"
+            variant="h6"
+            component="h2"
             sx={{
               display: "flex",
               justifyContent: "center",
               fontWeight: "bold",
-              color: colors.text.primary
+              color: colors.text.primary,
             }}
           >
             모임 가입
           </Typography>
-          <Typography id="modal-description-delete"
+          <Typography
+            id="modal-description-delete"
             sx={{
               mt: 2,
               display: "flex",
               justifyContent: "center",
-              color: colors.text.primary
+              color: colors.text.primary,
             }}
           >
             정말 가입하시겠습니까?
@@ -243,7 +256,7 @@ const SignUp = () => {
                     ? colors.background.subbutton
                     : colors.sub_background.subbutton,
                 color: colors.text.primary,
-                borderColor: colors.border.primary
+                borderColor: colors.border.primary,
               }}
             >
               취소
@@ -261,37 +274,43 @@ const SignUp = () => {
       >
         <Box
           sx={{
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
             width: 300,
-            bgcolor: 'background.paper',
-            border: '2px solid #000',
+            bgcolor: "background.paper",
+            border: "2px solid #000",
             boxShadow: 24,
             p: 4,
           }}
         >
-          <Typography id="modal-title-join" variant="h6" component="h2"
+          <Typography
+            id="modal-title-join"
+            variant="h6"
+            component="h2"
             sx={{
               display: "flex",
               justifyContent: "center",
               fontWeight: "bold",
-              color: colors.text.primary
+              color: colors.text.primary,
             }}
           >
             모임 가입
           </Typography>
-          <Typography id="modal-description-join"
+          <Typography
+            id="modal-description-join"
             sx={{
               mt: 2,
               display: "flex",
               justifyContent: "center",
               textAlign: "center",
-              color: colors.text.primary
-            }}>
+              color: colors.text.primary,
+            }}
+          >
             처음 화면으로 돌아갑니다
-            <br/>(내용은 저장되지 않습니다)
+            <br />
+            (내용은 저장되지 않습니다)
           </Typography>
           <Box mt={2} display={"flex"} justifyContent={"center"}>
             <Button
@@ -311,7 +330,6 @@ const SignUp = () => {
           </Box>
         </Box>
       </Modal>
-
     </FullPageBox>
   );
 };

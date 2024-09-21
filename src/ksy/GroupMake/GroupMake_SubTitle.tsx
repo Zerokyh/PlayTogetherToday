@@ -10,30 +10,31 @@ const GroupMake_SubTitle = () => {
 
   return (
     <Typography
-        onClick={() => navigate("/GroupEnter")}
-        sx={{
-          cursor: "pointer",
-          "&:hover": { textDecoration: "underline" },
-          width: "500px",
-          height: "40px",
-          paddingX: sizes.padding.xlarge,
-          paddingY: sizes.padding.large,
-          marginBottom: "25px",
-          bgcolor:
-            isTheme == "기본"
+      onClick={() => navigate("/GroupEnter")}
+      sx={{
+        cursor: "pointer",
+        "&:hover": { textDecoration: "underline" },
+        width: "500px",
+        height: "40px",
+        paddingX: sizes.padding.xlarge,
+        paddingY: sizes.padding.large,
+        marginBottom: "25px",
+        bgcolor:
+          isTheme == "기본"
             ? colors.background.tertiary
             : colors.sub_background.tertiary,
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          textAlign: "center",
-          fontWeight: "bold",
-          fontSize: sizes.fontSize.large,
-          color: colors.text.primary,
-          borderRadius: sizes.borderRadius.normal,
-        }}>
-        모임에 초대받았어요
-      </Typography>
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        textAlign: "center",
+        fontWeight: "bold",
+        fontSize: sizes.fontSize.large,
+        color: colors.text.primary,
+        borderRadius: sizes.borderRadius.normal,
+      }}
+    >
+      모임에 초대받았어요
+    </Typography>
   );
 };
 
