@@ -4,9 +4,11 @@ import LinkedButton from "../../components/atom/Button/LinkedButton";
 import useThemeStore from "../../store/store";
 import { handleDrawerClose, handleLogOut } from "../../utils/func";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+import { useNavigate } from "react-router-dom";
 
 const OpenedBarTopLogoutBar = () => {
   const { isLogin, isOpen, setIsOpen, setIsLogin } = useThemeStore();
+  const navigate = useNavigate();
   return (
     <Box
       width={sizes.drawerWidth}
@@ -23,7 +25,7 @@ const OpenedBarTopLogoutBar = () => {
             justifyContent: "center",
           }}
           text="로그아웃"
-          onClick={() => handleLogOut(setIsLogin)}
+          onClick={() => handleLogOut(setIsLogin, navigate)}
         />
       ) : (
         <Box sx={{ width: "182px", height: "40px" }} />

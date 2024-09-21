@@ -71,7 +71,7 @@ const ClosedBar = () => {
               <BasicIconButton
                 text="로그아웃"
                 icon={<LogoutIcon />}
-                onClick={() => handleLogOut(setIsLogin)}
+                onClick={() => handleLogOut(setIsLogin, navigate)}
               />
             ) : (
               <BasicIconButton

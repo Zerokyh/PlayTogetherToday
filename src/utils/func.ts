@@ -1,7 +1,6 @@
 // func.ts
 
 import { useNavigate } from "react-router-dom";
-const navigate = useNavigate();
 
 export const handleDrawerOpen = (setIsOpen: (isOpen: boolean) => void) => {
   setIsOpen(true);
@@ -11,7 +10,10 @@ export const handleDrawerClose = (setIsOpen: (isOpen: boolean) => void) => {
   setIsOpen(false);
 };
 
-export const handleLogOut = (setIsLogin: (isLogin: boolean) => void) => {
+export const handleLogOut = (
+  setIsLogin: (isLogin: boolean) => void,
+  navigate: (path: string) => void
+) => {
   setIsLogin(false);
   localStorage.removeItem("member_id");
   navigate("/Login");
