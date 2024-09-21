@@ -7,9 +7,7 @@ import useThemeStore from "../../store/store";
 import { colors } from "../../styles/colors";
 import { sizes } from "../../styles/sizes";
 import ButtonGroups from "./ButtonGroups";
-import FindAccount from "../LogInPage/Find_Account";
 import { useState } from "react";
-import { isEmailValid, isPasswordValid } from "./InputFunction/validation";
 
 const SignUp = () => {
   const {
@@ -65,7 +63,7 @@ const SignUp = () => {
   // SignUp Btn Modal Null & Open
   const handleJoin = () => {
     if (!formState.idEmail || !formState.password || !formState.passwordCheck) {
-      alert("입력하지 않은 정보가 있습니다. 필수입력란*을 확인해주세요!");
+      alert("입력하지 않은 정보가 있습니다. 다시 확인해주세요!");
       return false;
     } else {
       handleOpenSignUpModal();

@@ -7,13 +7,6 @@ import useThemeStore from "../../store/store";
 import { colors, theme } from "../../styles/colors";
 import { sizes } from "../../styles/sizes";
 
-// type GroupEnterInputProps = {
-//   groupName: string;
-//   setgroupName: (value: string) => void;
-//   groupPassword: string;
-//   setGroupPassword: (value: string) => void;
-// };
-
 const GroupEnterText = () => {
   const { isTheme } = useThemeStore();
   const [groupName, setGroupName] = useState<string>("");

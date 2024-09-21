@@ -14,27 +14,29 @@ const GroupEnter = () => {
     <FullPageBox>
       <Box
         sx={{
-            width: "540px",
-            height: "700px",
-            padding: "20px",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-            borderRadius: sizes.borderRadius.xs,
-            gap: sizes.gap.medium
-        }}>
-        <MyProfileImg/>
-        <GroupEnterText/>
+          width: "540px",
+          height: "700px",
+          padding: "20px",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          borderRadius: sizes.borderRadius.xs,
+          gap: sizes.gap.medium,
+        }}
+      >
+        <MyProfileImg />
+        <GroupEnterText />
         <GroupEnterButton
-          groupName={""}
-          setGroupName={function (value: string): void {
-          throw new Error("Function not implemented.");
-          }}
-          groupPassword={""}
-          setGroupPassword={function (value: string): void {
-          throw new Error("Function not implemented.");
-        } }/>
+        // groupName={""}
+        // setGroupName={function (value: string): void {
+        // throw new Error("Function not implemented.");
+        // }}
+        // groupPassword={""}
+        // setGroupPassword={function (value: string): void {
+        // throw new Error("Function not implemented.");
+        // }}
+        />
       </Box>
     </FullPageBox>
   );

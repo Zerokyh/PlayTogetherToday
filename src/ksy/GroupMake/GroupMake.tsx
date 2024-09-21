@@ -65,7 +65,7 @@ const GroupMake = () => {
       !formState.groupType ||
       !formState.groupPassword
     ) {
-      alert("입력하지 않은 정보가 있습니다. 필수입력란*을 확인해주세요!");
+      alert("입력하지 않은 정보가 있습니다. 다시 확인해주세요!");
       return false;
     } else {
       handleOpenGroupMakeModal();

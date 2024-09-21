@@ -5,19 +5,21 @@ import useThemeStore from "../../store/store";
 import { colors } from "../../styles/colors";
 import { sizes } from "../../styles/sizes";
 
-type GroupEnterInputProps = {
-  groupName: string;
-  setGroupName: (value: string) => void;
-  groupPassword: string;
-  setGroupPassword: (value: string) => void;
-};
+// type GroupEnterInputProps = {
+//   groupName: string;
+//   setGroupName: (value: string) => void;
+//   groupPassword: string;
+//   setGroupPassword: (value: string) => void;
+// };
 
-const GroupEnterButton = ({
-  groupName,
-  setGroupName,
-  groupPassword,
-  setGroupPassword,
-}: GroupEnterInputProps) => {
+// const GroupEnterButton = ({
+//   groupName,
+//   setGroupName,
+//   groupPassword,
+//   setGroupPassword,
+// }: GroupEnterInputProps) => {
+
+const GroupEnterButton = () => {
   const { isTheme } = useThemeStore();
   const navigate = useNavigate();
 
@@ -40,9 +42,9 @@ const GroupEnterButton = ({
   // Join Btn Open
   const handleJoinRequest = () => {
     // if (!groupName || !groupPassword) {
-    //   alert("입력하지 않은 정보가 있습니다. 필수입력란*을 확인해주세요!");
+    //   alert("입력하지 않은 정보가 있습니다. 다시 확인해주세요!");
     // } else {
-      handleOpenJoinModal();
+    handleOpenJoinModal();
     // }
   };
   // Join Btn Navigate
