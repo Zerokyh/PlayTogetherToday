@@ -120,12 +120,12 @@ const InputGroups = ({
         onFocus={handleFocus("phoneNumber")}
         optional
       />
-      <InputContents
+      {/* <InputContents
         label="그룹 만들기"
         value={formState.groupName}
         setValue={handleValueChange("groupName")}
         optional
-      />
+      /> */}
       <InputContents
         label="그룹 가입 암호"
         value={formState.groupPassword}

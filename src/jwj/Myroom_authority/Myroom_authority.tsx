@@ -91,31 +91,37 @@ const Myroom_authority = () => {
               info_name="연 락 처"
               isAllPublic={isAllPublic}
               setIsAllPublic={setIsAllPublic}
+              member_id={1}
             />
             <Authorize_profile
               info_name="이 메 일"
               isAllPublic={isAllPublic}
               setIsAllPublic={setIsAllPublic}
+              member_id={1}
             />
             <Authorize_profile
               info_name="주 소"
               isAllPublic={isAllPublic}
               setIsAllPublic={setIsAllPublic}
+              member_id={1}
             />
             <Authorize_profile
               info_name="그룹 직책"
               isAllPublic={isAllPublic}
               setIsAllPublic={setIsAllPublic}
+              member_id={1}
             />
             <Authorize_profile
               info_name="개인 기념일"
               isAllPublic={isAllPublic}
               setIsAllPublic={setIsAllPublic}
+              member_id={1}
             />
             <Authorize_profile
               info_name="그룹 기념일"
               isAllPublic={isAllPublic}
               setIsAllPublic={setIsAllPublic}
+              member_id={1}
             />
           </Box>
         </Box>

@@ -1,4 +1,4 @@
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Button, Modal, Typography } from "@mui/material";
 import { FullPageBox } from "../../styles/mui";
 import GroupMake_SubTitle from "./GroupMake_SubTitle";
 import GroupMake_Title from "./GroupMake_Title";
@@ -12,6 +12,8 @@ import { sizes } from "../../styles/sizes";
 
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
+import { bgcolor } from "@mui/system";
+import { useState } from "react";
 
 const GroupMake = () => {
   const { isTheme } = useThemeStore();
@@ -25,7 +27,20 @@ const GroupMake = () => {
 
   const navigate = useNavigate();
 
+  // Modal
+  const [openGroupMakeModal, setOpenGroupMakeModal] = useState(false);
+  const [openCancelModal, setOpenCancelModal] = useState(false);
+  
+  
+  // Cancel Btn Modal Open logic
+  const handleOpenCancelModal = () => setOpenCancelModal(true);
+  const handleCloseCancelModal = () => setOpenCancelModal(false);
+  // Cancel Btn Modal Open
   const handleCancel = () => {
+    handleOpenCancelModal();
+  }
+  // Cancel Btn Navigate
+  const handleCancelBtn = () => {
     setFormState({
       groupName: "",
       groupType: "",
@@ -42,22 +57,20 @@ const GroupMake = () => {
       groupSecretaryBlurred: false,
       groupEventDateBlurred: false,
     });
-
-    setTimeout(() => {
-      alert("처음 화면으로 돌아갑니다. 내용은 저장되지 않습니다.");
-      navigate("/");
-    }, 0);
+    navigate("/");
   };
 
-  const handleGroupEnter = () => {
-    setTimeout(() => {
-      // alert("정말 모임을 만드시겠습니까?");/
-      navigate("/GroupEnter");
-    }, 0);
+  // GroupMake Btn Modal
+  const handleOpenGroupMakeModal = () => setOpenGroupMakeModal(true);
+  const handleCloseGroupMakeModal = () => setOpenGroupMakeModal(false);
+  // GroupMake Btn Nagivate
+  const handleGroupEnterBtn = () => {
+    handleCloseGroupMakeModal();
+    navigate("/GroupEnter");
   };
 
   // Group Type list
-  const top100films = [
+  const groupTypeList = [
     { title: '게임' },
     { title: '댄스' },
     { title: '도서' },
@@ -73,7 +86,7 @@ const GroupMake = () => {
 ];
 
   const defaultProps = {
-  options: top100films,
+  options: groupTypeList,
   getOptionLabel: (option: { title: string }) => option.title,
 };
 
@@ -83,9 +96,9 @@ const GroupMake = () => {
       {/* Container */}
       <Box
         sx={{
-          width: sizes.width.half,
-          height: sizes.height.full,
-          padding: "8%",
+          width: "540px",
+          height: "700px",
+          padding: "20px",
           bgcolor:
             isTheme == "기본"
             ? colors.background.secondary
@@ -111,13 +124,6 @@ const GroupMake = () => {
             value={formState.groupName}
             setValue={(val) => setFormState((prev) => ({ ...prev, groupName: val }))}
           />
-          {/* <InputContents
-            label="모임 타입 설정*"
-            value={formState.groupType}
-            setValue={(val) => setFormState((prev) => ({ ...prev, groupType: val }))}
-            optional
-            optionalText={"(추후 변경 가능)"}
-          /> */}
           <Autocomplete
             {...defaultProps}
             id="disable-close-on-select"
@@ -136,30 +142,35 @@ const GroupMake = () => {
                       : colors.sub_background.tertiary,
                     color: colors.text.primary,
                     borderRadius: "15px"
-                  }}>
-                <Typography
-                  sx={{
-                    fontWeight:"bold",
-                    height: "10px",
-                    fontSize: sizes.fontSize.medium,
-                    // marginBottom: "5px"
-                  }}>모임 타입 설정*
-                </Typography>
-                <TextField {...params} variant="standard" size="small"
-                  sx={{
-                    width: "470px",
-                    outline: "none",
-                    borderColor: colors.border.primary
-                  }}
+                }}>
+                <Box
+                  display={"flex"} height={"15px"}>
+                  <Typography
+                    sx={{
+                      fontWeight:"bold",
+                      height: "10px",
+                      fontSize: sizes.fontSize.medium,
+                    }}>모임 타입 설정*
+                  </Typography>
                   
-                />
-                {/* <Typography
-                  display={"flex"}
-                  marginTop={sizes.margin.medium}
-                  marginLeft={sizes.margin.large}
-                  color={colors.text.grey}
-                  fontSize={sizes.fontSize.xsmall}>(추후 변경 가능)
-                </Typography> */}
+                  <Typography
+                    sx={{
+                      display: "flex",
+                      marginTop: sizes.margin.small,
+                      marginLeft: sizes.margin.large,
+                      color: colors.text.grey,
+                      fontSize: sizes.fontSize.xsmall,
+                    }}>(추후 변경 가능)
+                  </Typography>
+                </Box>
+                <Box>
+                  <TextField {...params} variant="standard" size="small"
+                    sx={{
+                      width: "470px",
+                      outline: "none",
+                      borderColor: colors.border.primary,
+                  }}/>
+                </Box>
               </Box>
               )}
             />
@@ -210,7 +221,7 @@ const GroupMake = () => {
             }}
           >
             <Button
-              onClick={handleGroupEnter}
+              onClick={handleOpenGroupMakeModal}
               sx={{
                 width: "100px",
                 height: 45,
@@ -225,7 +236,7 @@ const GroupMake = () => {
               모임 만들기
             </Button>
             <Button
-              onClick={handleCancel}
+              onClick={handleOpenCancelModal}
               sx={{
                 width: "100px",
                 height: 45,
@@ -243,6 +254,140 @@ const GroupMake = () => {
 
         </Box>
       </Box>
+
+      {/* GroupMake Modal */}
+      <Modal
+        open={openGroupMakeModal}
+        onClose={handleCloseGroupMakeModal}
+        aria-labelledby="modal-title-delete"
+        aria-describedby="modal-description-delete"
+      >
+        <Box
+          sx={{
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            width: 300,
+            bgcolor: 'background.paper',
+            border: '2px solid #000',
+            boxShadow: 24,
+            p: 4,
+          }}
+        >
+          <Typography id="modal-title-delete" variant="h6" component="h2"
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              fontWeight: "bold",
+              color: colors.text.primary
+            }}
+          >
+            모임 가입
+          </Typography>
+          <Typography id="modal-description-delete"
+            sx={{
+              mt: 2,
+              display: "flex",
+              justifyContent: "center",
+              color: colors.text.primary
+            }}
+          >
+            모임을 만드시겠습니까?
+          </Typography>
+          <Box mt={2} display={"flex"} justifyContent={"center"}>
+            <Button
+              onClick={handleGroupEnterBtn}
+              variant="contained"
+              sx={{
+                mr: 1,
+                bgcolor:
+                  isTheme === "기본"
+                    ? colors.background.button
+                    : colors.sub_background.button,
+                color: colors.text.secondary,
+              }}
+            >
+              만들기
+            </Button>
+            <Button
+              onClick={handleCloseGroupMakeModal}
+              variant="outlined"
+              sx={{
+                bgcolor:
+                  isTheme === "기본"
+                    ? colors.background.subbutton
+                    : colors.sub_background.subbutton,
+                color: colors.text.primary,
+                borderColor: colors.border.primary
+              }}
+            >
+              취소
+            </Button>
+          </Box>
+        </Box>
+      </Modal>
+
+      {/* Cancel Button Modal */}
+      <Modal
+        open={openCancelModal}
+        onClose={handleCancelBtn}
+        aria-labelledby="modal-title-join"
+        aria-describedby="modal-description-join"
+      >
+        <Box
+          sx={{
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            width: 300,
+            bgcolor: 'background.paper',
+            border: '2px solid #000',
+            boxShadow: 24,
+            p: 4,
+          }}
+        >
+          <Typography id="modal-title-join" variant="h6" component="h2"
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              fontWeight: "bold",
+              color: colors.text.primary
+            }}
+          >
+            모임 가입
+          </Typography>
+          <Typography id="modal-description-join"
+            sx={{
+              mt: 2,
+              display: "flex",
+              justifyContent: "center",
+              textAlign: "center",
+              color: colors.text.primary
+            }}>
+            처음 화면으로 돌아갑니다
+            <br/>(내용은 저장되지 않습니다)
+          </Typography>
+          <Box mt={2} display={"flex"} justifyContent={"center"}>
+            <Button
+              onClick={handleCancelBtn}
+              variant="contained"
+              sx={{
+                mr: 1,
+                bgcolor:
+                  isTheme === "기본"
+                    ? colors.background.button
+                    : colors.sub_background.button,
+                color: colors.text.secondary,
+              }}
+            >
+              확인
+            </Button>
+          </Box>
+        </Box>
+      </Modal>
+
     </FullPageBox>
   );
 };

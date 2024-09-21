@@ -61,14 +61,14 @@ const LoginBtn = ({ idEmail, password }: LoginBtnProps) => {
   };
 
   return (
-    <Box width={sizes.width.block}>
-      <Box display={"flex"} justifyContent={"end"}>
+    <Box width={ sizes.width.block }>
+      <Box display={"flex"}
+        justifyContent={"end"}>
         <Button
           onClick={handleFindAccount}
           sx={{
             width: "100px",
             height: "22px",
-            marginTop: "20px",
             fontWeight: "bold",
             fontSize: sizes.fontSize.small,
             color: colors.text.primary,
@@ -81,7 +81,6 @@ const LoginBtn = ({ idEmail, password }: LoginBtnProps) => {
           sx={{
             width: "65px",
             height: "22px",
-            marginTop: "20px",
             fontWeight: "bold",
             fontSize: sizes.fontSize.small,
             color: colors.text.primary,

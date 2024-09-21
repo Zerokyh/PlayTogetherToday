@@ -37,30 +37,31 @@ const LoginInput = ({
   }, [idEmail]);
 
   // show icon
-  const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword);
-  };
-
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
+    };
+        
   return (
-    // InputBox Group
-    <Box
-      width={sizes.width.block}
-      height={sizes.height.sidebarnormal}
-      display={"flex"}
-      flexDirection={"column"}
-      justifyContent={"center"}
-    >
-      {/* Input ID Box*/}
+      // InputBox Group
       <Box
-        sx={{
+        width={ sizes.width.block }
+        height={ sizes.height.sidebarnormal }
+        display={"flex"}
+        flexDirection={"column"}
+        justifyContent={"center"}
+      >
+        
+        {/* Input ID Box*/}
+        <Box
+          sx={{
           width: "100%",
           height: "124px",
           textAlign: "center",
-          gap: sizes.gap.large,
-          padding: sizes.padding.xxlarge,
-          marginBottom: 2,
-          bgcolor:
-            isTheme == "기본"
+            gap: sizes.gap.large,
+            padding: sizes.padding.xxlarge,
+            marginBottom: 2,
+            bgcolor:
+              isTheme == "기본"
               ? colors.background.secondary
               : colors.sub_background.secondary,
           color: colors.text.primary,
@@ -95,33 +96,32 @@ const LoginInput = ({
               ? "올바른 이메일 형식이 아닙니다"
               : ""}
           </Typography>
+      </Box>
+          
+            {/* Login ID Input */}
+            <Input
+              type="email"
+              value={idEmail}
+              placeholder="이메일 계정을 입력하세요"
+              onChange={(e) => setIdEmail(e.target.value)}
+              onBlur={() => setIdEmailBlurred(true)}
+              onFocus={() => setIdEmailBlurred(false)}
+              sx={{
+                width: "382px",
+                outline: "none",
+                marginTop: "14px"
+              }}/>
         </Box>
 
-        {/* Login ID Input */}
-        <Input
-          type="email"
-          value={idEmail}
-          placeholder="이메일 계정을 입력하세요"
-          onChange={(e) => setIdEmail(e.target.value)}
-          onBlur={() => setIdEmailBlurred(true)}
-          onFocus={() => setIdEmailBlurred(false)}
+        {/* Login Password Input Box */}
+        <Box
           sx={{
-            width: "382px",
-            outline: "none",
-            marginTop: "14px",
-          }}
-        />
-      </Box>
-
-      {/* Login Password Input Box */}
-      <Box
-        sx={{
-          width: "100%",
-          height: "124px",
-          textAlign: "center",
-          padding: sizes.padding.xlarge,
-          bgcolor:
-            isTheme == "기본"
+            width: "100%",
+            height: "124px",
+            textAlign: "center",
+            padding: sizes.padding.xlarge,
+            bgcolor:
+              isTheme == "기본"
               ? colors.background.secondary
               : colors.sub_background.secondary,
           color: colors.text.primary,
@@ -141,16 +141,15 @@ const LoginInput = ({
         <Box position={"relative"}>
           <Input
             type={showPassword ? "text" : "password"}
-            value={password}
+            value={password} // password || tempPW
             placeholder="영문, 숫자, 특수기호 포함 8~20자"
             onChange={(e) => setPassword(e.target.value)}
             sx={{
               width: "382px",
               outline: "none",
-              marginTop: "14px",
-            }}
-          />
-
+              marginTop: "14px"
+            }} />
+          
           {/* Show password icon */}
           <IconButton
             type="button"
