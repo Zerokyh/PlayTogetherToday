@@ -77,9 +77,13 @@ const Myroom = () => {
     // 멤버 정보가 설정된 후에만 그룹 정보를 불러옵니다
     if (Memberdata?.member_id) {
       axios
-        .get("http://localhost:8080/Myroom/groups", {
-          params: { member_id: Memberdata.member_id }, // member_id를 동적으로 가져오기
-        })
+        // .get("http://localhost:8080/Myroom/groups",
+        .get(
+          "https://playtotogether-backendserver-djbdckftbygrbraw.koreasouth-01.azurewebsites.net/Myroom/groups",
+          {
+            params: { member_id: Memberdata.member_id }, // member_id를 동적으로 가져오기
+          }
+        )
         .then((response) => {
           setGroupData(response.data);
         })
@@ -93,9 +97,13 @@ const Myroom = () => {
     // 멤버 정보가 설정된 후에만 친구 정보를 불러옵니다
     if (Memberdata?.member_id) {
       axios
-        .get("http://localhost:8080/Myroom/friends", {
-          params: { member_id: Memberdata.member_id }, // member_id를 동적으로 가져오기
-        })
+        // .get("http://localhost:8080/Myroom/friends",
+        .get(
+          "https://playtotogether-backendserver-djbdckftbygrbraw.koreasouth-01.azurewebsites.net/Myroom/friends",
+          {
+            params: { member_id: Memberdata.member_id }, // member_id를 동적으로 가져오기
+          }
+        )
         .then((response) => {
           setFriendData(response.data);
         })
