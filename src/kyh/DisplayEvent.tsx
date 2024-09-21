@@ -155,7 +155,10 @@ const DisplayEvent = ({ selectedDate }: DisplayEventProps) => {
             <Typography>선택된 날짜의 이벤트가 없습니다.</Typography>
           )}
         </TabPanel>
-        <TabPanel value="2" sx={{ height: 120, overflowY: "scroll" }}>
+        <TabPanel
+          value="2"
+          sx={{ height: 120, overflowY: "scroll", padding: "10px" }}
+        >
           {weeklyEvents.length > 0 ? (
             weeklyEvents.map((event, index) => (
               <ScheduleList
@@ -169,7 +172,10 @@ const DisplayEvent = ({ selectedDate }: DisplayEventProps) => {
             <Typography>주간 이벤트가 없습니다.</Typography>
           )}
         </TabPanel>
-        <TabPanel value="3" sx={{ height: 120, overflowY: "scroll" }}>
+        <TabPanel
+          value="3"
+          sx={{ height: 120, overflowY: "scroll", padding: "10px" }}
+        >
           {monthlyEvents.length > 0 ? (
             monthlyEvents.map((event, index) => (
               <ScheduleList

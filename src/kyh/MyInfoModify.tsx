@@ -70,10 +70,15 @@ const MyInfoModify = () => {
 
   const handleModify = () => {
     axios
-      .post("http://localhost:8080/MyInfoModify", {
-        member_id: member_id,
-        ...formValues,
-      })
+      // .post(
+      //   "http://localhost:8080/MyInfoModify",
+      .post(
+        "https://playtotogether-backendserver-djbdckftbygrbraw.koreasouth-01.azurewebsites.net/MyInfoModify",
+        {
+          member_id: member_id,
+          ...formValues,
+        }
+      )
       .then((response) => {
         console.log(response.data);
       })
