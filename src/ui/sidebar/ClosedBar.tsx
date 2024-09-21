@@ -11,7 +11,11 @@ import {
 } from "@mui/material";
 import LogoIconBtn from "../../components/molecules/Button/LogoIconBtn";
 import { AvatarSize } from "../../styles/mui";
-import { geListItemStyles, getListItemIconStyles } from "../../utils/func";
+import {
+  geListItemStyles,
+  getListItemIconStyles,
+  handleLogOut,
+} from "../../utils/func";
 import { menuData } from "../../constants/menuData";
 import BasicIconButton from "../../components/molecules/Button/BasicIconButton";
 
@@ -67,13 +71,13 @@ const ClosedBar = () => {
               <BasicIconButton
                 text="로그아웃"
                 icon={<LogoutIcon />}
-                onClick={() => setIsLogin(false)}
+                onClick={() => handleLogOut(setIsLogin)}
               />
             ) : (
               <BasicIconButton
                 text="로그인"
                 icon={<PowerSettingsNewIcon />}
-                onClick={() => setIsLogin(true)}
+                onClick={() => navigate("/Login")}
               />
             )}
           </ListItem>
