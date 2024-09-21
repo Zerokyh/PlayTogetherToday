@@ -9,25 +9,22 @@ import { styled } from "@mui/material/styles";
 import useThemeStore from "../store/store";
 import MyInfoProfileImage from "./MyInfoProfileImage";
 import InputModifyBox from "../components/atom/Input/InputModifyBox";
-import BasicButton from "../components/atom/Button/BasicButton";
 import axios from "axios";
+import LinkedButton from "../components/atom/Button/LinkedButton";
 
-type UserProfileData = {
-  member_id: number;
-  member_nickname: string;
-  member_phone: string;
-  member_address: string;
-  member_email: string;
-  member_2nd_email: string;
-  member_anniversary: Date | string;
+type formValue = {
+  nickname: string;
+  phone: string;
+  address: string;
+  email: string;
+  backupEmail: string;
+  anniversary: string;
 };
 
 const MyInfoModify = () => {
   const { isTheme } = useThemeStore();
-  const [userProfileData, setUserProfileData] =
-    React.useState<UserProfileData | null>(null);
-  const [member_id, setMemberId] = React.useState<number | null>(null);
-  const [formValues, setFormValues] = React.useState<Record<string, string>>({
+  const [imageUrl, setImageUrl] = React.useState<string>("");
+  const [formValues, setFormValues] = React.useState<formValue>({
     nickname: "",
     phone: "",
     address: "",
@@ -35,53 +32,57 @@ const MyInfoModify = () => {
     backupEmail: "",
     anniversary: "",
   });
+  const [disabledFields, setDisabledFields] = React.useState<{
+    [key in keyof formValue]: boolean;
+  }>({
+    nickname: true,
+    phone: true,
+    address: true,
+    email: true,
+    backupEmail: true,
+    anniversary: true,
+  });
+
+  const member_id = localStorage.getItem("member_id");
 
   React.useEffect(() => {
-    // Spring Boot API 호출
     axios
-      .get("http://localhost:8080/MyInfoModify/1")
+      .get(`http://localhost:8080/MyInfoModify/${member_id}`)
       .then((response) => {
-        console.log(response.data);
-        setUserProfileData(response.data.data);
-        setMemberId(response.data.data.member_id.toString());
-        localStorage.setItem(
-          "user_id",
-          response.data.data.member_id.toString()
-        );
+        const data = response.data.data;
+        setFormValues({
+          nickname: data.member_nickname || "",
+          phone: data.member_phone || "",
+          address: data.member_address || "",
+          email: data.member_email || "",
+          backupEmail: data.member_2nd_email || "",
+          anniversary: data.member_anniversary
+            ? new Date(data.member_anniversary).toLocaleDateString()
+            : "",
+        });
+        setImageUrl(data.profile_image_url);
       })
       .catch((error) => {
-        console.error("Error fetching chat data:", error);
+        console.error("Error fetching user profile data:", error);
       });
-  }, []);
+  }, [member_id]);
+
+  const handleToggle = (key: keyof formValue) => {
+    setDisabledFields((prev) => ({
+      ...prev,
+      [key]: !prev[key],
+    }));
+  };
 
   const handleInputChange =
-    (key: string) => (event: React.ChangeEvent<HTMLInputElement>) => {
-      setFormValues({
-        ...formValues,
-        [key]: event.target.value,
-      });
+    (key: keyof formValue) => (event: React.ChangeEvent<HTMLInputElement>) => {
+      const newValue = event.target.value;
+      console.log("MyInfoModify handleInputChange:", key, newValue);
+      setFormValues((prevValues) => ({
+        ...prevValues,
+        [key]: newValue,
+      }));
     };
-
-  const getPlaceholder = (key: string) => {
-    switch (key) {
-      case "nickname":
-        return userProfileData?.member_nickname ?? "";
-      case "phone":
-        return userProfileData?.member_phone ?? "";
-      case "address":
-        return userProfileData?.member_address ?? "";
-      case "email":
-        return userProfileData?.member_email ?? "";
-      case "backupEmail":
-        return userProfileData?.member_2nd_email ?? "";
-      case "anniversary":
-        return userProfileData?.member_anniversary
-          ? new Date(userProfileData.member_anniversary).toLocaleDateString()
-          : "";
-      default:
-        return "";
-    }
-  };
 
   const handleModify = () => {
     axios
@@ -93,7 +94,7 @@ const MyInfoModify = () => {
         console.log(response.data);
       })
       .catch((error) => {
-        console.error("Error fetching chat data:", error);
+        console.error("Error updating user data:", error);
       });
   };
 
@@ -119,13 +120,7 @@ const MyInfoModify = () => {
     <ThemeProvider theme={theme}>
       <FullPageBox>
         <Box sx={{ maxWidth: "1280px" }}>
-          <Box
-            sx={{
-              position: "relative",
-              top: -40,
-              left: 180,
-            }}
-          >
+          <Box sx={{ position: "relative", top: -40, left: 180 }}>
             <Typography
               sx={{ fontSize: sizes.fontSize.xlarge, fontWeight: 600 }}
             >
@@ -142,22 +137,34 @@ const MyInfoModify = () => {
               }}
             >
               <MyInfoInnerBox sx={{ width: "377px" }}>
-                <MyInfoProfileImage />
-                {userProfileData &&
-                  Object.entries(infoData).map(([key, item]) => (
-                    <Box sx={{ height: 60 }} key={key}>
-                      <ChipTextBox titlename={item.titlename} />
-                      <InputModifyBox
-                        width="240px"
-                        sx={InputMuiStyle}
-                        value={formValues[key] || getPlaceholder(key)}
-                        onChange={handleInputChange(key)}
-                      />
-                    </Box>
-                  ))}
-                <BasicButton
+                <MyInfoProfileImage
+                  imageUrl={imageUrl}
+                  setImageUrl={setImageUrl}
+                />
+                {Object.entries(infoData).map(([key, item]) => (
+                  <Box sx={{ height: 60 }} key={key}>
+                    <ChipTextBox titlename={item.titlename} />
+                    <InputModifyBox
+                      width="240px"
+                      sx={InputMuiStyle}
+                      value={formValues[key as keyof formValue]}
+                      onChange={handleInputChange(key as keyof formValue)}
+                      disabled={disabledFields[key as keyof formValue]}
+                      onToggle={() => handleToggle(key as keyof formValue)}
+                    />
+                  </Box>
+                ))}
+                <LinkedButton
                   text="변경하기"
-                  sx={{ borderRadius: sizes.borderRadius.medium }}
+                  textcolor="secondary"
+                  bgcolor="button"
+                  variantType="contained"
+                  sx={{
+                    border: "0px",
+                    width: "370px",
+                    height: "40px",
+                    fontSize: 24,
+                  }}
                   onClick={handleModify}
                 />
               </MyInfoInnerBox>

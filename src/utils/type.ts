@@ -130,3 +130,13 @@ export type GroupImgProps = {
   src?: string;
   sx?: object;
 };
+
+export type UserProfileData = {
+  member_id: number;
+  member_nickname: string;
+  member_phone: string;
+  member_address: string;
+  member_email: string;
+  member_2nd_email: string;
+  member_anniversary: Date | string;
+};

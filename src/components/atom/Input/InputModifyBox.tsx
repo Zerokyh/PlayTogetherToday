@@ -9,6 +9,9 @@ import {
 import LockPersonIcon from "@mui/icons-material/LockPerson";
 import LockOpenIcon from "@mui/icons-material/LockOpen";
 import { InputModifyBoxProp } from "../../../utils/type";
+import { InputMuiStyle } from "../../../styles/mui";
+
+const inputColor = "#23374D";
 
 const InputModifyBox = ({
   type = "text",
@@ -17,20 +20,27 @@ const InputModifyBox = ({
   width = "200px",
   sx,
   onChange,
-}: InputModifyBoxProp) => {
-  const [disabled, setDisabled] = React.useState(false);
+  disabled,
+  onToggle,
+}: InputModifyBoxProp & { disabled: boolean; onToggle: () => void }) => {
+  const [localValue, setLocalValue] = React.useState(value);
+  const inputRef = React.useRef<HTMLInputElement | null>(null);
 
-  // 고정된 색상 설정
-  const inputColor = "#23374D";
+  React.useEffect(() => {
+    setLocalValue(value);
+  }, [value]);
 
-  const handleChange = () => {
-    setDisabled(!disabled);
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const newValue = event.target.value;
+    setLocalValue(newValue);
+    if (onChange) {
+      onChange(event); // 새로 입력된 값을 직접 전달
+    }
   };
 
   return (
     <FormControl sx={{ m: 1, width: { width }, ...sx }} variant="standard">
       <InputLabel
-        htmlFor="standard-adornment-password"
         sx={{
           color: `${inputColor} !important`, // 기본 및 포커스 시 레이블 색상
           "&.Mui-focused": {
@@ -44,43 +54,22 @@ const InputModifyBox = ({
         {placeholder}
       </InputLabel>
       <Input
-        value={value}
+        value={localValue}
         type={type}
-        onChange={onChange}
-        sx={{
-          color: inputColor, // 입력 텍스트 색상 설정
-          "&:before": {
-            borderBottom: `1px solid ${inputColor} !important`, // 기본 상태 밑줄 색상
-          },
-          "&:hover:not(.Mui-disabled):before": {
-            borderBottom: `2px solid ${inputColor} !important`, // 호버 시 밑줄 색상
-          },
-          "&.Mui-focused:after": {
-            borderBottom: `2px solid ${inputColor} !important`, // 포커스 후 밑줄 색상
-          },
-          "&.Mui-disabled": {
-            color: `${inputColor} !important`, // 비활성화 상태에서 텍스트 색상
-            "&:before": {
-              borderBottom: `1px solid ${inputColor} !important`, // 비활성화 상태에서 밑줄 색상
-            },
-          },
-          // 레이블과 입력 필드의 전체 색상 설정
-          "& .MuiInputBase-input": {
-            color: inputColor, // 입력 텍스트 색상 설정
-          },
-        }}
+        onChange={handleChange}
+        sx={InputMuiStyle}
+        disabled={disabled}
         endAdornment={
           <InputAdornment position="end">
             <IconButton
               aria-label="toggle modify text"
               edge="end"
-              onClick={handleChange}
+              onClick={onToggle}
             >
               {disabled ? <LockPersonIcon /> : <LockOpenIcon />}
             </IconButton>
           </InputAdornment>
         }
-        disabled={disabled}
       />
     </FormControl>
   );

@@ -12,7 +12,7 @@ const SideBar = () => {
   const { isOpen, setIsOpen, setIsLogin } = useThemeStore();
 
   React.useEffect(() => {
-    setIsLogin(true);
+    setIsLogin(false);
   }, [setIsLogin]);
 
   return (
@@ -21,6 +21,7 @@ const SideBar = () => {
       open={isOpen}
       sx={{
         position: "fixed", // 사이드바 고정
+        zIndex: 100,
         width: isOpen ? "300px" : "60px", // 사이드바의 열림과 닫힘에 따른 너비 조정
         transition: "width 0.3s",
         "& .MuiDrawer-paper": {
