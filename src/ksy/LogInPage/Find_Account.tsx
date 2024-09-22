@@ -18,6 +18,8 @@ const FindAccount = ({ idEmail, backupEmail }: FindAccountProps) => {
   const { formState, setFormState, validity, blurred, setBlurred } =
     useSignUpForm();
 
+  const [phoneNumberForPw, setPhoneNumberForPw] = React.useState<string>("");
+
   const { isTheme } = useThemeStore();
   const navigate = useNavigate();
 
@@ -229,10 +231,8 @@ const FindAccount = ({ idEmail, backupEmail }: FindAccountProps) => {
                 />
                 <InputContents
                   label={"연락처 (숫자만 입력)*"}
-                  value={formState.phoneNumber}
-                  setValue={(val) =>
-                    setFormState((prev) => ({ ...prev, phoneNumber: val }))
-                  }
+                  value={phoneNumberForPw}
+                  setValue={(val) => setPhoneNumberForPw(val)}
                 />
 
                 {/* Reset Password Button */}
