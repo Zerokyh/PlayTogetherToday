@@ -108,7 +108,7 @@ const FindAccount = ({ idEmail, backupEmail }: FindAccountProps) => {
                 flexDirection: "column",
                 width: sizes.width.half,
                 padding: "20%",
-                gap: "60px",
+                gap: "30px",
               }}
             >
               {/* ID Box */}
@@ -225,6 +225,13 @@ const FindAccount = ({ idEmail, backupEmail }: FindAccountProps) => {
                   }
                   onFocus={() =>
                     setBlurred((prev) => ({ ...prev, idEmailBlurred: false }))
+                  }
+                />
+                <InputContents
+                  label={"연락처 (숫자만 입력)*"}
+                  value={formState.phoneNumber}
+                  setValue={(val) =>
+                    setFormState((prev) => ({ ...prev, phoneNumber: val }))
                   }
                 />
 
