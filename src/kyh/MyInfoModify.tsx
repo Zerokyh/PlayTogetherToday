@@ -136,7 +136,7 @@ const MyInfoModify = () => {
                     <InputModifyBox
                       width="240px"
                       sx={InputMuiStyle}
-                      value={formValues[key as keyof formValue]}
+                      defaultValue={formValues[key as keyof formValue]}
                       onChange={handleInputChange(key as keyof formValue)}
                     />
                   </Box>

@@ -87,6 +87,7 @@ export type InputModifyBoxProp = {
   type?: "text" | "password";
   placeholder?: string;
   value?: string;
+  defaultValue?: string;
   width?: string;
   sx?: object;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
