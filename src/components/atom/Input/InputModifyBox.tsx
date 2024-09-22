@@ -17,6 +17,7 @@ const InputModifyBox = ({
   type = "text",
   placeholder,
   value,
+  defaultValue,
   width = "200px",
   sx,
   onChange,
@@ -57,6 +58,7 @@ const InputModifyBox = ({
         {placeholder}
       </InputLabel>
       <Input
+        defaultValue={defaultValue}
         value={localValue}
         type={type}
         onChange={handleChange}
