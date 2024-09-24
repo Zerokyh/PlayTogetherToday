@@ -8,11 +8,39 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { colors } from "../../styles/colors";
 import ImgAvatar from "../../components/atom/Avatar/ImgAvatar";
+import axios from "axios";
+
+type formValue = {
+  nickname: string;
+};
 
 const OpenedBarTopIsLogin = () => {
   const { isLogin } = useThemeStore();
   const navigate = useNavigate();
   const [isGroup, setIsGroup] = useState(false);
+
+  const [formValues, setFormValues] = React.useState<formValue>({
+    nickname: "",
+  });
+
+  const member_id = localStorage.getItem("member_id");
+
+  React.useEffect(() => {
+    axios
+      // .get(`http://localhost:8080/MyInfoModify/${member_id}`)
+      .get(
+        `https://playtotogether-backendserver-djbdckftbygrbraw.koreasouth-01.azurewebsites.net/MyInfoModify/${member_id}`
+      )
+      .then((response) => {
+        const data = response.data.data;
+        setFormValues({
+          nickname: data.member_nickname || "",
+        });
+      })
+      .catch((error) => {
+        console.error("Error fetching user profile data:", error);
+      });
+  }, [member_id]);
 
   return (
     <Box
@@ -46,7 +74,7 @@ const OpenedBarTopIsLogin = () => {
               }}
             >
               <ListItemText
-                primary={`[]회원님`}
+                primary={`${formValues.nickname}회원님`}
                 primaryTypographyProps={{
                   fontSize: sizes.fontSize.small,
                 }}
