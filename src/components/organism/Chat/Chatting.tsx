@@ -118,16 +118,16 @@ const Chatting = ({
               chatMsg="이거 정신 못차리네, 해가 중천이다! 어제 뭐했어"
               msgTime="10:30"
             />
-            <ChatSendMsgBox chatMsg="꺼져" msgTime="10:45" />
+            <ChatSendMsgBox chatMsg="나 잔다" msgTime="10:45" />
             <ChatReceiveMsgBox chatMsg="야" msgTime="10:52" />
             <ChatSendMsgBox chatMsg="닭가슴살이나 먹어" msgTime="10:57" />
             <ChatReceiveMsgBox chatMsg="니나 먹어라" msgTime="10:58" />
-            <ChatSendMsgBox chatMsg="ㅇㅇ 존맛" msgTime="11:30" />
+            <ChatSendMsgBox chatMsg="ㅇㅇ 완전 맛남" msgTime="11:30" />
             <ChatReceiveMsgBox
               chatMsg="집앞이다! 밥먹게 나와"
               msgTime="11:42"
             />
-            <ChatSendMsgBox chatMsg="아 꺼져 좀 쉬자" msgTime="11:43" />
+            <ChatSendMsgBox chatMsg="아 좀 쉬자" msgTime="11:43" />
             <ChatReceiveMsgBox chatMsg="밥사줌 당장 기어나와" msgTime="11:44" />
             <ChatSendMsgBox chatMsg="ㅇㅇ 모자쓰고 나감" msgTime="11:44" />
             <ChatReceiveMsgBox
