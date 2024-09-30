@@ -9,6 +9,6 @@ export const menuData = {
   chat: { text: "채팅룸", icon: ChatIcon, href: "/Chat" },
   group: { text: "모임들", icon: GroupsIcon, href: "/GroupBoardList" },
   game: { text: "게임룸", icon: SportsEsportsIcon, href: "/Gameroom" },
-  // home: { text: "홈으로", icon: HomeIcon, href: "/UtilTestPage" },
-  home: { text: "홈으로", icon: HomeIcon, href: "/" },
+  home: { text: "홈으로", icon: HomeIcon, href: "/UtilTestPage" },
+  // home: { text: "홈으로", icon: HomeIcon, href: "/" },
 };

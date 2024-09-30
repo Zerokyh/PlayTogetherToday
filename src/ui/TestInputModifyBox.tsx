@@ -1,9 +1,29 @@
 import * as React from "react";
 import { Box } from "@mui/material";
 import InputModifyBox from "../components/atom/Input/InputModifyBox";
+import axios from "axios";
 
 const TestInputModifyBox = () => {
   const [value, setValue] = React.useState<string>("");
+
+  // API에서 데이터 불러오기
+  React.useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const member_id = localStorage.getItem("member_id");
+        const response = await axios.get(
+          `http://localhost:8080/MyInfoModify/${member_id}`
+        );
+        const data = response.data.data;
+        // 여기에 원하는 필드를 선택하여 초기값으로 설정할 수 있습니다.
+        setValue(data.member_nickname || ""); // 예를 들어 nickname을 사용할 경우
+      } catch (error) {
+        console.error("Error fetching user profile data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     console.log("Value Changed:", event.target.value);
@@ -12,7 +32,6 @@ const TestInputModifyBox = () => {
 
   return (
     <Box sx={{ padding: 2 }}>
-      {/* 데이터는 placeholder로 넘기고 value는 빈 값으로 테스트 */}
       <InputModifyBox
         type="text"
         value={value}
