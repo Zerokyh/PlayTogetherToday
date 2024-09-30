@@ -33,17 +33,28 @@ const MyInfoModify = () => {
     anniversary: "",
   });
 
+  const [disabledFields, setDisabledFields] = React.useState({
+    nickname: false,
+    phone: false,
+    address: false,
+    email: false,
+    backupEmail: false,
+    anniversary: false,
+  });
+
   const member_id = localStorage.getItem("member_id");
 
   React.useEffect(() => {
     axios
-      // .get(`http://localhost:8080/MyInfoModify/${member_id}`)
-      .get(
-        `https://playtotogether-backendserver-djbdckftbygrbraw.koreasouth-01.azurewebsites.net/MyInfoModify/${member_id}`
-      )
+      .get(`http://localhost:8080/MyInfoModify/${member_id}`)
+      // .get(
+      //   `https://playtotogether-backendserver-djbdckftbygrbraw.koreasouth-01.azurewebsites.net/MyInfoModify/${member_id}`
+      // )
       .then((response) => {
         const data = response.data.data;
-        setFormValues({
+        console.log("Fetched Data:", data);
+        setFormValues((prevValues) => ({
+          ...prevValues,
           nickname: data.member_nickname || "",
           phone: data.member_phone || "",
           address: data.member_address || "",
@@ -52,7 +63,7 @@ const MyInfoModify = () => {
           anniversary: data.member_anniversary
             ? new Date(data.member_anniversary).toLocaleDateString()
             : "",
-        });
+        }));
         setImageUrl(data.profile_image_url);
       })
       .catch((error) => {
@@ -61,19 +72,28 @@ const MyInfoModify = () => {
   }, [member_id]);
 
   const handleInputChange =
-    (key: string) => (event: React.ChangeEvent<HTMLInputElement>) => {
+    (key: keyof formValue) => (event: React.ChangeEvent<HTMLInputElement>) => {
+      const { value } = event.target;
+      console.log(`Changing ${key} to:`, value);
       setFormValues((prevValues) => ({
         ...prevValues,
-        [key]: event.target.value,
+        [key]: value,
       }));
     };
 
+  const handleToggle = (key: keyof formValue) => {
+    setDisabledFields((prev) => ({
+      ...prev,
+      [key]: !prev[key],
+    }));
+  };
+
   const handleModify = () => {
     axios
-      // .post(
-      //   "http://localhost:8080/MyInfoModify",
       .post(
-        "https://playtotogether-backendserver-djbdckftbygrbraw.koreasouth-01.azurewebsites.net/MyInfoModify",
+        "http://localhost:8080/MyInfoModify",
+        // .post(
+        //   "https://playtotogether-backendserver-djbdckftbygrbraw.koreasouth-01.azurewebsites.net/MyInfoModify",
         {
           member_id: member_id,
           ...formValues,
@@ -136,8 +156,10 @@ const MyInfoModify = () => {
                     <InputModifyBox
                       width="240px"
                       sx={InputMuiStyle}
-                      defaultValue={formValues[key as keyof formValue]}
+                      value={formValues[key as keyof formValue]}
                       onChange={handleInputChange(key as keyof formValue)}
+                      disabled={disabledFields[key as keyof formValue]}
+                      onToggle={() => handleToggle(key as keyof formValue)}
                     />
                   </Box>
                 ))}

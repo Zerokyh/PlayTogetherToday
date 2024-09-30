@@ -33,7 +33,7 @@ const UtilTestPage = () => {
             handleClose={handleClose}
           /> */}
         </Box>
-        <Box>
+        {/* <Box>
           <BasicButton text="친구정보보기" onClick={handleOpen} />
           <BasicModal
             basicformprops={{
@@ -44,7 +44,7 @@ const UtilTestPage = () => {
             open={open}
             handleClose={handleClose}
           />
-        </Box>
+        </Box> */}
         <Box>
           <TestInputModifyBox />
         </Box>

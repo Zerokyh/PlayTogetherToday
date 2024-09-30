@@ -91,6 +91,8 @@ export type InputModifyBoxProp = {
   width?: string;
   sx?: object;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  disabled?: boolean;
+  onToggle?: () => void;
 };
 
 export type SwitchBoxProp = {

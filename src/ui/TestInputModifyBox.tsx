@@ -13,12 +13,12 @@ const TestInputModifyBox = () => {
   return (
     <Box sx={{ padding: 2 }}>
       {/* 데이터는 placeholder로 넘기고 value는 빈 값으로 테스트 */}
-      {/* <InputModifyBox
+      <InputModifyBox
         type="text"
-        value={value}  
+        value={value}
         onChange={handleChange}
         width="300px"
-      /> */}
+      />
     </Box>
   );
 };

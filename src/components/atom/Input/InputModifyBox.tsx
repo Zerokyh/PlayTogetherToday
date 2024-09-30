@@ -17,31 +17,12 @@ const InputModifyBox = ({
   type = "text",
   placeholder,
   value,
-  defaultValue,
   width = "200px",
   sx,
   onChange,
+  disabled, // disabled 상태를 부모 컴포넌트에서 받아옴
+  onToggle, // Toggle을 위한 콜백 함수
 }: InputModifyBoxProp) => {
-  const [localValue, setLocalValue] = React.useState(value);
-  const [disabled, setDisabled] = React.useState(false);
-
-  // Toggle disabled state
-  const handleToggle = () => {
-    setDisabled((prev) => !prev);
-  };
-
-  React.useEffect(() => {
-    setLocalValue(value);
-  }, [value]);
-
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const newValue = event.target.value;
-    setLocalValue(newValue);
-    if (onChange) {
-      onChange(event); // 새로 입력된 값을 직접 전달
-    }
-  };
-
   return (
     <FormControl sx={{ m: 1, width: { width }, ...sx }} variant="standard">
       <InputLabel
@@ -58,18 +39,18 @@ const InputModifyBox = ({
         {placeholder}
       </InputLabel>
       <Input
-        defaultValue={defaultValue}
-        value={localValue}
+        value={value}
         type={type}
-        onChange={handleChange}
+        onChange={onChange}
         sx={InputMuiStyle}
+        inputProps={{ autoComplete: "off" }}
         disabled={disabled}
         endAdornment={
           <InputAdornment position="end">
             <IconButton
               aria-label="toggle modify text"
               edge="end"
-              onClick={handleToggle}
+              onClick={onToggle}
             >
               {disabled ? <LockPersonIcon /> : <LockOpenIcon />}
             </IconButton>
