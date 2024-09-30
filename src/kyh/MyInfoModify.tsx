@@ -12,19 +12,12 @@ import InputModifyBox from "../components/atom/Input/InputModifyBox";
 import axios from "axios";
 import LinkedButton from "../components/atom/Button/LinkedButton";
 
-type formValue = {
-  nickname: string;
-  phone: string;
-  address: string;
-  email: string;
-  backupEmail: string;
-  anniversary: string;
-};
-
 const MyInfoModify = () => {
   const { isTheme } = useThemeStore();
   const [imageUrl, setImageUrl] = React.useState<string>("");
-  const [formValues, setFormValues] = React.useState<formValue>({
+
+  // 모든 입력 필드를 위한 단일 상태 객체 관리
+  const [formData, setFormData] = React.useState({
     nickname: "",
     phone: "",
     address: "",
@@ -47,14 +40,10 @@ const MyInfoModify = () => {
   React.useEffect(() => {
     axios
       .get(`http://localhost:8080/MyInfoModify/${member_id}`)
-      // .get(
-      //   `https://playtotogether-backendserver-djbdckftbygrbraw.koreasouth-01.azurewebsites.net/MyInfoModify/${member_id}`
-      // )
       .then((response) => {
         const data = response.data.data;
         console.log("Fetched Data:", data);
-        setFormValues((prevValues) => ({
-          ...prevValues,
+        setFormData({
           nickname: data.member_nickname || "",
           phone: data.member_phone || "",
           address: data.member_address || "",
@@ -63,7 +52,7 @@ const MyInfoModify = () => {
           anniversary: data.member_anniversary
             ? new Date(data.member_anniversary).toLocaleDateString()
             : "",
-        }));
+        });
         setImageUrl(data.profile_image_url);
       })
       .catch((error) => {
@@ -72,16 +61,14 @@ const MyInfoModify = () => {
   }, [member_id]);
 
   const handleInputChange =
-    (key: keyof formValue) => (event: React.ChangeEvent<HTMLInputElement>) => {
+    (key: keyof typeof formData) =>
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      console.log(`Changing ${key} to:`, event.target.value);
       const { value } = event.target;
-      console.log(`Changing ${key} to:`, value);
-      setFormValues((prevValues) => ({
-        ...prevValues,
-        [key]: value,
-      }));
+      setFormData((prev) => ({ ...prev, [key]: value })); // 상태 객체 업데이트
     };
 
-  const handleToggle = (key: keyof formValue) => {
+  const handleToggle = (key: keyof typeof disabledFields) => {
     setDisabledFields((prev) => ({
       ...prev,
       [key]: !prev[key],
@@ -90,15 +77,15 @@ const MyInfoModify = () => {
 
   const handleModify = () => {
     axios
-      .post(
-        "http://localhost:8080/MyInfoModify",
-        // .post(
-        //   "https://playtotogether-backendserver-djbdckftbygrbraw.koreasouth-01.azurewebsites.net/MyInfoModify",
-        {
-          member_id: member_id,
-          ...formValues,
-        }
-      )
+      .post("http://localhost:8080/MyInfoModify", {
+        member_id: member_id,
+        member_nickname: formData.nickname,
+        member_phone: formData.phone,
+        member_address: formData.address,
+        member_email: formData.email,
+        member_2nd_email: formData.backupEmail,
+        member_anniversary: formData.anniversary,
+      })
       .then((response) => {
         console.log(response.data);
       })
@@ -107,23 +94,7 @@ const MyInfoModify = () => {
       });
   };
 
-  const MySettingOutterBox = styled(Box)({
-    backgroundColor:
-      isTheme == "기본"
-        ? colors.background.secondary
-        : colors.sub_background.secondary,
-    minWidth: 500,
-    minHeight: 640,
-    borderRadius: sizes.borderRadius.medium,
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-    gap: 20,
-    padding: 0,
-    position: "relative",
-    top: -18,
-  });
+  const MySettingOutterBox = styled(Box)(/* 스타일링 */);
 
   return (
     <ThemeProvider theme={theme}>
@@ -137,7 +108,6 @@ const MyInfoModify = () => {
             </Typography>
           </Box>
           <MySettingOutterBox>
-            a
             <Box
               sx={{
                 display: "flex",
@@ -157,17 +127,21 @@ const MyInfoModify = () => {
                     <InputModifyBox
                       width="240px"
                       sx={InputMuiStyle}
-                      value={formValues[key as keyof formValue]}
-                      onChange={handleInputChange(key as keyof formValue)}
-                      disabled={disabledFields[key as keyof formValue]}
-                      onToggle={() => handleToggle(key as keyof formValue)}
+                      value={formData[key as keyof typeof formData]}
+                      onChange={handleInputChange(key as keyof typeof formData)}
+                      disabled={
+                        disabledFields[key as keyof typeof disabledFields]
+                      }
+                      onToggle={() =>
+                        handleToggle(key as keyof typeof disabledFields)
+                      }
                     />
                   </Box>
                 ))}
                 <LinkedButton
                   text="변경하기"
                   textcolor="secondary"
-                  bgcolor="button"
+                  bgcolor={isTheme == "기본" ? "primary" : "secondary"}
                   variantType="contained"
                   sx={{
                     border: "0px",
