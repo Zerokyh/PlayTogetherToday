@@ -94,7 +94,23 @@ const MyInfoModify = () => {
       });
   };
 
-  const MySettingOutterBox = styled(Box)(/* 스타일링 */);
+  const MySettingOutterBox = styled(Box)({
+    backgroundColor:
+      isTheme == "기본"
+        ? colors.background.secondary
+        : colors.sub_background.secondary,
+    minWidth: 500,
+    minHeight: 640,
+    borderRadius: sizes.borderRadius.medium,
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    gap: 20,
+    padding: 0,
+    position: "relative",
+    top: -18,
+  });
 
   return (
     <ThemeProvider theme={theme}>
@@ -141,7 +157,7 @@ const MyInfoModify = () => {
                 <LinkedButton
                   text="변경하기"
                   textcolor="secondary"
-                  bgcolor={isTheme == "기본" ? "primary" : "secondary"}
+                  bgcolor="button"
                   variantType="contained"
                   sx={{
                     border: "0px",
