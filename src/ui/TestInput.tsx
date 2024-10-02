@@ -7,24 +7,22 @@ import { sizes } from "../styles/sizes";
 import { infoData } from "../constants/myInfoModifyMenuData";
 import { styled } from "@mui/material/styles";
 import useThemeStore from "../store/store";
-import MyInfoProfileImage from "./MyInfoProfileImage";
 import InputModifyBox from "../components/atom/Input/InputModifyBox";
 import axios from "axios";
 import LinkedButton from "../components/atom/Button/LinkedButton";
+import MyInfoProfileImage from "../kyh/MyInfoProfileImage";
 
-const MyInfoModify = () => {
+const TestInput = () => {
   const { isTheme } = useThemeStore();
   const [imageUrl, setImageUrl] = React.useState<string>("");
 
-  // 모든 입력 필드를 위한 단일 상태 객체 관리
-  const [formData, setFormData] = React.useState({
-    nickname: "",
-    phone: "",
-    address: "",
-    email: "",
-    backupEmail: "",
-    anniversary: "",
-  });
+  // 각 입력 필드를 위한 개별 상태 관리
+  const [nickname, setNickname] = React.useState<string>("");
+  const [phone, setPhone] = React.useState<string>("");
+  const [address, setAddress] = React.useState<string>("");
+  const [email, setEmail] = React.useState<string>("");
+  const [backupEmail, setBackupEmail] = React.useState<string>("");
+  const [anniversary, setAnniversary] = React.useState<string>("");
 
   const [disabledFields, setDisabledFields] = React.useState({
     nickname: false,
@@ -37,42 +35,12 @@ const MyInfoModify = () => {
 
   const member_id = localStorage.getItem("member_id");
 
-  React.useEffect(() => {
-    axios
-      .get(`http://localhost:8080/MyInfoModify/${member_id}`)
-      // .get(
-      //   `https://playtotogether-backendserver-djbdckftbygrbraw.koreasouth-01.azurewebsites.net/MyInfoModify/${member_id}`
-      // )
-      .then((response) => {
-        const data = response.data.data;
-        console.log("Fetched Data:", data);
-        setFormData({
-          nickname: data.member_nickname || "",
-          phone: data.member_phone || "",
-          address: data.member_address || "",
-          email: data.member_email || "",
-          backupEmail: data.member_2nd_email || "",
-          anniversary: data.member_anniversary
-            ? new Date(data.member_anniversary).toLocaleDateString()
-            : "",
-        });
-        setImageUrl(data.profile_image_url);
-      })
-      .catch((error) => {
-        console.error("Error fetching user profile data:", error);
-      });
-  }, [member_id]);
-
-  React.useEffect(() => {
-    console.log(`변경된 폼데이터값 : `, formData);
-  }, [formData]); // formData가 변경될 때마다 실행
-
   const handleInputChange =
-    (key: keyof typeof formData) =>
+    (setter: React.Dispatch<React.SetStateAction<string>>) =>
     (event: React.ChangeEvent<HTMLInputElement>) => {
-      console.log(`Changing ${key} to:`, event.target.value);
-      const { value } = event.target;
-      setFormData((prev) => ({ ...prev, [key]: value })); // 상태 객체 업데이트
+      const value = event.target.value; // 이벤트에서 직접 값을 가져옵니다.
+      setter(value); // 상태 업데이트
+      console.log("Changing value to:", value);
     };
 
   const handleToggle = (key: keyof typeof disabledFields) => {
@@ -83,22 +51,20 @@ const MyInfoModify = () => {
   };
 
   const handleModify = () => {
-    console.log(formData);
+    const updatedData = {
+      member_id: member_id,
+      member_nickname: nickname,
+      member_phone: phone,
+      member_address: address,
+      member_email: email,
+      member_2nd_email: backupEmail,
+      member_anniversary: anniversary,
+    };
+
+    console.log("Updating user data with:", updatedData); // 업데이트할 데이터 로그
+
     axios
-      .post(
-        "http://localhost:8080/MyInfoModify",
-        // .post(
-        //   "https://playtotogether-backendserver-djbdckftbygrbraw.koreasouth-01.azurewebsites.net/MyInfoModify",
-        {
-          member_id: member_id,
-          member_nickname: formData.nickname,
-          member_phone: formData.phone,
-          member_address: formData.address,
-          member_email: formData.email,
-          member_2nd_email: formData.backupEmail,
-          member_anniversary: formData.anniversary,
-        }
-      )
+      .post("http://localhost:8080/MyInfoModify", updatedData)
       .then((response) => {
         console.log(response.data);
       })
@@ -106,6 +72,36 @@ const MyInfoModify = () => {
         console.error("Error updating user data:", error);
       });
   };
+
+  React.useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const member_id = localStorage.getItem("member_id"); // member_id를 가져옵니다.
+        const response = await axios.get(
+          `http://localhost:8080/MyInfoModify/${member_id}`
+        );
+        const data = response.data.data;
+        console.log("Fetched Data:", data);
+
+        // 각 필드에 대해 상태를 업데이트합니다.
+        setNickname(data.member_nickname || "");
+        setPhone(data.member_phone || "");
+        setAddress(data.member_address || "");
+        setEmail(data.member_email || "");
+        setBackupEmail(data.member_2nd_email || "");
+        setAnniversary(
+          data.member_anniversary
+            ? new Date(data.member_anniversary).toLocaleDateString()
+            : ""
+        );
+        setImageUrl(data.profile_image_url || "");
+      } catch (error) {
+        console.error("Error fetching user profile data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   const MySettingOutterBox = styled(Box)({
     backgroundColor:
@@ -124,6 +120,15 @@ const MyInfoModify = () => {
     position: "relative",
     top: -18,
   });
+
+  React.useEffect(() => {
+    console.log("Nickname state:", nickname);
+    console.log("Phone state:", phone);
+    console.log("Address state:", address);
+    console.log("Email state:", email);
+    console.log("Backup Email state:", backupEmail);
+    console.log("Anniversary state:", anniversary);
+  }, [nickname, phone, address, email, backupEmail, anniversary]);
 
   return (
     <ThemeProvider theme={theme}>
@@ -156,8 +161,32 @@ const MyInfoModify = () => {
                     <InputModifyBox
                       width="240px"
                       sx={InputMuiStyle}
-                      value={formData[key as keyof typeof formData]}
-                      onChange={handleInputChange(key as keyof typeof formData)}
+                      value={
+                        key === "nickname"
+                          ? nickname
+                          : key === "phone"
+                          ? phone
+                          : key === "address"
+                          ? address
+                          : key === "email"
+                          ? email
+                          : key === "backupEmail"
+                          ? backupEmail
+                          : anniversary
+                      }
+                      onChange={handleInputChange(
+                        key === "nickname"
+                          ? setNickname
+                          : key === "phone"
+                          ? setPhone
+                          : key === "address"
+                          ? setAddress
+                          : key === "email"
+                          ? setEmail
+                          : key === "backupEmail"
+                          ? setBackupEmail
+                          : setAnniversary
+                      )}
                     />
                   </Box>
                 ))}
@@ -183,4 +212,4 @@ const MyInfoModify = () => {
   );
 };
 
-export default MyInfoModify;
+export default TestInput;

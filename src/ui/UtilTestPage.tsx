@@ -8,6 +8,7 @@ import { dashBoardData } from "../constants/dashBoardData";
 import useThemeStore from "../store/store";
 import { useNavigate } from "react-router-dom";
 import TestInputModifyBox from "./TestInputModifyBox";
+import TestInput from "./TestInput";
 
 const UtilTestPage = () => {
   const [open, setOpen] = React.useState(false);
@@ -47,6 +48,9 @@ const UtilTestPage = () => {
         </Box> */}
         <Box>
           <TestInputModifyBox />
+        </Box>
+        <Box>
+          <TestInput />
         </Box>
       </Box>
     </FullPageBox>
