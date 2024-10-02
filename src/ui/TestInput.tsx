@@ -82,7 +82,8 @@ const TestInput = () => {
       try {
         const member_id = localStorage.getItem("member_id"); // member_id를 가져옵니다.
         const response = await axios.get(
-          `http://localhost:8080/MyInfoModify/${member_id}`
+          // `http://localhost:8080/MyInfoModify/${member_id}`
+          `https://playtotogether-backendserver-djbdckftbygrbraw.koreasouth-01.azurewebsites.net/MyInfoModify/${member_id}`
         );
         const data = response.data.data;
         console.log("Fetched Data:", data);
