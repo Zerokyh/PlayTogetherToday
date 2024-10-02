@@ -38,14 +38,16 @@ const MyInfoModify = () => {
   const member_id = localStorage.getItem("member_id");
 
   React.useEffect(() => {
-    axios
-      // .get(`http://localhost:8080/MyInfoModify/${member_id}`)
-      .get(
-        `https://playtotogether-backendserver-djbdckftbygrbraw.koreasouth-01.azurewebsites.net/MyInfoModify/${member_id}`
-      )
-      .then((response) => {
+    const fetchData = async () => {
+      try {
+        const member_id = localStorage.getItem("member_id"); // member_id를 가져옵니다.
+        const response = await axios.get(
+          // `http://localhost:8080/MyInfoModify/${member_id}`
+          `https://playtotogether-backendserver-djbdckftbygrbraw.koreasouth-01.azurewebsites.net/MyInfoModify/${member_id}`
+        );
         const data = response.data.data;
         console.log("Fetched Data:", data);
+
         setFormData({
           nickname: data.member_nickname || "",
           phone: data.member_phone || "",
@@ -57,11 +59,13 @@ const MyInfoModify = () => {
             : "",
         });
         setImageUrl(data.profile_image_url);
-      })
-      .catch((error) => {
+      } catch (error) {
         console.error("Error fetching user profile data:", error);
-      });
-  }, [member_id]);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   const handleInputChange =
     (key: keyof typeof formData) =>
