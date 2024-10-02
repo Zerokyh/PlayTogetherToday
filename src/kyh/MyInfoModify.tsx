@@ -39,7 +39,10 @@ const MyInfoModify = () => {
 
   React.useEffect(() => {
     axios
-      .get(`http://localhost:8080/MyInfoModify/${member_id}`)
+      // .get(`http://localhost:8080/MyInfoModify/${member_id}`)
+      .get(
+        `https://playtotogether-backendserver-djbdckftbygrbraw.koreasouth-01.azurewebsites.net/${member_id}`
+      )
       .then((response) => {
         const data = response.data.data;
         console.log("Fetched Data:", data);
@@ -77,15 +80,19 @@ const MyInfoModify = () => {
 
   const handleModify = () => {
     axios
-      .post("http://localhost:8080/MyInfoModify", {
-        member_id: member_id,
-        member_nickname: formData.nickname,
-        member_phone: formData.phone,
-        member_address: formData.address,
-        member_email: formData.email,
-        member_2nd_email: formData.backupEmail,
-        member_anniversary: formData.anniversary,
-      })
+      // .post("http://localhost:8080/MyInfoModify",
+      .post(
+        "https://playtotogether-backendserver-djbdckftbygrbraw.koreasouth-01.azurewebsites.net/MyInfoModify",
+        {
+          member_id: member_id,
+          member_nickname: formData.nickname,
+          member_phone: formData.phone,
+          member_address: formData.address,
+          member_email: formData.email,
+          member_2nd_email: formData.backupEmail,
+          member_anniversary: formData.anniversary,
+        }
+      )
       .then((response) => {
         console.log(response.data);
       })

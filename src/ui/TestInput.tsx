@@ -64,7 +64,11 @@ const TestInput = () => {
     console.log("Updating user data with:", updatedData); // 업데이트할 데이터 로그
 
     axios
-      .post("http://localhost:8080/MyInfoModify", updatedData)
+      // .post("http://localhost:8080/MyInfoModify", updatedData)
+      .post(
+        "https://playtotogether-backendserver-djbdckftbygrbraw.koreasouth-01.azurewebsites.net/MyInfoModify",
+        updatedData
+      )
       .then((response) => {
         console.log(response.data);
       })
