@@ -12,7 +12,8 @@ const TestInputModifyBox = () => {
       try {
         const member_id = localStorage.getItem("member_id");
         const response = await axios.get(
-          `http://localhost:8080/MyInfoModify/${member_id}`
+          // `http://localhost:8080/MyInfoModify/${member_id}`
+          `https://playtotogether-backendserver-djbdckftbygrbraw.koreasouth-01.azurewebsites.net/MyInfoModify/${member_id}`
         );
         const data = response.data.data;
         // 여기에 원하는 필드를 선택하여 초기값으로 설정할 수 있습니다.

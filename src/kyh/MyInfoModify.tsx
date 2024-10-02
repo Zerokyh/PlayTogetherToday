@@ -38,14 +38,16 @@ const MyInfoModify = () => {
   const member_id = localStorage.getItem("member_id");
 
   React.useEffect(() => {
-    axios
-      .get(`http://localhost:8080/MyInfoModify/${member_id}`)
-      // .get(
-      //   `https://playtotogether-backendserver-djbdckftbygrbraw.koreasouth-01.azurewebsites.net/MyInfoModify/${member_id}`
-      // )
-      .then((response) => {
+    const fetchData = async () => {
+      try {
+        const member_id = localStorage.getItem("member_id"); // member_id를 가져옵니다.
+        const response = await axios.get(
+          // `http://localhost:8080/MyInfoModify/${member_id}`
+          `https://playtotogether-backendserver-djbdckftbygrbraw.koreasouth-01.azurewebsites.net/MyInfoModify/${member_id}`
+        );
         const data = response.data.data;
         console.log("Fetched Data:", data);
+
         setFormData({
           nickname: data.member_nickname || "",
           phone: data.member_phone || "",
@@ -57,15 +59,10 @@ const MyInfoModify = () => {
             : "",
         });
         setImageUrl(data.profile_image_url);
-      })
-      .catch((error) => {
+      } catch (error) {
         console.error("Error fetching user profile data:", error);
       });
   }, [member_id]);
-
-  React.useEffect(() => {
-    console.log(`변경된 폼데이터값 : `, formData);
-  }, [formData]); // formData가 변경될 때마다 실행
 
   const handleInputChange =
     (key: keyof typeof formData) =>
@@ -85,20 +82,15 @@ const MyInfoModify = () => {
   const handleModify = () => {
     console.log(formData);
     axios
-      .post(
-        "http://localhost:8080/MyInfoModify",
-        // .post(
-        //   "https://playtotogether-backendserver-djbdckftbygrbraw.koreasouth-01.azurewebsites.net/MyInfoModify",
-        {
-          member_id: member_id,
-          member_nickname: formData.nickname,
-          member_phone: formData.phone,
-          member_address: formData.address,
-          member_email: formData.email,
-          member_2nd_email: formData.backupEmail,
-          member_anniversary: formData.anniversary,
-        }
-      )
+      .post("http://localhost:8080/MyInfoModify", {
+        member_id: member_id,
+        member_nickname: formData.nickname,
+        member_phone: formData.phone,
+        member_address: formData.address,
+        member_email: formData.email,
+        member_2nd_email: formData.backupEmail,
+        member_anniversary: formData.anniversary,
+      })
       .then((response) => {
         console.log(response.data);
       })

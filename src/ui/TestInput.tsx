@@ -64,7 +64,11 @@ const TestInput = () => {
     console.log("Updating user data with:", updatedData); // 업데이트할 데이터 로그
 
     axios
-      .post("http://localhost:8080/MyInfoModify", updatedData)
+      // .post("http://localhost:8080/MyInfoModify", updatedData)
+      .post(
+        "https://playtotogether-backendserver-djbdckftbygrbraw.koreasouth-01.azurewebsites.net/MyInfoModify",
+        updatedData
+      )
       .then((response) => {
         console.log(response.data);
       })
@@ -78,7 +82,8 @@ const TestInput = () => {
       try {
         const member_id = localStorage.getItem("member_id"); // member_id를 가져옵니다.
         const response = await axios.get(
-          `http://localhost:8080/MyInfoModify/${member_id}`
+          // `http://localhost:8080/MyInfoModify/${member_id}`
+          `https://playtotogether-backendserver-djbdckftbygrbraw.koreasouth-01.azurewebsites.net/MyInfoModify/${member_id}`
         );
         const data = response.data.data;
         console.log("Fetched Data:", data);
