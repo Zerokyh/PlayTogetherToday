@@ -35,13 +35,44 @@ const TestInput = () => {
 
   const member_id = localStorage.getItem("member_id");
 
-  const handleInputChange =
-    (setter: React.Dispatch<React.SetStateAction<string>>) =>
-    (event: React.ChangeEvent<HTMLInputElement>) => {
-      const value = event.target.value; // 이벤트에서 직접 값을 가져옵니다.
-      setter(value); // 상태 업데이트
-      console.log("Changing value to:", value);
-    };
+  // const handleInputChange =
+  //   (setter: React.Dispatch<React.SetStateAction<string>>) =>
+  //   (event: React.ChangeEvent<HTMLInputElement>) => {
+  //     const value = event.target.value; // 이벤트에서 직접 값을 가져옵니다.
+  //     setter(value); // 상태 업데이트
+  //     console.log("Changing value to:", value);
+  //   };
+
+  const handleNickChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
+    setNickname(value);
+    console.log("Changing Nickname value to:", value);
+  };
+  const handlePhoneChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
+    setPhone(value);
+    console.log("Changing Phone value to:", value);
+  };
+  const handleAddressChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
+    setAddress(value);
+    console.log("Changing Address value to:", value);
+  };
+  const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
+    setEmail(value);
+    console.log("Changing Email value to:", value);
+  };
+  const handleBackupEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
+    setBackupEmail(value);
+    console.log("Changing BackupEmail value to:", value);
+  };
+  const handleAnniversary = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
+    setAnniversary(value);
+    console.log("Changing Anniversary value to:", value);
+  };
 
   const handleToggle = (key: keyof typeof disabledFields) => {
     setDisabledFields((prev) => ({
@@ -64,11 +95,11 @@ const TestInput = () => {
     console.log("Updating user data with:", updatedData); // 업데이트할 데이터 로그
 
     axios
-      // .post("http://localhost:8080/MyInfoModify", updatedData)
-      .post(
-        "https://playtotogether-backendserver-djbdckftbygrbraw.koreasouth-01.azurewebsites.net/MyInfoModify",
-        updatedData
-      )
+      .post("http://localhost:8080/MyInfoModify", updatedData)
+      // .post(
+      //   "https://playtotogether-backendserver-djbdckftbygrbraw.koreasouth-01.azurewebsites.net/MyInfoModify",
+      //   updatedData
+      // )
       .then((response) => {
         console.log(response.data);
       })
@@ -82,8 +113,8 @@ const TestInput = () => {
       try {
         const member_id = localStorage.getItem("member_id"); // member_id를 가져옵니다.
         const response = await axios.get(
-          // `http://localhost:8080/MyInfoModify/${member_id}`
-          `https://playtotogether-backendserver-djbdckftbygrbraw.koreasouth-01.azurewebsites.net/MyInfoModify/${member_id}`
+          `http://localhost:8080/MyInfoModify/${member_id}`
+          // `https://playtotogether-backendserver-djbdckftbygrbraw.koreasouth-01.azurewebsites.net/MyInfoModify/${member_id}`
         );
         const data = response.data.data;
         console.log("Fetched Data:", data);
@@ -163,7 +194,7 @@ const TestInput = () => {
                 {Object.entries(infoData).map(([key, item]) => (
                   <Box sx={{ height: 60 }} key={key}>
                     <ChipTextBox titlename={item.titlename} />
-                    <InputModifyBox
+                    {/* <InputModifyBox
                       width="240px"
                       sx={InputMuiStyle}
                       value={
@@ -192,6 +223,42 @@ const TestInput = () => {
                           ? setBackupEmail
                           : setAnniversary
                       )}
+                    /> */}
+                    <InputModifyBox
+                      width="240px"
+                      sx={InputMuiStyle}
+                      value={nickname}
+                      onChange={handleNickChange}
+                    />
+                    <InputModifyBox
+                      width="240px"
+                      sx={InputMuiStyle}
+                      value={phone}
+                      onChange={handlePhoneChange}
+                    />
+                    <InputModifyBox
+                      width="240px"
+                      sx={InputMuiStyle}
+                      value={address}
+                      onChange={handleAddressChange}
+                    />
+                    <InputModifyBox
+                      width="240px"
+                      sx={InputMuiStyle}
+                      value={email}
+                      onChange={handleEmailChange}
+                    />
+                    <InputModifyBox
+                      width="240px"
+                      sx={InputMuiStyle}
+                      value={backupEmail}
+                      onChange={handleBackupEmail}
+                    />
+                    <InputModifyBox
+                      width="240px"
+                      sx={InputMuiStyle}
+                      value={anniversary}
+                      onChange={handleAnniversary}
                     />
                   </Box>
                 ))}
