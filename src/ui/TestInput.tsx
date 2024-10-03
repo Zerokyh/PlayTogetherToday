@@ -191,10 +191,10 @@ const TestInput = () => {
                   imageUrl={imageUrl}
                   setImageUrl={setImageUrl}
                 />
-                {Object.entries(infoData).map(([key, item]) => (
+                {/* {Object.entries(infoData).map(([key, item]) => (
                   <Box sx={{ height: 60 }} key={key}>
                     <ChipTextBox titlename={item.titlename} />
-                    {/* <InputModifyBox
+                    <InputModifyBox
                       width="240px"
                       sx={InputMuiStyle}
                       value={
@@ -223,45 +223,45 @@ const TestInput = () => {
                           ? setBackupEmail
                           : setAnniversary
                       )}
-                    /> */}
-                    <InputModifyBox
-                      width="240px"
-                      sx={InputMuiStyle}
-                      value={nickname}
-                      onChange={handleNickChange}
-                    />
-                    <InputModifyBox
-                      width="240px"
-                      sx={InputMuiStyle}
-                      value={phone}
-                      onChange={handlePhoneChange}
-                    />
-                    <InputModifyBox
-                      width="240px"
-                      sx={InputMuiStyle}
-                      value={address}
-                      onChange={handleAddressChange}
-                    />
-                    <InputModifyBox
-                      width="240px"
-                      sx={InputMuiStyle}
-                      value={email}
-                      onChange={handleEmailChange}
-                    />
-                    <InputModifyBox
-                      width="240px"
-                      sx={InputMuiStyle}
-                      value={backupEmail}
-                      onChange={handleBackupEmail}
-                    />
-                    <InputModifyBox
-                      width="240px"
-                      sx={InputMuiStyle}
-                      value={anniversary}
-                      onChange={handleAnniversary}
                     />
                   </Box>
-                ))}
+                ))} */}
+                <InputModifyBox
+                  width="240px"
+                  sx={InputMuiStyle}
+                  value={nickname}
+                  onChange={handleNickChange}
+                />
+                <InputModifyBox
+                  width="240px"
+                  sx={InputMuiStyle}
+                  value={phone}
+                  onChange={handlePhoneChange}
+                />
+                <InputModifyBox
+                  width="240px"
+                  sx={InputMuiStyle}
+                  value={address}
+                  onChange={handleAddressChange}
+                />
+                <InputModifyBox
+                  width="240px"
+                  sx={InputMuiStyle}
+                  value={email}
+                  onChange={handleEmailChange}
+                />
+                <InputModifyBox
+                  width="240px"
+                  sx={InputMuiStyle}
+                  value={backupEmail}
+                  onChange={handleBackupEmail}
+                />
+                <InputModifyBox
+                  width="240px"
+                  sx={InputMuiStyle}
+                  value={anniversary}
+                  onChange={handleAnniversary}
+                />
                 <LinkedButton
                   text="변경하기"
                   textcolor="secondary"
