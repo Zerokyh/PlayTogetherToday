@@ -91,12 +91,12 @@ const MyInfoModify = () => {
     }));
   };
 
-  const handleModify = () => {
-    console.log(formData);
-    axios
-      // .post(
-      // "http://localhost:8080/MyInfoModify",
-      .post(
+  const handleModify = async () => {
+    try {
+      console.log(formData); // 디버깅 용도
+
+      const response = await axios.post(
+        // "http://localhost:8080/MyInfoModify",
         "https://playtotogether-backendserver-djbdckftbygrbraw.koreasouth-01.azurewebsites.net/MyInfoModify",
         {
           member_id: member_id,
@@ -107,13 +107,16 @@ const MyInfoModify = () => {
           member_2nd_email: formData.backupEmail,
           member_anniversary: formData.anniversary,
         }
-      )
-      .then((response) => {
-        console.log(response.data);
-      })
-      .catch((error) => {
-        console.error("Error updating user data:", error);
-      });
+      );
+
+      console.log(response.data);
+      // 사용자에게 성공 메시지를 표시하는 로직 추가
+      alert("정보가 성공적으로 업데이트되었습니다!");
+    } catch (error) {
+      console.error("Error updating user data:", error);
+      // 사용자에게 에러 메시지를 표시하는 로직 추가
+      alert("정보 업데이트에 실패했습니다. 다시 시도해주세요.");
+    }
   };
 
   return (
