@@ -1,6 +1,11 @@
 import * as React from "react";
 import { Box, ThemeProvider, Typography } from "@mui/material";
-import { FullPageBox, InputMuiStyle, MyInfoInnerBox } from "../styles/mui";
+import {
+  FullPageBox,
+  InputMuiStyle,
+  MyInfoInnerBox,
+  MySettingOutterBox,
+} from "../styles/mui";
 import { colors, theme } from "../styles/colors";
 import ChipTextBox from "../components/atom/Text/ChipTextBox";
 import { sizes } from "../styles/sizes";
@@ -110,24 +115,6 @@ const MyInfoModify = () => {
         console.error("Error updating user data:", error);
       });
   };
-
-  const MySettingOutterBox = styled(Box)({
-    backgroundColor:
-      isTheme == "기본"
-        ? colors.background.secondary
-        : colors.sub_background.secondary,
-    minWidth: 500,
-    minHeight: 640,
-    borderRadius: sizes.borderRadius.medium,
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-    gap: 20,
-    padding: 0,
-    position: "relative",
-    top: -18,
-  });
 
   return (
     <ThemeProvider theme={theme}>

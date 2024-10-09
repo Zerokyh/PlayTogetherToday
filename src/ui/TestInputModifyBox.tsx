@@ -5,6 +5,7 @@ import axios from "axios";
 
 const TestInputModifyBox = () => {
   const [value, setValue] = React.useState<string>("");
+  const [value1, setValue1] = React.useState<string>("");
 
   // API에서 데이터 불러오기
   React.useEffect(() => {
@@ -18,6 +19,7 @@ const TestInputModifyBox = () => {
         const data = response.data.data;
         // 여기에 원하는 필드를 선택하여 초기값으로 설정할 수 있습니다.
         setValue(data.member_nickname || ""); // 예를 들어 nickname을 사용할 경우
+        setValue1(data.member_phone || "");
       } catch (error) {
         console.error("Error fetching user profile data:", error);
       }
@@ -29,6 +31,10 @@ const TestInputModifyBox = () => {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     console.log("Value Changed:", event.target.value);
     setValue(event.target.value);
+  };
+  const handleChange1 = (event: React.ChangeEvent<HTMLInputElement>) => {
+    console.log("Value Changed:", event.target.value);
+    setValue1(event.target.value);
   };
 
   return (

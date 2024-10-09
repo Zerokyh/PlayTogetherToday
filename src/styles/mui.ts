@@ -89,29 +89,44 @@ export const WidthHalfInnerBox = styled(Box)({
   alignItems: "center",
 });
 
-export const MySettingOutterBox = styled(Box)({
-  backgroundColor: colors.background.secondary,
-  minWidth: 500,
-  minHeight: 640,
-  borderRadius: sizes.borderRadius.medium,
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "center",
-  alignItems: "center",
-  gap: 20,
-  padding: 0,
+export const MySettingOutterBox = styled(Box)(({}) => {
+  const { isTheme } = useThemeStore();
+  return {
+    backgroundColor:
+      isTheme == "기본"
+        ? colors.background.secondary
+        : colors.sub_background.secondary,
+    minWidth: 500,
+    minHeight: 640,
+    borderRadius: sizes.borderRadius.medium,
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    gap: 20,
+    padding: 0,
+    position: "relative",
+    top: -18,
+  };
 });
 
-export const MySettingInnerBox = styled(Box)({
-  backgroundColor: colors.background.secondary,
-  width: 400,
-  height: 500,
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "center",
-  alignItems: "center",
-  borderRadius: sizes.borderRadius.medium,
-  gap: 30,
+export const MySettingInnerBox = styled(Box)(({}) => {
+  const { isTheme } = useThemeStore();
+  return {
+    // 테마에 따라 색이 바뀔 영역에다 삼항식으로 설정
+    backgroundColor:
+      isTheme == "기본"
+        ? colors.background.secondary
+        : colors.sub_background.secondary,
+    width: 400,
+    height: 500,
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: sizes.borderRadius.medium,
+    gap: 30,
+  };
 });
 
 export const MyInfoInnerBox = styled(Box)({

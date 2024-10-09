@@ -1,6 +1,11 @@
 import * as React from "react";
-import { Box, ThemeProvider, Typography } from "@mui/material";
-import { FullPageBox, InputMuiStyle, MyInfoInnerBox } from "../styles/mui";
+import { Box, TextField, ThemeProvider, Typography } from "@mui/material";
+import {
+  FullPageBox,
+  InputMuiStyle,
+  MyInfoInnerBox,
+  MySettingOutterBox,
+} from "../styles/mui";
 import { colors, theme } from "../styles/colors";
 import ChipTextBox from "../components/atom/Text/ChipTextBox";
 import { sizes } from "../styles/sizes";
@@ -24,62 +29,48 @@ const TestInput = () => {
   const [backupEmail, setBackupEmail] = React.useState<string>("");
   const [anniversary, setAnniversary] = React.useState<string>("");
 
-  const [disabledFields, setDisabledFields] = React.useState({
-    nickname: false,
-    phone: false,
-    address: false,
-    email: false,
-    backupEmail: false,
-    anniversary: false,
-  });
+  // const [disabledFields, setDisabledFields] = React.useState({
+  //   nickname: false,
+  //   phone: false,
+  //   address: false,
+  //   email: false,
+  //   backupEmail: false,
+  //   anniversary: false,
+  // });
 
   const member_id = localStorage.getItem("member_id");
 
-  // const handleInputChange =
-  //   (setter: React.Dispatch<React.SetStateAction<string>>) =>
-  //   (event: React.ChangeEvent<HTMLInputElement>) => {
-  //     const value = event.target.value; // 이벤트에서 직접 값을 가져옵니다.
-  //     setter(value); // 상태 업데이트
-  //     console.log("Changing value to:", value);
-  //   };
-
   const handleNickChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const value = event.target.value;
-    setNickname(value);
-    console.log("Changing Nickname value to:", value);
+    setNickname(event.target.value);
+    console.log("Changing Nickname value to:", event.target.value);
   };
   const handlePhoneChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const value = event.target.value;
-    setPhone(value);
-    console.log("Changing Phone value to:", value);
+    setPhone(event.target.value);
+    console.log("Changing Phone value to:", event.target.value);
   };
   const handleAddressChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const value = event.target.value;
-    setAddress(value);
-    console.log("Changing Address value to:", value);
+    setAddress(event.target.value);
+    console.log("Changing Address value to:", event.target.value);
   };
   const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const value = event.target.value;
-    setEmail(value);
-    console.log("Changing Email value to:", value);
+    setEmail(event.target.value);
+    console.log("Changing Email value to:", event.target.value);
   };
   const handleBackupEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const value = event.target.value;
-    setBackupEmail(value);
-    console.log("Changing BackupEmail value to:", value);
+    setBackupEmail(event.target.value);
+    console.log("Changing BackupEmail value to:", event.target.value);
   };
   const handleAnniversary = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const value = event.target.value;
-    setAnniversary(value);
-    console.log("Changing Anniversary value to:", value);
+    setAnniversary(event.target.value);
+    console.log("Changing Anniversary value to:", event.target.value);
   };
 
-  const handleToggle = (key: keyof typeof disabledFields) => {
-    setDisabledFields((prev) => ({
-      ...prev,
-      [key]: !prev[key],
-    }));
-  };
+  // const handleToggle = (key: keyof typeof disabledFields) => {
+  //   setDisabledFields((prev) => ({
+  //     ...prev,
+  //     [key]: !prev[key],
+  //   }));
+  // };
 
   const handleModify = () => {
     const updatedData = {
@@ -137,25 +128,25 @@ const TestInput = () => {
     };
 
     fetchData();
-  }, []);
+  }, [member_id]);
 
-  const MySettingOutterBox = styled(Box)({
-    backgroundColor:
-      isTheme == "기본"
-        ? colors.background.secondary
-        : colors.sub_background.secondary,
-    minWidth: 500,
-    minHeight: 640,
-    borderRadius: sizes.borderRadius.medium,
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-    gap: 20,
-    padding: 0,
-    position: "relative",
-    top: -18,
-  });
+  // const MySettingOutterBox = styled(Box)({
+  //   backgroundColor:
+  //     isTheme == "기본"
+  //       ? colors.background.secondary
+  //       : colors.sub_background.secondary,
+  //   minWidth: 500,
+  //   minHeight: 640,
+  //   borderRadius: sizes.borderRadius.medium,
+  //   display: "flex",
+  //   flexDirection: "column",
+  //   justifyContent: "center",
+  //   alignItems: "center",
+  //   gap: 20,
+  //   padding: 0,
+  //   position: "relative",
+  //   top: -18,
+  // });
 
   React.useEffect(() => {
     console.log("Nickname state:", nickname);
@@ -167,120 +158,78 @@ const TestInput = () => {
   }, [nickname, phone, address, email, backupEmail, anniversary]);
 
   return (
-    <ThemeProvider theme={theme}>
-      <FullPageBox>
-        <Box sx={{ maxWidth: "1280px" }}>
-          <Box sx={{ position: "relative", top: -40, left: 180 }}>
-            <Typography
-              sx={{ fontSize: sizes.fontSize.xlarge, fontWeight: 600 }}
-            >
-              개인정보 편집
-            </Typography>
-          </Box>
-          <MySettingOutterBox>
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                gap: "2",
-              }}
-            >
-              <MyInfoInnerBox sx={{ width: "377px" }}>
-                <MyInfoProfileImage
-                  imageUrl={imageUrl}
-                  setImageUrl={setImageUrl}
-                />
-                {/* {Object.entries(infoData).map(([key, item]) => (
-                  <Box sx={{ height: 60 }} key={key}>
-                    <ChipTextBox titlename={item.titlename} />
-                    <InputModifyBox
-                      width="240px"
-                      sx={InputMuiStyle}
-                      value={
-                        key === "nickname"
-                          ? nickname
-                          : key === "phone"
-                          ? phone
-                          : key === "address"
-                          ? address
-                          : key === "email"
-                          ? email
-                          : key === "backupEmail"
-                          ? backupEmail
-                          : anniversary
-                      }
-                      onChange={handleInputChange(
-                        key === "nickname"
-                          ? setNickname
-                          : key === "phone"
-                          ? setPhone
-                          : key === "address"
-                          ? setAddress
-                          : key === "email"
-                          ? setEmail
-                          : key === "backupEmail"
-                          ? setBackupEmail
-                          : setAnniversary
-                      )}
-                    />
-                  </Box>
-                ))} */}
-                <InputModifyBox
-                  width="240px"
-                  sx={InputMuiStyle}
-                  value={nickname}
-                  onChange={handleNickChange}
-                />
-                <InputModifyBox
-                  width="240px"
-                  sx={InputMuiStyle}
-                  value={phone}
-                  onChange={handlePhoneChange}
-                />
-                <InputModifyBox
-                  width="240px"
-                  sx={InputMuiStyle}
-                  value={address}
-                  onChange={handleAddressChange}
-                />
-                <InputModifyBox
-                  width="240px"
-                  sx={InputMuiStyle}
-                  value={email}
-                  onChange={handleEmailChange}
-                />
-                <InputModifyBox
-                  width="240px"
-                  sx={InputMuiStyle}
-                  value={backupEmail}
-                  onChange={handleBackupEmail}
-                />
-                <InputModifyBox
-                  width="240px"
-                  sx={InputMuiStyle}
-                  value={anniversary}
-                  onChange={handleAnniversary}
-                />
-                <LinkedButton
-                  text="변경하기"
-                  textcolor="secondary"
-                  bgcolor="button"
-                  variantType="contained"
-                  sx={{
-                    border: "0px",
-                    width: "370px",
-                    height: "40px",
-                    fontSize: 24,
-                  }}
-                  onClick={handleModify}
-                />
-              </MyInfoInnerBox>
-            </Box>
-          </MySettingOutterBox>
+    // <ThemeProvider theme={theme}>
+    <FullPageBox>
+      <Box sx={{ maxWidth: "1280px" }}>
+        <Box sx={{ position: "relative", top: -40, left: 180 }}>
+          <Typography sx={{ fontSize: sizes.fontSize.xlarge, fontWeight: 600 }}>
+            개인정보 편집
+          </Typography>
         </Box>
-      </FullPageBox>
-    </ThemeProvider>
+        <MySettingOutterBox>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              gap: "2",
+            }}
+          >
+            <MyInfoInnerBox sx={{ width: "377px" }}>
+              <MyInfoProfileImage
+                imageUrl={imageUrl}
+                setImageUrl={setImageUrl}
+              />
+
+              <InputModifyBox
+                type="text"
+                width="240px"
+                sx={InputMuiStyle}
+                value={nickname}
+                onChange={handleNickChange}
+              />
+              <InputModifyBox
+                type="text"
+                width="240px"
+                sx={InputMuiStyle}
+                value={phone}
+                onChange={handlePhoneChange}
+              />
+
+              <LinkedButton
+                text="변경하기"
+                textcolor="secondary"
+                bgcolor="button"
+                variantType="contained"
+                sx={{
+                  border: "0px",
+                  width: "370px",
+                  height: "40px",
+                  fontSize: 24,
+                }}
+                onClick={handleModify}
+              />
+            </MyInfoInnerBox>
+          </Box>
+        </MySettingOutterBox>
+        {/* 변경됨 */}
+        <InputModifyBox
+          type="text"
+          width="240px"
+          sx={InputMuiStyle}
+          value={nickname}
+          onChange={handleNickChange}
+        />
+        <InputModifyBox
+          type="text"
+          width="240px"
+          sx={InputMuiStyle}
+          value={phone}
+          onChange={handlePhoneChange}
+        />
+      </Box>
+    </FullPageBox>
+    // </ThemeProvider>
   );
 };
 
