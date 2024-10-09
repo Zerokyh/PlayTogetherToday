@@ -60,9 +60,7 @@ const MyInfoModify = () => {
           address: data.member_address || "",
           email: data.member_email || "",
           backupEmail: data.member_2nd_email || "",
-          anniversary: data.member_anniversary
-            ? new Date(data.member_anniversary).toLocaleDateString()
-            : "",
+          anniversary: data.member_anniversary || "",
           profileImageId: data.profile_image_id || "",
         });
         setImageUrl(data.profile_image_url);
@@ -95,12 +93,6 @@ const MyInfoModify = () => {
 
   const handleModify = async () => {
     try {
-      const convertAnniversaryDate = formData.anniversary
-        ? new Date(formData.anniversary.replace(/\./g, "-").trim())
-            .toISOString()
-            .split("T")[0]
-        : null;
-
       const ModifyData = {
         member_id: member_id,
         member_nickname: formData.nickname,
@@ -108,8 +100,8 @@ const MyInfoModify = () => {
         member_address: formData.address,
         member_email: formData.email,
         member_2nd_email: formData.backupEmail,
-        member_anniversary: convertAnniversaryDate,
-        profile_image_id: formData.profileImageId || "",
+        member_anniversary: formData.anniversary,
+        profile_image_id: formData.profileImageId,
       };
       console.log("전송할 변경 데이터 : " + ModifyData.member_anniversary);
 
