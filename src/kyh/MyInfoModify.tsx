@@ -149,6 +149,9 @@ const MyInfoModify = () => {
                       sx={InputMuiStyle}
                       value={formData[key as keyof typeof formData]}
                       onChange={handleInputChange(key as keyof typeof formData)}
+                      onToggle={() =>
+                        handleToggle(key as keyof typeof disabledFields)
+                      }
                     />
                   </Box>
                 ))}
