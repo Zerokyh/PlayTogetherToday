@@ -94,6 +94,9 @@ const MyInfoModify = () => {
   const handleModify = async () => {
     try {
       console.log(formData); // 디버깅 용도
+      const convertAnniversaryDate = formData.anniversary
+        ? new Date(formData.anniversary).toISOString().split("T")[0]
+        : null;
 
       const response = await axios.post(
         // "http://localhost:8080/MyInfoModify",
@@ -105,7 +108,7 @@ const MyInfoModify = () => {
           member_address: formData.address,
           member_email: formData.email,
           member_2nd_email: formData.backupEmail,
-          member_anniversary: formData.anniversary,
+          member_anniversary: convertAnniversaryDate,
         }
       );
 
