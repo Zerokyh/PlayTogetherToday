@@ -97,19 +97,21 @@ const MyInfoModify = () => {
       const convertAnniversaryDate = formData.anniversary
         ? new Date(formData.anniversary).toISOString().split("T")[0]
         : null;
+      const ModifyData = {
+        member_id: member_id,
+        member_nickname: formData.nickname,
+        member_phone: formData.phone,
+        member_address: formData.address,
+        member_email: formData.email,
+        member_2nd_email: formData.backupEmail,
+        member_anniversary: convertAnniversaryDate,
+      };
+      console.log(ModifyData);
 
       const response = await axios.post(
         // "http://localhost:8080/MyInfoModify",
         "https://playtotogether-backendserver-djbdckftbygrbraw.koreasouth-01.azurewebsites.net/MyInfoModify",
-        {
-          member_id: member_id,
-          member_nickname: formData.nickname,
-          member_phone: formData.phone,
-          member_address: formData.address,
-          member_email: formData.email,
-          member_2nd_email: formData.backupEmail,
-          member_anniversary: convertAnniversaryDate,
-        }
+        ModifyData
       );
 
       console.log(response.data);
