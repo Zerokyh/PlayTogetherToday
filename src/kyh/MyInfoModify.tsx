@@ -93,9 +93,11 @@ const MyInfoModify = () => {
 
   const handleModify = async () => {
     try {
-      const convertAnniversaryDate = new Date(formData.anniversary)
-        .toISOString()
-        .split("T")[0];
+      const convertAnniversaryDate = formData.anniversary
+        ? new Date(formData.anniversary.replace(/\./g, "-").trim())
+            .toISOString()
+            .split("T")[0]
+        : null;
 
       const ModifyData = {
         member_id: member_id,
