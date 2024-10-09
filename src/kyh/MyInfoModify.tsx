@@ -29,6 +29,7 @@ const MyInfoModify = () => {
     email: "",
     backupEmail: "",
     anniversary: "",
+    profileImageId: "",
   });
 
   const [disabledFields, setDisabledFields] = React.useState({
@@ -62,6 +63,7 @@ const MyInfoModify = () => {
           anniversary: data.member_anniversary
             ? new Date(data.member_anniversary).toLocaleDateString()
             : "",
+          profileImageId: data.profile_image_id || "",
         });
         setImageUrl(data.profile_image_url);
       } catch (error) {
@@ -107,6 +109,7 @@ const MyInfoModify = () => {
         member_email: formData.email,
         member_2nd_email: formData.backupEmail,
         member_anniversary: convertAnniversaryDate,
+        profile_image_id: formData.profileImageId || "",
       };
       console.log("전송할 변경 데이터 : " + ModifyData);
 
