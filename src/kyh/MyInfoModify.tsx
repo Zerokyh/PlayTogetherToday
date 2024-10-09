@@ -111,7 +111,7 @@ const MyInfoModify = () => {
         member_anniversary: convertAnniversaryDate,
         profile_image_id: formData.profileImageId || "",
       };
-      console.log("전송할 변경 데이터 : " + ModifyData);
+      console.log("전송할 변경 데이터 : " + ModifyData.member_anniversary);
 
       const response = await axios.post(
         // "http://localhost:8080/MyInfoModify",
